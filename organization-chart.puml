@@ -1,0 +1,16 @@
+@startwbs
+skinparam BackgroundColor transparent
+
+* Iglesia Bautista Libertad \n\t Propietarios
+** Director
+***< Caja
+*** Sub-Director
+****< Secretaria
+**** Profesores
+***** Alumnos
+****< Personal de limpieza \n      y Seguridad
+** Capellan
+
+
+
+@endwb

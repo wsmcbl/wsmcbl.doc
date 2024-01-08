@@ -1,0 +1,34 @@
+@startuml
+skinparam BackgroundColor transparent
+
+state "Padre \nde Faimlia" as cliente
+state Secretaria
+state Dirección
+state Profesores
+state Alumnado
+state "Otro personal" as otros
+state "Certificados \ny otros documentos" as documentos
+
+state Cajera
+state Caja
+state "Pagos \nde aranceles" as aranceles
+
+cliente --> Cajera : Paga a
+cliente --> Secretaria : Es atendido por
+
+Cajera -> Secretaria
+Cajera --> aranceles : Gestiona
+Cajera --> Caja : Registra en
+
+Secretaria -> aranceles : Consulta los
+Secretaria --> documentos : Genera
+Secretaria -up-> Dirección
+
+Profesores -le-> Secretaria : Solicita docuentos a
+Profesores --> Alumnado : Enseña a su
+
+Dirección --> Secretaria : Interactua
+Dirección --> Profesores : Gestiona a
+Dirección -> otros : Gestiona
+
+@enduml

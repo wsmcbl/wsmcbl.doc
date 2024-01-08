@@ -1,0 +1,37 @@
+@startuml
+skinparam BackgroundColor transparent
+
+Seller "1" -- "n" Sale
+Sale "n" --* "1..*" Product
+Sale "1" -- "1" Delivery
+
+class Seller
+class Sale
+class Delivery
+class Product
+
+Boss *-- Receptionist
+Boss *-- Administrator
+
+Receptionist -- Appointment
+Receptionist -- Reservation
+
+Customer -- Appointment
+Customer -- Reservation
+
+Reservation "1..*" -- "1" Course
+Appointment "1..*" -- "1" ProfessionalService
+ProfessionalService *-- "1..*" Material
+
+
+class Boss
+class Receptionist
+class Appointment
+class ProfessionalService
+class Material
+class Customer
+class Reservation
+class Course
+class Administrator
+
+@enduml
