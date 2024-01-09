@@ -1,17 +1,18 @@
 @startuml
 skinparam BackgroundColor transparent
 
-:User: as User
+:User: as "Generic User"
 
-User <|-- Secretary
-User <|-- Director
 User <|-- Administrator
+User <|-- Director
+User <|-- Subdirector
+User <|-- Secretary
+User <|-- Cashier
+User <|-- Profesor
 User <|-- Customer
 
-User <|-- Cashier
-User <|-- Pastor
-User <|-- Subdirector
+Profesor <|-- Pastor
 
-User <|-- Time
+:Time: as "Time"
 
 @enduml
