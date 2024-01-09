@@ -1,0 +1,17 @@
+@startuml
+skinparam BackgroundColor transparent
+
+:User: as User
+
+User <|-- Secretary
+User <|-- Director
+User <|-- Administrator
+User <|-- Customer
+
+User <|-- Cashier
+User <|-- Pastor
+User <|-- Subdirector
+
+User <|-- Time
+
+@enduml
