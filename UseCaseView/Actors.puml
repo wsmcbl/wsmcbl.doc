@@ -9,10 +9,11 @@ User <|-- Subdirector
 User <|-- Secretary
 User <|-- Cashier
 User <|-- Profesor
-User <|-- Customer
+
 
 Profesor <|-- Pastor
 
 :Time: as "Time"
+:Customer: as Customer
 
 @enduml
