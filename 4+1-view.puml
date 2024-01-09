@@ -1,0 +1,23 @@
+@startuml
+skinparam BackgroundColor transparent
+
+package DomainModel
+package DesingView
+package ImplementationView
+package UseCaseView
+package ProcessView
+package DeployView
+
+UseCaseView .up.> DomainModel
+
+DesingView ..> UseCaseView
+ImplementationView ..> UseCaseView
+DeployView .up.> UseCaseView
+ProcessView .up.> UseCaseView
+
+ImplementationView .left.> DesingView
+DeployView .up.> ImplementationView
+ProcessView .right.> DeployView
+DesingView ..> ProcessView
+
+@enduml

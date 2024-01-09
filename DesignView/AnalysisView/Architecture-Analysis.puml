@@ -1,0 +1,19 @@
+@startuml
+skinparam BackgroundColor transparent
+
+Views ..> Controllers
+Controllers ..> Models
+
+package Views
+{
+}
+
+package Controllers
+{
+}
+
+package Models
+{
+}
+
+@enduml

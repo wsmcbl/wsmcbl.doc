@@ -1,0 +1,75 @@
+@startuml
+skinparam BackgroundColor transparent
+
+skinparam packageStyle rectangle
+skinparam node {
+    BackgroundColor PaleGreen
+}
+
+package "Nodes" {
+    node "Development\n Computer"
+    node "Collaborative\n Software\n Computer"
+    node "Continuous\n Integration\n Computer (CI)"
+    node "Software Quality\n Assurance Computer"
+    node "Deploy\n Computer"
+    node "Database\n Computer"
+    node "Manager Project\n Computer"
+}
+
+
+component Builder #ED820E
+component IDE #ED820E
+component "Code\n Repository" #ED820E
+component CI #ED820E
+component "Software\n Quality" #ED820E
+component Deploy #ED820E
+component "Data Base" #ED820E
+component Manager #ED820E
+component Document #ED820E
+
+
+package " " #D4D4D4 {
+    component "Symfony CLI"
+    component PHPStorm
+    component GitHub
+    component "GitHub Actions"
+    component "Sonar Cloud"
+    component Codacy
+    component Railway
+    component "GitHub Wiki"
+    component "GitHub Projects"
+}
+
+
+"Development\n Computer" *--> [Builder]
+"Development\n Computer" *--> [IDE]
+"Collaborative\n Software\n Computer" *-->[Code\n Repository]
+"Continuous\n Integration\n Computer (CI)" *--> [CI]
+"Software Quality\n Assurance Computer" *--> [Software\n Quality]
+"Deploy\n Computer" *--> [Deploy]
+"Database\n Computer" *--> [Data Base]
+"Manager Project\n Computer" *--> [Manager]
+"Manager Project\n Computer" *--> [Document]
+
+
+[IDE] -> [Code\n Repository]
+[CI] -left-> [Code\n Repository]
+[Software\n Quality] -left-> [Code\n Repository]
+[Deploy] -left-> [Code\n Repository]
+[Deploy] -> [Data Base]
+
+[Symfony CLI] -up-|> [Builder]
+[PHPStorm] -up-|> [IDE]
+[GitHub] -up-|> [Code\n Repository]
+[GitHub Actions] -up-|> [CI]
+[Sonar Cloud] -up-|> [Software\n Quality]
+[Codacy] -up-|> [Software\n Quality]
+[Railway] -up-|> [Deploy]
+[Railway] -up-|> [Data Base]
+[GitHub Projects] -up-|> [Manager]
+[GitHub Wiki] -up-|> [Document]
+
+'[GitHub Actions] ..> [Sonar Cloud]
+'[GitHub Actions] ..> [Railway]
+
+@enduml

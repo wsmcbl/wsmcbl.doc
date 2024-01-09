@@ -1,0 +1,30 @@
+@startuml
+skinparam BackgroundColor transparent
+
+class CreateAccountController
+{
+    -userEntities : UserEntities
+    +createAccount(UserEntity user) : Response
+}
+
+class UserEntities
+{
+    +create(UserEntity user) : void
+}
+
+class UserEntity
+{
+    -userId : string
+    -username : string
+    -password : string
+
+    +getUserId() : string
+    +getUsername() : string
+    +setUsername(string username) : void
+}
+
+CreateAccountController ..> UserEntities
+CreateAccountController ..> UserEntity
+UserEntities ..> UserEntity
+
+@enduml

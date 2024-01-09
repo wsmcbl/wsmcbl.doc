@@ -1,0 +1,44 @@
+@startuml
+skinparam BackgroundColor transparent
+allow_mixing
+
+class SaleView <<Boundary>>
+class DeliveryView <<Boundary>>
+class ErrorView <<Boundary>>
+
+class SaleController <<Control>>
+
+class SaleEntity <<Entity>>
+class ProductEntities <<Entity>>
+class DeliveryEntity <<Entity>>
+class SessionEntity <<Entity>>
+class ProductEntity <<Entity>>
+class CartEntity <<Entity>>
+class SaleDetailEntity <<Entity>>
+
+actor Seller
+
+Seller -- SaleView
+Seller -- DeliveryView
+Seller -- ErrorView
+
+SaleView ..> DeliveryView
+
+SaleView -- SaleController
+DeliveryView -- SaleController
+ErrorView -- SaleController
+
+SaleController -- SaleEntity
+SaleController -- DeliveryEntity
+SaleController -- ProductEntities
+SaleController ..> SessionEntity
+SaleController -- CartEntity
+DeliveryEntity ..> SessionEntity
+DeliveryEntity --* SaleEntity
+ProductEntities -- ProductEntity
+CartEntity --* SaleEntity
+SaleDetailEntity --* CartEntity
+ProductEntity -- SaleDetailEntity
+
+
+@enduml

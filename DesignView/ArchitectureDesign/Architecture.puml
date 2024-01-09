@@ -1,0 +1,64 @@
+@startuml
+skinparam BackgroundColor transparent
+
+package "Información del proyecto anterior ****************"
+{
+
+    "ApiController" ..> "BusinessController"
+    "BusinessController" .left.> "Input"
+    "BusinessController" ..> "Entity"
+    "BusinessController" ..> "BusinessService"
+    "BusinessService" ..> "Entity"
+    "Dao" ..> "Entity"
+    "ApiController" ..> "Input"
+    "BusinessController" ..> "Dao"
+    "Dao" ..> "Input"
+    "Output" ..> "Entity"
+
+    Controller .left.> Exception
+    Dto .left.> Exception
+    Model .left.> Exception
+
+    package Exception
+    {
+    }
+
+    package Controller <<Rectangle>>
+    {
+        package ApiController
+        {
+        }
+
+        package BusinessController
+        {
+        }
+
+        package BusinessService
+        {
+        }
+    }
+
+    package Model <<Rectangle>>
+    {
+        package Dao
+        {
+        }
+
+        package Entity
+        {
+        }
+    }
+
+    package Dto
+    {
+        package Input
+        {
+        }
+
+        package Output
+        {
+        }
+    }
+}
+
+@enduml
