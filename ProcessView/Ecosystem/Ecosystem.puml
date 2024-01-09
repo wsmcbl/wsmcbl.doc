@@ -29,13 +29,13 @@ component Document #ED820E
 
 
 package " " #D4D4D4 {
-    component "Symfony CLI"
-    component PHPStorm
+    component "C# CLI"
+    component "Visual Studio"
     component GitHub
     component "GitHub Actions"
     component "Sonar Cloud"
     component Codacy
-    component Railway
+    component "Other *"
     component "GitHub Wiki"
     component "GitHub Projects"
 }
@@ -58,14 +58,14 @@ package " " #D4D4D4 {
 [Deploy] -left-> [Code\n Repository]
 [Deploy] -> [Data Base]
 
-[Symfony CLI] -up-|> [Builder]
-[PHPStorm] -up-|> [IDE]
+[C# CLI] -up-|> [Builder]
+[Visual Studio] -up-|> [IDE]
 [GitHub] -up-|> [Code\n Repository]
 [GitHub Actions] -up-|> [CI]
 [Sonar Cloud] -up-|> [Software\n Quality]
 [Codacy] -up-|> [Software\n Quality]
-[Railway] -up-|> [Deploy]
-[Railway] -up-|> [Data Base]
+[Other *] -up-|> [Deploy]
+[Other *] -up-|> [Data Base]
 [GitHub Projects] -up-|> [Manager]
 [GitHub Wiki] -up-|> [Document]
 

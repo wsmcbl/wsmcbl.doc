@@ -1,0 +1,22 @@
+@startuml
+skinparam BackgroundColor transparent
+
+package Actors
+package UseCases
+package UseCasePrioritization
+package UseCaseSpecification
+package Context
+package Requisites
+package "TRACE Requisites x UseCase"
+package UseCaseStructuring
+
+UseCaseStructuring .left.> UseCaseSpecification
+UseCaseSpecification .up.> UseCasePrioritization
+UseCasePrioritization .up.> UseCases
+Context .up.> UseCases
+"TRACE Requisites x UseCase" .up.> UseCases
+"TRACE Requisites x UseCase" .up.> Requisites
+UseCases .up.> Actors
+UseCases .up.> Requisites
+
+@enduml
