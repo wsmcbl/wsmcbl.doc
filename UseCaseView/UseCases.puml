@@ -1,0 +1,24 @@
+@startuml
+skinparam BackgroundColor transparent
+
+actor Secretary
+actor Cashier
+
+usecase PreEnrollment
+usecase CreateOfficialEnrollmentBySection
+usecase PrintingInvoicesAndReceipts
+usecase PrintReportCardByStudent
+usecase MoveTeacherGuideFromEnrollment
+usecase CollectTariffs
+
+
+Secretary -> PreEnrollment
+Secretary -left-> CreateOfficialEnrollmentBySection
+Secretary --> PrintReportCardByStudent
+Secretary --> MoveTeacherGuideFromEnrollment
+
+Cashier --> PrintingInvoicesAndReceipts
+Cashier --> CollectTariffs
+
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+skinparam BackgroundColor transparent
+
+component "Iteration 1" as Itertaion1
+
+usecase PreEnrollment
+usecase CreateOfficialEnrollmentBySection
+usecase PrintingInvoicesAndReceipts
+usecase PrintReportCardByStudent
+usecase MoveTeacherGuideFromEnrollment
+usecase CollectTariffs
+
+Itertaion1 -> PreEnrollment
+Itertaion1 -> CreateOfficialEnrollmentBySection
+Itertaion1 -> PrintingInvoicesAndReceipts
+Itertaion1 -> PrintReportCardByStudent
+Itertaion1 -> MoveTeacherGuideFromEnrollment
+Itertaion1 -> CollectTariffs
+
+
+@enduml
