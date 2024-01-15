@@ -1,23 +1,23 @@
+
 @startuml
 skinparam BackgroundColor transparent
 
-component "Iteration 1" as Iteration1
+rectangle "Iteration 1" as Iteration1
 
-note bottom of Iteration1: Se consideró que dicho casos de usos\n eran parte fundamental del negocio y se le dio prioridad.
+note top of Iteration1: Se consideró que dichos casos de usos eran parte\nfundamental del negocio y se les dió prioridad.\nLos cuales coincidieron con los riesgo considerados.
 
-usecase PreEnrollment
-usecase CreateOfficialEnrollmentBySection
-usecase PrintingInvoicesAndReceipts
-usecase PrintReportCardByStudent
-usecase MoveTeacherGuideFromEnrollment
-usecase CollectTariffs
+usecase CU01 as "PreEnrollment"
+usecase CU05 as "CreateOfficialEnrollmentBySection"
+usecase CU58 as "PrintingInvoicesAndReceipts"
+usecase CU29 as "PrintReportCardByStudent"
+usecase CU21 as "MoveTeacherGuideFromEnrollment"
+usecase CU03 as "CollectTariffs"
 
-Iteration1 -> PreEnrollment
-Iteration1 -> CreateOfficialEnrollmentBySection
-Iteration1 -> PrintingInvoicesAndReceipts
-Iteration1 -> PrintReportCardByStudent
-Iteration1 -> MoveTeacherGuideFromEnrollment
-Iteration1 -> CollectTariffs
-
+Iteration1 . CU01
+Iteration1 . CU05
+Iteration1 . CU58
+Iteration1 . CU29
+Iteration1 . CU21
+Iteration1 . CU03
 
 @enduml

@@ -1,0 +1,28 @@
+@startuml
+skinparam BackgroundColor transparent
+
+package Requisites
+package Actors
+package UseCases
+package UseCasePrioritization
+package Context
+package "UI Prototype"
+package "TRACE Requisites x UseCase"
+package "TRACE UseCase x Prototype"
+package "TRACE State x Prototype"
+
+Actors <.down. UseCases
+Requisites <.down. UseCases
+UseCases <.down. UseCasePrioritization
+Context .left.> UseCases
+UseCases <.down. "TRACE Requisites x UseCase"
+UseCases <.down. "TRACE UseCase x Prototype"
+Context <.down. "TRACE State x Prototype"
+UseCasePrioritization <.down. "UI Prototype"
+"UI Prototype" <.down. "TRACE UseCase x Prototype"
+"UI Prototype" <.down. "TRACE State x Prototype"
+Requisites <.down. "TRACE Requisites x UseCase"
+
+
+note left of UseCases: Structuring\nModel
+@enduml

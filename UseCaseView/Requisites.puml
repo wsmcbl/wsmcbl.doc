@@ -1,0 +1,18 @@
+@startuml
+skinparam BackgroundColor transparent
+left to right direction
+
+
+rectangle RF01 as "RF01. Cobro de aranceles"
+rectangle RF02 as "RF02. Prematricular estudiante"
+rectangle RF06 as "RF06. Creación de Matrícula Oficial por grado"
+rectangle RF12 as "RF12. Gestionar matrículas"
+rectangle RF14 as "RF14. Imprimir boleta de calificación por secciones"
+
+" " --[hidden]> RF01
+" " --[hidden]> RF02
+" " --[hidden]> RF06
+" " --[hidden]> RF12
+" " --[hidden]> RF14
+
+@enduml

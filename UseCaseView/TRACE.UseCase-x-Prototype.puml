@@ -1,0 +1,19 @@
+@startuml
+
+skinparam BackgroundColor transparent
+left to right direction
+
+
+usecase CU29 as "PrintReportCardByStudent"
+usecase CU21 as "MoveTeacherGuideFromEnrollment"
+
+frame MU04 <<MU04>> as "Print report card by student"
+frame MU05 <<MU05>> as "Enrollment View"
+frame MU06 <<MU06>> as "Update enrollment information"
+
+CU29 ..> MU04 : trace
+CU21 ..> MU05 : trace
+CU21 ..> MU06 : trace
+
+
+@enduml

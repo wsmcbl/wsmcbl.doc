@@ -1,8 +1,16 @@
 @startuml
 skinparam BackgroundColor transparent
+left to right direction
 
+actor User
 actor Secretary
 actor Cashier
+
+User <|-- Secretary
+User <|-- Cashier
+
+usecase "Login*"
+usecase "Logout*"
 
 usecase PreEnrollment
 usecase CreateOfficialEnrollmentBySection
@@ -11,14 +19,18 @@ usecase PrintReportCardByStudent
 usecase MoveTeacherGuideFromEnrollment
 usecase CollectTariffs
 
+User -> "Login*"
+User -left-> "Logout*"
 
-Secretary -> PreEnrollment
-Secretary -left-> CreateOfficialEnrollmentBySection
+
+Secretary --> PreEnrollment
+Secretary --> CreateOfficialEnrollmentBySection
 Secretary --> PrintReportCardByStudent
 Secretary --> MoveTeacherGuideFromEnrollment
 
 Cashier --> PrintingInvoicesAndReceipts
 Cashier --> CollectTariffs
 
+footer Casos de usos con (*) no están desarrollados ni en desarrollo.
 
 @enduml

@@ -1,0 +1,51 @@
+@startuml
+skinparam BackgroundColor transparent
+footer Los casos de uso con (*) no han sido desarrollados ni están en desarrollo.
+
+
+state Initial as "HOME"
+state s1 as "OPEN_ENROLLMENT_VIEW"
+state s2 as "OPEN_PROFILES_VIEW"
+state s3 as "OPEN_PROFILE"
+state s4 as "OPEN_TARIFFS_VIEW"
+
+
+
+state fork_1 <<fork>>
+
+
+
+[*] --> Initial : Start system (*)
+
+Initial --> s1
+note on link
+    PreEnrollment
+    Show Enrollments (*)
+    CreateOfficialEnrollmentBySection
+end note
+s1 --> fork_1
+s1 --> s1 : MoveTeacherGuideFromEnrollment
+
+
+
+Initial --> s2 : Show Profiles (*)
+s2 --> fork_1
+
+
+fork_1 --> s3 : Show Profile (*)
+s3 --> s3 : PrintReportCardByStudent
+
+
+
+Initial --> s4 : CollectTariffs
+s4 --> fork_1
+s4 --> s4 : Printing\nInvoicesAndReceipts
+
+
+
+Initial --> [*] : Close system (*)
+s1 --> [*] : Close system (*)
+s2 --> [*] : Close system (*)
+s3 --> [*] : Close system (*)
+s4 --> [*] : Close system (*)
+@enduml
