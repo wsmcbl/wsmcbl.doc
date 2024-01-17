@@ -1,19 +1,24 @@
 @startuml
 
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
 left to right direction
 
 
 usecase CU29 as "PrintReportCardByStudent"
 usecase CU21 as "MoveTeacherGuideFromEnrollment"
+usecase CU03 as "CollectTariffs"
 
+frame MU01 <<MU01>> as "Tariff colletion"
 frame MU04 <<MU04>> as "Print report card by student"
 frame MU05 <<MU05>> as "Enrollment View"
 frame MU06 <<MU06>> as "Update enrollment information"
+frame MU07 <<MU07>> as "Tariff profiles"
 
 CU29 ..> MU04 : trace
 CU21 ..> MU05 : trace
 CU21 ..> MU06 : trace
+CU03 ..> MU01 : trace
+CU03 ..> MU07 : trace
 
 
 @enduml

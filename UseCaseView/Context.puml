@@ -1,5 +1,5 @@
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
 footer Los casos de uso con (*) no han sido desarrollados ni están en desarrollo.
 
 
@@ -10,11 +10,6 @@ state s3 as "OPEN_PROFILE"
 state s4 as "OPEN_TARIFFS_VIEW"
 
 
-
-state fork_1 <<fork>>
-
-
-
 [*] --> Initial : Start system (*)
 
 Initial --> s1
@@ -23,22 +18,20 @@ note on link
     Show Enrollments (*)
     CreateOfficialEnrollmentBySection
 end note
-s1 --> fork_1
+s1 --> s3 : Show Profile (*)
 s1 --> s1 : MoveTeacherGuideFromEnrollment
 
 
 
 Initial --> s2 : Show Profiles (*)
-s2 --> fork_1
+s2 --> s3 : Show Profile (*)
 
 
-fork_1 --> s3 : Show Profile (*)
 s3 --> s3 : PrintReportCardByStudent
 
 
 
-Initial --> s4 : CollectTariffs
-s4 --> fork_1
+s2 --> s4 : CollectTariffs
 s4 --> s4 : Printing\nInvoicesAndReceipts
 
 

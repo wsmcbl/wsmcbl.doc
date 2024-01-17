@@ -1,5 +1,5 @@
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
 left to right direction
 
 actor User
@@ -28,8 +28,9 @@ Secretary --> CreateOfficialEnrollmentBySection
 Secretary --> PrintReportCardByStudent
 Secretary --> MoveTeacherGuideFromEnrollment
 
-Cashier --> PrintingInvoicesAndReceipts
 Cashier --> CollectTariffs
+
+CollectTariffs ..> PrintingInvoicesAndReceipts: include
 
 footer Casos de usos con (*) no están desarrollados ni en desarrollo.
 

@@ -1,15 +1,21 @@
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
 
 
+frame MU01 <<MU01>> as "Tariff colletion"
 frame MU04 <<MU04>> as "Print report card by student"
 frame MU05 <<MU05>> as "Enrollment View"
 frame MU06 <<MU06>> as "Update enrollment information"
+frame MU07 <<MU07>> as "Tariff profiles"
 
 rectangle Initial as "HOME"
 rectangle s1 as "OPEN_ENROLLMENT_VIEW"
+rectangle s2 as "OPEN_PROFILES_VIEW"
 rectangle s3 as "OPEN_PROFILE"
+rectangle s4 as "OPEN_TARIFFS_VIEW"
 
+MU01 .up.> s2
+MU01 .up.> s4
 
 MU04 .up.> s1
 
@@ -20,5 +26,7 @@ MU05 ..> s3
 MU06 .up.> s1
 MU06 ..> s3
 
+MU07 ..> Initial
+MU07 ..> s2
 
 @enduml
