@@ -1,25 +1,30 @@
-[<- Design view](./design-view.md)
+[🢀 Back to Design view](./design-view.md)
 
 # Analysis view
+Índice general de la vista de Análisis, se muestran los componente/artefactos que la componen.
+Se muestran las dependencias entre cada componente y como se relacionan.
+
+![](../out/DesignView/AnalysisView/AnalysisView.png)
+
 
 ## Architecture analysis
 
-![](../out/Architecture-Analysis.png)
+![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis.png)
+
 
 ## Use case analysis
 
-### Sell Products
+Página donde se muestran el análisis de los casos de usos, donde se presenta los distintos diagramas clases.
 
-![](../out/SellProducts.AnalysisClasses.png)
+[See Use case analysis ⮞](./analysis-view.usecase.md)
+
+Trazabilidad de "Caso de uso x analisis"
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/TRACE.UseCase-x-Analysis.png)
 
 
-## Class analysis
+## Classes analysis
 
-### Views
 
-### Controls
 
-* SaleController analysis classes
-
-![](../out/SaleController.AnalysisClasses.png)
-
+## Package analysis

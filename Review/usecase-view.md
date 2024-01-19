@@ -1,4 +1,4 @@
-[<== Back to Main index](./main-index.md)
+[🢀 Back to Main index](./main-index.md)
 
 # Use Case View
 Índice general de la vista de caso de uso, se muestran los componente/artefactos que la componen. 
@@ -35,7 +35,7 @@ Casos de uso selecionados en cada iteración.
 ### UI Prototype
 Página donde se muestran los prototipos de interfaces de usuarios que dan continuidad al desarrollo de los casos de usos.
 
-[See prototypes =>>](./prototypes.md)
+[See prototypes ⮞](./usecase-view.prototypes.md)
 
 
 ### TRACE Requisites x Use Case

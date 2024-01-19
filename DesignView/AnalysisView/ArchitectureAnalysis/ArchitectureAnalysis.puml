@@ -2,18 +2,22 @@
 skinparam BackgroundColor transparent
 
 Views ..> Controllers
+Views .right.> Models
 Controllers ..> Models
 
 package Views
 {
+    class class1 <<View>>
 }
 
 package Controllers
 {
+    class class2 <<Controller>>
 }
 
 package Models
 {
+    class class3 <<Model>>
 }
 
 @enduml

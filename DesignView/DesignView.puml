@@ -1,0 +1,14 @@
+@startuml
+'skinparam BackgroundColor transparent
+
+package AnalysisView
+package ArchitectureDesign
+package UseCaseDesign
+package ClassesDesign
+package PackageDesign
+
+AnalysisView <.. ArchitectureDesign
+ArchitectureDesign <..UseCaseDesign
+UseCaseDesign <.. ClassesDesign
+ClassesDesign <.. PackageDesign
+@enduml

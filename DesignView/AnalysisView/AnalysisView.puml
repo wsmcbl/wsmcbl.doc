@@ -1,0 +1,12 @@
+@startuml
+'skinparam BackgroundColor transparent
+
+package ArchitectureAnalysis
+package UseCaseAnalysis
+package ClassesAnalysis
+package PackageAnalysis
+
+ArchitectureAnalysis <.. UseCaseAnalysis
+UseCaseAnalysis <.. ClassesAnalysis
+ClassesAnalysis <.. PackageAnalysis
+@enduml

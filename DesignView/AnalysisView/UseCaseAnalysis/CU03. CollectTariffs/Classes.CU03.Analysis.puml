@@ -1,5 +1,6 @@
 @startuml
 skinparam BackgroundColor transparent
+left to right direction
 allow_mixing
 
 class SaleView <<Boundary>>
