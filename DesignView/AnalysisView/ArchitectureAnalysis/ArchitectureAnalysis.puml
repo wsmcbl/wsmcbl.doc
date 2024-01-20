@@ -7,7 +7,27 @@ Controllers ..> Models
 
 package Views
 {
-    class class1 <<View>>
+    class CollectTariffView <<View>>
+    class PreEnrollmentView <<View>>
+    class ViewNotesOnlineView <<View>>
+
+    class ClassView <<View>>
+    class TariffView <<View>>
+    class SubjectView <<View>>
+    class EnrollmentView <<View>>
+    class  <<View>>
+
+    class StudentProfileView <<View>>
+    class TeacherView <<View>>
+    class PrincipalView <<View>>
+    class DeputyPrincipalView <<View>>
+    class SecretaryView <<View>>
+    class CashierView <<View>>
+    class AdministratorView <<View>>
+    class PastorView <<View>>
+
+    'class <<View>>
+    class View <<View>>
 }
 
 package Controllers

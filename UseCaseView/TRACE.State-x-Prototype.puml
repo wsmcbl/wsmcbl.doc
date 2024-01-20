@@ -1,8 +1,11 @@
 @startuml
 'skinparam BackgroundColor transparent
+left to right direction
 
 
 frame MU01 <<MU01>> as "Tariff colletion"
+frame MU02 <<MU02>> as "Finish collection"
+frame MU03 <<MU03>> as "Collection of multiple tariffs"
 frame MU04 <<MU04>> as "Print report card by student"
 frame MU05 <<MU05>> as "Enrollment View"
 frame MU06 <<MU06>> as "Update enrollment information"
@@ -16,6 +19,10 @@ rectangle s4 as "OPEN_TARIFFS_VIEW"
 
 MU01 .up.> s2
 MU01 .up.> s4
+
+MU02 .up.> s4
+
+MU03 .up.> s4
 
 MU04 .up.> s1
 
