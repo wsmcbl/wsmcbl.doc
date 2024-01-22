@@ -4,41 +4,37 @@ footer Los casos de uso con (*) no han sido desarrollados ni están en desarroll
 
 
 state Initial as "HOME"
-state s1 as "OPEN_ENROLLMENT_VIEW"
-state s2 as "OPEN_PROFILES_VIEW"
-state s3 as "OPEN_PROFILE"
-state s4 as "OPEN_TARIFFS_VIEW"
+state OPEN_ENROLLMENT_VIEW
+state OPEN_PROFILES_VIEW
+state OPEN_PROFILE
+state OPEN_TARIFFS_VIEW
 
 
+'-- Relations --
 [*] --> Initial : Start system (*)
 
-Initial --> s1
+Initial --> OPEN_PROFILES_VIEW : Show Profiles (*)
+Initial --> OPEN_ENROLLMENT_VIEW
 note on link
     PreEnrollment
     Show Enrollments (*)
     CreateOfficialEnrollmentBySection
 end note
-s1 --> s3 : Show Profile (*)
-s1 --> s1 : MoveTeacherGuideFromEnrollment
 
+OPEN_ENROLLMENT_VIEW --> OPEN_PROFILE : Show Profile (*)
+OPEN_ENROLLMENT_VIEW --> OPEN_ENROLLMENT_VIEW : MoveTeacherGuideFromEnrollment
 
+OPEN_PROFILES_VIEW --> OPEN_PROFILE : Show Profile (*)
+OPEN_PROFILES_VIEW --> OPEN_TARIFFS_VIEW : CollectTariffs
 
-Initial --> s2 : Show Profiles (*)
-s2 --> s3 : Show Profile (*)
+OPEN_PROFILE --> OPEN_PROFILE : PrintReportCardByStudent
 
-
-s3 --> s3 : PrintReportCardByStudent
-
-
-
-s2 --> s4 : CollectTariffs
-s4 --> s4 : Printing\nInvoicesAndReceipts
-
+OPEN_TARIFFS_VIEW --> OPEN_TARIFFS_VIEW : Printing\nInvoicesAndReceipts
 
 
 Initial --> [*] : Close system (*)
-s1 --> [*] : Close system (*)
-s2 --> [*] : Close system (*)
-s3 --> [*] : Close system (*)
-s4 --> [*] : Close system (*)
+OPEN_ENROLLMENT_VIEW --> [*] : Close system (*)
+OPEN_PROFILES_VIEW --> [*] : Close system (*)
+OPEN_PROFILE --> [*] : Close system (*)
+OPEN_TARIFFS_VIEW --> [*] : Close system (*)
 @enduml

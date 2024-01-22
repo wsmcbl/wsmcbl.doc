@@ -1,45 +1,27 @@
 @startuml
-skinparam BackgroundColor transparent
 left to right direction
-allow_mixing
 
-class SaleView <<Boundary>>
-class DeliveryView <<Boundary>>
-class ErrorView <<Boundary>>
+actor Cashier
 
-class SaleController <<Control>>
+boundary CollectTariffView
+boundary StudentProfilesView
 
-class SaleEntity <<Entity>>
-class ProductEntities <<Entity>>
-class DeliveryEntity <<Entity>>
-class SessionEntity <<Entity>>
-class ProductEntity <<Entity>>
-class CartEntity <<Entity>>
-class SaleDetailEntity <<Entity>>
+control CollectTariffController
 
-actor Seller
-
-Seller -- SaleView
-Seller -- DeliveryView
-Seller -- ErrorView
-
-SaleView ..> DeliveryView
-
-SaleView -- SaleController
-DeliveryView -- SaleController
-ErrorView -- SaleController
-
-SaleController -- SaleEntity
-SaleController -- DeliveryEntity
-SaleController -- ProductEntities
-SaleController ..> SessionEntity
-SaleController -- CartEntity
-DeliveryEntity ..> SessionEntity
-DeliveryEntity --* SaleEntity
-ProductEntities -- ProductEntity
-CartEntity --* SaleEntity
-SaleDetailEntity --* CartEntity
-ProductEntity -- SaleDetailEntity
+entity ProfileStudentEntity
+entity ProfileStudentEntites
+entity TransactionEntity
 
 
+Cashier --> CollectTariffView
+Cashier --> StudentProfilesView
+
+CollectTariffView --> CollectTariffController
+StudentProfilesView --> CollectTariffController
+
+CollectTariffController --> ProfileStudentEntites
+CollectTariffController --> ProfileStudentEntity
+CollectTariffController --> TransactionEntity
+
+ProfileStudentEntity --> TransactionEntity
 @enduml

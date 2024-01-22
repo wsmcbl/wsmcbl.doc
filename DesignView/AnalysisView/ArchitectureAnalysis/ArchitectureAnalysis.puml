@@ -1,8 +1,11 @@
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
+hide circle
+hide empty methods
 
+
+Views ..> Models
 Views ..> Controllers
-Views .right.> Models
 Controllers ..> Models
 
 package Views
@@ -12,12 +15,16 @@ package Views
     class ViewNotesOnlineView <<View>>
 
     class ClassView <<View>>
-    class TariffView <<View>>
+    class ClassesView <<View>>
     class SubjectView <<View>>
+    class SubjectsView <<View>>
+    class TariffView <<View>>
     class EnrollmentView <<View>>
-    class  <<View>>
+    class EnrollmentsView <<View>>
+    class EvangelizedStudentsView <<View>>
 
     class StudentProfileView <<View>>
+    class StudentProfilesView <<View>>
     class TeacherView <<View>>
     class PrincipalView <<View>>
     class DeputyPrincipalView <<View>>
@@ -26,18 +33,82 @@ package Views
     class AdministratorView <<View>>
     class PastorView <<View>>
 
-    'class <<View>>
     class View <<View>>
+    class LoginView <<View>>
+    class RegisterView <<View>>
 }
 
 package Controllers
 {
-    class class2 <<Controller>>
+    class PreEnrollmentController <<Controller>>
+    class CollectTariffController <<Controller>>
+    class CreateOfficialEnrollmentController <<Controller>>
+    class MoveTeacherGuideFromEnrollmentController <<Controller>>
+    class PrintingInvoicesAndReceiptsController <<Controller>>
+    class ReportCardPrintingController <<Controller>>
+
+    class LoginController <<Controller>>
+    class LogoutController <<Controller>>
 }
 
 package Models
 {
-    class class3 <<Model>>
+    class ClassEntity <<Model>>
+    class ClassEntities <<Model>>
+    class SubjectEntity <<Model>>
+    class SubjectEntities <<Model>>
+    class EnrollmentEntity <<Model>>
+    class PreEnrollmentEntity <<Model>>
+    class ProfileStudentEntity <<Model>>
+    class ProfileStudentEntities <<Model>>
+    class TeacherEntity <<Model>>
+    class TeacherEntities <<Model>>
+    class SecretaryEntity <<Model>>
+    class CashierEntity <<Model>>
+    class PastorEntity <<Model>>
+    class PrincipalEntity <<Model>>
+    class DeputyPrincipalEntity <<Model>>
+    class CalendarEntity <<Model>>
+    class AccountingBoxEntity <<Model>>
+    class TransactionEntity <<Model>>
+    class ReportEntity <<Model>>
+
+    class SesionEntity <<Model>>
+    'class AdministratorEntity <<Model>>
+
+
+    '--- Relations ---'
+    SubjectEntities o--> SubjectEntity
+
+    ProfileStudentEntity --* TransactionEntity
+    ProfileStudentEntities o--> ProfileStudentEntity
+
+    TeacherEntity *--> ClassEntity
+    TeacherEntity <|-- PastorEntity
+    TeacherEntities o--> TeacherEntity
+
+    EnrollmentEntity "*" -left-> "1" PreEnrollmentEntity
+    EnrollmentEntity "1" --* "*" ProfileStudentEntity
+    EnrollmentEntity "*" *-- "*" ClassEntity
+    EnrollmentEntity "1" *--> "1" TeacherEntity
+
+    PreEnrollmentEntity *--> "1" ProfileStudentEntity
+
+    ClassEntity *--> SubjectEntity
+    ClassEntities *-- ClassEntity
+
+    CashierEntity --> AccountingBoxEntity
+    CashierEntity --> TransactionEntity
+
+    AccountingBoxEntity --* TransactionEntity
+
+    DeputyPrincipalEntity --> CalendarEntity
+
+    SecretaryEntity ..> PreEnrollmentEntity
+    SecretaryEntity ..> EnrollmentEntity
+    SecretaryEntity ..> ReportEntity
+
+    PrincipalEntity ..> ReportEntity
 }
 
 @enduml

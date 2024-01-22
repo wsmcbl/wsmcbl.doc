@@ -1,3 +1,27 @@
 @startuml
-usecase a
+left to right direction
+
+actor Cashier
+
+boundary CollectTariffView
+boundary StudentProfilesView
+
+control CollectTariffController
+
+entity ProfileStudentEntity
+entity ProfileStudentEntites
+entity TransactionEntity
+
+
+Cashier --> CollectTariffView
+Cashier --> StudentProfilesView
+
+CollectTariffView --> CollectTariffController
+StudentProfilesView --> CollectTariffController
+
+CollectTariffController --> ProfileStudentEntites
+CollectTariffController --> ProfileStudentEntity
+CollectTariffController --> TransactionEntity
+
+ProfileStudentEntity --> TransactionEntity
 @enduml

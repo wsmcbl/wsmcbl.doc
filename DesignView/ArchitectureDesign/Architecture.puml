@@ -3,7 +3,6 @@ skinparam BackgroundColor transparent
 
 package "Información del proyecto anterior ****************"
 {
-
     "ApiController" ..> "BusinessController"
     "BusinessController" .left.> "Input"
     "BusinessController" ..> "Entity"

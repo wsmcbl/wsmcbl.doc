@@ -12,28 +12,29 @@ frame MU06 <<MU06>> as "Update enrollment information"
 frame MU07 <<MU07>> as "Tariff profiles"
 
 rectangle Initial as "HOME"
-rectangle s1 as "OPEN_ENROLLMENT_VIEW"
-rectangle s2 as "OPEN_PROFILES_VIEW"
-rectangle s3 as "OPEN_PROFILE"
-rectangle s4 as "OPEN_TARIFFS_VIEW"
+rectangle OPEN_ENROLLMENT_VIEW
+rectangle OPEN_PROFILES_VIEW
+rectangle OPEN_PROFILE
+rectangle OPEN_TARIFFS_VIEW
 
-MU01 .up.> s2
-MU01 .up.> s4
 
-MU02 .up.> s4
+MU01 .up.> OPEN_PROFILES_VIEW
+MU01 .up.> OPEN_TARIFFS_VIEW
 
-MU03 .up.> s4
+MU02 .up.> OPEN_TARIFFS_VIEW
 
-MU04 .up.> s1
+MU03 .up.> OPEN_TARIFFS_VIEW
+
+MU04 .up.> OPEN_ENROLLMENT_VIEW
 
 MU05 .up.> Initial
-MU05 .up.> s1
-MU05 ..> s3
+MU05 .up.> OPEN_ENROLLMENT_VIEW
+MU05 ..> OPEN_PROFILE
 
-MU06 .up.> s1
-MU06 ..> s3
+MU06 .up.> OPEN_ENROLLMENT_VIEW
+MU06 ..> OPEN_PROFILE
 
 MU07 ..> Initial
-MU07 ..> s2
+MU07 ..> OPEN_PROFILES_VIEW
 
 @enduml
