@@ -11,6 +11,7 @@ control CollectTariffController
 entity ProfileStudentEntity
 entity ProfileStudentEntites
 entity TransactionEntity
+entity CashierEntity
 
 
 Cashier --> CollectTariffView
@@ -22,6 +23,9 @@ StudentProfilesView --> CollectTariffController
 CollectTariffController --> ProfileStudentEntites
 CollectTariffController --> ProfileStudentEntity
 CollectTariffController --> TransactionEntity
+CollectTariffController --> CashierEntity
 
 ProfileStudentEntity --> TransactionEntity
+CashierEntity --> ProfileStudentEntity
+ProfileStudentEntites --> ProfileStudentEntity
 @enduml
