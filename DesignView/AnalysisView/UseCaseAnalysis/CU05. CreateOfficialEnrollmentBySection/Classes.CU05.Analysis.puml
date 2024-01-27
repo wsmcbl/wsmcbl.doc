@@ -1,3 +1,14 @@
 @startuml
+left to right direction
 
+actor Secretary
+boundary CreateEnrollmentOficial
+boundary NewGradeAndSeccion
+control CreateEnrollmentControler
+
+Secretary --> CreateEnrollmentOficial
+Secretary --> NewGradeAndSeccion
+
+CreateEnrollmentOficial --> CreateEnrollmentControler
+NewGradeAndSeccion --> CreateEnrollmentControler
 @enduml
