@@ -4,11 +4,14 @@ left to right direction
 actor Secretary
 boundary CreateEnrollmentOficial
 boundary NewGradeAndSeccion
+boundary FinalEnrollment
 control CreateEnrollmentControler
 
-Secretary --> CreateEnrollmentOficial
 Secretary --> NewGradeAndSeccion
+Secretary --> CreateEnrollmentOficial
+Secretary --> FinalEnrollment
 
 CreateEnrollmentOficial --> CreateEnrollmentControler
 NewGradeAndSeccion --> CreateEnrollmentControler
+FinalEnrollment--> CreateEnrollmentControler
 @enduml
