@@ -16,7 +16,7 @@ state OPEN_TARIFFS_VIEW
 Initial --> OPEN_PROFILES_VIEW : Show Profiles (*)
 Initial --> OPEN_ENROLLMENT_VIEW
 note on link
-    PreEnrollment
+    Enroll student
     Show Enrollments (*)
     CreateOfficialEnrollmentBySection
 end note

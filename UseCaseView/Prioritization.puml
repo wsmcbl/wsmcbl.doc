@@ -6,7 +6,7 @@ rectangle "Iteration 1" as Iteration1
 
 note top of Iteration1: Se consideró que dichos casos de usos eran parte\nfundamental del negocio y se les dió prioridad.\nLos cuales coincidieron con los riesgo considerados.
 
-usecase CU01 as "PreEnrollment"
+usecase CU01 as "EnrollStudent"
 usecase CU05 as "CreateOfficialEnrollmentBySection"
 usecase CU58 as "PrintingInvoicesAndReceipts"
 usecase CU29 as "PrintReportCardByStudent"

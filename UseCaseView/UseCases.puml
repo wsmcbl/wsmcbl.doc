@@ -12,7 +12,7 @@ User <|-- Cashier
 usecase "Login*"
 usecase "Logout*"
 
-usecase PreEnrollment
+usecase EnrollStudent
 usecase CreateOfficialEnrollmentBySection
 usecase PrintingInvoicesAndReceipts
 usecase PrintReportCardByStudent
@@ -23,7 +23,7 @@ User -> "Login*"
 User -left-> "Logout*"
 
 
-Secretary --> PreEnrollment
+Secretary --> EnrollStudent
 Secretary --> CreateOfficialEnrollmentBySection
 Secretary --> PrintReportCardByStudent
 Secretary --> MoveTeacherGuideFromEnrollment

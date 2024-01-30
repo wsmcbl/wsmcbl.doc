@@ -25,3 +25,9 @@ Los prototipos 04, 05 y 06 se realizaron con la herramienta [quickMockup](https:
 
 ### MU07. Tariff profiles
 ![](../UseCaseView/Prototype/MU07.png)
+
+### MU07. Errol student
+![](../UseCaseView/Prototype/MU08.png)
+
+### MU07. Student profiles
+![](../UseCaseView/Prototype/MU09.png)

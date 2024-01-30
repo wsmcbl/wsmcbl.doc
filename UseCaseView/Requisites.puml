@@ -6,7 +6,7 @@ left to right direction
 label 0 as " "
 
 label RF01 as "RF01. Cobro de aranceles"
-label RF02 as "RF02. Prematricular estudiante"
+label RF02 as "RF02. Matricular estudiante"
 label RF06 as "RF06. Creación de Matrícula Oficial por grado"
 label RF12 as "RF12. Gestionar matrículas"
 label RF14 as "RF14. Imprimir boleta de calificación por secciones"
