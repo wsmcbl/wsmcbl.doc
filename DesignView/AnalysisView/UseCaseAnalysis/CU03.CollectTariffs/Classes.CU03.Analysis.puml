@@ -7,6 +7,7 @@ boundary CollectTariffView
 boundary StudentProfilesView
 
 control CollectTariffController
+control CreateProfileStudentController
 
 entity ProfileStudentEntity
 entity ProfileStudentEntites
@@ -19,6 +20,7 @@ Cashier --> StudentProfilesView
 
 CollectTariffView --> CollectTariffController
 StudentProfilesView --> CollectTariffController
+StudentProfilesView --> CreateProfileStudentController
 
 CollectTariffController --> ProfileStudentEntites
 CollectTariffController --> ProfileStudentEntity
