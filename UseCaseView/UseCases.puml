@@ -19,8 +19,7 @@ usecase PrintReportCardByStudent
 usecase MoveTeacherGuideFromEnrollment
 usecase CollectTariffs
 
-User -> "Login*"
-User -left-> "Logout*"
+
 
 
 Secretary --> EnrollStudent

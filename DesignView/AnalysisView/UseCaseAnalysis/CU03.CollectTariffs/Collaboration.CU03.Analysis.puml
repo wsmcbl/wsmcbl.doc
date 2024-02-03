@@ -7,21 +7,81 @@ boundary CollectTariffView
 boundary StudentProfilesView
 
 control CollectTariffController
+control CreateProfileStudentController
+control PrintDocumentsController
 
 entity ProfileStudentEntity
 entity ProfileStudentEntites
 entity TransactionEntity
+entity CashierEntity
 
 
 Cashier --> CollectTariffView
+note on link
+    update()
+    collectTariff(list<>)
+    collectTariff(tariff)
+    applydDiscount()
+    applydArreas(arreas)
+    saveCollection()
+    printReceitps()
+    isStudentInBlacklist()
+    cancel()
+    calculateTotalTariff()
+end note
 Cashier --> StudentProfilesView
+note on link
+    createProfileStudent()
+    searchProfileStudent()
+end note
 
 CollectTariffView --> CollectTariffController
+note on link
+    getStudentProfile()
+    applyDiscount()
+    createTransaction()
+    saveTransaction(Transaction)
+    printTransaction()
+    applyArreas()
+    printStateAccount()
+end note
 StudentProfilesView --> CollectTariffController
+note on link
+    getListProfileStudent()
+    openProfile(ID)
+end note
+StudentProfilesView --> CreateProfileStudentController
+note on link
+    createStudenProfile()
+end note
 
 CollectTariffController --> ProfileStudentEntites
+note on link
+    getStudentProfile(ID)
+    getListProfileStudent()
+end note
 CollectTariffController --> ProfileStudentEntity
+note on link
+    getIdProfilesStudent()
+end note
 CollectTariffController --> TransactionEntity
+note on link
+    Transaction<<Constuct>>(idProfile,idCasher)
+    setTarif(List<Tarif>)
+    calculateDiscount(list<Discount>)
+end note
+CollectTariffController --> CashierEntity
+note on link
+    getIdCashier()
+end note
+CollectTariffController --> PrintDocumentsController
+note on link
+    printTransaction(Transaction)
+end note
+CreateProfileStudentController --> ProfileStudentEntites
+note on link
+    createProfileStudent()
+end note
 
-ProfileStudentEntity --> TransactionEntity
+PrintDocumentsController --> TransactionEntity
 @enduml

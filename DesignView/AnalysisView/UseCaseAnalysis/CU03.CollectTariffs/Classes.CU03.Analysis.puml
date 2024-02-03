@@ -8,6 +8,7 @@ boundary StudentProfilesView
 
 control CollectTariffController
 control CreateProfileStudentController
+control PrintDocumentsController
 
 entity ProfileStudentEntity
 entity ProfileStudentEntites
@@ -26,8 +27,9 @@ CollectTariffController --> ProfileStudentEntites
 CollectTariffController --> ProfileStudentEntity
 CollectTariffController --> TransactionEntity
 CollectTariffController --> CashierEntity
+CollectTariffController --> PrintDocumentsController
+CreateProfileStudentController --> ProfileStudentEntites
 
 ProfileStudentEntity --> TransactionEntity
-CashierEntity --> ProfileStudentEntity
-ProfileStudentEntites --> ProfileStudentEntity
+CashierEntity --> TransactionEntity
 @enduml
