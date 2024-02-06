@@ -16,20 +16,26 @@ entity TransactionEntity
 entity CashierEntity
 
 
+
+'--- Actor relations ---
 Cashier --> CollectTariffView
 Cashier --> StudentProfilesView
 
+'--- Views relations ---
 CollectTariffView --> CollectTariffController
 StudentProfilesView --> CollectTariffController
 StudentProfilesView --> CreateProfileStudentController
 
+'--- Controllers relations ---
 CollectTariffController --> ProfileStudentEntites
-CollectTariffController --> ProfileStudentEntity
 CollectTariffController --> TransactionEntity
-CollectTariffController --> CashierEntity
-CollectTariffController --> PrintDocumentsController
-CreateProfileStudentController --> ProfileStudentEntites
+CollectTariffController -left-> PrintDocumentsController
 
-ProfileStudentEntity --> TransactionEntity
-CashierEntity --> TransactionEntity
+CreateProfileStudentController --> ProfileStudentEntites
+PrintDocumentsController --> TransactionEntity
+
+'--- Entity relations ---
+TransactionEntity --> CashierEntity
+TransactionEntity --> ProfileStudentEntity
+
 @enduml

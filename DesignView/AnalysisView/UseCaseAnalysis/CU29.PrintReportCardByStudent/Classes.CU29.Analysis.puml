@@ -1,3 +1,15 @@
 @startuml
+left to right direction
 
+'--- Classes definition ---
+
+
+
+'--- Actor relations ---
+
+'--- Views relations ---
+
+'--- Controllers relations ---
+
+'--- Entity relations ---
 @enduml

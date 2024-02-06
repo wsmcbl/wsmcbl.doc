@@ -16,6 +16,9 @@ entity TransactionEntity
 entity CashierEntity
 
 
+
+
+'--- Actor relations ---
 Cashier --> CollectTariffView
 note on link
     update()
@@ -35,6 +38,7 @@ note on link
     searchProfileStudent()
 end note
 
+'--- Views relations ----
 CollectTariffView --> CollectTariffController
 note on link
     getStudentProfile()
@@ -55,33 +59,27 @@ note on link
     createStudenProfile()
 end note
 
+
+'--- Controllers relations --- 
 CollectTariffController --> ProfileStudentEntites
 note on link
     getStudentProfile(ID)
     getListProfileStudent()
 end note
-CollectTariffController --> ProfileStudentEntity
-note on link
-    getIdProfilesStudent()
-end note
+
 CollectTariffController --> TransactionEntity
 note on link
     Transaction<<Constuct>>(idProfile,idCasher)
     setTarif(List<Tarif>)
     calculateDiscount(list<Discount>)
 end note
-CollectTariffController --> CashierEntity
-note on link
-    getIdCashier()
-end note
-CollectTariffController --> PrintDocumentsController
-note on link
-    printTransaction(Transaction)
-end note
-CreateProfileStudentController --> ProfileStudentEntites
-note on link
-    createProfileStudent()
-end note
 
-PrintDocumentsController --> TransactionEntity
+CollectTariffController -left-> PrintDocumentsController : printTransaction(Transaction)
+CreateProfileStudentController --> ProfileStudentEntites : createProfileStudent()
+PrintDocumentsController --> TransactionEntity : getData()
+
+
+'--- Entity relations --- 
+TransactionEntity --> ProfileStudentEntity : getIdProfilesStudent()
+TransactionEntity --> CashierEntity : getIdCashier()
 @enduml

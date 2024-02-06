@@ -29,5 +29,14 @@ Los prototipos 04, 05 y 06 se realizaron con la herramienta [quickMockup](https:
 ### MU07. Errol student
 ![](../UseCaseView/Prototype/MU08.png)
 
-### MU07. Student profiles
+### MU08. 
+![](../UseCaseView/Prototype/MU09.png)
+
+### MU09. 
+![](../UseCaseView/Prototype/MU09.png)
+
+### MU10. 
+![](../UseCaseView/Prototype/MU09.png)
+
+### MU11. 
 ![](../UseCaseView/Prototype/MU09.png)
