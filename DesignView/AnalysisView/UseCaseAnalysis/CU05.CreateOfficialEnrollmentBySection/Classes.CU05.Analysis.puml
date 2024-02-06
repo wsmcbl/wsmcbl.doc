@@ -2,16 +2,44 @@
 left to right direction
 
 actor Secretary
-boundary CreateEnrollmentOficial
-boundary NewGradeAndSeccion
-boundary FinalEnrollment
-control CreateEnrollmentControler
 
-Secretary --> NewGradeAndSeccion
-Secretary --> CreateEnrollmentOficial
-Secretary --> FinalEnrollment
+boundary GradesView
+boundary CreateEnrolmentsView
 
-CreateEnrollmentOficial --> CreateEnrollmentControler
-NewGradeAndSeccion --> CreateEnrollmentControler
-FinalEnrollment--> CreateEnrollmentControler
+control CreateOfficialEnrollmentController
+control PrintDocumentsController
+
+entity EnrollmentEntity
+entity ProfileStudentEntites
+entity TeacherEntity
+entity GradeEntity
+entity SubjectEntity
+entity TeacherEntities
+
+
+'--- Actor relations ---
+Secretary --> GradesView
+Secretary --> CreateEnrolmentsView
+
+
+'--- Views relations ---
+GradesView --> CreateOfficialEnrollmentController
+CreateEnrolmentsView --> CreateOfficialEnrollmentController
+
+
+'--- Controllers relations ---
+CreateOfficialEnrollmentController --> GradeEntity
+CreateOfficialEnrollmentController --> TeacherEntities
+CreateOfficialEnrollmentController --> PrintDocumentsController
+
+PrintDocumentsController --> EnrollmentEntity
+
+
+'--- Entities relations ---
+GradeEntity --> SubjectEntity
+GradeEntity "1" --> "n" EnrollmentEntity
+GradeEntity --> ProfileStudentEntites
+
+EnrollmentEntity "1" --> "1" TeacherEntity
+SubjectEntity "n" --> "1" TeacherEntity
 @enduml
