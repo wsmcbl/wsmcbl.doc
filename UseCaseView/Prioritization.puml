@@ -1,6 +1,6 @@
-
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
+left to right direction
 
 rectangle "Iteration 1" as Iteration1
 
@@ -13,11 +13,10 @@ usecase CU29 as "PrintReportCardByStudent"
 usecase CU21 as "MoveTeacherGuideFromEnrollment"
 usecase CU03 as "CollectTariffs"
 
-Iteration1 . CU01
-Iteration1 . CU05
-Iteration1 . CU58
-Iteration1 . CU29
-Iteration1 . CU21
-Iteration1 . CU03
-
+Iteration1 .. CU01 : CU01
+Iteration1 .. CU05 : CU05
+Iteration1 .. CU58 : CU58
+Iteration1 .. CU29 : CU29
+Iteration1 .. CU21 : CU21
+Iteration1 .. CU03 : CU03
 @enduml

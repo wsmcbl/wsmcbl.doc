@@ -17,7 +17,7 @@ frame MU11 <<MU11>> as "Grades list"
 frame MU12 <<MU12>> as "Configure degree information"
 frame MU13 <<MU13>> as "Create official enrollment"
 
-rectangle Initial as "HOME"
+'rectangle Initial as "HOME"
 rectangle OPEN_ENROLLMENT_VIEW
 rectangle OPEN_PROFILES_VIEW
 rectangle OPEN_PROFILE
@@ -33,14 +33,14 @@ MU03 .up.> OPEN_TARIFFS_VIEW
 
 MU04 .up.> OPEN_ENROLLMENT_VIEW
 
-MU05 .down.> Initial
+'MU05 .down.> Initial
 MU05 .up.> OPEN_ENROLLMENT_VIEW
 MU05 ..> OPEN_PROFILE
 
 MU06 .up.> OPEN_ENROLLMENT_VIEW
 MU06 ..> OPEN_PROFILE
 
-MU07 ..> Initial
+'MU07 ..> Initial
 MU07 ..> OPEN_PROFILES_VIEW
 
 MU08 ..> OPEN_ENROLLMENT_VIEW
