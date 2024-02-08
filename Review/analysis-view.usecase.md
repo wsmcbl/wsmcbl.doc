@@ -2,7 +2,7 @@
 
 # Indice
 - [CU03. CollectTariffs](#cu03)
-- [CU05. blablabla](#cu05)
+- [CU01. EnrollStudent](#cu01)
 
 ---
 
@@ -16,3 +16,15 @@
 ### 2. Collaboration
 
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU03.CollectTariffs/Collaboration.CU03.Analysis.png)
+
+
+
+## CU01. EnrollStudent <a id="cu01"></a>
+
+### 1. Classes
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU01.EnrollStudent/Classes.CU01.Analysis.png)
+
+### 2. Collaboration
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU01.EnrollStudent/Collaboration.CU01.Analysis.png)

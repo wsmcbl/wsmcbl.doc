@@ -1,0 +1,108 @@
+@startuml
+left to right direction
+
+'--- Classes definition ---
+actor Secretary
+
+boundary StudentProfilesView
+boundary EnrollView
+
+control EnrollStudentController
+control PrintDocumentsController
+
+entity ProfileStudentEntity
+entity ProfileStudentEntities
+entity EnrollmentEntity
+entity GradeEntities
+entity GradeEntity
+
+rectangle ":collaboration PrintDocument*"
+
+
+'--- Actor relations ---
+Secretary --> StudentProfilesView
+note on link
+    openProfile()
+    searchProfile()
+end note
+
+Secretary --> EnrollView
+note on link
+    setStudentInformation()
+    setEnrollment()
+    saveEnroll()
+    printEnroll()
+    cancel()
+end note
+
+
+'--- Views relations ---
+StudentProfilesView --> EnrollStudentController
+note on link
+    getProfileList()
+    getProfile(idProfile=" ")
+    setProfile(profile=" ")
+end note
+
+EnrollView --> EnrollStudentController
+note on link
+    setProfileInformation()
+    isEnrollSave()
+    printEnrollDocument(enroll="")
+    saveEnroll()
+    getGradesInformation()
+    setEnrollment(grade, section)
+end note
+
+'--- Controllers relations ---
+EnrollStudentController --> ProfileStudentEntities
+note on link
+    getProfileList()
+    getProfile(profile=" ")
+end note
+
+EnrollStudentController --> GradeEntities
+note on link
+    getGradesList()
+    getEnrollment(idEnrollment="")
+end note
+
+EnrollStudentController --> GradeEntity
+note on link
+    addStudent(profileStudent="", section)
+    isStudentRepeating()
+end note
+
+EnrollStudentController -right-> PrintDocumentsController
+note on link
+    printInformation(data)
+end note
+
+PrintDocumentsController --> ":collaboration PrintDocument*"
+
+
+'--- Entity relations ---
+EnrollmentEntity -> ProfileStudentEntity
+note on link
+    getIdProfile()
+end note
+
+GradeEntities -> GradeEntity
+note on link
+    getIdGrade()
+end note
+
+GradeEntity --> EnrollmentEntity
+note on link
+    getLabel()
+    getRemainingSpace()
+    enrollStudent(profileStudent="")
+end note
+
+GradeEntity --> ProfileStudentEntity
+note on link
+    getProfile()
+    getEnrollmentInformation()
+end note
+
+@enduml
