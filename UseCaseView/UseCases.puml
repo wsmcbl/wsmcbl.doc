@@ -20,7 +20,8 @@ usecase MoveTeacherGuideFromEnrollment
 usecase CollectTariffs
 
 
-
+User -left-> "Login*"
+User -right-> "Logout*"
 
 Secretary --> EnrollStudent
 Secretary --> CreateOfficialEnrollmentBySection
