@@ -3,6 +3,7 @@
 # Indice
 - [CU03. CollectTariffs](#cu03)
 - [CU01. EnrollStudent](#cu01)
+- [CU29. PrintReportCardByStudent](#cu29)
 
 ---
 
@@ -28,3 +29,15 @@
 ### 2. Collaboration
 
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU01.EnrollStudent/Collaboration.CU01.Analysis.png)
+
+
+
+## CU29. PrintReportCardByStudent <a id="cu29"></a>
+
+### 1. Classes
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU29.PrintReportCardByStudent/Classes.CU29.Analysis.png)
+
+### 2. Collaboration
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU29.PrintReportCardByStudent/Collaboration.CU29.Analysis.png)

@@ -2,7 +2,13 @@
 left to right direction
 
 '--- Classes definition ---
+actor Secretary
 
+boundary ReportCardView
+
+control PrintReportCardController
+
+entity ProfileStudentController
 
 
 '--- Actor relations ---
