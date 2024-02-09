@@ -10,8 +10,14 @@ frame MU04 <<MU04>> as "Print report card by student"
 frame MU05 <<MU05>> as "Enrollment View"
 frame MU06 <<MU06>> as "Update enrollment information"
 frame MU07 <<MU07>> as "Tariff profiles"
+frame MU08 <<MU08>> as "Enroll student.\n    Main view"
+frame MU09 <<MU09>> as "\t\tEnroll student.\nAdministrative information tab"
+frame MU10 <<MU10>> as "Student profiles"
+frame MU11 <<MU11>> as "Grades list"
+frame MU12 <<MU12>> as "Configure degree information"
+frame MU13 <<MU13>> as "Create official enrollment"
 
-rectangle Initial as "HOME"
+'rectangle Initial as "HOME"
 rectangle OPEN_ENROLLMENT_VIEW
 rectangle OPEN_PROFILES_VIEW
 rectangle OPEN_PROFILE
@@ -27,14 +33,27 @@ MU03 .up.> OPEN_TARIFFS_VIEW
 
 MU04 .up.> OPEN_ENROLLMENT_VIEW
 
-MU05 .up.> Initial
+'MU05 .down.> Initial
 MU05 .up.> OPEN_ENROLLMENT_VIEW
 MU05 ..> OPEN_PROFILE
 
 MU06 .up.> OPEN_ENROLLMENT_VIEW
 MU06 ..> OPEN_PROFILE
 
-MU07 ..> Initial
+'MU07 ..> Initial
 MU07 ..> OPEN_PROFILES_VIEW
 
+MU08 ..> OPEN_ENROLLMENT_VIEW
+MU08 ..> OPEN_PROFILES_VIEW
+
+MU09 ..> OPEN_ENROLLMENT_VIEW
+MU09 ..> OPEN_PROFILES_VIEW
+
+MU10 ..> OPEN_PROFILES_VIEW
+
+MU11 ..> OPEN_ENROLLMENT_VIEW
+
+MU12 ..> OPEN_ENROLLMENT_VIEW
+
+MU13 ..> OPEN_ENROLLMENT_VIEW
 @enduml

@@ -4,31 +4,43 @@
 left to right direction
 
 usecase CU01 as "EnrollStudent"
+usecase CU05 as "CreateOfficialEnrollmentBySection"
 usecase CU58 as "PrintingInvoicesAndReceipts"
 usecase CU29 as "PrintReportCardByStudent"
 usecase CU21 as "MoveTeacherGuideFromEnrollment"
 usecase CU03 as "CollectTariffs"
 
-frame MU01 <<MU01>> as "Tariff colletion"
+frame MU01 <<MU01>> as "Tariff collection"
 frame MU02 <<MU02>> as "Finish collection"
 frame MU03 <<MU03>> as "Collection of multiple tariffs"
 frame MU04 <<MU04>> as "Print report card by student"
 frame MU05 <<MU05>> as "Enrollment View"
 frame MU06 <<MU06>> as "Update enrollment information"
 frame MU07 <<MU07>> as "Tariff profiles"
-frame MU08 <<MU08>> as "Enroll student"
-frame MU09 <<MU09>> as "Student profiles***"
+frame MU08 <<MU08>> as "Enroll student.\n    Main view"
+frame MU09 <<MU09>> as "\t\tEnroll student.\nAdministrative information tab"
+frame MU10 <<MU10>> as "Student profiles"
+frame MU11 <<MU11>> as "Grades list"
+frame MU12 <<MU12>> as "Configure degree information"
+frame MU13 <<MU13>> as "Create official enrollment"
 
 CU29 ..> MU04 : trace
+
 CU21 ..> MU05 : trace
 CU21 ..> MU06 : trace
+
 CU03 ..> MU01 : trace
 CU03 ..> MU02 : trace
 CU03 ..> MU03 : trace
 CU03 ..> MU07 : trace
+
 CU58 ..> MU02 : trace
+
 CU01 ..> MU08 : trace
 CU01 ..> MU09 : trace
+CU01 ..> MU10 : trace
 
-
+CU05 ..> MU11 : trace
+CU05 ..> MU12 : trace
+CU05 ..> MU13 : trace
 @enduml

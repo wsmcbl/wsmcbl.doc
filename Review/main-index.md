@@ -10,15 +10,19 @@ Modelo de documentación de proyecto, siguiendo el modelo "4 + 1 vista",
 * [Design View ⮞](./design-view.md)
 
 
-## Domain model
+## 1. Domain model
 Sección donde se muestran los datos relevantes del modelo del dominio.
 
-1. Organigrama
+### 1.1 Organigrama
 
 ![](../out/DomainModel/organization-chart.png)
 
 
-
-2. Modelo del negocio
+### 1.2 Modelo del negocio
 
 ![](../out/DomainModel/business-model.png)
+
+
+## 2. Ecosystem
+
+![](../out/ProcessView/Ecosystem/Ecosystem.png)

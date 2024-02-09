@@ -3,19 +3,20 @@
 hide circle
 hide empty methods
 
-
 Views ..> Models
-Views ..> Controllers
 Controllers ..> Models
+Views ..> Controllers
 
+
+newpage
 package Views
 {
     class CollectTariffView <<View>>
-    class PreEnrollmentView <<View>>
+    class EnrollStudentView <<View>>
     class ViewNotesOnlineView <<View>>
 
-    class ClassView <<View>>
-    class ClassesView <<View>>
+    class GradeView <<View>>
+    class GradesView <<View>>
     class SubjectView <<View>>
     class SubjectsView <<View>>
     class TariffView <<View>>
@@ -38,27 +39,29 @@ package Views
     class RegisterView <<View>>
 }
 
+
+newpage
 package Controllers
 {
-    class PreEnrollmentController <<Controller>>
+    class EnrollStudentController <<Controller>>
     class CollectTariffController <<Controller>>
     class CreateOfficialEnrollmentController <<Controller>>
     class MoveTeacherGuideFromEnrollmentController <<Controller>>
     class PrintingInvoicesAndReceiptsController <<Controller>>
-    class ReportCardPrintingController <<Controller>>
-
-    class LoginController <<Controller>>
+    class PrintDocumentsController <<Controller>>
+    class CreateProfileStudentController <<Controller>>
     class LogoutController <<Controller>>
 }
 
+
+newpage
 package Models
 {
-    class ClassEntity <<Model>>
-    class ClassEntities <<Model>>
+    class GradeEntity <<Model>>
+    class GradeEntities <<Model>>
     class SubjectEntity <<Model>>
     class SubjectEntities <<Model>>
     class EnrollmentEntity <<Model>>
-    class PreEnrollmentEntity <<Model>>
     class ProfileStudentEntity <<Model>>
     class ProfileStudentEntities <<Model>>
     class TeacherEntity <<Model>>
@@ -83,19 +86,16 @@ package Models
     ProfileStudentEntity --* TransactionEntity
     ProfileStudentEntities o--> ProfileStudentEntity
 
-    TeacherEntity *--> ClassEntity
+    TeacherEntity *--> SubjectEntity
     TeacherEntity <|-- PastorEntity
     TeacherEntities o--> TeacherEntity
 
-    EnrollmentEntity "*" -left-> "1" PreEnrollmentEntity
     EnrollmentEntity "1" --* "*" ProfileStudentEntity
-    EnrollmentEntity "*" *-- "*" ClassEntity
+    EnrollmentEntity "*" *-- "*" GradeEntity
     EnrollmentEntity "1" *--> "1" TeacherEntity
 
-    PreEnrollmentEntity *--> "1" ProfileStudentEntity
-
-    ClassEntity *--> SubjectEntity
-    ClassEntities *-- ClassEntity
+    GradeEntity *--> SubjectEntity
+    GradeEntities *-- GradeEntity
 
     CashierEntity --> AccountingBoxEntity
     CashierEntity --> TransactionEntity
@@ -104,11 +104,9 @@ package Models
 
     DeputyPrincipalEntity --> CalendarEntity
 
-    SecretaryEntity ..> PreEnrollmentEntity
     SecretaryEntity ..> EnrollmentEntity
     SecretaryEntity ..> ReportEntity
 
     PrincipalEntity ..> ReportEntity
 }
-
 @enduml

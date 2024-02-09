@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+'--- Classes definition ---
+actor Secretary
+
+boundary StudentProfilesView
+boundary EnrollView
+
+control EnrollStudentController
+control PrintDocumentsController
+
+entity ProfileStudentEntity
+entity ProfileStudentEntities
+entity EnrollmentEntity
+entity GradeEntities
+entity GradeEntity
+
+rectangle ":collaboration PrintDocument*"
+rectangle ":collaboration CreateProfileStudent"
+
+
+'--- Actor relations ---
+Secretary --> StudentProfilesView
+Secretary --> EnrollView
+
+'--- Views relations ---
+StudentProfilesView --> EnrollStudentController
+StudentProfilesView --> ":collaboration CreateProfileStudent"
+EnrollView --> EnrollStudentController
+
+'--- Controllers relations ---
+EnrollStudentController --> ProfileStudentEntities
+EnrollStudentController --> GradeEntities
+EnrollStudentController --> GradeEntity
+
+EnrollStudentController -right-> PrintDocumentsController
+
+PrintDocumentsController --> ":collaboration PrintDocument*"
+
+'--- Entity relations ---
+EnrollmentEntity --> ProfileStudentEntity
+GradeEntities --> GradeEntity
+GradeEntity --> EnrollmentEntity
+GradeEntity --> ProfileStudentEntity
+
+@enduml

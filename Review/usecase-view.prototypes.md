@@ -5,38 +5,57 @@
 Prototipos de interfaces de usario.
 Los prototipos 04, 05 y 06 se realizaron con la herramienta [quickMockup](https://jdittrich.github.io/quickMockup/).
 
-### MU01. Tariff colletion
+## Índice
+- [MU01. Tariff collection](#mu01)
+- [MU02. Finish collection](#mu02)
+- [MU03. Collection of multiple tariffs](#mu03)
+- [MU04. Print report card by student](#mu04)
+- [MU05. Enrollment View](#mu05)
+- [MU06. Update enrollment information](#mu06)
+- [MU07. Tariff profiles](#mu07)
+- [MU08. Enroll student. Main view](#mu08)
+- [MU09. Enroll student. Administrative information tab](#mu09)
+- [MU10. Student profiles](#mu10)
+- [MU11. Grades list](#mu11)
+- [MU12. Configure degree information](#mu12)
+- [MU13. Create official enrollment](#mu13)
+---
+
+### MU01. Tariff collection <a id="mu01"></a>
 ![](../UseCaseView/Prototype/MU01.png)
 
-### MU02. Finish collection
+### MU02. Finish collection <a id="mu02"></a>
 ![](../UseCaseView/Prototype/MU02.png)
 
-### MU03. Collection of multiple tariffs
+### MU03. Collection of multiple tariffs <a id="mu03"></a>
 ![](../UseCaseView/Prototype/MU03.png)
 
-### MU04. Print report card by student
+### MU04. Print report card by student <a id="mu04"></a>
 ![](../UseCaseView/Prototype/MU04.png)
 
-### MU05. Enrollment View
+### MU05. Enrollment View <a id="mu05"></a>
 ![](../UseCaseView/Prototype/MU05.png)
 
-### MU06. Update enrollment information
+### MU06. Update enrollment information <a id="mu06"></a>
 ![](../UseCaseView/Prototype/MU06.png)
 
-### MU07. Tariff profiles
+### MU07. Tariff profiles <a id="mu07"></a>
 ![](../UseCaseView/Prototype/MU07.png)
 
-### MU07. Errol student
+### MU08. Enroll student. Main view <a id="mu08"></a>
 ![](../UseCaseView/Prototype/MU08.png)
 
-### MU08. 
+### MU09. Enroll student. Administrative information tab <a id="mu09"></a>
 ![](../UseCaseView/Prototype/MU09.png)
 
-### MU09. 
-![](../UseCaseView/Prototype/MU09.png)
+### MU10. Student profiles <a id="mu10"></a>
+![](../UseCaseView/Prototype/MU10.png)
 
-### MU10. 
-![](../UseCaseView/Prototype/MU09.png)
+### MU11. Grades list <a id="mu11"></a>
+![](../UseCaseView/Prototype/MU11.png)
 
-### MU11. 
-![](../UseCaseView/Prototype/MU09.png)
+### MU12. Configure degree information <a id="mu12"></a>
+![](../UseCaseView/Prototype/MU12.png)
+
+### MU13. Create official enrollment <a id="mu13"></a>
+![](../UseCaseView/Prototype/MU13.png)
