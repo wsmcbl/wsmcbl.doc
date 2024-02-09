@@ -8,38 +8,112 @@ boundary CreateEnrolmentsView
 
 control CreateOfficialEnrollmentController
 control PrintDocumentsController
+rectangle SubjectCatalog as ":collaboration SubjectCatalog*"
+rectangle Imprimir as ":collaboration PrintDocument*"
+rectangle Update as ":collaboration UpdateInformationGrade*"
 
 entity EnrollmentEntity
 entity ProfileStudentEntites
 entity TeacherEntity
 entity GradeEntity
-entity SubjectEntity
+entity GradeEntities
+entity SubjectEntities
 entity TeacherEntities
 
 
 '--- Actor relations ---
 Secretary --> GradesView
+note on link
+    openGrades()
+end note
 Secretary --> CreateEnrolmentsView
+note on link
+    SearchSubject()
+    OpenSubjectCatalog()
+    removeSubjetect()
+
+    UpdateQuantitySection()
+    SaveEnrolment()
+    AddTeacher()
+    AssignTeacher()
+    end note
 
 
 '--- Views relations ---
 GradesView --> CreateOfficialEnrollmentController
+note on link
+    getListGrades()
+    setGrade(schoolYear)
+    updateInformationGrade()
+end note
+
+GradesView --> Update
+
+
+
 CreateEnrolmentsView --> CreateOfficialEnrollmentController
+note on link
+    setQuantitySection(int quantitySection)
+    SearchSubject(Subject)
+    removeSubjetect(Subject)
+    setTeacherGuide(Teacher)
+    AssignTeacher(Teacher,Subject)
+end note
+
+CreateEnrolmentsView --> SubjectCatalog
 
 
 '--- Controllers relations ---
 CreateOfficialEnrollmentController --> GradeEntity
-CreateOfficialEnrollmentController --> TeacherEntities
-CreateOfficialEnrollmentController --> PrintDocumentsController
+note on link
+    createEnrollments(int quantity)
+    addSubjects(Subject)
+    removeSubject(Subject)
+    save()
+end note
 
-PrintDocumentsController --> EnrollmentEntity
+CreateOfficialEnrollmentController --> TeacherEntities
+note on link
+    getListTeacher()
+end note
+
+CreateOfficialEnrollmentController --> PrintDocumentsController
+note on link
+    printiInformationData()
+end note
+
+CreateOfficialEnrollmentController --> GradeEntities
+note on link
+    getListGrade()
+end note
+
+PrintDocumentsController --> Imprimir
 
 
 '--- Entities relations ---
-GradeEntity --> SubjectEntity
+GradeEntity --> SubjectEntities
+note on link
+    getListSubject()
+    getSubject()
+end note
+
 GradeEntity "1" --> "n" EnrollmentEntity
+note on link
+    construct(schoolYear, label, list<subject>)
+    getLabel()
+    setCapacityEnrollment(int Capacity)
+    setTeacherGuide(Teacher)
+    assignTeacher(Teacher,Subject)
+    getListProfileStudent()
+end note
+
 GradeEntity --> ProfileStudentEntites
+note on link
+    getListProfileStudent()
+end note
 
 EnrollmentEntity "1" --> "1" TeacherEntity
-SubjectEntity "n" --> "1" TeacherEntity
+note on link
+    addSubject(subject="")
+end note
 @enduml
