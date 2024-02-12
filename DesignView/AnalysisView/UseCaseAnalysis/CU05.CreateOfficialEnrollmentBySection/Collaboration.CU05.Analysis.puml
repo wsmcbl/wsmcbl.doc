@@ -13,12 +13,13 @@ rectangle Imprimir as ":collaboration PrintDocument*"
 rectangle Update as ":collaboration UpdateInformationGrade*"
 
 entity EnrollmentEntity
-entity ProfileStudentEntites
+entity StudentEntity
+entity StudentEntities
 entity TeacherEntity
 entity GradeEntity
 entity GradeEntities
 entity SubjectEntities
-entity TeacherEntities
+entity TeacherEntities 
 
 
 '--- Actor relations ---
@@ -26,17 +27,17 @@ Secretary --> GradesView
 note on link
     openGrades()
 end note
+
 Secretary --> CreateEnrolmentsView
 note on link
-    SearchSubject()
-    OpenSubjectCatalog()
-    removeSubjetect()
-
-    UpdateQuantitySection()
-    SaveEnrolment()
-    AddTeacher()
-    AssignTeacher()
-    end note
+    saveEnrolment()
+    addTeacher()
+    assignTeacher()
+    searchSubject()
+    openSubjectCatalog()
+    removeSubject()
+    updateQuantitySection()
+end note
 
 
 '--- Views relations ---
@@ -54,10 +55,10 @@ GradesView --> Update
 CreateEnrolmentsView --> CreateOfficialEnrollmentController
 note on link
     setQuantitySection(int quantitySection)
-    SearchSubject(Subject)
-    removeSubjetect(Subject)
+    searchSubject(Subject)
+    removeSubject(Subject)
     setTeacherGuide(Teacher)
-    AssignTeacher(Teacher,Subject)
+    assignTeacher(Teacher,Subject)
 end note
 
 CreateEnrolmentsView --> SubjectCatalog
@@ -104,16 +105,17 @@ note on link
     setCapacityEnrollment(int Capacity)
     setTeacherGuide(Teacher)
     assignTeacher(Teacher,Subject)
-    getListProfileStudent()
+    getListStudent()
 end note
 
-GradeEntity --> ProfileStudentEntites
+GradeEntity --> StudentEntities
 note on link
-    getListProfileStudent()
+    getListStudent()
 end note
 
 EnrollmentEntity "1" --> "1" TeacherEntity
 note on link
     addSubject(subject="")
 end note
+
 @enduml
