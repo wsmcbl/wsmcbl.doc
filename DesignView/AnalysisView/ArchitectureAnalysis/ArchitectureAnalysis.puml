@@ -12,7 +12,7 @@ newpage
 package Views
 {
     class CollectTariffView <<View>>
-    class PreEnrollmentView <<View>>
+    class EnrollStudentView <<View>>
     class ViewNotesOnlineView <<View>>
 
     class GradeView <<View>>
@@ -43,7 +43,7 @@ package Views
 newpage
 package Controllers
 {
-    class PreEnrollmentController <<Controller>>
+    class EnrollStudentController <<Controller>>
     class CollectTariffController <<Controller>>
     class CreateOfficialEnrollmentController <<Controller>>
     class MoveTeacherGuideFromEnrollmentController <<Controller>>
@@ -90,7 +90,6 @@ package Models
     TeacherEntity <|-- PastorEntity
     TeacherEntities o--> TeacherEntity
 
-    EnrollmentEntity "*" -left-> "1" PreEnrollmentEntity
     EnrollmentEntity "1" --* "*" ProfileStudentEntity
     EnrollmentEntity "*" *-- "*" GradeEntity
     EnrollmentEntity "1" *--> "1" TeacherEntity
@@ -105,7 +104,6 @@ package Models
 
     DeputyPrincipalEntity --> CalendarEntity
 
-    SecretaryEntity ..> PreEnrollmentEntity
     SecretaryEntity ..> EnrollmentEntity
     SecretaryEntity ..> ReportEntity
 
