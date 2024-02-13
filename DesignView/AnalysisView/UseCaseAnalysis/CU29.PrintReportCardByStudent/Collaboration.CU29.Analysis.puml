@@ -2,16 +2,49 @@
 left to right direction
 
 '--- Classes definition ---
+actor Secretary
 
+boundary ReportCardView
 
-'note on link
-'end note
+control PrintReportCardController
+
+entity StudentEntity<<SecretaryModule>>
+entity EnrollmentEntity
+entity TimeEntity
 
 '--- Actor relations ---
+Secretary --> ReportCardView
+note on link
+    printCard()
+    cancel()
+    selectPartial()
+end note
 
 '--- Views relations ---
+ReportCardView --> PrintReportCardController
+note on link
+    print()
+    setPartials(list partials = "")
+    getStudentInformation()
+end note
 
 '--- Controllers relations ---
+PrintReportCardController --> StudentEntity
+note on link
+    getIdStudent()
+    getFullName()
+    getEnrollmentInformation()
+end note
 
-'--- Entity relations ---
+PrintReportCardController --> EnrollmentEntity
+note on link
+    getStudent(id = "")
+    getSchoolYerar()
+end note
+
+PrintReportCardController --> TimeEntity
+note on link
+    getToday()
+end note
+
 @enduml

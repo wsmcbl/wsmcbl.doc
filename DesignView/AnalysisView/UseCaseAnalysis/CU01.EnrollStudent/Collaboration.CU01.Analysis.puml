@@ -17,12 +17,14 @@ entity GradeEntities
 entity GradeEntity
 
 rectangle ":collaboration PrintDocument*"
+rectangle ":collaboration CreateProfileStudent"
 
 
 '--- Actor relations ---
 Secretary --> StudentProfilesView
 note on link
     openProfile()
+    createProfile()
     searchProfile()
 end note
 
@@ -43,6 +45,8 @@ note on link
     getProfile(idProfile=" ")
     setProfile(profile=" ")
 end note
+
+StudentProfilesView --> ":collaboration CreateProfileStudent"
 
 EnrollView --> EnrollStudentController
 note on link
@@ -101,7 +105,7 @@ end note
 
 GradeEntity --> ProfileStudentEntity
 note on link
-    getProfile()
+    getIdProfile()
     getEnrollmentInformation()
 end note
 

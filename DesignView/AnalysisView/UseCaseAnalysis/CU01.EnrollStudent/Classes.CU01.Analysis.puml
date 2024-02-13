@@ -17,6 +17,7 @@ entity GradeEntities
 entity GradeEntity
 
 rectangle ":collaboration PrintDocument*"
+rectangle ":collaboration CreateProfileStudent"
 
 
 '--- Actor relations ---
@@ -25,6 +26,7 @@ Secretary --> EnrollView
 
 '--- Views relations ---
 StudentProfilesView --> EnrollStudentController
+StudentProfilesView --> ":collaboration CreateProfileStudent"
 EnrollView --> EnrollStudentController
 
 '--- Controllers relations ---

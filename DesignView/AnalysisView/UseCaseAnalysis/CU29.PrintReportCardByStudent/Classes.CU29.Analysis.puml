@@ -2,14 +2,27 @@
 left to right direction
 
 '--- Classes definition ---
+actor Secretary
 
+boundary ReportCardView
 
+control PrintReportCardController
+
+entity StudentEntity<<SecretaryModule>>
+entity EnrollmentEntity
+entity TimeEntity
 
 '--- Actor relations ---
+Secretary --> ReportCardView
+
 
 '--- Views relations ---
+ReportCardView --> PrintReportCardController
 
 '--- Controllers relations ---
+PrintReportCardController --> StudentEntity
+PrintReportCardController --> EnrollmentEntity
+PrintReportCardController --> TimeEntity
 
 '--- Entity relations ---
 @enduml
