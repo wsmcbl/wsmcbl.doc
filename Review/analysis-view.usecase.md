@@ -3,6 +3,7 @@
 # Indice
 - [CU03. CollectTariffs](#cu03)
 - [CU01. EnrollStudent](#cu01)
+- [CU05. CreateOfficialEnrollmentBySection](#cu01)
 
 ---
 
@@ -17,6 +18,15 @@
 
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU03.CollectTariffs/Collaboration.CU03.Analysis.png)
 
+
+
+## CU05. CreateOfficialEnrollmentBySection <a id="cu05"></a>
+
+### 1. Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU05.CreateOfficialEnrollmentBySection/Classes.CU05.Analysis.png)
+
+### 2. Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU05.CreateOfficialEnrollmentBySection/Collaboration.CU05.Analysis.png)
 
 
 ## CU01. EnrollStudent <a id="cu01"></a>
