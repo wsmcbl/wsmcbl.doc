@@ -8,14 +8,21 @@ boundary ReportCardView
 
 control PrintReportCardController
 
-entity ProfileStudentController
-
+entity StudentEntity<<SecretaryModule>>
+entity EnrollmentEntity
+entity TimeEntity
 
 '--- Actor relations ---
+Secretary --> ReportCardView
+
 
 '--- Views relations ---
+ReportCardView --> PrintReportCardController
 
 '--- Controllers relations ---
+PrintReportCardController --> StudentEntity
+PrintReportCardController --> EnrollmentEntity
+PrintReportCardController --> TimeEntity
 
 '--- Entity relations ---
 @enduml
