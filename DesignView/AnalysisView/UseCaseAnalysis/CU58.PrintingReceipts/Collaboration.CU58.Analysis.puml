@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+'--- Classes definition ---
+actor Cashier
+
+boundary FinishTariffView
+
+entity TransactionEntity
+
+control PrintingReceiptsController
+
+
+'--- Actor relations ---
+Cashier --> FinishTariffView
+note on link
+    Finish()
+end note
+'--- Views relations ---
+
+FinishTariffView --> PrintingReceiptsController
+note on link
+    print()
+    getData()
+end note
+
+'--- Controllers relations ---
+
+PrintingReceiptsController --> TransactionEntity
+note on link
+    getData()
+end note
+'--- Entity relations ---
+
+@enduml

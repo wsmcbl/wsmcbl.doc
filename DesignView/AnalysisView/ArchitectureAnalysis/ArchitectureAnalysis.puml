@@ -20,6 +20,7 @@ package Views
     class SubjectView <<View>>
     class SubjectsView <<View>>
     class TariffView <<View>>
+    class FinishTariffView <<View>>
     class EnrollmentView <<View>>
     class EnrollmentsView <<View>>
     class EvangelizedStudentsView <<View>>
@@ -47,10 +48,12 @@ package Controllers
     class CollectTariffController <<Controller>>
     class CreateOfficialEnrollmentController <<Controller>>
     class MoveTeacherGuideFromEnrollmentController <<Controller>>
-    class PrintingInvoicesAndReceiptsController <<Controller>>
+    class PrintingReceiptsController <<Controller>>
     class PrintDocumentsController <<Controller>>
     class CreateProfileStudentController <<Controller>>
     class LogoutController <<Controller>>
+
+    PrintDocumentsController <|--PrintingReceiptsController 
 }
 
 

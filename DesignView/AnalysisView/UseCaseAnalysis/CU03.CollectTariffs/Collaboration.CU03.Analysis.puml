@@ -48,6 +48,11 @@ note on link
     printTransaction()
     applyArreas()
     printStateAccount()
+
+    computeChange(float Amount)
+    isPaymentDollars?()
+    getDolarRate()
+    isArreas?()
 end note
 StudentProfilesView --> CollectTariffController
 note on link

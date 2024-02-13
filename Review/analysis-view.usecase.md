@@ -38,3 +38,15 @@
 ### 2. Collaboration
 
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU01.EnrollStudent/Collaboration.CU01.Analysis.png)
+
+
+## CU58. PrintRecived <a id="cu58"></a>
+
+### 1. Classes
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU58.PrintingReceipts/Classes.CU58.Analysis.png)
+
+### 2. Collaboration
+
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU58.PrintingReceipts/Collaboration.CU58.Analysis.png)
+
