@@ -1,3 +1,121 @@
 @startuml
+left to right direction
+
+actor Secretary
+
+boundary GradesView
+boundary CreateEnrolmentsView
+
+control CreateOfficialEnrollmentController
+control PrintDocumentsController
+rectangle SubjectCatalog as ":collaboration SubjectCatalog*"
+rectangle Imprimir as ":collaboration PrintDocument*"
+rectangle Update as ":collaboration UpdateInformationGrade*"
+
+entity EnrollmentEntity
+entity StudentEntity
+entity StudentEntities
+entity TeacherEntity
+entity GradeEntity
+entity GradeEntities
+entity SubjectEntities
+entity TeacherEntities 
+
+
+'--- Actor relations ---
+Secretary --> GradesView
+note on link
+    openGrades()
+end note
+
+Secretary --> CreateEnrolmentsView
+note on link
+    saveEnrolment()
+    addTeacher()
+    assignTeacher()
+    searchSubject()
+    openSubjectCatalog()
+    removeSubject()
+    updateQuantitySection()
+end note
+
+
+'--- Views relations ---
+GradesView --> CreateOfficialEnrollmentController
+note on link
+    getListGrades()
+    setGrade(schoolYear)
+    updateInformationGrade()
+end note
+
+GradesView --> Update
+
+
+
+CreateEnrolmentsView --> CreateOfficialEnrollmentController
+note on link
+    setQuantitySection(int quantitySection)
+    searchSubject(Subject)
+    removeSubject(Subject)
+    setTeacherGuide(Teacher)
+    assignTeacher(Teacher,Subject)
+end note
+
+CreateEnrolmentsView --> SubjectCatalog
+
+
+'--- Controllers relations ---
+CreateOfficialEnrollmentController --> GradeEntity
+note on link
+    createEnrollments(int quantity)
+    addSubjects(Subject)
+    removeSubject(Subject)
+    save()
+end note
+
+CreateOfficialEnrollmentController --> TeacherEntities
+note on link
+    getListTeacher()
+end note
+
+CreateOfficialEnrollmentController --> PrintDocumentsController
+note on link
+    printiInformationData()
+end note
+
+CreateOfficialEnrollmentController --> GradeEntities
+note on link
+    getListGrade()
+end note
+
+PrintDocumentsController --> Imprimir
+
+
+'--- Entities relations ---
+GradeEntity --> SubjectEntities
+note on link
+    getListSubject()
+    getSubject()
+end note
+
+GradeEntity "1" --> "n" EnrollmentEntity
+note on link
+    construct(schoolYear, label, list<subject>)
+    getLabel()
+    setCapacityEnrollment(int Capacity)
+    setTeacherGuide(Teacher)
+    assignTeacher(Teacher,Subject)
+    getListStudent()
+end note
+
+GradeEntity --> StudentEntities
+note on link
+    getListStudent()
+end note
+
+EnrollmentEntity "1" --> "1" TeacherEntity
+note on link
+    addSubject(subject="")
+end note
 
 @enduml
