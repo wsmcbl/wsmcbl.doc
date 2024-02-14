@@ -50,10 +50,12 @@ package Controllers
     class MoveTeacherGuideFromEnrollmentController <<Controller>>
     class PrintingReceiptsController <<Controller>>
     class PrintDocumentsController <<Controller>>
+    class PrintReportCardController
     class CreateProfileStudentController <<Controller>>
     class LogoutController <<Controller>>
 
-    PrintDocumentsController <|--PrintingReceiptsController 
+    PrintDocumentsController <|-- PrintingReceiptsController
+    PrintDocumentsController <|-- PrintReportCardController
 }
 
 
@@ -65,8 +67,8 @@ package Models
     class SubjectEntity <<Model>>
     class SubjectEntities <<Model>>
     class EnrollmentEntity <<Model>>
-    class ProfileStudentEntity <<Model>>
-    class ProfileStudentEntities <<Model>>
+    class StudentEntity <<Model>>
+    class StudentEntities <<Model>>
     class TeacherEntity <<Model>>
     class TeacherEntities <<Model>>
     class SecretaryEntity <<Model>>
@@ -86,14 +88,14 @@ package Models
     '--- Relations ---'
     SubjectEntities o--> SubjectEntity
 
-    ProfileStudentEntity --* TransactionEntity
-    ProfileStudentEntities o--> ProfileStudentEntity
+    StudentEntity --* TransactionEntity
+    StudentEntities o--> StudentEntity
 
     TeacherEntity *--> SubjectEntity
     TeacherEntity <|-- PastorEntity
     TeacherEntities o--> TeacherEntity
 
-    EnrollmentEntity "1" --* "*" ProfileStudentEntity
+    EnrollmentEntity "1" --* "*" StudentEntity
     EnrollmentEntity "*" *-- "*" GradeEntity
     EnrollmentEntity "1" *--> "1" TeacherEntity
 

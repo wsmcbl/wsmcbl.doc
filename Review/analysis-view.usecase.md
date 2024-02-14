@@ -4,6 +4,7 @@
 - [CU03. CollectTariffs](#cu03)
 - [CU01. EnrollStudent](#cu01)
 - [CU05. CreateOfficialEnrollmentBySection](#cu01)
+- [CU58. PritingReceipts](#cu58)
 - [CU29. PrintReportCardByStudent](#cu29)
 
 ---
@@ -33,6 +34,15 @@
 
 ### 2. Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU01.EnrollStudent/Collaboration.CU01.Analysis.png)
+
+
+
+## CU58. PrintingReceipts <a id="cu58"></a>
+### 1. Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU58.PrintingReceipts/Classes.CU58.Analysis.png)
+
+### 2. Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU58.PrintingReceipts/Collaboration.CU58.Analysis.png)
 
 
 
