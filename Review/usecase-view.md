@@ -4,8 +4,6 @@
 Índice general de la vista de caso de uso, se muestran los componente/artefactos que la componen. 
 Se muestran las dependencias entre cada componente y como se relacionan.
 
-![](../out/UseCaseView/UseCaseView.png)
-
 - [Actors](#actors)
 - [Requisites](#requisites)
 - [Use Case Model](#use-case-model)
@@ -15,6 +13,9 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 - [TRACE Requisites x Use Case](#trace-requisites-x-use-case)
 - [TRACE Use Case x Prototype](#trace-use-case-x-prototype)
 - [TRACE State x Prototype](#trace-state-x-prototype)
+
+![](../out/UseCaseView/UseCaseView.png)
+
 ---
 
 
@@ -52,7 +53,7 @@ Casos de uso selecionados en cada iteración.
 ### UI Prototype <a id="ui-prototype"></a>
 Página donde se muestran los prototipos de interfaces de usuarios que dan continuidad al desarrollo de los casos de usos.
 
-[See prototypes ⮞](./usecase-view.prototypes.md)
+* [see prototypes ⮞](./usecase-view.prototypes.md)
 
 
 ### TRACE Requisites x Use Case <a id="trace-requisites-x-use-case"></a>

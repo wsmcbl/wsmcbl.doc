@@ -1,5 +1,5 @@
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
 
 :User: as "Generic User"
 

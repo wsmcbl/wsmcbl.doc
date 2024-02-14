@@ -9,7 +9,7 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 
 ## Analysis View
 Carpeta de la vista de análisis, se muestra el diseño preliminar del software.
-* [see Analysis view ⮞](./analysis-view.md).
+* [see Analysis view ⮞](./analysis-view.md)
 
 
 ## Architecture Design
