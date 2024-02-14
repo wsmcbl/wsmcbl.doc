@@ -30,8 +30,7 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 ## Use case analysis <a id="use-case-analysis"></a>
 
 Página donde se muestran el análisis de los casos de usos, donde se presenta los distintos diagramas clases.
-
-[See Use case analysis ⮞](./analysis-view.usecase.md)
+* [see Use case analysis ⮞](./analysis-view.usecase.md)
 
 
 ## Classes analysis <a id="classes-analysis"></a>

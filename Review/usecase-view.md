@@ -1,4 +1,4 @@
-[🢀 Back to Main index](./main-index.md)
+[🢀 Back to Main index](../README.md)
 
 # Use Case View
 Índice general de la vista de caso de uso, se muestran los componente/artefactos que la componen. 

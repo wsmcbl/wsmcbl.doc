@@ -1,4 +1,4 @@
-[🢀 Back to Main index](./main-index.md)
+[🢀 Back to Main index](../README.md)
 
 # Design view
 Índice general de la vista de Diseño, se muestran los componente/artefactos que la componen.
@@ -8,8 +8,8 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 
 
 ## Analysis View
-Carpeta de la vista de análisis, se muestra el diseño preliminar del software,
-[see Analysis view ⮞](./analysis-view.md).
+Carpeta de la vista de análisis, se muestra el diseño preliminar del software.
+* [see Analysis view ⮞](./analysis-view.md).
 
 
 ## Architecture Design
