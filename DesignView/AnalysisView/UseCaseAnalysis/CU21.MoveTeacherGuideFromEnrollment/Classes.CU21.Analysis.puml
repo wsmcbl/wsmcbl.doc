@@ -2,15 +2,28 @@
 left to right direction
 
 '--- Classes definition ---
+actor Secretary
 
+boundary EnrollmentView
+
+control MoveTeacherGuideFromEnrollmentController as "      MoveTeacherGuide\nFromEnrollmentController"
+
+entity EnrollmentEntity
+entity TeacherEntity
+entity TeacherEntities
 
 
 '--- Actor relations ---
+Secretary --> EnrollmentView
 
 '--- Views relations ---
+EnrollmentView --> MoveTeacherGuideFromEnrollmentController
 
 '--- Controllers relations ---
+MoveTeacherGuideFromEnrollmentController --> TeacherEntity
+MoveTeacherGuideFromEnrollmentController --> TeacherEntities
 
 '--- Entity relations ---
-
+TeacherEntity --> EnrollmentEntity
+TeacherEntities -> TeacherEntity
 @enduml

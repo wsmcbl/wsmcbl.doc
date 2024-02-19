@@ -6,6 +6,7 @@
 - [CU05. CreateOfficialEnrollmentBySection](#cu01)
 - [CU58. PritingReceipts](#cu58)
 - [CU29. PrintReportCardByStudent](#cu29)
+- [CU21. MoveTeacherGuideFromEnrollment](#cu21)
 
 ---
 
@@ -52,3 +53,12 @@
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU29.PrintReportCardByStudent/Collaboration.CU29.Analysis.png)
+
+
+
+### CU21. MoveTeacherGuideFromEnrollment <a id="cu21"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU21.MoveTeacherGuideFromEnrollment/Classes.CU21.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU21.MoveTeacherGuideFromEnrollment/Collaboration.CU21.Analysis.png)

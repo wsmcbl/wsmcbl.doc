@@ -2,18 +2,51 @@
 left to right direction
 
 '--- Classes definition ---
+actor Secretary
 
+boundary EnrollmentView
 
+control MoveTeacherGuideFromEnrollmentController as "      MoveTeacherGuide\nFromEnrollmentController"
 
-'note on link
-'end note
+entity EnrollmentEntity
+entity TeacherEntity
+entity TeacherEntities
+
 
 '--- Actor relations ---
+Secretary --> EnrollmentView
+note on link
+    updateEnrollment()
+    changeTeacher()
+    searchTeacher()
+end note
 
 '--- Views relations ---
+EnrollmentView --> MoveTeacherGuideFromEnrollmentController
+note on link
+    getListTeacher()
+    setTeacherGuide(Teacher = "")
+end note
 
 '--- Controllers relations ---
+MoveTeacherGuideFromEnrollmentController --> TeacherEntity
+note on link
+    removeGuideEnrollment()
+    setGuidedEnrollment(enrollment = "")
+end note
+MoveTeacherGuideFromEnrollmentController --> TeacherEntities
+note on link
+    getListTeacherWithoutGuidedEnrollment()
+end note
 
 '--- Entity relations ---
+TeacherEntity -> EnrollmentEntity
+note on link
+    setTeacherGuide(int idTeacher = "")
+end note
 
+TeacherEntities -> TeacherEntity
+note on link
+    isTeacherGuide()
+end note
 @enduml
