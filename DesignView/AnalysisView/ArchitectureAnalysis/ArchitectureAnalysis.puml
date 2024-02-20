@@ -7,6 +7,14 @@ Views ..> Models
 Controllers ..> Models
 Views ..> Controllers
 
+package Models
+{
+    Management ..> Accounting
+    Management ..> Secretary
+    Secretary ..> Academy
+    Accounting ..> Academy
+}
+
 
 newpage
 package Views
@@ -59,59 +67,93 @@ package Controllers
 }
 
 
+
+
+
+
 newpage
-package Models
-{
-    class GradeEntity <<Model>>
-    class GradeEntities <<Model>>
-    class SubjectEntity <<Model>>
-    class SubjectEntities <<Model>>
-    class EnrollmentEntity <<Model>>
+class Models.StudentEntity <<Model>>
+class Models.SesionEntity <<Model>>
+
+namespace Models.Academy{
+    class NoteEntity <<Model>>
     class StudentEntity <<Model>>
-    class StudentEntities <<Model>>
     class TeacherEntity <<Model>>
+    class SubjectEntity <<Model>>
+    class EnrollmentEntity <<Model>>
+
+
+    class SubjectEntities <<Model>>
+    class StudentEntities <<Model>>
     class TeacherEntities <<Model>>
-    class SecretaryEntity <<Model>>
-    class CashierEntity <<Model>>
-    class PastorEntity <<Model>>
-    class PrincipalEntity <<Model>>
-    class DeputyPrincipalEntity <<Model>>
-    class CalendarEntity <<Model>>
-    class AccountingBoxEntity <<Model>>
-    class TransactionEntity <<Model>>
-    class ReportEntity <<Model>>
 
-    class SesionEntity <<Model>>
-    'class AdministratorEntity <<Model>>
+    Models.StudentEntity <|-- StudentEntity
 
-
-    '--- Relations ---'
     SubjectEntities o--> SubjectEntity
-
-    StudentEntity --* TransactionEntity
     StudentEntities o--> StudentEntity
-
+        
     TeacherEntity *--> SubjectEntity
-    TeacherEntity <|-- PastorEntity
     TeacherEntities o--> TeacherEntity
 
     EnrollmentEntity "1" --* "*" StudentEntity
-    EnrollmentEntity "*" *-- "*" GradeEntity
     EnrollmentEntity "1" *--> "1" TeacherEntity
 
+    SubjectEntity *--> NoteEntity
+    NoteEntity --> StudentEntity
+}
+
+
+namespace Models.Secretary{
+    class GradeEntity <<Model>>
+    class ReportEntity <<Model>>
+    class GradeEntities <<Model>>
+    class TeacherEntity <<Model>>
+    class StudentEntities <<Model>>
+    class TeacherEntities <<Model>>
+    class SecretaryEntity <<Model>>
+    class EnrollmentEntity <<Model>>
+
+    SecretaryEntity ..> GradeEntity
+    GradeEntity "*" *-- "*" EnrollmentEntity
     GradeEntity *--> SubjectEntity
     GradeEntities *-- GradeEntity
+    SecretaryEntity ..> ReportEntity
+    SecretaryEntity ..> Models.Academy.StudentEntity
+    SecretaryEntity ..> TeacherEntity
+}
+
+namespace Models.Management{
+    class PrincipalEntity <<Model>>
+    class DeputyPrincipalEntity <<Model>>
+    class PastorEntity <<Model>>
+    class CalendarEntity <<Model>>
+    class ReportEntity <<Model>>
+    
+    Models.Academy.TeacherEntity <|-- PastorEntity
+    DeputyPrincipalEntity --> CalendarEntity
+    PrincipalEntity ..> ReportEntity
+}
+    
+namespace Models.Accounting{
+    class ReportEntity <<Model>>
+    class StudentEntity <<Model>>
+    class CashierEntity <<Model>>
+    class TariffEntities <<Model>>
+    class StudentEntities <<Model>>
+    class TransactionEntity <<Model>>
+    class AccountingBoxEntity <<Model>>
+
+    Models.StudentEntity <|-- Models.Accounting.StudentEntity
 
     CashierEntity --> AccountingBoxEntity
     CashierEntity --> TransactionEntity
-
     AccountingBoxEntity --* TransactionEntity
-
-    DeputyPrincipalEntity --> CalendarEntity
-
-    SecretaryEntity ..> EnrollmentEntity
-    SecretaryEntity ..> ReportEntity
-
-    PrincipalEntity ..> ReportEntity
+    StudentEntity --* TransactionEntity
 }
+'class AdministratorEntity <<Model>>
+
+'--- Relations ---
+Models.Academy.EnrollmentEntity --> Models.Secretary.EnrollmentEntity
+Models.Secretary.GradeEntity "*" *-- "*" Models.Academy.EnrollmentEntity
+
 @enduml
