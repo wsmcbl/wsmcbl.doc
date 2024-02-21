@@ -35,6 +35,9 @@ Página donde se muestran el análisis de los casos de usos, donde se presenta l
 
 ## Classes analysis <a id="classes-analysis"></a>
 
+Página deonde se muestrán los diagramas de análisis para clases.
+* [see Class analysis ⮞](./analysis-view.class.md)
+
 
 
 ## Package analysis <a id="package-analysis"></a>

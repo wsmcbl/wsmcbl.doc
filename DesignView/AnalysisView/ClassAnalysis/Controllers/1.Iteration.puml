@@ -1,0 +1,55 @@
+@startuml
+
+class CollectTariffController{
+
+    + applyArreas() : void
+    + applyDiscount(float discount) : void
+    + createTransaction() : void
+    + getStudent() : StudentEntity
+    + setStudentId(int idStudent) : void
+    + getStudentList() : List<StudentEntity>
+    + saveTransaction(TransactionEntity transaction) : void
+
+
+    + printTransaction() : void
+    + printStateAccount() : void
+
+
+    + isArreas() : bool
+    + getDollarRate() : float
+    + isPaymentDollars() : bool
+    + computeChange(float amount) : void
+}
+
+CollectTariffView --> CollectTariffController
+StudentProfilesView --> CollectTariffController
+
+CollectTariffController ..> StudentEntities
+CollectTariffController ..> TransactionEntity
+CollectTariffController ..> PrintDocumentsController
+
+
+newpage
+
+class EnrollStudentController
+{
+    + saveEnroll() : void
+    + isEnrollSave() : bool
+    + getStudentList() : List<StudentEntity>
+    + getStudent(int idStudent) : StudentEntity
+    + getGradesInformation() : List<GradeEntity>
+    + setStudent(StudentEntity student) : void
+    + setEnrollment(GradeEntity grade, int enrollment) : void
+    + printEnrollDocument(StudentEntity student, string enrollmentId) : void
+}
+
+StudentProfilesView --> EnrollStudentController
+EnrollView --> EnrollStudentController
+
+EnrollStudentController o--> StudentEntity
+EnrollStudentController --> StudentEntities
+EnrollStudentController --> GradeEntities
+EnrollStudentController --> GradeEntity
+EnrollStudentController --> PrintDocumentsController
+
+@enduml

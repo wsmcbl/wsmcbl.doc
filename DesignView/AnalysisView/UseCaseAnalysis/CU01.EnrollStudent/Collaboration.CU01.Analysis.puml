@@ -11,7 +11,7 @@ control EnrollStudentController
 control PrintDocumentsController
 
 entity ProfileStudentEntity
-entity ProfileStudentEntities
+entity StudentEntities
 entity EnrollmentEntity
 entity GradeEntities
 entity GradeEntity
@@ -41,9 +41,9 @@ end note
 '--- Views relations ---
 StudentProfilesView --> EnrollStudentController
 note on link
-    getProfileList()
-    getProfile(idProfile=" ")
-    setProfile(profile=" ")
+    getStudentList()
+    getStudent(idStudent =" ")
+    setStudent(student=" ")
 end note
 
 StudentProfilesView --> ":collaboration CreateProfileStudent"
@@ -59,7 +59,7 @@ note on link
 end note
 
 '--- Controllers relations ---
-EnrollStudentController --> ProfileStudentEntities
+EnrollStudentController --> StudentEntities
 note on link
     getProfileList()
     getProfile(profile=" ")
