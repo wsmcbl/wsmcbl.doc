@@ -31,8 +31,7 @@ CollectTariffController ..> PrintDocumentsController
 
 newpage
 
-class EnrollStudentController
-{
+class EnrollStudentController{
     + saveEnroll() : void
     + isEnrollSave() : bool
     + getStudentList() : List<StudentEntity>
@@ -52,4 +51,68 @@ EnrollStudentController --> GradeEntities
 EnrollStudentController --> GradeEntity
 EnrollStudentController --> PrintDocumentsController
 
+
+newpage
+
+class CreateOfficialEnrollmentController{
+    + getListGrades(int schoolYear) : List<GradeEntity>
+    + setGrade(GradeEntity grade) : void
+    + updateGrade() : void
+
+
+    + setQuantitySection(int quantity) : void
+    + searchSubject(string subject) : List<subjectEntity>
+    + removeSubject(string subjectId) : void
+    + setTeacherGuide(TeacherEntity teacher) : void
+    + assignTeacher(TeacherEntity teacher, SubjectEntity subject : void
+
+
+    + print(GradeEntity grade) : void
+}
+
+GradesView --> CreateOfficialEnrollmentController
+CreateEnrolmentsView --> CreateOfficialEnrollmentController
+
+CreateOfficialEnrollmentController --> TeacherEntities
+CreateOfficialEnrollmentController ..> PrintDocumentsController
+CreateOfficialEnrollmentController --> GradeEntities
+CreateOfficialEnrollmentController ..> SubjectEntity
+CreateOfficialEnrollmentController ..> TeacherEntity
+CreateOfficialEnrollmentController ..> GradeEntity
+
+newpage
+
+class PrintingReceiptsController {
+    - transaction : TransactionEntity
+    + print() : Void
+    + getData(int transactionId) : TransactionEntity
+}
+
+FinishTariffView --> PrintingReceiptsController
+PrintingReceiptsController o--> TransactionEntity
+
+
+newpage
+class MoveTeacherGuideFromEnrollmentController {
+    + getListTeacher() : List<TeacherEntity>
+    + setTeacherGuide(TeacherEntity teacher) : void
+}
+
+EnrollmentView --> MoveTeacherGuideFromEnrollmentController
+MoveTeacherGuideFromEnrollmentController --> TeacherEntity
+MoveTeacherGuideFromEnrollmentController --> TeacherEntities
+
+newpage
+class PrintReportCardController {
+    - partials : List<int> 
+    + print() : void
+    + setPartials(List<int> partials) : void
+    + getStudent() : StudentEntity  
+}
+
+ReportCardView --> PrintReportCardController
+
+PrintReportCardController --> StudentEntity
+PrintReportCardController --> EnrollmentEntity
+PrintReportCardController --> TimeEntity
 @enduml

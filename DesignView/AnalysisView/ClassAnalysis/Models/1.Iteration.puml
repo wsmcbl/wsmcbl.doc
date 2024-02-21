@@ -1,0 +1,26 @@
+@startuml
+
+class TransactionEntity{
+    - transactionId : string
+    - cashierId : int
+    - studentId : int
+    - studentName : string
+    - tariff : List<string, float>
+    - areas : float
+    - dateTime : DateEntity
+
+    + TransactionEntity(int studentId, int cashierId) : void
+    + setTariff(List<string, float> tariffs) : void
+    + getData() : List<string>
+    + getAmount() : float
+    - getGeneralBalance() : float
+}
+
+CollectTariffController --> TransactionEntity
+PrintDocumentsController --> TransactionEntity
+TransactionEntity --> StudentEntity
+TransactionEntity --> CashierEntity
+TransactionEntity o--> DateEntity
+
+newpage
+@enduml
