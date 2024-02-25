@@ -1,5 +1,7 @@
 [🢀 Back to Analysis view](./analysis-view.md)
 
+[-> Go to Classes analysis](./analysis-view.class.md)
+
 ## Indice
 - [CU03. CollectTariffs](#cu03)
 - [CU01. EnrollStudent](#cu01)

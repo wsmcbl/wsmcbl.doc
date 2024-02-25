@@ -1,3 +1,2 @@
-# Ignora todos los archivos de texto que terminan en
-*.xml
-*.iml
+## .idea directory
+.idea/

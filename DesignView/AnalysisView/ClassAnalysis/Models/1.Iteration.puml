@@ -23,4 +23,18 @@ TransactionEntity --> CashierEntity
 TransactionEntity o--> DateEntity
 
 newpage
+
+class StudentEntities{
+
+    + getListStudent() : list <studentEntity>
+    + createProfileStudent() : void
+
+}
+CollectTariffController --> StudentEntities
+
+CreateProfileStudentController --> StudentEntities
+
+TransactionEntity --> StudentEntities
+GradeEntity --> StudentEntities
+
 @enduml

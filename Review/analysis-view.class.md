@@ -1,5 +1,7 @@
 [🢀 Back to Analysis view](./analysis-view.md)
 
+[-> Go to UseCase analysis](./analysis-view.usecase.md)
+
 Análisis de clases.
 
 ## Indice
