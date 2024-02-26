@@ -1,6 +1,7 @@
 [🢀 Back to Analysis view](./analysis-view.md)
 
-[-> Go to Classes analysis](./analysis-view.class.md)
+El detallado de las clases de estos casos de usos están en la carpeta de Análisis de Clases.
+* [Go to Classes analysis ⮞](./analysis-view.class.md)
 
 ## Indice
 - [CU03. CollectTariffs](#cu03)

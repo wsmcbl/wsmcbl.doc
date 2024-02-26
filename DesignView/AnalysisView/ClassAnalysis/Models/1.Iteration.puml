@@ -22,19 +22,74 @@ TransactionEntity --> StudentEntity
 TransactionEntity --> CashierEntity
 TransactionEntity o--> DateEntity
 
+
+'##########
 newpage
 
-class StudentEntities{
-
-    + getListStudent() : list <studentEntity>
-    + createProfileStudent() : void
-
+class StudentEntities
+{
+    + getListStudent() : List<StudentEntity>
+    + createStudent(StudentEntity student) : void
+    + getStudentById(string id) : StudentEntity
+    + removeStudent(string id) : void
 }
+
 CollectTariffController --> StudentEntities
-
-CreateProfileStudentController --> StudentEntities
-
+CreateStudentController --> StudentEntities
 TransactionEntity --> StudentEntities
 GradeEntity --> StudentEntities
 
+StudentEntities ..> StudentEntity
+
+
+'##########
+newpage
+
+class StudentEntity
+{
+    - id : string
+    - name : string
+    - secondName : string
+    - lastName : string
+    - middleLastName : string
+    - sex : bool
+    - birthday : DateTime
+    - enrollment : List<string>
+
+    + getStudentId() : string
+    + getFullName() : string
+    + getAge() : int
+    + getEnrollment() : List<string>
+
+
+    +setFirstName(string firstName) : void
+    +setSecondName(string secondName) : void
+    +setLastName(string lastName) : void
+    +setMiddleLastName(string middleLastName) : void
+
+
+    +setEnrollment(List<string> enrollment) : void
+}
+
+TransactionEntity --> StudentEntity
+GradeEntity --> StudentEntity
+CreateStudentController --> StudentEntity
+PrintReportCardController --> StudentEntity
+
+StudentEntity o--> DateTime
+
+
+'##########
+newpage
+
+class CashierEntity
+{
+    - id : string
+    - fullName : string
+
+    + getCashierId() : string
+}
+
+TransactionEntity --> CashierEntity
+CashierEntity o--> UserEntity
 @enduml

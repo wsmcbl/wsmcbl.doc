@@ -4,12 +4,13 @@
 Índice general de la vista de Análisis, se muestran los componentes/artefactos que la componen.
 Se muestran las dependencias entre cada componente y como se relacionan.
 
-![](../out/DesignView/AnalysisView/AnalysisView.png)
-
 - [Architecture analysis](#architecture-analysis)
 - [Use case analysis](#use-case-analysis)
 - [Classes analysis](#classes-analysis)
 - [Package analysis](#package-analysis)
+
+
+![](../out/DesignView/AnalysisView/AnalysisView.png)
 ---
     
 ## Architecture analysis <a id="architecture-analysis"></a>

@@ -4,14 +4,14 @@ left to right direction
 actor Cashier
 
 boundary CollectTariffView
-boundary StudentProfilesView
+boundary StudentsView
 
 control CollectTariffController
-control CreateProfileStudentController
+control CreateStudentController
 control PrintDocumentsController
 
-entity ProfileStudentEntity
-entity ProfileStudentEntites
+entity StudentEntity
+entity StudentEntites
 entity TransactionEntity
 entity CashierEntity
 
@@ -19,23 +19,23 @@ entity CashierEntity
 
 '--- Actor relations ---
 Cashier --> CollectTariffView
-Cashier --> StudentProfilesView
+Cashier --> StudentsView
 
 '--- Views relations ---
 CollectTariffView --> CollectTariffController
-StudentProfilesView --> CollectTariffController
-StudentProfilesView --> CreateProfileStudentController
+StudentsView --> CollectTariffController
+StudentsView --> CreateStudentController
 
 '--- Controllers relations ---
-CollectTariffController --> ProfileStudentEntites
+CollectTariffController --> StudentEntites
 CollectTariffController --> TransactionEntity
 CollectTariffController -left-> PrintDocumentsController
 
-CreateProfileStudentController --> ProfileStudentEntites
+CreateStudentController --> StudentEntites
 PrintDocumentsController --> TransactionEntity
 
 '--- Entity relations ---
 TransactionEntity --> CashierEntity
-TransactionEntity --> ProfileStudentEntity
+TransactionEntity --> StudentEntity
 
 @enduml

@@ -1,8 +1,9 @@
 [🢀 Back to Analysis view](./analysis-view.md)
 
-[-> Go to UseCase analysis](./analysis-view.usecase.md)
-
 Análisis de clases.
+Para la elaboración del análisis es necesario conocer los diagramas de colaboración de cada casos de uso.
+
+* [Go to UseCase analysis ⮞](./analysis-view.usecase.md)
 
 ## Indice
 
@@ -15,8 +16,11 @@ Análisis de clases.
     - [PritingReportCardController](#control6)
 - [Models](#model)
     - [TransactionEntity](#model1)
-
+    - [StudentEntities](#model2)
+    - [StudentEntity](#model3)
+    - [CashierEntity](#model4)
 ---
+
 
 ## Controllers <a id="control"></a>
 
@@ -40,9 +44,19 @@ Análisis de clases.
 ![](../out/DesignView/AnalysisView/ClassAnalysis/Controllers/1.Iteration-page6.png)
 
 
+
 ---
 ## Models <a id="model"></a>
 
 
 * ### TransactionEntity <a id="model1"></a>
 ![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page1.png)
+
+* ### StudentEntities <a id="model2"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page2.png)
+
+* ### StudentEntity <a id="model3"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page3.png)
+
+* ### CashierEntity <a id="model4"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page4.png)
