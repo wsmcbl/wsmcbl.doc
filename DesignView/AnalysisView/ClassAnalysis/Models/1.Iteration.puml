@@ -1,0 +1,210 @@
+@startuml
+
+class TransactionEntity{
+    - transactionId : string
+    - cashierId : int
+    - studentId : int
+    - studentName : string
+    - tariff : List<string, float>
+    - areas : float
+    - dateTime : DateEntity
+
+    + TransactionEntity(int studentId, int cashierId) : void
+    + setTariff(List<string, float> tariffs) : void
+    + getData() : List<string>
+    + getAmount() : float
+    - getGeneralBalance() : float
+}
+
+CollectTariffController --> TransactionEntity
+PrintDocumentsController --> TransactionEntity
+
+TransactionEntity --> StudentEntity
+TransactionEntity --> CashierEntity
+TransactionEntity o--> DateEntity
+
+
+
+newpage
+class StudentEntities
+{
+    + getListStudent() : List<StudentEntity>
+    + createStudent(StudentEntity student) : void
+    + getStudentById(string id) : StudentEntity
+    + removeStudent(string id) : void
+}
+
+CollectTariffController --> StudentEntities
+CreateStudentController --> StudentEntities
+TransactionEntity --> StudentEntities
+GradeEntity --> StudentEntities
+
+StudentEntities ..> StudentEntity
+
+
+
+newpage
+class StudentEntity
+{
+    - id : string
+    - name : string
+    - secondName : string
+    - lastName : string
+    - middleLastName : string
+    - sex : bool
+    - birthday : DateTime
+    - enrollment : List<string>
+
+    + getStudentId() : string
+    + getFullName() : string
+    + getAge() : int
+    + getEnrollment() : List<string>
+
+
+    +setFirstName(string firstName) : void
+    +setSecondName(string secondName) : void
+    +setLastName(string lastName) : void
+    +setMiddleLastName(string middleLastName) : void
+
+
+    +setEnrollment(List<string> enrollment) : void
+}
+
+TransactionEntity --> StudentEntity
+GradeEntity --> StudentEntity
+CreateStudentController --> StudentEntity
+PrintReportCardController --> StudentEntity
+
+StudentEntity o--> DateTime
+
+
+
+newpage
+class CashierEntity
+{
+    - id : string
+    - fullName : string
+
+    + getCashierId() : string
+}
+
+TransactionEntity --> CashierEntity
+CashierEntity o--> UserEntity
+
+
+
+newpage
+class GradeEntity
+{
+    - gradeId : int
+    - schoolYear : int
+    - subjets : List<SubjectEntity>
+    - students : List<StudentEntity>
+    - enrollments : List<EnrollmentEntity>
+
+    + save() : void
+    + getGradeId() : string
+    + createEnrollments(int quantity) : void
+    + isStudentRepeating(string studentId) : bool
+    + removeSubject(SubjectEntity subject) : void
+    + addSubjects(List<SubjectEntity> subjects) : void
+    + addStudent(StudentEntity student, string section) : void
+}
+
+CreateOfficialEnrollmentController --> GradeEntity
+EnrollStudentController --> GradeEntity
+GradeEntities --> GradeEntity
+
+GradeEntity --> SubjectEntities
+GradeEntity --> StudentEntities
+GradeEntity --> StudentEntity
+GradeEntity "1" --> "n" EnrollmentEntity
+
+
+
+newpage
+class EnrollmentEntity
+{
+    - label : string
+    - schoolYear : string
+    - students : List<StudentEntity>
+    - teacherGuide : TeacherEntity
+    - subjets : List<SubjetEntity>
+
+
+    + EnrollmentEntity(string schoolYear, string label, List<SubjectEntity> subjets) : void
+    + enrollStudent(StudentEntity student) : void
+    + assignTeacher(TeacherEntity teacher, SubjectEntity subject) : void
+
+    
+    + getLabel() : string
+    + getSchoolYear() : int
+    + getRemainingSpace() : int
+    + getListStudent() : List<Student>
+    + getStudent(string studentId) : StudentEntity
+
+
+    + setTeacherGuide(int teacherId) : void
+    + setCapacityEnrollment(int Capacity) : void
+}
+
+TeacherEntity ..> EnrollmentEntity
+GradeEntity "1" --> "n" EnrollmentEntity
+PrintReportCardController --> EnrollmentEntity
+
+EnrollmentEntity "1" o--> "1" "TeacherEntity\n<<Guide>>"
+EnrollmentEntity --> StudentEntity
+
+
+
+newpage
+class SubjectEntities
+{
+    + getSubjectList() : List<SubjectEntity>
+    + getSubject(int subjetId) : SubjectEntity
+}
+
+GradeEntity --> SubjectEntities
+SubjectEntities --> SubjectEntity
+
+
+
+newpage
+class TeacherEntities
+{
+    + getListTeacher() : List<TeacherEntity>
+    + getListTeacherWithoutGuidedEnrollment() : List<TeacherEntity>
+}
+
+CreateOfficialEnrollmentController --> TeacherEntities
+MoveTeacherGuideFromEnrollmentController --> TeacherEntities
+
+TeacherEntities --> TeacherEntity
+
+
+
+newpage
+class TeacherEntity
+{
+    + removeGuideEnrollment() : void
+    + setGuidedEnrollment(EnrollmentEntity enrollment) : void
+    + isTeacherGuide() : bool
+    + addSubject(SubjectEntity subject) : void
+}
+
+TeacherEntities --> TeacherEntity
+EnrollmentEntity "1" --> "1" TeacherEntity
+MoveTeacherGuideFromEnrollmentController --> TeacherEntity
+
+
+
+newpage
+class GradeEntities
+{
+    + getGradeList() : List<GradeEntity>
+    + getEnrollment(string enrollmentId) : EnrollmentEntity
+}
+
+EnrollStudentController --> GradeEntities
+GradeEntities --> GradeEntity
+@enduml

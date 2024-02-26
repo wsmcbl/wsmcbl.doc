@@ -4,14 +4,14 @@ left to right direction
 actor Cashier
 
 boundary CollectTariffView
-boundary StudentProfilesView
+boundary StudentsView
 
 control CollectTariffController
 control CreateProfileStudentController
 control PrintDocumentsController
 
-entity ProfileStudentEntity
-entity ProfileStudentEntites
+entity StudentEntity
+entity StudentEntites
 entity TransactionEntity
 entity CashierEntity
 
@@ -32,10 +32,10 @@ note on link
     cancel()
     calculateTotalTariff()
 end note
-Cashier --> StudentProfilesView
+Cashier --> StudentsView
 note on link
-    createProfileStudent()
-    searchProfileStudent()
+    createStudent()
+    searchStudent()
 end note
 
 '--- Views relations ----
@@ -54,37 +54,37 @@ note on link
     getDolarRate()
     isArreas?()
 end note
-StudentProfilesView --> CollectTariffController
+StudentsView --> CollectTariffController
 note on link
-    getListProfileStudent()
-    openProfile(ID)
+    getStudentList()
+    openStudent(id = "")
 end note
-StudentProfilesView --> CreateProfileStudentController
+StudentsView --> CreateProfileStudentController
 note on link
-    createStudenProfile()
+    createStuden()
 end note
 
 
 '--- Controllers relations --- 
-CollectTariffController --> ProfileStudentEntites
+CollectTariffController --> StudentEntites
 note on link
-    getStudentProfile(ID)
-    getListProfileStudent()
+    getStudent(id = "")
+    getStudentList()
 end note
 
 CollectTariffController --> TransactionEntity
 note on link
-    Transaction<<Constuct>>(idProfile,idCasher)
-    setTarif(List<Tarif>)
-    calculateDiscount(list<Discount>)
+    Transaction<<Constuct>>(studentId, cashierId)
+    setTarif(List<Tariff>)
+    calculateDiscount(List<Discount>)
 end note
 
 CollectTariffController -left-> PrintDocumentsController : printTransaction(Transaction)
-CreateProfileStudentController --> ProfileStudentEntites : createProfileStudent()
+CreateProfileStudentController --> StudentEntites : createStudent()
 PrintDocumentsController --> TransactionEntity : getData()
 
 
 '--- Entity relations --- 
-TransactionEntity --> ProfileStudentEntity : getIdProfilesStudent()
-TransactionEntity --> CashierEntity : getIdCashier()
+TransactionEntity --> StudentEntity : getStudentId()
+TransactionEntity --> CashierEntity : getCashierId()
 @enduml

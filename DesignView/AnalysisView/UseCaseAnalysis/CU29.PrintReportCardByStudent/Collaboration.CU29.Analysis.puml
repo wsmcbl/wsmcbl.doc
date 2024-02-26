@@ -10,7 +10,7 @@ control PrintReportCardController
 
 entity StudentEntity<<SecretaryModule>>
 entity EnrollmentEntity
-entity TimeEntity
+entity DateTime
 
 '--- Actor relations ---
 Secretary --> ReportCardView
@@ -42,7 +42,7 @@ note on link
     getSchoolYerar()
 end note
 
-PrintReportCardController --> TimeEntity
+PrintReportCardController --> DateTime
 note on link
     getToday()
 end note

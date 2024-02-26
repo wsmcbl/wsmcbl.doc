@@ -4,28 +4,28 @@ left to right direction
 '--- Classes definition ---
 actor Secretary
 
-boundary StudentProfilesView
+boundary StudentsView
 boundary EnrollView
 
 control EnrollStudentController
 control PrintDocumentsController
 
-entity ProfileStudentEntity
+entity StudentEntity
 entity StudentEntities
 entity EnrollmentEntity
 entity GradeEntities
 entity GradeEntity
 
-rectangle ":collaboration PrintDocument*"
-rectangle ":collaboration CreateProfileStudent"
+rectangle ":collaboration PrintDocument*" as printDocument
+rectangle ":collaboration CreateProfileStudent" as createProfileStudent
 
 
 '--- Actor relations ---
-Secretary --> StudentProfilesView
+Secretary --> StudentsView
 note on link
-    openProfile()
-    createProfile()
-    searchProfile()
+    openStudent()
+    createStudent()
+    searchStudent()
 end note
 
 Secretary --> EnrollView
@@ -39,14 +39,14 @@ end note
 
 
 '--- Views relations ---
-StudentProfilesView --> EnrollStudentController
+StudentsView --> EnrollStudentController
 note on link
     getStudentList()
-    getStudent(idStudent =" ")
-    setStudent(student=" ")
+    getStudent(studentId="")
+    setStudent(student = " ")
 end note
 
-StudentProfilesView --> ":collaboration CreateProfileStudent"
+StudentsView --> createProfileStudent
 
 EnrollView --> EnrollStudentController
 note on link
@@ -61,19 +61,19 @@ end note
 '--- Controllers relations ---
 EnrollStudentController --> StudentEntities
 note on link
-    getProfileList()
-    getProfile(profile=" ")
+    geStudenttList()
+    geStudent(profile=" ")
 end note
 
 EnrollStudentController --> GradeEntities
 note on link
     getGradesList()
-    getEnrollment(idEnrollment="")
+    getEnrollment(enrollmentId = "")
 end note
 
 EnrollStudentController --> GradeEntity
 note on link
-    addStudent(profileStudent="", section)
+    addStudent(student = " ", section)
     isStudentRepeating()
 end note
 
@@ -82,30 +82,30 @@ note on link
     printInformation(data)
 end note
 
-PrintDocumentsController --> ":collaboration PrintDocument*"
+PrintDocumentsController --> printDocument
 
 
 '--- Entity relations ---
-EnrollmentEntity -> ProfileStudentEntity
+EnrollmentEntity -> StudentEntity
 note on link
-    getIdProfile()
+    getProfileId()
 end note
 
 GradeEntities -> GradeEntity
 note on link
-    getIdGrade()
+    getGradeId()
 end note
 
 GradeEntity --> EnrollmentEntity
 note on link
     getLabel()
     getRemainingSpace()
-    enrollStudent(profileStudent="")
+    enrollStudent(student = " ")
 end note
 
-GradeEntity --> ProfileStudentEntity
+GradeEntity --> StudentEntity
 note on link
-    getIdProfile()
+    getStudentId()
     getEnrollmentInformation()
 end note
 

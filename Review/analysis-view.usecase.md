@@ -1,9 +1,12 @@
 [🢀 Back to Analysis view](./analysis-view.md)
 
+El detallado de las clases de estos casos de usos están en la carpeta de Análisis de Clases.
+* [Go to Classes analysis ⮞](./analysis-view.class.md)
+
 ## Indice
 - [CU03. CollectTariffs](#cu03)
+- [CU05. CreateOfficialEnrollmentBySection](#cu05)
 - [CU01. EnrollStudent](#cu01)
-- [CU05. CreateOfficialEnrollmentBySection](#cu01)
 - [CU58. PritingReceipts](#cu58)
 - [CU29. PrintReportCardByStudent](#cu29)
 - [CU21. MoveTeacherGuideFromEnrollment](#cu21)
