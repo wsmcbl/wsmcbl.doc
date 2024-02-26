@@ -9,11 +9,10 @@ boundary CreateEnrolmentsView
 control CreateOfficialEnrollmentController
 control PrintDocumentsController
 rectangle SubjectCatalog as ":collaboration SubjectCatalog*"
-rectangle Imprimir as ":collaboration PrintDocument*"
+rectangle Print as ":collaboration PrintDocument*"
 rectangle Update as ":collaboration UpdateInformationGrade*"
 
 entity EnrollmentEntity
-entity StudentEntity
 entity StudentEntities
 entity TeacherEntity
 entity GradeEntity
@@ -49,8 +48,6 @@ note on link
 end note
 
 GradesView --> Update
-
-
 
 CreateEnrolmentsView --> CreateOfficialEnrollmentController
 note on link
@@ -88,7 +85,7 @@ note on link
     getListGrade()
 end note
 
-PrintDocumentsController --> Imprimir
+PrintDocumentsController --> Print
 
 
 '--- Entities relations ---
@@ -105,7 +102,7 @@ note on link
     setCapacityEnrollment(int Capacity)
     setTeacherGuide(Teacher)
     assignTeacher(Teacher,Subject)
-    getListStudent()
+    getStudentList()
 end note
 
 GradeEntity --> StudentEntities

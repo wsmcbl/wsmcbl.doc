@@ -10,10 +10,10 @@ control CreateOfficialEnrollmentController
 control PrintDocumentsController
 
 entity EnrollmentEntity
-entity ProfileStudentEntites
+entity StudentEntites
 entity TeacherEntity
 entity GradeEntity
-entity SubjectEntity
+entity SubjectEntities
 entity TeacherEntities
 
 
@@ -36,10 +36,9 @@ PrintDocumentsController --> EnrollmentEntity
 
 
 '--- Entities relations ---
-GradeEntity --> SubjectEntity
+GradeEntity --> SubjectEntities
 GradeEntity "1" --> "n" EnrollmentEntity
-GradeEntity --> ProfileStudentEntites
+GradeEntity --> StudentEntites
 
 EnrollmentEntity "1" --> "1" TeacherEntity
-SubjectEntity "n" --> "1" TeacherEntity
 @enduml

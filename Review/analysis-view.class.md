@@ -19,6 +19,12 @@ Para la elaboración del análisis es necesario conocer los diagramas de colabor
     - [StudentEntities](#model2)
     - [StudentEntity](#model3)
     - [CashierEntity](#model4)
+    - [GradeEntity](#model5)
+    - [EnrollmentEntity](#model6)
+    - [SubjectEntities](#model7)
+    - [TeacherEntities](#model8)
+    - [TeacherEntity](#model9)
+    - [GradeEntities](#model10)
 ---
 
 
@@ -60,3 +66,21 @@ Para la elaboración del análisis es necesario conocer los diagramas de colabor
 
 * ### CashierEntity <a id="model4"></a>
 ![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page4.png)
+
+* ### GradeEntity <a id="model5"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page5.png)
+
+* ### EnrollmentEntity <a id="model6"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page6.png)
+
+* ### SubjectEntities <a id="model7"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page7.png)
+
+* ### TeacherEntities <a id="model8"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page8.png)
+
+* ### TeacherEntity <a id="model9"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page9.png)
+
+* ### GradeEntities <a id="model10"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page10.png)

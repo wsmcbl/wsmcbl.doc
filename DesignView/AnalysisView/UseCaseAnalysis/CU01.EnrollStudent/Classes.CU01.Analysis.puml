@@ -4,44 +4,44 @@ left to right direction
 '--- Classes definition ---
 actor Secretary
 
-boundary StudentProfilesView
+boundary StudentsView
 boundary EnrollView
 
 control EnrollStudentController
 control PrintDocumentsController
 
-entity ProfileStudentEntity
-entity ProfileStudentEntities
+entity StudentEntity
+entity StudentEntities
 entity EnrollmentEntity
 entity GradeEntities
 entity GradeEntity
 
-rectangle ":collaboration PrintDocument*"
-rectangle ":collaboration CreateProfileStudent"
+rectangle ":collaboration PrintDocument*" as printDocument
+rectangle ":collaboration CreateProfileStudent" as createProfileStudent
 
 
 '--- Actor relations ---
-Secretary --> StudentProfilesView
+Secretary --> StudentsView
 Secretary --> EnrollView
 
 '--- Views relations ---
-StudentProfilesView --> EnrollStudentController
-StudentProfilesView --> ":collaboration CreateProfileStudent"
+StudentsView --> EnrollStudentController
+StudentsView --> createProfileStudent
 EnrollView --> EnrollStudentController
 
 '--- Controllers relations ---
-EnrollStudentController --> ProfileStudentEntities
+EnrollStudentController --> StudentEntities
 EnrollStudentController --> GradeEntities
 EnrollStudentController --> GradeEntity
 
 EnrollStudentController -right-> PrintDocumentsController
 
-PrintDocumentsController --> ":collaboration PrintDocument*"
+PrintDocumentsController --> printDocument
 
 '--- Entity relations ---
-EnrollmentEntity --> ProfileStudentEntity
+EnrollmentEntity --> StudentEntity
 GradeEntities --> GradeEntity
 GradeEntity --> EnrollmentEntity
-GradeEntity --> ProfileStudentEntity
+GradeEntity --> StudentEntity
 
 @enduml

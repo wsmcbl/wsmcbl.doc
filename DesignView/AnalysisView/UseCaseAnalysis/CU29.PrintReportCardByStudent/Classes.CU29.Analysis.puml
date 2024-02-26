@@ -10,7 +10,7 @@ control PrintReportCardController
 
 entity StudentEntity<<SecretaryModule>>
 entity EnrollmentEntity
-entity TimeEntity
+entity DateTime
 
 '--- Actor relations ---
 Secretary --> ReportCardView
@@ -22,7 +22,7 @@ ReportCardView --> PrintReportCardController
 '--- Controllers relations ---
 PrintReportCardController --> StudentEntity
 PrintReportCardController --> EnrollmentEntity
-PrintReportCardController --> TimeEntity
+PrintReportCardController --> DateTime
 
 '--- Entity relations ---
 @enduml
