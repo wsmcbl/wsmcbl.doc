@@ -16,7 +16,7 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 ## Architecture analysis <a id="architecture-analysis"></a>
 
 ### Dependencies
-![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page1.png)
+![](../out/DesignView/AnalysisView/A/A-page1.png)
 
 ### Views
 ![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page2.png)
@@ -42,3 +42,15 @@ Página deonde se muestrán los diagramas de análisis para clases.
 
 
 ## Package analysis <a id="package-analysis"></a>
+
+### 
+![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page1.png)
+
+### 
+![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page2.png)
+
+### 
+![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page3.png)
+
+### 
+![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page4.png)

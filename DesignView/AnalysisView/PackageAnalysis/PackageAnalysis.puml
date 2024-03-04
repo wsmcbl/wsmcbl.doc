@@ -1,0 +1,205 @@
+@startuml
+'skinparam BackgroundColor transparent
+hide circle
+hide empty methods
+
+Views ..> Models
+Controllers ..> Models
+Views ..> Controllers
+
+package Models
+{
+    Management ..> Accounting
+    Management ..> Secretary
+    Secretary ..> Academy
+    Accounting ..> Academy
+}
+
+'####   ###
+newpage
+package Views
+{
+    class CollectTariffView <<View>>
+    class EnrollStudentView <<View>>
+    class ViewNotesOnlineView <<View>>
+
+    class GradeView <<View>>
+    class GradesView <<View>>
+    class SubjectView <<View>>
+    class SubjectsView <<View>>
+    class TariffView <<View>>
+    class FinishTariffView <<View>>
+    class EnrollmentView <<View>>
+    class EnrollmentsView <<View>>
+    class EvangelizedStudentsView <<View>>
+
+    class StudentProfileView <<View>>
+    class StudentProfilesView <<View>>
+    class TeacherView <<View>>
+    class PrincipalView <<View>>
+    class DeputyPrincipalView <<View>>
+    class SecretaryView <<View>>
+    class CashierView <<View>>
+    class AdministratorView <<View>>
+    class PastorView <<View>>
+
+    class View <<View>>
+    class LoginView <<View>>
+
+
+'////////////////////////////////////////////////////////////
+
+    LoginView <|-- View
+
+    View <|-- CashierView
+    View <|-- SecretaryView
+    View <|-- PrincipalView
+    View <|-- TeacherView
+    View <|-- AdministratorView
+    View <|-- PastorView
+    View <|-- DeputyPrincipalView
+
+
+    CashierView --> StudentProfilesView
+    StudentProfilesView --> StudentProfileView
+    StudentProfilesView --> CollectTariffView
+    CollectTariffView --> TariffView
+    TariffView --> FinishTariffView
+
+    SecretaryView --> StudentProfilesView
+    StudentProfilesView --> EnrollStudentView
+
+    SecretaryView --> GradesView
+    GradesView --> GradeView
+    GradeView --> EnrollmentsView
+    EnrollmentsView --> EnrollmentView
+
+    GradeView --> SubjectsView
+    SubjectsView --> SubjectView
+
+    PastorView --> EvangelizedStudentsView
+
+    StudentEntities --> ViewNotesOnlineView
+
+
+
+
+
+
+
+
+
+}
+
+
+'####   ###
+newpage
+package Controllers
+{
+    class EnrollStudentController <<Controller>>
+    class CollectTariffController <<Controller>>
+    class CreateOfficialEnrollmentController <<Controller>>
+    class MoveTeacherGuideFromEnrollmentController <<Controller>>
+    class PrintingReceiptsController <<Controller>>
+    class PrintDocumentsController <<Controller>>
+    class PrintReportCardController
+    class CreateProfileStudentController <<Controller>>
+    class LogoutController <<Controller>>
+
+    PrintDocumentsController <|-- PrintingReceiptsController
+    PrintDocumentsController <|-- PrintReportCardController
+}
+
+
+'######---######
+newpage
+class Models.StudentEntity <<Model>>
+'class Models.SessionEntity <<Model>>
+'class Models.AdministratorEntity <<Model>>
+
+namespace Models.Academy{
+    class NoteEntity <<Model>>
+    class StudentEntity <<Model>>
+    class TeacherEntity <<Model>>
+    class SubjectEntity <<Model>>
+    class EnrollmentEntity <<Model>>
+
+    class SubjectEntities <<Model>>
+    class StudentEntities <<Model>>
+    class TeacherEntities <<Model>>
+
+    StudentEntity --> Models.Secretary.StudentEntity
+
+    SubjectEntities o--> SubjectEntity
+    StudentEntities o--> StudentEntity
+        
+    TeacherEntity *--> SubjectEntity
+    TeacherEntities o--> TeacherEntity
+
+    EnrollmentEntity "1" --* "*" StudentEntity
+    EnrollmentEntity "1" *--> "1" TeacherEntity
+    EnrollmentEntity --> Models.Secretary.EnrollmentEntity
+
+    SubjectEntity *--> NoteEntity
+    NoteEntity --> StudentEntity
+}
+
+namespace Models.Secretary{
+    class GradeEntity <<Model>>
+    class ReportEntity <<Model>>
+    class StudentEntity <<Model>>
+    class TeacherEntity <<Model>>
+    class SecretaryEntity <<Model>>
+    class EnrollmentEntity <<Model>>
+
+    class GradeEntities <<Model>>
+    class StudentEntities <<Model>>
+    class TeacherEntities <<Model>>
+
+    StudentEntity --> Models.StudentEntity
+
+    GradeEntity "*" *-- "*" EnrollmentEntity
+    GradeEntity *--> SubjectEntity
+    GradeEntities *-- GradeEntity
+    SecretaryEntity ..> StudentEntity
+    SecretaryEntity ..> GradeEntity
+    SecretaryEntity ..> ReportEntity
+    SecretaryEntity ..> TeacherEntity
+
+    StudentEntities ..> StudentEntity
+    TeacherEntities ..> TeacherEntity
+}
+
+namespace Models.Management{
+    class PastorEntity <<Model>>
+    class ReportEntity <<Model>>
+    class CalendarEntity <<Model>>
+    class PrincipalEntity <<Model>>
+    class DeputyPrincipalEntity <<Model>>
+    
+    Models.Academy.TeacherEntity <|-- PastorEntity
+    DeputyPrincipalEntity --> CalendarEntity
+    PrincipalEntity ..> ReportEntity
+    PrincipalEntity ..> CalendarEntity
+}
+    
+namespace Models.Accounting{
+    class ReportEntity <<Model>>
+    class StudentEntity <<Model>>
+    class CashierEntity <<Model>>
+    class TariffEntities <<Model>>
+    class StudentEntities <<Model>>
+    class TransactionEntity <<Model>>
+    class AccountingBoxEntity <<Model>>
+
+    StudentEntity --> Models.StudentEntity
+
+    CashierEntity --> AccountingBoxEntity
+    CashierEntity --> TransactionEntity
+    AccountingBoxEntity --* TransactionEntity
+    StudentEntity --* TransactionEntity
+}
+
+'--- Relations ---
+
+@enduml
