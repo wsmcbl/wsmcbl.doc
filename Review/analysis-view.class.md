@@ -25,6 +25,7 @@ Para la elaboración del análisis es necesario conocer los diagramas de colabor
     - [TeacherEntities](#model8)
     - [TeacherEntity](#model9)
     - [GradeEntities](#model10)
+    - [UserEntity](#model11)
 ---
 
 
@@ -84,3 +85,6 @@ Para la elaboración del análisis es necesario conocer los diagramas de colabor
 
 * ### GradeEntities <a id="model10"></a>
 ![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page10.png)
+
+* ### UserEntity <a id="model11"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Models/1.Iteration-page11.png)

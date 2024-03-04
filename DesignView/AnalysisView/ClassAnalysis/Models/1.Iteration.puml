@@ -76,20 +76,17 @@ CreateStudentController --> StudentEntity
 PrintReportCardController --> StudentEntity
 
 StudentEntity o--> DateTime
-
+StudentEntity o--> UserEntity
 
 
 newpage
 class CashierEntity
 {
-    - id : string
-    - fullName : string
-
     + getCashierId() : string
 }
 
+UserEntity <|-- CashierEntity
 TransactionEntity --> CashierEntity
-CashierEntity o--> UserEntity
 
 
 
@@ -186,12 +183,18 @@ TeacherEntities --> TeacherEntity
 newpage
 class TeacherEntity
 {
+    - enrollmentGuide : EnrolmentEntity
+    - phone : string
+    - assigments : List<AsignamentEntity>
+
+
     + removeGuideEnrollment() : void
     + setGuidedEnrollment(EnrollmentEntity enrollment) : void
     + isTeacherGuide() : bool
     + addSubject(SubjectEntity subject) : void
 }
 
+UserEntity <|-- TeacherEntity
 TeacherEntities --> TeacherEntity
 EnrollmentEntity "1" --> "1" TeacherEntity
 MoveTeacherGuideFromEnrollmentController --> TeacherEntity
@@ -204,7 +207,40 @@ class GradeEntities
     + getGradeList() : List<GradeEntity>
     + getEnrollment(string enrollmentId) : EnrollmentEntity
 }
-
 EnrollStudentController --> GradeEntities
 GradeEntities --> GradeEntity
+
+
+newpage
+class UserEntity
+{
+    - userId : string
+    - name : string
+    - secondName : string
+    - surname : string
+    - secondSurname : string
+    - userName : string
+    - password : string
+    - email : string
+    - state : bool
+
+
+    + UserEntity(string name, string secondName, string surname, string secondSurname) :  void
+    + getUserId() : string
+    + getFullName() : string
+    + getUserName() : string
+    + verifyPasword(string password) : bool
+    + updatePassword(string currentPassword, string newPasword) : void
+    + disableUser() : void
+    + enableUser() : void
+}
+
+StudentEntity o--> UserEntity
+
+UserEntity <|-- SecretaryEntity
+UserEntity <|-- CashierEntity
+UserEntity <|-- TeacherEntity
+UserEntity <|-- PrincipalEntity
+UserEntity <|-- DeputyPrincipalEntity
+
 @enduml
