@@ -1,63 +1,36 @@
 @startuml
-skinparam BackgroundColor transparent
 
-package "Información del proyecto anterior ****************"
-{
-    "ApiController" ..> "BusinessController"
-    "BusinessController" .left.> "Input"
-    "BusinessController" ..> "Entity"
-    "BusinessController" ..> "BusinessService"
-    "BusinessService" ..> "Entity"
-    "Dao" ..> "Entity"
-    "ApiController" ..> "Input"
-    "BusinessController" ..> "Dao"
-    "Dao" ..> "Input"
-    "Output" ..> "Entity"
+left to right direction
+node Client
+node webClient
+node webServer
 
-    Controller .left.> Exception
-    Dto .left.> Exception
-    Model .left.> Exception
+Client <|-right- webClient
+Client -- webServer : https
 
-    package Exception
-    {
-    }
+newpage
 
-    package Controller <<Rectangle>>
-    {
-        package ApiController
-        {
-        }
+package Deploy{
+    node Client
+    node webClient
+    node webServer
 
-        package BusinessController
-        {
-        }
-
-        package BusinessService
-        {
-        }
-    }
-
-    package Model <<Rectangle>>
-    {
-        package Dao
-        {
-        }
-
-        package Entity
-        {
-        }
-    }
-
-    package Dto
-    {
-        package Input
-        {
-        }
-
-        package Output
-        {
-        }
-    }
+    Client <|-down- webClient
+    Client -right- webServer : https
 }
+
+component c.browser as "browser"
+component api.wsmcbl as "API wsmcbl"
+component c.dataBaseServer as "dataBaseServer"
+component c.webServer as "webServer"
+
+webServer *--> c.webServer
+webClient *--> c.browser
+webServer *--> api.wsmcbl
+webServer *--> c.dataBaseServer
+
+c.browser ..> c.webServer : <<use>>
+c.webServer .right.> api.wsmcbl : <<use>>
+api.wsmcbl .right.> c.dataBaseServer : <<use>>
 
 @enduml

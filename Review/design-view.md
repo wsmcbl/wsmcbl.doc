@@ -13,6 +13,17 @@ Carpeta de la vista de análisis, se muestra el diseño preliminar del software.
 
 
 ## Architecture Design
+* ### Deploy View
+![](../out/DesignView/ArchitectureDesign/Architecture-page1.png)
+
+* ### TRACES Components x Nodes
+![](../out/DesignView/ArchitectureDesign/Architecture-page2.png)
+
+
 ## UseCase Design
+### Generic UseCase
+![](../out/DesignView/UseCaseDesign/UseCaseDesign.png)
+
+
 ## Classes Design
 ## Package Design

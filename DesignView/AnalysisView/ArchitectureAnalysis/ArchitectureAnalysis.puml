@@ -17,8 +17,7 @@ package Models
 
 '####   ###
 newpage
-package Views
-{
+object Views{
     class CollectTariffView <<View>>
     class EnrollStudentView <<View>>
     class ViewNotesOnlineView <<View>>
@@ -51,8 +50,7 @@ package Views
 
 '####   ###
 newpage
-package Controllers
-{
+object Controllers{
     class EnrollStudentController <<Controller>>
     class CollectTariffController <<Controller>>
     class CreateOfficialEnrollmentController <<Controller>>
@@ -62,9 +60,6 @@ package Controllers
     class PrintReportCardController
     class CreateProfileStudentController <<Controller>>
     class LogoutController <<Controller>>
-
-    PrintDocumentsController <|-- PrintingReceiptsController
-    PrintDocumentsController <|-- PrintReportCardController
 }
 
 
@@ -74,7 +69,7 @@ class Models.StudentEntity <<Model>>
 'class Models.SessionEntity <<Model>>
 'class Models.AdministratorEntity <<Model>>
 
-namespace Models.Academy{
+object Models.Academy{
     class NoteEntity <<Model>>
     class StudentEntity <<Model>>
     class TeacherEntity <<Model>>
@@ -84,24 +79,9 @@ namespace Models.Academy{
     class SubjectEntities <<Model>>
     class StudentEntities <<Model>>
     class TeacherEntities <<Model>>
-
-    StudentEntity --> Models.Secretary.StudentEntity
-
-    SubjectEntities o--> SubjectEntity
-    StudentEntities o--> StudentEntity
-        
-    TeacherEntity *--> SubjectEntity
-    TeacherEntities o--> TeacherEntity
-
-    EnrollmentEntity "1" --* "*" StudentEntity
-    EnrollmentEntity "1" *--> "1" TeacherEntity
-    EnrollmentEntity --> Models.Secretary.EnrollmentEntity
-
-    SubjectEntity *--> NoteEntity
-    NoteEntity --> StudentEntity
 }
 
-namespace Models.Secretary{
+object Models.Secretary{
     class GradeEntity <<Model>>
     class ReportEntity <<Model>>
     class StudentEntity <<Model>>
@@ -112,35 +92,17 @@ namespace Models.Secretary{
     class GradeEntities <<Model>>
     class StudentEntities <<Model>>
     class TeacherEntities <<Model>>
-
-    StudentEntity --> Models.StudentEntity
-
-    GradeEntity "*" *-- "*" EnrollmentEntity
-    GradeEntity *--> SubjectEntity
-    GradeEntities *-- GradeEntity
-    SecretaryEntity ..> StudentEntity
-    SecretaryEntity ..> GradeEntity
-    SecretaryEntity ..> ReportEntity
-    SecretaryEntity ..> TeacherEntity
-
-    StudentEntities ..> StudentEntity
-    TeacherEntities ..> TeacherEntity
 }
 
-namespace Models.Management{
+object Models.Management{
     class PastorEntity <<Model>>
     class ReportEntity <<Model>>
     class CalendarEntity <<Model>>
     class PrincipalEntity <<Model>>
     class DeputyPrincipalEntity <<Model>>
-    
-    Models.Academy.TeacherEntity <|-- PastorEntity
-    DeputyPrincipalEntity --> CalendarEntity
-    PrincipalEntity ..> ReportEntity
-    PrincipalEntity ..> CalendarEntity
 }
     
-namespace Models.Accounting{
+object Models.Accounting{
     class ReportEntity <<Model>>
     class StudentEntity <<Model>>
     class CashierEntity <<Model>>
@@ -148,13 +110,6 @@ namespace Models.Accounting{
     class StudentEntities <<Model>>
     class TransactionEntity <<Model>>
     class AccountingBoxEntity <<Model>>
-
-    StudentEntity --> Models.StudentEntity
-
-    CashierEntity --> AccountingBoxEntity
-    CashierEntity --> TransactionEntity
-    AccountingBoxEntity --* TransactionEntity
-    StudentEntity --* TransactionEntity
 }
 
 '--- Relations ---

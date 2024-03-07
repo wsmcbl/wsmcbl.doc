@@ -1,0 +1,38 @@
+@startuml
+allow_mixing
+title Generic UseCase Analysis
+
+namespace analysis {
+    boundary xView
+    control xController
+    entity xEntity
+    entity xDAO
+
+    xView --> xController
+    xController ..> xEntity
+    xController ..> xDAO
+}
+
+namespace front{
+    boundary "xView - Blazor" as xViewF
+    boundary "xView - Blazor" as xViewF
+    control "xController - Blazro" as xControllerF
+    entity "xEntity - Blazor" as xEntity
+    entity "xDAO - Blazor" as xDAO
+
+    xViewF --> xControllerF
+    xControllerF ..> xEntity
+    xControllerF ..> xDAO
+}
+
+namespace back{
+    boundary "xView - C#" as xViewB
+    control "xController - C#" as xControllerB
+    entity "xEntity - C#" as xEntity
+    entity "xDAO - C#" as xDAO
+
+    xViewB --> xControllerB
+    xControllerB ..> xEntity
+    xControllerB ..> xDAO
+}
+@enduml
