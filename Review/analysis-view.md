@@ -9,22 +9,22 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 - [Classes analysis](#classes-analysis)
 - [Package analysis](#package-analysis)
 
-
 ![](../out/DesignView/AnalysisView/AnalysisView.png)
 ---
-    
+
+
 ## Architecture analysis <a id="architecture-analysis"></a>
 
-### Dependencies
-![](../out/DesignView/AnalysisView/A/A-page1.png)
+* ### Dependencies
+![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page1.png)
 
-### Views
+* ### Views
 ![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page2.png)
 
-### Controllers
+* ### Controllers
 ![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page3.png)
 
-### Models
+* ### Models
 ![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page4.png)
 
 
@@ -40,17 +40,16 @@ Página deonde se muestrán los diagramas de análisis para clases.
 * [see Class analysis ⮞](./analysis-view.class.md)
 
 
-
 ## Package analysis <a id="package-analysis"></a>
 
-### 
+* ### Dependecy
 ![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page1.png)
 
-### 
+* ### Views
 ![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page2.png)
 
-### 
+* ### Controllers
 ![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page3.png)
 
-### 
+* ### Models
 ![](../out/DesignView/AnalysisView/PackageAnalysis/PackageAnalysis-page4.png)

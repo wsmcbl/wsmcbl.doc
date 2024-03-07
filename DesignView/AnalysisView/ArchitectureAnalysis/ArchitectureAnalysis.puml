@@ -1,5 +1,5 @@
 @startuml
-'skinparam BackgroundColor transparent
+
 hide circle
 hide empty methods
 
@@ -15,7 +15,7 @@ package Models
     Accounting ..> Academy
 }
 
-'####   ###
+
 newpage
 object Views{
     class CollectTariffView <<View>>
@@ -44,11 +44,9 @@ object Views{
 
     class View <<View>>
     class LoginView <<View>>
-    class RegisterView <<View>>
 }
 
 
-'####   ###
 newpage
 object Controllers{
     class EnrollStudentController <<Controller>>
@@ -63,25 +61,28 @@ object Controllers{
 }
 
 
-'######---######
 newpage
-class Models.StudentEntity <<Model>>
-'class Models.SessionEntity <<Model>>
-'class Models.AdministratorEntity <<Model>>
+package Models
+{
 
-object Models.Academy{
+object Other{
+    class StudentEntity <<Model>>
+    'class Models.SessionEntity <<Model>>
+    'class Models.AdministratorEntity <<Model>>
+}
+
+object Academy{
     class NoteEntity <<Model>>
     class StudentEntity <<Model>>
     class TeacherEntity <<Model>>
     class SubjectEntity <<Model>>
     class EnrollmentEntity <<Model>>
-
     class SubjectEntities <<Model>>
     class StudentEntities <<Model>>
     class TeacherEntities <<Model>>
 }
 
-object Models.Secretary{
+object Secretary{
     class GradeEntity <<Model>>
     class ReportEntity <<Model>>
     class StudentEntity <<Model>>
@@ -94,7 +95,7 @@ object Models.Secretary{
     class TeacherEntities <<Model>>
 }
 
-object Models.Management{
+object Management{
     class PastorEntity <<Model>>
     class ReportEntity <<Model>>
     class CalendarEntity <<Model>>
@@ -102,7 +103,7 @@ object Models.Management{
     class DeputyPrincipalEntity <<Model>>
 }
     
-object Models.Accounting{
+object Accounting{
     class ReportEntity <<Model>>
     class StudentEntity <<Model>>
     class CashierEntity <<Model>>
@@ -112,6 +113,9 @@ object Models.Accounting{
     class AccountingBoxEntity <<Model>>
 }
 
-'--- Relations ---
-
+    Management ..> Accounting
+    Management ..> Secretary
+    Secretary ..> Academy
+    Accounting ..> Academy
+}
 @enduml
