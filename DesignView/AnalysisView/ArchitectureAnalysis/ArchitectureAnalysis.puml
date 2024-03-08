@@ -18,46 +18,46 @@ package Models
 
 newpage
 object Views{
-    class CollectTariffView <<View>>
-    class EnrollStudentView <<View>>
-    class ViewNotesOnlineView <<View>>
+    class CollectTariffView
+    class EnrollStudentView
+    class ViewNotesOnlineView
 
-    class GradeView <<View>>
-    class GradesView <<View>>
-    class SubjectView <<View>>
-    class SubjectsView <<View>>
-    class TariffView <<View>>
-    class FinishTariffView <<View>>
-    class EnrollmentView <<View>>
-    class EnrollmentsView <<View>>
-    class EvangelizedStudentsView <<View>>
+    class GradeView
+    class GradesView
+    class SubjectView
+    class SubjectsView
+    class TariffView
+    class FinishTariffView
+    class EnrollmentView
+    class EnrollmentsView
+    class EvangelizedStudentsView
 
-    class StudentProfileView <<View>>
-    class StudentProfilesView <<View>>
-    class TeacherView <<View>>
-    class PrincipalView <<View>>
-    class DeputyPrincipalView <<View>>
-    class SecretaryView <<View>>
-    class CashierView <<View>>
-    class AdministratorView <<View>>
-    class PastorView <<View>>
+    class StudentProfileView
+    class StudentProfilesView
+    class TeacherView
+    class PrincipalView
+    class DeputyPrincipalView
+    class SecretaryView
+    class CashierView
+    class AdministratorView
+    class PastorView
 
-    class View <<View>>
-    class LoginView <<View>>
+    class View
+    class LoginView
 }
 
 
 newpage
 object Controllers{
-    class EnrollStudentController <<Controller>>
-    class CollectTariffController <<Controller>>
-    class CreateOfficialEnrollmentController <<Controller>>
-    class MoveTeacherGuideFromEnrollmentController <<Controller>>
-    class PrintingReceiptsController <<Controller>>
-    class PrintDocumentsController <<Controller>>
+    class EnrollStudentController
+    class CollectTariffController
+    class CreateOfficialEnrollmentController
+    class MoveTeacherGuideFromEnrollmentController
+    class PrintingReceiptsController
+    class PrintDocumentsController
     class PrintReportCardController
-    class CreateProfileStudentController <<Controller>>
-    class LogoutController <<Controller>>
+    class CreateProfileStudentController
+    class LogoutController
 }
 
 
@@ -72,45 +72,45 @@ object Other{
 }
 
 object Academy{
-    class NoteEntity <<Model>>
-    class StudentEntity <<Model>>
-    class TeacherEntity <<Model>>
-    class SubjectEntity <<Model>>
-    class EnrollmentEntity <<Model>>
-    class SubjectEntities <<Model>>
-    class StudentEntities <<Model>>
-    class TeacherEntities <<Model>>
+    class NoteEntity
+    class StudentEntity
+    class TeacherEntity
+    class SubjectEntity
+    class EnrollmentEntity
+    class SubjectEntities
+    class StudentEntities
+    class TeacherEntities
 }
 
 object Secretary{
-    class GradeEntity <<Model>>
-    class ReportEntity <<Model>>
-    class StudentEntity <<Model>>
-    class TeacherEntity <<Model>>
-    class SecretaryEntity <<Model>>
-    class EnrollmentEntity <<Model>>
+    class GradeEntity
+    class ReportEntity
+    class StudentEntity
+    class TeacherEntity
+    class SecretaryEntity
+    class EnrollmentEntity
 
-    class GradeEntities <<Model>>
-    class StudentEntities <<Model>>
-    class TeacherEntities <<Model>>
+    class GradeEntities
+    class StudentEntities
+    class TeacherEntities
 }
 
 object Management{
-    class PastorEntity <<Model>>
-    class ReportEntity <<Model>>
-    class CalendarEntity <<Model>>
-    class PrincipalEntity <<Model>>
-    class DeputyPrincipalEntity <<Model>>
+    class PastorEntity
+    class ReportEntity
+    class CalendarEntity
+    class PrincipalEntity
+    class DeputyPrincipalEntity
 }
     
 object Accounting{
-    class ReportEntity <<Model>>
-    class StudentEntity <<Model>>
-    class CashierEntity <<Model>>
-    class TariffEntities <<Model>>
-    class StudentEntities <<Model>>
-    class TransactionEntity <<Model>>
-    class AccountingBoxEntity <<Model>>
+    class ReportEntity
+    class StudentEntity
+    class CashierEntity
+    class TariffEntities
+    class StudentEntities
+    class TransactionEntity
+    class AccountingBoxEntity
 }
 
     Management ..> Accounting

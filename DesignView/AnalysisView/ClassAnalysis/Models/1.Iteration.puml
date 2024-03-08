@@ -2,14 +2,14 @@
 
 class TransactionEntity{
     - transactionId : string
-    - cashierId : int
-    - studentId : int
+    - cashierId : string
+    - studentId : string
     - studentName : string
     - tariff : List<string, float>
     - areas : float
     - dateTime : DateEntity
 
-    + TransactionEntity(int studentId, int cashierId) : void
+    + TransactionEntity(string studentId, string cashierId) : void
     + setTariff(List<string, float> tariffs) : void
     + getData() : List<string>
     + getAmount() : float

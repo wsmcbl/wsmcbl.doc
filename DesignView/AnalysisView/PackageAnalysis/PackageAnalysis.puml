@@ -82,23 +82,21 @@ package Views{
     PastorView --> EvangelizedStudentsView
 
     StudentView --> ViewNotesOnlineView
-
-
 }
 
 
 newpage
 
 package Controllers{
-    entity EnrollStudentController <<Controller>>
-    entity CollectTariffController <<Controller>>
-    entity CreateOfficialEnrollmentController <<Controller>>
-    entity MoveTeacherGuideFromEnrollmentController <<Controller>>
-    entity PrintingReceiptsController <<Controller>>
-    entity PrintDocumentsController <<Controller>>
-    entity PrintReportCardController
-    entity CreateProfileStudentController <<Controller>>
-    entity LogoutController <<Controller>>
+    control EnrollStudentController
+    control CollectTariffController
+    control CreateOfficialEnrollmentController
+    control MoveTeacherGuideFromEnrollmentController
+    control PrintingReceiptsController
+    control PrintDocumentsController
+    control PrintReportCardController
+    control CreateProfileStudentController
+    control LogoutController
 
     PrintDocumentsController <|-- PrintingReceiptsController
     PrintDocumentsController <|-- PrintReportCardController
@@ -109,92 +107,102 @@ newpage
 package Models{
 
 package Other{
-    entity o.StudentEntity as "StudentEntity" <<Model>>
+    entity Other.StudentEntity as "StudentEntity"
     'entity SessionEntity <<Model>>
     'entity AdministratorEntity <<Model>>
 }
 
 package Academy{
-    entity NoteEntity <<Model>>
-    entity StudentEntity <<Model>>
-    entity TeacherEntity <<Model>>
-    entity SubjectEntity <<Model>>
-    entity EnrollmentEntity <<Model>>
+    entity Academy.NoteEntity as "NoteEntity"
+    entity Academy.StudentEntity as "StudentEntity"
+    entity Academy.TeacherEntity as "TeacherEntity"
+    entity Academy.SubjectEntity as "SubjectEntity"
+    entity Academy.EnrollmentEntity as "EnrollmentEntity"
+    entity Academy.PastorEntity as "PastorEntity"
 
-    entity SubjectEntities <<Model>>
-    entity StudentEntities <<Model>>
-    entity TeacherEntities <<Model>>
+    entity Academy.SubjectEntities as "SubjectEntities"
+    entity Academy.StudentEntities as "StudentEntities"
+    entity Academy.TeacherEntities as "TeacherEntities"
 
-    StudentEntity --> o.StudentEntity
+    Academy.StudentEntity --> Other.StudentEntity
 
-    SubjectEntities o--> SubjectEntity
-    StudentEntities o--> StudentEntity
+    Academy.SubjectEntities o--> Academy.SubjectEntity
+    Academy.StudentEntities o--> Academy.StudentEntity
         
-    TeacherEntity *--> SubjectEntity
-    TeacherEntities o--> TeacherEntity
+    Academy.TeacherEntity *--> Academy.SubjectEntity
+    Academy.TeacherEntities o--> Academy.TeacherEntity
 
-    EnrollmentEntity "1" --* "*" StudentEntity
-    EnrollmentEntity "1" *--> "1" TeacherEntity
-    EnrollmentEntity --> Secretary.EnrollmentEntity
+    Academy.EnrollmentEntity "1" --* "*" Academy.StudentEntity
+    Academy.EnrollmentEntity "1" *--> "1" Academy.TeacherEntity
 
-    SubjectEntity *--> NoteEntity
-    NoteEntity --> StudentEntity
+    Academy.SubjectEntity *--> Academy.NoteEntity
+    Academy.NoteEntity --> Academy.StudentEntity
+
+
+    Academy.TeacherEntity <|-- Academy.PastorEntity
 }
 
 package Secretary{
-    entity GradeEntity <<Model>>
-    entity ReportEntity <<Model>>
-    entity StudentEntity1
-    entity TeacherEntity <<Model>>
-    entity SecretaryEntity <<Model>>
-    entity EnrollmentEntity1
-    entity GradeEntities <<Model>>
-    entity StudentEntities <<Model>>
-    entity TeacherEntities <<Model>>
+    entity Secretary.GradeEntity as "GradeEntity"
+    entity Secretary.ReportEntity as "ReportEntity"
+    entity Secretary.StudentEntity as "StudentEntity"
+    entity Secretary.TeacherEntity as "TeacherEntity"
+    entity Secretary.SecretaryEntity as "SecretaryEntity"
+    entity Secretary.EnrollmentEntity as "EnrollmentEntity"
+    entity Secretary.GradeEntities as "GradeEntities"
+    entity Secretary.StudentEntities as "StudentEntities"
+    entity Secretary.TeacherEntities as "TeacherEntities"
 
-    StudentEntity --> o.StudentEntity
+    Secretary.StudentEntity --> Other.StudentEntity
 
-    GradeEntity "*" *-- "*" EnrollmentEntity
-    GradeEntity *--> SubjectEntity
-    GradeEntities *-- GradeEntity
-    SecretaryEntity ..> StudentEntity
-    SecretaryEntity ..> GradeEntity
-    SecretaryEntity ..> ReportEntity
-    SecretaryEntity ..> TeacherEntity
+    Secretary.GradeEntity "*" *-- "*" Secretary.EnrollmentEntity
+    Secretary.GradeEntity *--> Academy.SubjectEntity
+    Secretary.GradeEntities *-- Secretary.GradeEntity
+    Secretary.SecretaryEntity ..> Secretary.StudentEntity
+    Secretary.SecretaryEntity ..> Secretary.GradeEntity
+    Secretary.SecretaryEntity ..> Secretary.ReportEntity
+    Secretary.SecretaryEntity ..> Secretary.TeacherEntity
 
-    StudentEntities ..> StudentEntity
-    TeacherEntities ..> TeacherEntity
+    Secretary.StudentEntities ..> Secretary.StudentEntity
+    Secretary.TeacherEntities ..> Secretary.TeacherEntity
+
+    Secretary.TeacherEntity ..> Secretary.GradeEntity
 }
 
 package Management{
-    entity PastorEntity <<Model>>
-    entity ReportEntity <<Model>>
-    entity CalendarEntity <<Model>>
-    entity PrincipalEntity <<Model>>
-    entity DeputyPrincipalEntity <<Model>>
+    entity Management.ReportEntity as "ReportEntity"
+    entity Management.CalendarEntity as "CalendarEntity"
+    entity Management.PrincipalEntity as "PrincipalEntity"
+    entity Management.DeputyPrincipalEntity as "DeputyPrincipalEntity"
     
-    Models.Academy.TeacherEntity <|-- PastorEntity
-    DeputyPrincipalEntity --> CalendarEntity
-    PrincipalEntity ..> ReportEntity
-    PrincipalEntity ..> CalendarEntity
+    Management.DeputyPrincipalEntity --> Management.CalendarEntity
+    Management.PrincipalEntity ..> Management.ReportEntity
+    Management.PrincipalEntity ..> Management.CalendarEntity
 }
     
 package Accounting{
-    entity ReportEntity <<Model>>
-    entity StudentEntity <<Model>>
-    entity CashierEntity <<Model>>
-    entity TariffEntities <<Model>>
-    entity StudentEntities <<Model>>
-    entity TransactionEntity <<Model>>
-    entity AccountingBoxEntity <<Model>>
+    entity Accounting.ReportEntity as "ReportEntity"
+    entity Accounting.StudentEntity as "StudentEntity"
+    entity Accounting.CashierEntity as "CashierEntity"
+    entity Accounting.TariffEntities as "TariffEntities"
+    entity Accounting.StudentEntities as "StudentEntities"
+    entity Accounting.TransactionEntity as "TransactionEntity"
+    entity Accounting.AccountingBoxEntity as "AccountingBoxEntity"
 
-    StudentEntity --> StudentEntity
+    Accounting.StudentEntity --> Other.StudentEntity
 
-    CashierEntity --> AccountingBoxEntity
-    CashierEntity --> TransactionEntity
-    AccountingBoxEntity --* TransactionEntity
-    StudentEntity --* TransactionEntity
+    Accounting.CashierEntity --> Accounting.AccountingBoxEntity
+    Accounting.CashierEntity --> Accounting.TransactionEntity
+    Accounting.CashierEntity --> Accounting.ReportEntity
+    Accounting.CashierEntity --> Accounting.TariffEntities
+    Accounting.CashierEntity --> Accounting.StudentEntities
+
+    Accounting.StudentEntities ..> Accounting.StudentEntity
+    Accounting.AccountingBoxEntity --* Accounting.TransactionEntity
+    Accounting.StudentEntity --* Accounting.TransactionEntity
 }
+
+Academy.EnrollmentEntity --> Secretary.EnrollmentEntity
 
 }
 @enduml
