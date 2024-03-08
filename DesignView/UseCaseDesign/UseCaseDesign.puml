@@ -1,38 +1,39 @@
 @startuml
-allow_mixing
 title Generic UseCase Analysis
 
-namespace analysis {
+package analysis <<PlantUML>>{
     boundary xView
     control xController
     entity xEntity
-    entity xDAO
+    entity xEntities
 
     xView --> xController
     xController ..> xEntity
-    xController ..> xDAO
+    xController ..> xEntities
 }
 
-namespace front{
-    boundary "xView - Blazor" as xViewF
-    boundary "xView - Blazor" as xViewF
-    control "xController - Blazro" as xControllerF
-    entity "xEntity - Blazor" as xEntity
-    entity "xDAO - Blazor" as xDAO
+package front <<Blazor>>{
+    boundary xTemplate <<HTML>>
+    boundary xStyle <<CSS>>
+    boundary xComponent <<C#>>
+    entity xDTO <<C#>>
 
-    xViewF --> xControllerF
-    xControllerF ..> xEntity
-    xControllerF ..> xDAO
+    xComponent ..> xDTO
+    xComponent ..> xTemplate
+    xTemplate ..> xStyle
 }
 
-namespace back{
-    boundary "xView - C#" as xViewB
-    control "xController - C#" as xControllerB
-    entity "xEntity - C#" as xEntity
-    entity "xDAO - C#" as xDAO
+package back <<.net 7>>{
+    control b.xController as "xController" <<C#>>
+    entity b.xEntity as "xEntity" <<C#>>
+    entity b.xDTO as "xDTO" <<C#>>
 
-    xViewB --> xControllerB
-    xControllerB ..> xEntity
-    xControllerB ..> xDAO
+    b.xController ..> b.xEntity
+    b.xDTO ..> b.xEntity
 }
+
+xTemplate .up.> xView : <<trace>>
+b.xController .up.> xController : <<trace>>
+b.xEntity .up.> xEntity : <<trace>>
+xDTO ..> b.xDTO : <<trace>>
 @enduml
