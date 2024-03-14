@@ -1,0 +1,60 @@
+@startuml
+
+hide circle
+skinparam linetype ortho
+
+entity "Student" as student
+{
+    * studentId : string <<PK>>
+    * enrolmentId : string <<FK>>
+    --
+    * name : string
+    secondName : string
+    * surname : string
+    secondSurname : string
+    sex : bool
+    * birthday : date
+}
+
+entity "Transaction" as transaction
+{
+    * transactionId : string <<generated>> 
+    * studentId : string <<FK>>
+    * cashierId : string <<FK>>
+    --
+    * concept : string
+    * total : float
+    * date : date
+    * discount : float
+}
+
+entity "Cashier" as cashier 
+{
+    * cashierId : string <<PK>>
+    --
+    * name : string
+    * surname : string
+    sex : bool
+}
+
+entity "Tariff" as tariff
+{
+    * tariffId : string <<generated>>
+    --
+    concept : string
+    mount : float
+}
+
+entity "Tariff Transaction" as tariffTransaction
+{
+    * transactionId : string <<FK>>
+    * tariffId : string <<FK>>
+}
+
+student ||..o{transaction
+cashier ||..o{transaction
+
+transaction ||..o{ tariffTransaction
+tariff ||..o{ tariffTransaction
+
+@enduml

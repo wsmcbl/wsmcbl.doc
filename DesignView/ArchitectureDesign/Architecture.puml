@@ -2,35 +2,44 @@
 
 left to right direction
 node Client
-node webClient
-node webServer
+node WebClient
+node WebServer
+node Server
+node DataBaseServer
 
-Client <|-right- webClient
-Client -- webServer : https
+Client <|-right- WebClient
+Client -- WebServer : https
+WebServer -- Server : https
+Server -- DataBaseServer : EF Core
+
 
 newpage
 
 package Deploy{
     node Client
-    node webClient
-    node webServer
+    node WebClient
+    node WebServer
+    node Server
+    node DataBaseServer
 
-    Client <|-down- webClient
-    Client -right- webServer : https
+    Client <|-- WebClient
+    Client -right- WebServer : https
+    WebServer -right- Server : https
+    Server -right- DataBaseServer : EF Core
 }
 
-component c.browser as "browser"
-component api.wsmcbl as "API wsmcbl"
-component c.dataBaseServer as "dataBaseServer"
-component c.webServer as "webServer"
+component browser as "browser"
+component api as "API wsmcbl.back.dll" <<server>>
+component database as "Data Base" <<server>>
+component web as "Web wsmcbl.front.dll" <<Server>>
 
-webServer *--> c.webServer
-webClient *--> c.browser
-webServer *--> api.wsmcbl
-webServer *--> c.dataBaseServer
+WebClient *--> browser
+WebServer *--> web
+Server *--> api
+DataBaseServer *--> database
 
-c.browser ..> c.webServer : <<use>>
-c.webServer .right.> api.wsmcbl : <<use>>
-api.wsmcbl .right.> c.dataBaseServer : <<use>>
+browser .right.> web : <<use>>
+web .right.> api : <<use>>
+api .right.> database : <<use>>
 
 @enduml

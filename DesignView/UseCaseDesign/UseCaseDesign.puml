@@ -1,6 +1,24 @@
 @startuml
 title Generic UseCase Analysis
 
+skinparam boundary {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+    BorderThickness 1.5
+}
+
+skinparam control {
+    BackgroundColor #ff7276
+    BorderColor DarkRed
+    BorderThickness 1.5
+}
+
+skinparam entity {
+    BackgroundColor LightGreen
+    BorderColor DarkGreen
+    BorderThickness 1.5
+}
+
 package analysis <<PlantUML>>{
     boundary xView
     control xController
@@ -8,7 +26,7 @@ package analysis <<PlantUML>>{
     entity xEntities
 
     xView --> xController
-    xController ..> xEntity
+    xController .-> xEntity
     xController ..> xEntities
 }
 
@@ -16,24 +34,40 @@ package front <<Blazor>>{
     boundary xTemplate <<HTML>>
     boundary xStyle <<CSS>>
     boundary xComponent <<C#>>
-    entity xDTO <<C#>>
+    entity xDto <<C#>>
 
-    xComponent ..> xDTO
+    xComponent ..> xDto
     xComponent ..> xTemplate
     xTemplate ..> xStyle
 }
 
-package back <<.net 7>>{
+package back <<.net 8>>{
+    control xAction
     control b.xController as "xController" <<C#>>
+
+    entity b.xDto as "xDto" <<C#>>
     entity b.xEntity as "xEntity" <<C#>>
-    entity b.xDTO as "xDTO" <<C#>>
+    entity b.xEntities as "xEntities" <<C#>>
+    entity xDao <<C#>>
 
+    xAction ..> b.xController
+    xAction .left.> b.xDto
     b.xController ..> b.xEntity
-    b.xDTO ..> b.xEntity
+    b.xController ..> b.xEntities
+    b.xDto ..> b.xEntity
+    b.xEntities .left.> b.xEntity
+    b.xEntities ..> xDao
 }
-
-xTemplate .up.> xView : <<trace>>
+' Trace analysis-back
+xAction .up.> xController : <<trace>>
 b.xController .up.> xController : <<trace>>
 b.xEntity .up.> xEntity : <<trace>>
-xDTO ..> b.xDTO : <<trace>>
+b.xEntities .up.> xEntities : <<trace>>
+
+
+' Trace analysis-front
+xComponent .up.> xView : <<trace>>
+xTemplate .up.> xView : <<trace>>
+xDto .up.> xEntity : <<trace>>
+
 @enduml
