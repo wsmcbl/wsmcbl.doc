@@ -3,67 +3,175 @@
 hide circle
 skinparam linetype ortho
 
-entity "Academy.Enrollment" as enrollment
+entity "User" AS USER
 {
-    * enrollmentId : varchar(20) <<PK>>
+    * userId : numeric <<FK>>
     --
-    * grade : numeric
-    * section : varchar(2)
+    * name : varchar(45)
+    secondName : varchar(45)
+    * surname : varchar(45)
+    secondName : varchar (45)
+    * userName : varchar(45)
+    * password : varchar(100)
+    email : varchar(45)
+    * userState : bool
 }
 
-entity "Accounting.Student" as student
+entity "roles" AS ROLES
+{
+    * rolId : numeric <<PK>>
+    --
+    * nameRol : varchar(45)
+}
+
+entity "permissions" AS PERMISSIONS
+{
+    * permissionsId : numeric <<PK>>
+    --
+    * namePermission : varchar(45)
+}
+
+entity "roles_permissions" AS ROLES_PERMISSIONS
+{
+    * rolesId : numeric <<FK>>
+    --
+    * permissionsId : numeric <<FK>>
+}
+
+entity "user_roles" AS USER_ROLES
+{
+    userId : numeric <<PK>>
+    rolesId : numeric <<PK>>
+}
+
+'////////////////////////////////////////////////
+entity "Academy.Enrollment" as ENROLLMENT
+{
+    * enrollmentId : numeric <<PK>>
+    --
+    enrollmentLabel : varchar(20)
+    * section : varchar(2)
+    * shoolYear : varchar(6)
+    capacity : numeric
+    cuantity : numeric
+    * gradeId : varchar(15) <<FK>>
+}
+
+entity "Academy.Grade" AS GRADE
+{
+    *gradeId : varchar(15) <<PK>>
+    --
+    schoolYear : varchar(6)
+}
+
+entity "Academy.Subject" AS SUBJECT
+{
+    subjectId : numeric <<PK>>
+    --
+    name : varchar(45)
+    gradeId : numeric <<Fk>>
+}
+
+entity "Academy.Teacher" AS TEACHER
+{
+    teacherId : numeric <<PK>>
+    --
+    enrollmentId : varchar(20) <<FK>>
+    userId : numeric <<FK>>
+}
+
+entity "teacher_enrollment" AS TEACHER_ENROLLMENT
+{
+    * id : numeric <<PK>>
+    * teacherId : numeric <<FK>>
+    * subjectId : numeric <<FK>>
+    * enrollmentId : numeric <<FK>>
+}
+
+entity "Student" as STUDENT
 {
     * studentId : varchar(20) <<PK>>
-    * enrolmentId : varchar(20) <<FK>>
     --
     * name : varchar(50)
     secondName : varchar(50)
     * surname : varchar(50)
     secondSurname : varchar(50)
-    schoolYear : varchar(4)
+    * studentState : bool
+    * schoolYear : varchar(4)
     tutor : varchar(100)
+    * sex : bool
+    * birthday : Datetime
+    enrollmentId numeric <<FK>>
 }
 
-entity "Accounting.Transaction" as transaction
+entity "Student_Enrollment" AS STUDENT_ENROLLMENT
 {
-    * transactionId : varchar(20) <<PK>> 
-    * studentId : varchar(20) <<FK>>
-    * cashierId : varchar(20) <<FK>>
-    --
-    * concept : varchar(200)
-    * total : float
-    * date : date
-    * discount : float
+    id : numeric <<FK>>
+    studentId : numeric <<FK>>
+    enrollmentId : numeric <FK>
+    gradeId : numeric <FK>
+    schoolYear : varchar
 }
 
-entity "Accounting.Cashier" as cashier 
+entity "Accounting.Cashier" as CASHIER 
 {
     * cashierId : varchar(20) <<PK>>
     --
-    * name : varchar(50)
-    * surname : varchar(50)
-    sex : bool
+    * userId : numeric <FK>
 }
 
-entity "Accounting.Tariff" as tariff
+entity "Accounting.Tariff" as TARIFF
 {
     * tariffId : numeric <<generated>>
     --
-    concept : varchar(200)
-    mount : float
+    * concept : varchar(200)
+    * mount : float
 }
 
-entity "Accounting.Tariff_Transaction" as tariffTransaction
+entity "Accounting.Tariff_Transaction" as TARIFF_TRANSACTION
 {
     * transactionId : varchar(20) <<FK>>
     * tariffId : varchar(20) <<FK>>
 }
 
-enrollment ||..o{student
-student ||..o{transaction
-cashier ||..o{transaction
 
-transaction ||..o{ tariffTransaction
-tariff ||..o{ tariffTransaction
+entity "Accounting.Transaction" as TRANSACTION
+{
+    * transactionId : varchar(20) <<PK>> 
+    --
+    * concept : varchar(200)
+    * total : float
+    * date : date
+    * discount : float
+    * studentId : varchar(20) <<FK>>
+    * cashierId : varchar(20) <<FK>>
+}
+
+
+
+
+ENROLLMENT }..|| GRADE
+SUBJECT }..|| GRADE
+TEACHER ||..|| ENROLLMENT
+SUBJECT ||..|| TEACHER_ENROLLMENT
+ENROLLMENT ||..{TEACHER_ENROLLMENT
+TEACHER ||..{TEACHER_ENROLLMENT
+
+STUDENT ||..{ TRANSACTION
+
+USER ||..{ USER_ROLES
+ROLES ||..{USER_ROLES
+ROLES ||..{ ROLES_PERMISSIONS
+PERMISSIONS ||..{ ROLES_PERMISSIONS
+
+CASHIER ||..{ TRANSACTION
+TARIFF }..|| TARIFF_TRANSACTION
+TRANSACTION }..|| TARIFF_TRANSACTION
+
+STUDENT ||..{ STUDENT_ENROLLMENT
+ENROLLMENT ||..{ STUDENT_ENROLLMENT
+
+USER ||..||CASHIER
+USER ||..|| TEACHER
 
 @enduml
