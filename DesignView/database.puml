@@ -3,6 +3,45 @@
 hide circle
 skinparam linetype ortho
 
+package Accounting{
+
+entity "Cashier" as CASHIER 
+{
+    * cashierId : varchar(20) <<PK>>
+    --
+    * userId : numeric <FK>
+}
+
+entity "Tariff" as TARIFF
+{
+    * tariffId : numeric <<generated>>
+    --
+    * concept : varchar(200)
+    * mount : float
+}
+
+entity "Tariff_Transaction" as TARIFF_TRANSACTION
+{
+    * transactionId : varchar(20) <<FK>>
+    * tariffId : varchar(20) <<FK>>
+    --
+    * mount : float
+}
+
+entity "Transaction" as TRANSACTION
+{
+    * transactionId : varchar(20) <<PK>> 
+    --
+    * concept : varchar(200)
+    * total : float
+    * date : date
+    * discount : float
+    * studentId : varchar(20) <<FK>>
+    * cashierId : varchar(20) <<FK>>
+}
+
+}
+
 entity "User" AS USER
 {
     * userId : numeric <<FK>>
@@ -16,7 +55,7 @@ entity "User" AS USER
     email : varchar(45)
     * userState : bool
 }
-
+ 
 entity "roles" AS ROLES
 {
     * rolId : numeric <<PK>>
@@ -45,7 +84,10 @@ entity "user_roles" AS USER_ROLES
 }
 
 '////////////////////////////////////////////////
-entity "Academy.Enrollment" as ENROLLMENT
+
+package Academy{
+
+    entity "Enrollment" as ENROLLMENT
 {
     * enrollmentId : numeric <<PK>>
     --
@@ -57,14 +99,14 @@ entity "Academy.Enrollment" as ENROLLMENT
     * gradeId : varchar(15) <<FK>>
 }
 
-entity "Academy.Grade" AS GRADE
+entity "Grade" AS GRADE
 {
     *gradeId : varchar(15) <<PK>>
     --
     schoolYear : varchar(6)
 }
 
-entity "Academy.Subject" AS SUBJECT
+entity "Subject" AS SUBJECT
 {
     subjectId : numeric <<PK>>
     --
@@ -72,7 +114,7 @@ entity "Academy.Subject" AS SUBJECT
     gradeId : numeric <<Fk>>
 }
 
-entity "Academy.Teacher" AS TEACHER
+entity "Teacher" AS TEACHER
 {
     teacherId : numeric <<PK>>
     --
@@ -88,6 +130,7 @@ entity "teacher_enrollment" AS TEACHER_ENROLLMENT
     * enrollmentId : numeric <<FK>>
 }
 
+}
 entity "Student" as STUDENT
 {
     * studentId : varchar(20) <<PK>>
@@ -111,40 +154,6 @@ entity "Student_Enrollment" AS STUDENT_ENROLLMENT
     enrollmentId : numeric <FK>
     gradeId : numeric <FK>
     schoolYear : varchar
-}
-
-entity "Accounting.Cashier" as CASHIER 
-{
-    * cashierId : varchar(20) <<PK>>
-    --
-    * userId : numeric <FK>
-}
-
-entity "Accounting.Tariff" as TARIFF
-{
-    * tariffId : numeric <<generated>>
-    --
-    * concept : varchar(200)
-    * mount : float
-}
-
-entity "Accounting.Tariff_Transaction" as TARIFF_TRANSACTION
-{
-    * transactionId : varchar(20) <<FK>>
-    * tariffId : varchar(20) <<FK>>
-}
-
-
-entity "Accounting.Transaction" as TRANSACTION
-{
-    * transactionId : varchar(20) <<PK>> 
-    --
-    * concept : varchar(200)
-    * total : float
-    * date : date
-    * discount : float
-    * studentId : varchar(20) <<FK>>
-    * cashierId : varchar(20) <<FK>>
 }
 
 
