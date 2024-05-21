@@ -29,13 +29,14 @@ component Document #ED820E
 
 
 package " " #D4D4D4 {
-    component "C# CLI"
-    component "Visual Studio"
+    component ".net 8"
+    component "Visual Studio Code"
+    component "Rider"
     component GitHub
     component "GitHub Actions"
     component "Sonar Cloud"
     component Codacy
-    component "Other *"
+    component "Somee"
     component "GitHub Wiki"
     component "GitHub Projects"
 }
@@ -58,14 +59,15 @@ package " " #D4D4D4 {
 [Deploy] -left-> [Code\n Repository]
 [Deploy] -> [Data Base]
 
-[C# CLI] -up-|> [Builder]
-[Visual Studio] -up-|> [IDE]
+[.net 8] -up-|> [Builder]
+[Visual Studio Code] -up-|> [IDE]
+[Rider] -up-|> [IDE]
 [GitHub] -up-|> [Code\n Repository]
 [GitHub Actions] -up-|> [CI]
 [Sonar Cloud] -up-|> [Software\n Quality]
 [Codacy] -up-|> [Software\n Quality]
-[Other *] -up-|> [Deploy]
-[Other *] -up-|> [Data Base]
+[Somee] -up-|> [Deploy]
+[Somee] -up-|> [Data Base]
 [GitHub Projects] -up-|> [Manager]
 [GitHub Wiki] -up-|> [Document]
 
