@@ -47,22 +47,20 @@ package back <<.net 8>>{
 
     entity b.xDto as "xDto" <<C#>>
     entity b.xEntity as "xEntity" <<C#>>
-    entity b.xEntities as "xEntities" <<C#>>
     entity xDao <<C#>>
 
     xAction ..> b.xController
     xAction .left.> b.xDto
     b.xController ..> b.xEntity
-    b.xController ..> b.xEntities
+    b.xController ..> xDao
     b.xDto ..> b.xEntity
-    b.xEntities .left.> b.xEntity
-    b.xEntities ..> xDao
+    xDao .left.> b.xEntity
 }
 ' Trace analysis-back
 xAction .up.> xController : <<trace>>
 b.xController .up.> xController : <<trace>>
 b.xEntity .up.> xEntity : <<trace>>
-b.xEntities .up.> xEntities : <<trace>>
+xDao .up.> xEntities : <<trace>>
 
 
 ' Trace analysis-front

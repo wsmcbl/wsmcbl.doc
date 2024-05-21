@@ -1,186 +1,203 @@
 @startuml
 
+title WSMCBL DataBase
+
 hide circle
 skinparam linetype ortho
-
-package Accounting{
-
-entity "Cashier" as CASHIER 
+package Config #LightGray
 {
-    * cashierId : varchar(20) <<PK>>
-    --
-    * userId : numeric <FK>
+    entity User
+    {
+        * userId : numeric <<FK>>
+        --
+        * name : varchar(45)
+        secondName : varchar(45)
+        * surname : varchar(45)
+        secondName : varchar (45)
+        * userName : varchar(45)
+        * password : varchar(100)
+        email : varchar(45)
+        * userState : bool
+    }
+
+    entity Roles
+    {
+        * rolId : numeric <<PK>>
+        --
+        * nameRol : varchar(45)
+    }
+
+    entity Permissions
+    {
+        * permissionsId : numeric <<PK>>
+        --
+        * namePermission : varchar(45)
+    }
+
+    entity Roles_Permissions
+    {
+        * rolesId : numeric <<FK>>
+        --
+        * permissionsId : numeric <<FK>>
+    }
+
+    entity User_Roles
+    {
+        userId : numeric <<PK>>
+        rolesId : numeric <<PK>>
+    }
+
+    User ||..{User_Roles
+    Roles ||..{User_Roles
+    Roles ||..{Roles_Permissions
+    Permissions ||..{Roles_Permissions
 }
 
-entity "Tariff" as TARIFF
+package Secretary #ff9800
 {
-    * tariffId : numeric <<generated>>
-    --
-    * concept : varchar(200)
-    * mount : float
+    entity Student
+    {
+        * studentId : varchar(20) <<PK>>
+        --
+        * name : varchar(50)
+        secondName : varchar(50)
+        * surname : varchar(50)
+        secondSurname : varchar(50)
+        * studentState : bool
+        * schoolYear : varchar(4)
+        tutor : varchar(100)
+        * sex : bool
+        * birthday : Datetime
+        enrollmentId : numeric <<FK>>
+        dicountId : int <<FK>>
+    }
+
+    entity Student_Enrollment
+    {
+        * id : numeric <<FK>>
+        * schoolYear : varchar
+        --
+        * studentId : numeric <<FK>>
+        * enrollmentId : numeric <FK>
+    }
+
+    Student ||..{ Student_Enrollment
 }
 
-entity "Tariff_Transaction" as TARIFF_TRANSACTION
+package Accounting #LightBlue
 {
-    * transactionId : varchar(20) <<FK>>
-    * tariffId : varchar(20) <<FK>>
-    --
-    * mount : float
+    entity Cashier
+    {
+        * cashierId : varchar(20) <<PK>>
+        --
+        * userId : numeric <FK>
+    }
+
+    entity Tariff
+    {
+        * tariffId : numeric <<generated>>
+        * schoolYear : varchar(4)
+        --
+        * concept : varchar(200)
+        * amount : float
+        dueDate : datetime
+        late : bool
+    }
+
+    entity Tariff_Transaction
+    {
+        * transactionId : varchar(20) <<FK>>
+        * tariffId : varchar(20) <<FK>>
+        --
+        * mount : float
+        discount : float
+        arreas : float
+    }
+
+    entity Transaction
+    {
+        * transactionId : varchar(20) <<PK>>
+        --
+        * total : float
+        * date : datetime
+        * studentId : varchar(20) <<FK>>
+        * cashierId : varchar(20) <<FK>>
+    }
+
+    entity Discount
+    {
+        * discountId: int <<FK>>
+        --
+        * description: varchar(200)
+        * mount: float
+        tag: varchar(200)
+    }
+
+    Cashier ||..{Transaction
+    Tariff}..|| Tariff_Transaction
+    Transaction}..|| Tariff_Transaction
 }
 
-entity "Transaction" as TRANSACTION
+package Academy #LightGreen
 {
-    * transactionId : varchar(20) <<PK>> 
-    --
-    * concept : varchar(200)
-    * total : float
-    * date : date
-    * discount : float
-    * studentId : varchar(20) <<FK>>
-    * cashierId : varchar(20) <<FK>>
-}
+    entity Enrollment
+    {
+        * enrollmentId : numeric <<PK>>
+        --
+        enrollmentLabel : varchar(20)
+        * section : varchar(2)
+        * shoolYear : varchar(6)
+        capacity : numeric
+        cuantity : numeric
+        * gradeId : varchar(15) <<FK>>
+    }
 
-}
+    entity Grade
+    {
+        *gradeId : varchar(15) <<PK>>
+        --
+        schoolYear : varchar(6)
+    }
 
-entity "User" AS USER
-{
-    * userId : numeric <<FK>>
-    --
-    * name : varchar(45)
-    secondName : varchar(45)
-    * surname : varchar(45)
-    secondName : varchar (45)
-    * userName : varchar(45)
-    * password : varchar(100)
-    email : varchar(45)
-    * userState : bool
-}
- 
-entity "roles" AS ROLES
-{
-    * rolId : numeric <<PK>>
-    --
-    * nameRol : varchar(45)
-}
+    entity Subject
+    {
+        subjectId : numeric <<PK>>
+        --
+        name : varchar(45)
+        gradeId : numeric <<Fk>>
+    }
 
-entity "permissions" AS PERMISSIONS
-{
-    * permissionsId : numeric <<PK>>
-    --
-    * namePermission : varchar(45)
-}
+    entity Teacher
+    {
+        teacherId : numeric <<PK>>
+        --
+        enrollmentId : varchar(20) <<FK>>
+        userId : numeric <<FK>>
+    }
 
-entity "roles_permissions" AS ROLES_PERMISSIONS
-{
-    * rolesId : numeric <<FK>>
-    --
-    * permissionsId : numeric <<FK>>
-}
+    entity Teacher_Enrollment
+    {
+        * id : numeric <<PK>>
+        --
+        * teacherId : numeric <<FK>>
+        * subjectId : numeric <<FK>>
+        * enrollmentId : numeric <<FK>>
+    }
 
-entity "user_roles" AS USER_ROLES
-{
-    userId : numeric <<PK>>
-    rolesId : numeric <<PK>>
-}
-
-'////////////////////////////////////////////////
-
-package Academy{
-
-    entity "Enrollment" as ENROLLMENT
-{
-    * enrollmentId : numeric <<PK>>
-    --
-    enrollmentLabel : varchar(20)
-    * section : varchar(2)
-    * shoolYear : varchar(6)
-    capacity : numeric
-    cuantity : numeric
-    * gradeId : varchar(15) <<FK>>
-}
-
-entity "Grade" AS GRADE
-{
-    *gradeId : varchar(15) <<PK>>
-    --
-    schoolYear : varchar(6)
-}
-
-entity "Subject" AS SUBJECT
-{
-    subjectId : numeric <<PK>>
-    --
-    name : varchar(45)
-    gradeId : numeric <<Fk>>
-}
-
-entity "Teacher" AS TEACHER
-{
-    teacherId : numeric <<PK>>
-    --
-    enrollmentId : varchar(20) <<FK>>
-    userId : numeric <<FK>>
-}
-
-entity "teacher_enrollment" AS TEACHER_ENROLLMENT
-{
-    * id : numeric <<PK>>
-    * teacherId : numeric <<FK>>
-    * subjectId : numeric <<FK>>
-    * enrollmentId : numeric <<FK>>
-}
-
-}
-entity "Student" as STUDENT
-{
-    * studentId : varchar(20) <<PK>>
-    --
-    * name : varchar(50)
-    secondName : varchar(50)
-    * surname : varchar(50)
-    secondSurname : varchar(50)
-    * studentState : bool
-    * schoolYear : varchar(4)
-    tutor : varchar(100)
-    * sex : bool
-    * birthday : Datetime
-    enrollmentId numeric <<FK>>
-}
-
-entity "Student_Enrollment" AS STUDENT_ENROLLMENT
-{
-    id : numeric <<FK>>
-    studentId : numeric <<FK>>
-    enrollmentId : numeric <FK>
-    gradeId : numeric <FK>
-    schoolYear : varchar
+    Enrollment}..|| Grade
+    Subject}..|| Grade
+    Teacher ||..|| Enrollment
+    Teacher ||..{ Teacher_Enrollment
+    Subject ||.up.|| Teacher_Enrollment
+    Enrollment ||..{ Teacher_Enrollment
 }
 
 
 
-
-ENROLLMENT }..|| GRADE
-SUBJECT }..|| GRADE
-TEACHER ||..|| ENROLLMENT
-SUBJECT ||..|| TEACHER_ENROLLMENT
-ENROLLMENT ||..{TEACHER_ENROLLMENT
-TEACHER ||..{TEACHER_ENROLLMENT
-
-STUDENT ||..{ TRANSACTION
-
-USER ||..{ USER_ROLES
-ROLES ||..{USER_ROLES
-ROLES ||..{ ROLES_PERMISSIONS
-PERMISSIONS ||..{ ROLES_PERMISSIONS
-
-CASHIER ||..{ TRANSACTION
-TARIFF }..|| TARIFF_TRANSACTION
-TRANSACTION }..|| TARIFF_TRANSACTION
-
-STUDENT ||..{ STUDENT_ENROLLMENT
-ENROLLMENT ||..{ STUDENT_ENROLLMENT
-
-USER ||..||CASHIER
-USER ||..|| TEACHER
+Student ||.left.{ Transaction
+Student ||..{ Discount
+Enrollment ||..{ Student_Enrollment
+User ||..|| Cashier
+User ||.left.|| Teacher
 
 @enduml
