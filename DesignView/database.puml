@@ -4,6 +4,8 @@ title WSMCBL DataBase
 
 hide circle
 skinparam linetype ortho
+
+
 package Config #LightGray
 {
     entity User
@@ -67,18 +69,18 @@ package Secretary #ff9800
         * schoolYear : varchar(4)
         tutor : varchar(100)
         * sex : bool
-        * birthday : Datetime
-        enrollmentId : numeric <<FK>>
+        * birthday : Date
+        enrollmentId : varchar(15) <<FK>>
         dicountId : int <<FK>>
     }
 
     entity Student_Enrollment
     {
         * id : numeric <<FK>>
-        * schoolYear : varchar
+        * schoolYear : varchar(4)
         --
-        * studentId : numeric <<FK>>
-        * enrollmentId : numeric <FK>
+        * studentId : varchar(15) <<FK>>
+        * enrollmentId : varchar(15) <FK>
     }
 
     Student ||..{ Student_Enrollment
@@ -109,9 +111,9 @@ package Accounting #LightBlue
         * transactionId : varchar(20) <<FK>>
         * tariffId : varchar(20) <<FK>>
         --
-        * mount : float
+        * amount : float
         discount : float
-        arreas : float
+        arrears : float
     }
 
     entity Transaction
@@ -126,11 +128,11 @@ package Accounting #LightBlue
 
     entity Discount
     {
-        * discountId: int <<FK>>
+        * discountId: smallint <<FK>>
         --
         * description: varchar(200)
-        * mount: float
-        tag: varchar(200)
+        * amount: float
+        tag: varchar(50)
     }
 
     Cashier ||..{Transaction
@@ -161,27 +163,27 @@ package Academy #LightGreen
 
     entity Subject
     {
-        subjectId : numeric <<PK>>
+        subjectId : varchar(15) <<PK>>
         --
-        name : varchar(45)
-        gradeId : numeric <<Fk>>
+        name : varchar(100)
+        gradeId : varchar(15) <<Fk>>
     }
 
     entity Teacher
     {
-        teacherId : numeric <<PK>>
+        * teacherId : varchar(15) <<PK>>
         --
         enrollmentId : varchar(20) <<FK>>
-        userId : numeric <<FK>>
+        * userId : numeric <<FK>>
     }
 
     entity Teacher_Enrollment
     {
-        * id : numeric <<PK>>
+        * id : varchar(15) <<PK>>
         --
-        * teacherId : numeric <<FK>>
-        * subjectId : numeric <<FK>>
-        * enrollmentId : numeric <<FK>>
+        * teacherId : varchar(15) <<FK>>
+        * subjectId : varchar(15) <<FK>>
+        * enrollmentId : varchar(20) <<FK>>
     }
 
     Enrollment}..|| Grade
