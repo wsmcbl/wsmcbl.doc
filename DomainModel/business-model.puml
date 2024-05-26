@@ -1,5 +1,5 @@
 @startuml
-skinparam BackgroundColor transparent
+'skinparam BackgroundColor transparent
 
 state "Padre \nde Faimlia" as cliente
 state Secretaria

@@ -95,6 +95,13 @@ package Accounting #LightBlue
         * userId : numeric <FK>
     }
 
+    entity TariffType
+    {
+        * typeId : numeric <<generated>>
+        --
+        * description: varchar(50)
+    }
+
     entity Tariff
     {
         * tariffId : numeric <<generated>>
@@ -104,6 +111,7 @@ package Accounting #LightBlue
         * amount : float
         dueDate : datetime
         late : bool
+        * typeId : numeric <<FK>>
     }
 
     entity Tariff_Transaction
@@ -114,6 +122,7 @@ package Accounting #LightBlue
         * amount : float
         discount : float
         arrears : float
+        * subTotal : float
     }
 
     entity Transaction
@@ -138,6 +147,7 @@ package Accounting #LightBlue
     Cashier ||..{Transaction
     Tariff}..|| Tariff_Transaction
     Transaction}..|| Tariff_Transaction
+    Tariff ||..{ TariffType
 }
 
 package Academy #LightGreen

@@ -37,7 +37,8 @@ package " " #D4D4D4 {
     component "Sonar Cloud"
     component Codacy
     component "Somee"
-    component "GitHub Wiki"
+    component "Railway"
+    component "GitHub (PlantUML)"
     component "GitHub Projects"
 }
 
@@ -67,9 +68,9 @@ package " " #D4D4D4 {
 [Sonar Cloud] -up-|> [Software\n Quality]
 [Codacy] -up-|> [Software\n Quality]
 [Somee] -up-|> [Deploy]
-[Somee] -up-|> [Data Base]
+[Railway] -up-|> [Data Base]
 [GitHub Projects] -up-|> [Manager]
-[GitHub Wiki] -up-|> [Document]
+[GitHub (PlantUML)] -up-|> [Document]
 
 '[GitHub Actions] ..> [Sonar Cloud]
 '[GitHub Actions] ..> [Railway]
