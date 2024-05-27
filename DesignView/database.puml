@@ -71,7 +71,6 @@ package Secretary #ff9800
         * sex : bool
         * birthday : Date
         enrollmentId : varchar(15) <<FK>>
-        dicountId : int <<FK>>
     }
 
     entity Student_Enrollment
@@ -144,10 +143,19 @@ package Accounting #LightBlue
         tag: varchar(50)
     }
 
+    entity Student
+    {
+        * studentId : varchar(20) <<PK>>
+        --
+        dicountId : int <<FK>>
+    }
+
     Cashier ||..{Transaction
     Tariff}..|| Tariff_Transaction
     Transaction}..|| Tariff_Transaction
     Tariff ||..{ TariffType
+    Student ||.left.{ Transaction
+    Student ||..{ Discount
 }
 
 package Academy #LightGreen
@@ -200,14 +208,11 @@ package Academy #LightGreen
     Subject}..|| Grade
     Teacher ||..|| Enrollment
     Teacher ||..{ Teacher_Enrollment
-    Subject ||.up.|| Teacher_Enrollment
+    Subject ||..|| Teacher_Enrollment
     Enrollment ||..{ Teacher_Enrollment
 }
 
-
-
-Student ||.left.{ Transaction
-Student ||..{ Discount
+Secretary.Student ||..|| Accounting.Student
 Enrollment ||..{ Student_Enrollment
 User ||..|| Cashier
 User ||.left.|| Teacher

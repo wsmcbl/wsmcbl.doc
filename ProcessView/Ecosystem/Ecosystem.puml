@@ -72,7 +72,5 @@ package " " #D4D4D4 {
 [GitHub Projects] -up-|> [Manager]
 [GitHub (PlantUML)] -up-|> [Document]
 
-'[GitHub Actions] ..> [Sonar Cloud]
-'[GitHub Actions] ..> [Railway]
 
 @enduml
