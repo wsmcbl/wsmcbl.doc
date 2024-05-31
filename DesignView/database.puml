@@ -82,7 +82,25 @@ package Secretary #ff9800
         * enrollmentId : varchar(15) <FK>
     }
 
+    entity Schoolyear
+    {
+        * schoolyearId : varchar(20) <<PK>>
+        --
+        * label : varchar(100)
+        * startdate : date
+        * deadline : date
+        isActive : bool
+    }
+
+    entity Schoolyear_Student
+    {
+        * schoolyearId : varchar(20) 
+        * studentId : varchar(20)
+    }
+
     Student ||..{ Student_Enrollment
+    Student ||..{ Schoolyear_Student
+    Schoolyear ||..{ Schoolyear_Student
 }
 
 package Accounting #LightBlue
@@ -150,12 +168,22 @@ package Accounting #LightBlue
         dicountId : int <<FK>>
     }
 
+    entity DebtHistory
+    {
+        * studentId : varchar(20) <<FK>>
+        * tariffId : int <<FK>>
+        --
+        * isPaid : bool
+    }
+
     Cashier ||..{Transaction
-    Tariff}..|| Tariff_Transaction
-    Transaction}..|| Tariff_Transaction
     Tariff ||..{ TariffType
+    Tariff ||.up.{ DebtHistory
+    Tariff ||..{ Tariff_Transaction
     Student ||.left.{ Transaction
     Student ||..{ Discount
+    Student ||.up.{ DebtHistory
+    Transaction ||..{ Tariff_Transaction
 }
 
 package Academy #LightGreen
@@ -204,8 +232,8 @@ package Academy #LightGreen
         * enrollmentId : varchar(20) <<FK>>
     }
 
-    Enrollment}..|| Grade
-    Subject}..|| Grade
+    Enrollment }..|| Grade
+    Subject }..|| Grade
     Teacher ||..|| Enrollment
     Teacher ||..{ Teacher_Enrollment
     Subject ||..|| Teacher_Enrollment
