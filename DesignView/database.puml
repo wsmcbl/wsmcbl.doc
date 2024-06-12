@@ -137,9 +137,6 @@ package Accounting #LightBlue
         * tariffId : varchar(20) <<FK>>
         --
         * amount : float
-        discount : float
-        arrears : float
-        * subTotal : float
     }
 
     entity Transaction
@@ -173,7 +170,11 @@ package Accounting #LightBlue
         * studentId : varchar(20) <<FK>>
         * tariffId : int <<FK>>
         --
+        * schoolYear : varchar(6)
         * isPaid : bool
+        * debtBalance : float
+        discount : float
+        arrears : float
     }
 
     Cashier ||..{Transaction
