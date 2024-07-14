@@ -73,15 +73,6 @@ package Secretary #ff9800
         enrollmentId : varchar(15) <<FK>>
     }
 
-    entity Student_Enrollment
-    {
-        * id : numeric <<FK>>
-        * schoolYear : varchar(4)
-        --
-        * studentId : varchar(15) <<FK>>
-        * enrollmentId : varchar(15) <FK>
-    }
-
     entity Schoolyear
     {
         * schoolyearId : varchar(20) <<PK>>
@@ -98,9 +89,26 @@ package Secretary #ff9800
         * studentId : varchar(20)
     }
 
-    Student ||..{ Student_Enrollment
+    entity Grade
+    {
+        *gradeId : varchar(15) <<PK>>
+        --
+        gradeLabel : varchar(20)
+        schoolYear : varchar(20) <<FK>>
+    }
+
+    entity Subject
+    {
+        subjectId : varchar(15) <<PK>>
+        --
+        name : varchar(100)
+        gradeId : varchar(15) <<Fk>>
+    }
+
     Student ||..{ Schoolyear_Student
     Schoolyear ||..{ Schoolyear_Student
+    Schoolyear ||..{ Grade
+    Grade ||..{ Subject
 }
 
 package Accounting #LightBlue
@@ -173,8 +181,9 @@ package Accounting #LightBlue
         * schoolYear : varchar(6)
         * isPaid : bool
         * debtBalance : float
-        discount : float
         arrears : float
+        subAmount : float
+        amount : float
     }
 
     Cashier ||..{Transaction
@@ -201,21 +210,6 @@ package Academy #LightGreen
         * gradeId : varchar(15) <<FK>>
     }
 
-    entity Grade
-    {
-        *gradeId : varchar(15) <<PK>>
-        --
-        schoolYear : varchar(6)
-    }
-
-    entity Subject
-    {
-        subjectId : varchar(15) <<PK>>
-        --
-        name : varchar(100)
-        gradeId : varchar(15) <<Fk>>
-    }
-
     entity Teacher
     {
         * teacherId : varchar(15) <<PK>>
@@ -224,7 +218,7 @@ package Academy #LightGreen
         * userId : numeric <<FK>>
     }
 
-    entity Teacher_Enrollment
+    entity Subject
     {
         * id : varchar(15) <<PK>>
         --
@@ -233,17 +227,41 @@ package Academy #LightGreen
         * enrollmentId : varchar(20) <<FK>>
     }
 
-    Enrollment }..|| Grade
-    Subject }..|| Grade
-    Teacher ||..|| Enrollment
-    Teacher ||..{ Teacher_Enrollment
-    Subject ||..|| Teacher_Enrollment
-    Enrollment ||..{ Teacher_Enrollment
+    entity Student
+    {
+        * id : numeric <<FK>>
+        * schoolYear : varchar(4)
+        --
+        * studentId : varchar(15) <<FK>>
+        * enrollmentId : varchar(15) <FK>
+        approved : bool
+    }
+
+    entity Note
+    {
+        * noteId: varchar(20) <<FK>>
+        --
+        * subjectId : varchar(20) <<FK>>
+        * studentId : varchar(20) <<FK>>
+        exam : float
+        acumulate : float
+        total : float
+    }
+
+    Teacher ||.left.|| Enrollment
+    Teacher ||..{ Subject
+    Enrollment ||.left.{ Subject
+    Enrollment ||..{ Student
+    Subject ||..{ Note
+    Student ||..{ Note
+
 }
 
+Secretary.Student ||..{ Academy.Student
 Secretary.Student ||..|| Accounting.Student
-Enrollment ||..{ Student_Enrollment
+Secretary.Subject ||..{ Academy.Subject
+Secretary.Grade ||..{ Academy.Enrollment
 User ||..|| Cashier
-User ||.left.|| Teacher
+User ||..|| Teacher
 
 @enduml
