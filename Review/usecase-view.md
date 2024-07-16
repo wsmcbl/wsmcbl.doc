@@ -52,6 +52,7 @@ Casos de uso selecionados en cada iteración.
 
 ### UI Prototype <a id="ui-prototype"></a>
 Página donde se muestran los prototipos de interfaces de usuarios que dan continuidad al desarrollo de los casos de usos.
+![](../out/UseCaseView/Prototype/tree-view.png)
 
 * [see prototypes ⮞](./usecase-view.prototypes.md)
 
