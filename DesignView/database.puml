@@ -94,15 +94,15 @@ package Secretary #ff9800
         *gradeId : varchar(15) <<PK>>
         --
         gradeLabel : varchar(20)
-        schoolYear : varchar(20) <<FK>>
+        * schoolYear : varchar(20) <<FK>>
     }
 
     entity Subject
     {
-        subjectId : varchar(15) <<PK>>
+        * subjectId : varchar(15) <<PK>>
         --
         name : varchar(100)
-        gradeId : varchar(15) <<Fk>>
+        * gradeId : varchar(15) <<Fk>>
     }
 
     Student ||..{ Schoolyear_Student
@@ -220,20 +220,19 @@ package Academy #LightGreen
 
     entity Subject
     {
-        * id : varchar(15) <<PK>>
+        * subjectId : varchar(15) <<PK>>
         --
+        * baseSubjectId : varchar(15) <<FK>>
         * teacherId : varchar(15) <<FK>>
-        * subjectId : varchar(15) <<FK>>
         * enrollmentId : varchar(20) <<FK>>
     }
 
     entity Student
     {
-        * id : numeric <<FK>>
-        * schoolYear : varchar(4)
-        --
         * studentId : varchar(15) <<FK>>
         * enrollmentId : varchar(15) <FK>
+        --
+        * schoolYear : varchar(4)
         approved : bool
     }
 

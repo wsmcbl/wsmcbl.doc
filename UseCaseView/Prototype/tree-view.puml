@@ -1,0 +1,27 @@
+@startwbs
+
+* Aplicación web
+** Inicio
+*** Dashboard
+*** Accesos rápido*
+** Contabilidad
+*** Estudiantes/Cobro
+*** Aplicar mora
+*** Debitar
+*** Reportes
+** Academico
+*** Estudiantes
+*** Profesores
+*** Asignaturas (reporte)
+*** Grados (información)
+*** Matricula (información)
+** Secretaria
+*** Estudiantes (todos)
+*** Matrícula
+*** Hojas de traslado
+*** Informe de calificación
+** Configuración
+*** Usuarios
+*** Taza de cambio
+
+@endwb
