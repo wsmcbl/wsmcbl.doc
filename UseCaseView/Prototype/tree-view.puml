@@ -1,25 +1,23 @@
 @startwbs
 
-* Aplicación web
+* Sistema web
+** Calificaciones online
 ** Inicio
 *** Dashboard
-*** Accesos rápido*
+*** Accesos rápido
 ** Contabilidad
-*** Estudiantes/Cobro
-*** Aplicar mora
-*** Debitar
+*** Cobrar
 *** Reportes
-** Academico
+**** Aplicar mora
+**** Debitar
+** Académico
 *** Estudiantes
 *** Profesores
-*** Asignaturas (reporte)
-*** Grados (información)
-*** Matricula (información)
-** Secretaria
-*** Estudiantes (todos)
+*** Reportes
+** Secretaría
+*** Estudiantes
 *** Matrícula
-*** Hojas de traslado
-*** Informe de calificación
+*** Reportes
 ** Configuración
 *** Usuarios
 *** Taza de cambio

@@ -1,16 +1,16 @@
 @startuml
 'skinparam BackgroundColor transparent
+scale 2
 left to right direction
 
+
+' Primera iteración
 actor User
 actor Secretary
 actor Cashier
 
 User <|-- Secretary
 User <|-- Cashier
-
-usecase "Login*"
-usecase "Logout*"
 
 usecase EnrollStudent
 usecase CreateOfficialEnrollmentBySection
@@ -19,10 +19,6 @@ usecase PrintReportCardByStudent
 usecase MoveTeacherGuideFromEnrollment
 usecase CollectTariffs
 
-
-User -left-> "Login*"
-User -right-> "Logout*"
-
 Secretary --> EnrollStudent
 Secretary --> CreateOfficialEnrollmentBySection
 Secretary --> PrintReportCardByStudent
@@ -30,8 +26,34 @@ Secretary --> MoveTeacherGuideFromEnrollment
 
 Cashier --> CollectTariffs
 
-CollectTariffs ..> PrintingInvoicesAndReceipts: include
+CollectTariffs .right.> PrintingInvoicesAndReceipts: include
 
-footer Casos de usos con (*) no están desarrollados ni en desarrollo.
+
+' Primera iteración
+actor Client
+actor Teacher
+
+User <|-- Teacher
+
+usecase CU15 as "ViewGradeOnline"
+usecase CU60 as "PayTariff"
+usecase CU22 as "MoveTeacher"
+usecase CU11 as "AddStudentGrade"
+usecase CU02 as "CreateStudentProfile"
+usecase CU69 as "Login"
+usecase "Logout*"
+
+User -left-> CU69
+User -right-> "Logout*"
+
+Secretary --> CU22
+Secretary --> CU02
+
+Cashier --> CU02
+Cashier --> CU60
+
+Teacher --> CU11
+
+Client --> CU15
 
 @enduml

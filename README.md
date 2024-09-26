@@ -15,6 +15,8 @@ Modelo de documentación de proyecto, siguiendo el modelo "4 + 1 vista",
 
 * [Design View ⮞](Review/design-view.md)
 
+* [Process View ⮞](Review/process-view.md)
+
 
 ## 1. Domain model
 Sección donde se muestran los datos relevantes del modelo del dominio.

@@ -1,0 +1,105 @@
+@startgantt
+'skinparam BackgroundColor transparent
+scale 3
+title Cronograma de ejecución
+printscale weekly
+
+[Mes 1] lasts 4 weeks
+[Mes 1] is colored in Lightblue
+[Mes 2] starts at [Mes 1]'s end and lasts 4 weeks
+[Mes 2] is colored in Lightgreen
+[Mes 3] starts at [Mes 2]'s end and lasts 4 weeks
+[Mes 3] is colored in Lightblue
+[Mes 4] starts at [Mes 3]'s end and lasts 4 weeks
+[Mes 4] is colored in Lightgreen
+[Mes 5] starts at [Mes 4]'s end and lasts 4 weeks
+[Mes 5] is colored in Lightblue
+[Mes 6] starts at [Mes 5]'s end and lasts 4 weeks
+[Mes 6] is colored in Lightgreen
+[Mes 7] starts at [Mes 6]'s end and lasts 4 weeks
+[Mes 7] is colored in Lightblue
+
+[Mes 1] displays on same row as [Mes 2]
+[Mes 2] displays on same row as [Mes 3]
+[Mes 3] displays on same row as [Mes 4]
+[Mes 4] displays on same row as [Mes 5]
+[Mes 5] displays on same row as [Mes 6]
+[Mes 6] displays on same row as [Mes 7]
+
+
+[Fase Inicio] lasts 4 weeks
+[Fase Inicio] is colored in yellow
+[Fase Elaboración] starts at [Fase Inicio]'s end and lasts 4 weeks
+[Fase Elaboración] is colored in cyan
+[Fase Construcción] starts at [Fase Elaboración]'s end and lasts 16 weeks
+[Fase Construcción] is colored in yellow
+[Fase Transición] starts at [Fase Construcción]'s end and lasts 4 weeks
+[Fase Transición] is colored in cyan
+
+[Fase Inicio] displays on same row as [Fase Elaboración]
+[Fase Elaboración] displays on same row as [Fase Construcción]
+[Fase Construcción] displays on same row as [Fase Transición]
+
+
+
+
+
+[Modelo del dominio] lasts 1 week
+[Requisitos funcionales y  no funcionales] lasts 2 weeks
+[Encontrar actores y casos de uso] starts at [Modelo del dominio]'s end and lasts 2 weeks
+[Priorizar, detallar y estructurar casos de uso] starts at [Encontrar actores y casos de uso]'s end and lasts 5 weeks
+[Prototipado de interfaz de usuario] starts at [Encontrar actores y casos de uso]'s end and lasts 6 weeks
+
+
+[Análisis de caso de uso] starts at [Mes 1]'s end and lasts 6 week
+[Análisis de clases] starts at [Mes 1]'s end and lasts 8 week
+[Análisis de arquitectura] starts at [Mes 1]'s end and lasts 2 week
+then [Análisis de paquetes] lasts 4 week
+
+
+[Diseño de arquitectura] starts at [Mes 1]'s end and lasts 2 weeks
+then [Diseño de caso de uso] lasts 2 week
+[Diseño de clase] starts at [Diseño de arquitectura]'s end and lasts 7 weeks
+[Diseño de paquete] starts at [Diseño de caso de uso]'s end and lasts 5 weeks
+
+
+[Implementar arquitectura, paquetes, clase] starts at [Mes 2]'s end and lasts 20 week
+[Prueba] starts at [Mes 3]'s end and lasts 16 week
+[Despliegue] starts at [Mes 5]'s end and lasts 8 week
+
+
+[Entorno] lasts 8 weeks
+[Gestión de proyecto] lasts 28 weeks
+
+
+
+
+
+
+
+
+'##############################
+
+[Iteración 1] lasts 4 weeks
+[Iteración 1] is colored in orangered
+[Iteración 2] starts at [Iteración 1]'s end and lasts 4 weeks
+[Iteración 2] is colored in greenyellow
+[Iteración 3] starts at [Iteración 2]'s end and lasts 4 weeks
+[Iteración 3] is colored in orangered
+[Iteración 4] starts at [Iteración 3]'s end and lasts 4 weeks
+[Iteración 4] is colored in greenyellow
+[Iteración 5] starts at [Iteración 4]'s end and lasts 4 weeks
+[Iteración 5] is colored in orangered
+[Iteración 6] starts at [Iteración 5]'s end and lasts 4 weeks
+[Iteración 6] is colored in greenyellow
+[Iteración 7] starts at [Iteración 6]'s end and lasts 4 weeks
+[Iteración 7] is colored in orangered
+
+[Iteración 1] displays on same row as [Iteración 2]
+[Iteración 2] displays on same row as [Iteración 3]
+[Iteración 3] displays on same row as [Iteración 4]
+[Iteración 4] displays on same row as [Iteración 5]
+[Iteración 5] displays on same row as [Iteración 6]
+[Iteración 6] displays on same row as [Iteración 7]
+
+@endgantt

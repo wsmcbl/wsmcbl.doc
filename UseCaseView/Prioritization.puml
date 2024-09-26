@@ -2,9 +2,25 @@
 'skinparam BackgroundColor transparent
 left to right direction
 
-rectangle "Iteration 1" as Iteration1
+rectangle "Iteration 2" as Iteration2
 
-note top of Iteration1: Se consideró que dichos casos de usos eran parte\nfundamental del negocio y se les dió prioridad.\nLos cuales coincidieron con los riesgo considerados.
+usecase CU15 as "ViewGradeOnline"
+usecase CU60 as "PayTariff"
+usecase CU22 as "MoveTeacher"
+usecase CU11 as "AddStudentGrade"
+usecase CU02 as "CreateStudentProfile"
+usecase CU69 as "Login"
+
+Iteration2 .. CU15 : CU15
+Iteration2 .. CU60 : CU60
+Iteration2 .. CU22 : CU22
+Iteration2 .. CU11 : CU11
+Iteration2 .. CU02 : CU02
+Iteration2 .. CU69 : CU69
+
+
+
+rectangle "Iteration 1" as Iteration1
 
 usecase CU01 as "EnrollStudent"
 usecase CU05 as "CreateOfficialEnrollmentBySection"
@@ -19,4 +35,5 @@ Iteration1 .. CU58 : CU58
 Iteration1 .. CU29 : CU29
 Iteration1 .. CU21 : CU21
 Iteration1 .. CU03 : CU03
+
 @enduml
