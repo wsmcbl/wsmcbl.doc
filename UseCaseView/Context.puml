@@ -1,40 +1,60 @@
 @startuml
 'skinparam BackgroundColor transparent
-footer Los casos de uso con (*) no han sido desarrollados ni están en desarrollo.
+scale 3
 
+state INITIAL
+state HOME
+state OPEN_GRADE_ONLINE
 
-state Initial as "HOME"
-state OPEN_ENROLLMENT_VIEW
-state OPEN_PROFILES_VIEW
+state OPEN_ENROLLMENT
 state OPEN_PROFILE
 state OPEN_TARIFFS_VIEW
 
+state OPEN_ACADEMY_SUBSYSTEM
+state OPEN_SECRETARY_SUBSYSTEM
+state OPEN_ACCOUNTING_SUBSYSTEM
+
 
 '-- Relations --
-[*] --> Initial : Start system (*)
+[*] --> INITIAL : Start system
 
-Initial --> OPEN_PROFILES_VIEW : Show Profiles (*)
-Initial --> OPEN_ENROLLMENT_VIEW
+INITIAL --> HOME : Login
+INITIAL --> OPEN_GRADE_ONLINE : ViewGradeOnline
+
+'Home to subsystems
+HOME --> OPEN_ACADEMY_SUBSYSTEM
+HOME --> OPEN_SECRETARY_SUBSYSTEM
+HOME --> OPEN_ACCOUNTING_SUBSYSTEM
+
+'OPEN_ACADEMY_SUBSYSTEM
+OPEN_ACADEMY_SUBSYSTEM --> OPEN_PROFILE : ShowProfiles (*)
+OPEN_ACADEMY_SUBSYSTEM --> OPEN_ENROLLMENT : ShowEnrollments*
+
+'OPEN_SECRETARY_SUBSYSTEM
+OPEN_SECRETARY_SUBSYSTEM --> OPEN_PROFILE : ShowProfiles (*)
+OPEN_SECRETARY_SUBSYSTEM --> OPEN_ENROLLMENT
 note on link
-    Enroll student
+    EnrollStudent
     Show Enrollments (*)
     CreateOfficialEnrollmentBySection
 end note
 
-OPEN_ENROLLMENT_VIEW --> OPEN_PROFILE : Show Profile (*)
-OPEN_ENROLLMENT_VIEW --> OPEN_ENROLLMENT_VIEW : MoveTeacherGuideFromEnrollment
+'OPEN_ACCOUNTING_SUBSYSTEM
+OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_PROFILE : ShowProfiles (*)
+OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_TARIFFS_VIEW : CollectTariffs
 
-OPEN_PROFILES_VIEW --> OPEN_PROFILE : Show Profile (*)
-OPEN_PROFILES_VIEW --> OPEN_TARIFFS_VIEW : CollectTariffs
-
+'Relations
 OPEN_PROFILE --> OPEN_PROFILE : PrintReportCardByStudent
-
 OPEN_TARIFFS_VIEW --> OPEN_TARIFFS_VIEW : Printing\nInvoicesAndReceipts
+OPEN_TARIFFS_VIEW --> OPEN_PROFILE
+OPEN_ENROLLMENT --> OPEN_PROFILE : ShowProfile (*)
+OPEN_ENROLLMENT --> OPEN_ENROLLMENT : MoveTeacherGuideFromEnrollment
 
 
-Initial --> [*] : Close system (*)
-OPEN_ENROLLMENT_VIEW --> [*] : Close system (*)
-OPEN_PROFILES_VIEW --> [*] : Close system (*)
-OPEN_PROFILE --> [*] : Close system (*)
-OPEN_TARIFFS_VIEW --> [*] : Close system (*)
+'Exit point
+HOME --> [*] : Close system
+OPEN_ENROLLMENT --> [*] : Close system
+OPEN_PROFILE --> [*] : Close system
+OPEN_TARIFFS_VIEW --> [*] : Close system
+OPEN_GRADE_ONLINE --> [*] : Close system
 @enduml

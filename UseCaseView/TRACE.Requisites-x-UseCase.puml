@@ -1,13 +1,25 @@
 @startuml
 'skinparam BackgroundColor transparent
 left to right direction
+scale 3
 
-label RF01 as "RF01. Cobro de aranceles"
-label RF02 as "RF02. Matricular estudiante"
+'Iteration 1
+Label RF01 as "RF01. Cobro de aranceles"
+Label RF02 as "RF02. Matricular estudiante"
 label RF06 as "RF06. Creación de Matrícula Oficial por grado"
 label RF12 as "RF12. Gestionar matrículas"
 label RF14 as "RF14. Imprimir boleta de calificación por secciones"
 
+'Iteration 2
+Label RF10 as "RF10. Gestionar perfiles de estudiantes."
+Label RF24 as "RF24. Gestionar usuarios del sistema."
+Label RF03 as "RF03. Gestionar las calificaciones."
+Label RF07 as "RF07. Ver calificaciones online."
+Label RF33 as "RF33. Abonos a pago de un arancel."
+
+
+
+'Iteration 1
 usecase CU01 as "EnrollStudent"
 usecase CU05 as "CreateOfficialEnrollmentBySection"
 usecase CU58 as "PrintingInvoicesAndReceipts"
@@ -15,6 +27,17 @@ usecase CU29 as "PrintReportCardByStudent"
 usecase CU21 as "MoveTeacherGuideFromEnrollment"
 usecase CU03 as "CollectTariffs"
 
+'Iteration 2
+usecase CU15 as "ViewGradeOnline"
+usecase CU60 as "PayTariff"
+usecase CU22 as "MoveTeacher"
+usecase CU11 as "AddStudentGrade"
+usecase CU02 as "CreateStudentProfile"
+usecase CU69 as "Login"
+
+
+
+'Iteration 1
 RF01 ..> CU03 : trace
 RF01 ..> CU58 : trace
 RF02 ..> CU01 : trace
@@ -22,6 +45,16 @@ RF06 ..> CU05 : trace
 RF12 ..> CU05 : trace
 RF12 ..> CU21 : trace
 RF14 ..> CU29 : trace
+
+'Iteration 2
+RF01 ..> CU60 : trace
+RF12 ..> CU22 : trace
+RF10 ..> CU02 : trace
+RF10 ..> CU69 : trace
+RF24 ..> CU69 : trace
+RF33 ..> CU60 : trace
+RF03 ..> CU11 : trace
+RF07 ..> CU15 : trace
 
 @enduml
 
