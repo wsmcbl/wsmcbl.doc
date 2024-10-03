@@ -26,7 +26,7 @@ Secretary --> MoveTeacherGuideFromEnrollment
 
 Cashier --> CollectTariffs
 
-CollectTariffs .right.> PrintingInvoicesAndReceipts: include
+CollectTariffs ..> PrintingInvoicesAndReceipts: include
 
 
 ' Primera iteración

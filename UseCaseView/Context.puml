@@ -1,6 +1,6 @@
 @startuml
 'skinparam BackgroundColor transparent
-scale 3
+scale 2
 
 state INITIAL
 state HOME

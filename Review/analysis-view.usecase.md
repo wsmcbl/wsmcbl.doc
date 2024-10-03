@@ -4,15 +4,21 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 * [Go to Classes analysis ⮞](./analysis-view.class.md)
 
 ## Indice
+
+---
 - [CU03. CollectTariffs](#cu03)
 - [CU05. CreateOfficialEnrollmentBySection](#cu05)
 - [CU01. EnrollStudent](#cu01)
-- [CU58. PritingReceipts](#cu58)
+- [CU58. PrintingReceipts](#cu58)
 - [CU29. PrintReportCardByStudent](#cu29)
 - [CU21. MoveTeacherGuideFromEnrollment](#cu21)
-
+---
+- [CU02. CreateStudentProfile](#cu02)
 ---
 
+## Iteration 1
+
+---
 
 ### CU03. CollectTariffs <a id="cu03"></a>
 * ### Classes
@@ -65,3 +71,17 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU21.MoveTeacherGuideFromEnrollment/Collaboration.CU21.Analysis.png)
+
+
+
+
+## Iteration 2
+
+---
+
+### CU02. CreateStudentProfile <a id="cu02"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU02.CreateStudentProfile/Classes.CU02.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU02.CreateStudentProfile/Collaboration.CU02.Analysis.png)
