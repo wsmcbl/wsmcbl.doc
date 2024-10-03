@@ -20,17 +20,23 @@ newpage
 object Views{
     class CollectTariffView <<View>>
     class EnrollStudentView <<View>>
-    class ViewNotesOnlineView <<View>>
+    class ViewGradeOnlineView <<View>>
+    class AddGradeStudentView <<View>>
 
-    class GradeView <<View>>
-    class GradesView <<View>>
+    class DegreeView <<View>>
+    class DegreesView <<View>>
     class SubjectView <<View>>
     class SubjectsView <<View>>
     class TariffView <<View>>
     class FinishTariffView <<View>>
     class EnrollmentView <<View>>
     class EnrollmentsView <<View>>
+
+    class SchoolyearView <<View>>
     class EvangelizedStudentsView <<View>>
+
+    class PdfViewerView <<View>>
+    class HomeView <<View>>
 
     class StudentProfileView <<View>>
     class StudentProfilesView <<View>>
@@ -58,8 +64,14 @@ object Controllers{
     class PrintingReceiptsController <<Controller>>
     class PrintDocumentsController <<Controller>>
     class PrintReportCardController
-    class CreateProfileStudentController <<Controller>>
     class LogoutController <<Controller>>
+
+    class CreteStudentProfileController <<Controller>>
+    class PayTariffController <<Controller>>
+    class LoginController <<Controller>>
+    class ViewGradeOnlineController <<Controller>>
+    class MoveTeacherController <<Controller>>
+    class AddStudentGradeController <<Controller>>
 }
 
 
@@ -70,11 +82,13 @@ class Models.StudentEntity <<Model>>
 'class Models.AdministratorEntity <<Model>>
 
 object Models.Academy{
-    class NoteEntity <<Model>>
+    class GradeEntity <<Model>>
     class StudentEntity <<Model>>
     class TeacherEntity <<Model>>
     class SubjectEntity <<Model>>
     class EnrollmentEntity <<Model>>
+    class PartialEntity <<Model>>
+    class SemesterEntity <<Model>>
 
     class SubjectEntities <<Model>>
     class StudentEntities <<Model>>
@@ -82,14 +96,15 @@ object Models.Academy{
 }
 
 object Models.Secretary{
-    class GradeEntity <<Model>>
+    class DegreeEntity <<Model>>
     class ReportEntity <<Model>>
     class StudentEntity <<Model>>
     class TeacherEntity <<Model>>
     class SecretaryEntity <<Model>>
     class EnrollmentEntity <<Model>>
+    class SchoolyearEntity <<Model>>
 
-    class GradeEntities <<Model>>
+    class DegreesEntities <<Model>>
     class StudentEntities <<Model>>
     class TeacherEntities <<Model>>
 }
@@ -110,6 +125,7 @@ object Models.Accounting{
     class StudentEntities <<Model>>
     class TransactionEntity <<Model>>
     class AccountingBoxEntity <<Model>>
+    class DebtHistoryEntity <<Model>>
 }
 
 '--- Relations ---

@@ -1,0 +1,29 @@
+@startuml
+
+class CreateStudentProfileController{
+
+}
+
+CollectTariffView --> CreateStudentProfileController
+StudentProfilesView --> CreateStudentProfileController
+
+CreateStudentProfileController ..> StudentEntities
+CreateStudentProfileController ..> TransactionEntity
+CreateStudentProfileController ..> PrintDocumentsController
+
+
+newpage
+
+class PayTariffController{
+}
+
+StudentProfilesView --> PayTariffController
+EnrollView --> PayTariffController
+
+PayTariffController o--> StudentEntity
+PayTariffController --> StudentEntities
+PayTariffController --> GradeEntities
+PayTariffController --> GradeEntity
+PayTariffController --> PrintDocumentsController
+
+@enduml

@@ -13,7 +13,9 @@ Para la elaboración del análisis es necesario conocer los diagramas de colabor
     - [CreateOfficialEnrollmentController](#control3)
     - [PrintingReceiptsController](#control4)
     - [MoveTeacherGuideFromEnrollmentController](#control5)
-    - [PritingReportCardController](#control6)
+    - [PrintingReportCardController](#control6)
+    - [CreateStudentProfileController](#control7)
+    - [PayTariffController](#control8)
 - [Models](#model)
     - [TransactionEntity](#model1)
     - [StudentEntities](#model2)
@@ -49,6 +51,13 @@ Para la elaboración del análisis es necesario conocer los diagramas de colabor
 
 * ### PrintingReportCardController <a id="control6"></a>
 ![](../out/DesignView/AnalysisView/ClassAnalysis/Controllers/1.Iteration-page6.png)
+
+* ### CreateStudentProfileController <a id="control7"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Controllers/2.Iteration-0.png)
+
+* ### PayTariffController <a id="control8"></a>
+![](../out/DesignView/AnalysisView/ClassAnalysis/Controllers/2.Iteration-1.png)
+
 
 
 

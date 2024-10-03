@@ -89,11 +89,11 @@ package Secretary #ff9800
         * studentId : varchar(20)
     }
 
-    entity Grade
+    entity Degree
     {
-        *gradeId : varchar(15) <<PK>>
+        *degreeId : varchar(15) <<PK>>
         --
-        gradeLabel : varchar(20)
+        degreeLabel : varchar(20)
         * schoolYear : varchar(20) <<FK>>
     }
 
@@ -102,13 +102,13 @@ package Secretary #ff9800
         * subjectId : varchar(15) <<PK>>
         --
         name : varchar(100)
-        * gradeId : varchar(15) <<Fk>>
+        * degreeId : varchar(15) <<Fk>>
     }
 
     Student ||..{ Schoolyear_Student
     Schoolyear ||..{ Schoolyear_Student
-    Schoolyear ||..{ Grade
-    Grade ||..{ Subject
+    Schoolyear ||..{ Degree
+    Degree ||..{ Subject
 }
 
 package Accounting #LightBlue
@@ -207,7 +207,7 @@ package Academy #LightGreen
         * shoolYear : varchar(6)
         capacity : numeric
         cuantity : numeric
-        * gradeId : varchar(15) <<FK>>
+        * degreeId : varchar(15) <<FK>>
     }
 
     entity Teacher
@@ -236,9 +236,9 @@ package Academy #LightGreen
         approved : bool
     }
 
-    entity Note
+    entity Grade
     {
-        * noteId: varchar(20) <<FK>>
+        * gradeId: varchar(20) <<FK>>
         --
         * subjectId : varchar(20) <<FK>>
         * studentId : varchar(20) <<FK>>
@@ -251,15 +251,15 @@ package Academy #LightGreen
     Teacher ||..{ Subject
     Enrollment ||.left.{ Subject
     Enrollment ||..{ Student
-    Subject ||..{ Note
-    Student ||..{ Note
+    Subject ||..{ Grade
+    Student ||..{ Grade
 
 }
 
 Secretary.Student ||..{ Academy.Student
 Secretary.Student ||..|| Accounting.Student
 Secretary.Subject ||..{ Academy.Subject
-Secretary.Grade ||..{ Academy.Enrollment
+Secretary.Degree ||..{ Academy.Enrollment
 User ||..|| Cashier
 User ||..|| Teacher
 

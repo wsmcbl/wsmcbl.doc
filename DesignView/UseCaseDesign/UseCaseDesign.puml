@@ -1,5 +1,6 @@
 @startuml
 title Generic UseCase Analysis
+scale 2
 
 skinparam boundary {
     BackgroundColor LightBlue
