@@ -1,2 +1,50 @@
 @startuml
+left to right direction
+
+actor Cashier
+
+boundary CollectTariffView
+
+control PayTariffController
+control PrintDocumentsController
+
+entity StudentEntities
+entity TransactionEntity
+entity CashierEntity
+entity DebtHistoryEntities
+entity DebtHistoryEntity
+
+
+
+'--- Actor relations ---
+Cashier --> CollectTariffView
+note on link
+    setPayData()
+    cancel()
+end note
+
+
+'--- Views relations ---
+CollectTariffView --> PayTariffController
+note on link
+    payTariff(transaction = "")
+end note
+
+'--- Controllers relations ---
+PayTariffController --> StudentEntities : getStudentById(studentId = "")
+PayTariffController ..> TransactionEntity : new TransactionEntity()
+PayTariffController --> DebtHistoryEntities : getByStudentId(studentId = "")
+PayTariffController --> DebtHistoryEntity : addPay(amount = "")
+PayTariffController --> CashierEntity : getCashierId()
+
+PayTariffController -left-> PrintDocumentsController
+note on link
+    printReceipt(transactionId = "")
+end note
+
+PrintDocumentsController --> TransactionEntity : getInformation()
+
+'--- Entity relations ---
+TransactionEntity --> DebtHistoryEntity : getData()
+
 @enduml

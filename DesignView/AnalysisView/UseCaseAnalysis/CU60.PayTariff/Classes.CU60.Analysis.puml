@@ -1,2 +1,38 @@
 @startuml
+left to right direction
+
+actor Cashier
+
+boundary CollectTariffView
+
+control PayTariffController
+control PrintDocumentsController
+
+entity StudentEntities
+entity TransactionEntity
+entity CashierEntity
+entity DebtHistoryEntities
+entity DebtHistoryEntity
+
+
+
+'--- Actor relations ---
+Cashier --> CollectTariffView
+
+'--- Views relations ---
+CollectTariffView --> PayTariffController
+
+'--- Controllers relations ---
+PayTariffController --> StudentEntities
+PayTariffController --> TransactionEntity
+PayTariffController --> DebtHistoryEntities
+PayTariffController --> CashierEntity
+PayTariffController -left-> PrintDocumentsController
+
+PrintDocumentsController --> TransactionEntity
+
+'--- Entity relations ---
+TransactionEntity --> DebtHistoryEntity
+DebtHistoryEntities ..> DebtHistoryEntity
+
 @enduml

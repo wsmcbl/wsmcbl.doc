@@ -20,7 +20,7 @@ entity Accounting.StudentEntities
 theActor --> CreateProfileView
 note on link
     setStudentInformation()
-    create Profile()
+    createProfile()
     cancel()
 end note
 
@@ -31,11 +31,10 @@ CreateProfileView --> CreateStudentProfileController : createProfile(student = "
 CreateStudentProfileController --> StudentEntities : create(student = "")
 CreateStudentProfileController --> TutorEntities : create(tutor = "")
 CreateStudentProfileController --> DebtHistoryEntities : create(debt = "")
-CreateStudentProfileController --> Accounting.StudentEntities : create(accountingStudent="")
+CreateStudentProfileController --> Accounting.StudentEntities : create(student="")
+CreateStudentProfileController --> StudentEntity : new StudentEntity()
+CreateStudentProfileController --> TutorEntity : new TutorEntity(data = "", studentId = "")
 
 '--- Entity relations ---
-StudentEntities --> StudentEntity : new StudentEntity()
-TutorEntities --> TutorEntity : new TutorEntity(data = "", studentId = "")
-Accounting.StudentEntities ..> StudentEntity : getStudentId()
 
 @enduml

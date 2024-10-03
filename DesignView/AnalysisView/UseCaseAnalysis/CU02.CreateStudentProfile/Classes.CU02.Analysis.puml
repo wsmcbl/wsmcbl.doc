@@ -1,5 +1,6 @@
 @startuml
 left to right direction
+scale 2
 
 '--- Classes definition ---
 actor "Secretary\nand Cashier" as theActor
@@ -26,10 +27,9 @@ CreateStudentProfileController --> StudentEntities
 CreateStudentProfileController --> TutorEntities
 CreateStudentProfileController --> DebtHistoryEntities
 CreateStudentProfileController --> Accounting.StudentEntities
+CreateStudentProfileController --> StudentEntity
+CreateStudentProfileController --> TutorEntity
 
 '--- Entity relations ---
-StudentEntities --> StudentEntity
-TutorEntities --> TutorEntity
-Accounting.StudentEntities ..> StudentEntity
 
 @enduml
