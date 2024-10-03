@@ -1,29 +1,33 @@
 @startuml
 
 class CreateStudentProfileController{
-
+    + createProfile(StudentEntity student, TutorEntity tutor) : StudentEntity
+    + checkProfileExistence(StudentEntity student) : bool
 }
 
-CollectTariffView --> CreateStudentProfileController
-StudentProfilesView --> CreateStudentProfileController
+CreateProfileView --> CreateStudentProfileController
 
-CreateStudentProfileController ..> StudentEntities
-CreateStudentProfileController ..> TransactionEntity
-CreateStudentProfileController ..> PrintDocumentsController
+CreateStudentProfileController ..> StudentEntity
+CreateStudentProfileController --> StudentEntities
+CreateStudentProfileController ..> TutorEntity
+CreateStudentProfileController --> TutorEntities
+CreateStudentProfileController --> DebtHistoryEntities
+CreateStudentProfileController --> Accounting.StudentEntities
 
 
 newpage
 
 class PayTariffController{
+    + payTariff(TransactionEntity transaction) : TransactionEntity
 }
 
-StudentProfilesView --> PayTariffController
-EnrollView --> PayTariffController
+CollectTariffView --> PayTariffController
 
-PayTariffController o--> StudentEntity
+PayTariffController ..> TransactionEntity
 PayTariffController --> StudentEntities
-PayTariffController --> GradeEntities
-PayTariffController --> GradeEntity
+PayTariffController ..> CashierEntity
+PayTariffController --> DebHistoryEntities
+PayTariffController ..> DebHistoryEntity
 PayTariffController --> PrintDocumentsController
 
 @enduml
