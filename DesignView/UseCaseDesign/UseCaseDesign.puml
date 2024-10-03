@@ -31,14 +31,23 @@ package analysis <<PlantUML>>{
 }
 
 package front <<Blazor>>{
-    boundary xTemplate <<HTML>>
+    boundary xTemplate <<razor>>
     boundary xStyle <<CSS>>
-    boundary xComponent <<C#>>
+    boundary xComponent <<razor>>
+    control f.xController  as "xController" <<C#>>
     entity xDto <<C#>>
+    entity xModel <<C#>>
 
     xComponent ..> xDto
+    xComponent ..> xModel
+    xComponent ..> f.xController
+    f.xController ..> xDto
+    f.xController ..> xModel
+
+    xDto .left.> xModel
     xComponent ..> xTemplate
     xTemplate ..> xStyle
+    xTemplate .right.> xModel
 }
 
 package back <<.net 8>>{
@@ -48,11 +57,15 @@ package back <<.net 8>>{
     entity b.xDto as "xDto" <<C#>>
     entity b.xEntity as "xEntity" <<C#>>
     entity xDao <<C#>>
+    entity xService <<C#>>
 
     xAction ..> b.xController
     xAction .left.> b.xDto
     b.xController ..> b.xEntity
     b.xController ..> xDao
+    b.xController .right.> xService
+    xService ..> b.xEntity
+    xService ..> xDao
     b.xDto ..> b.xEntity
     xDao .left.> b.xEntity
 }
@@ -67,5 +80,7 @@ xDao .up.> xEntities : <<trace>>
 xComponent .up.> xView : <<trace>>
 xTemplate .up.> xView : <<trace>>
 xDto .up.> xEntity : <<trace>>
+xModel .up.> xEntity : <<trace>>
+f.xController .up.> xController : <<trace>>
 
 @enduml
