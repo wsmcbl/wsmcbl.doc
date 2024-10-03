@@ -13,7 +13,7 @@ entity StudentEntities
 entity TutorEntity
 entity TutorEntities
 entity DebtHistoryEntities
-entity Academy.StudentEntities
+entity Accounting.StudentEntities
 
 '--- Actor relations ---
 theActor --> CreateProfileView
@@ -25,12 +25,11 @@ CreateProfileView --> CreateStudentProfileController
 CreateStudentProfileController --> StudentEntities
 CreateStudentProfileController --> TutorEntities
 CreateStudentProfileController --> DebtHistoryEntities
-CreateStudentProfileController --> Academy.StudentEntities
+CreateStudentProfileController --> Accounting.StudentEntities
 
 '--- Entity relations ---
 StudentEntities --> StudentEntity
-StudentEntity ..> TutorEntity
 TutorEntities --> TutorEntity
-Academy.StudentEntities ..> StudentEntity
+Accounting.StudentEntities ..> StudentEntity
 
 @enduml

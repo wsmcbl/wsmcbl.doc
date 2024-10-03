@@ -1,5 +1,6 @@
 @startuml
 left to right direction
+scale 2
 
 '--- Classes definition ---
 actor "Secretary\nand Cashier" as theActor
@@ -24,18 +25,17 @@ note on link
 end note
 
 '--- Views relations ---
-CreateProfileView --> CreateStudentProfileController : createProfile()
+CreateProfileView --> CreateStudentProfileController : createProfile(student = "", tutor = "")
 
 '--- Controllers relations ---
-CreateStudentProfileController --> StudentEntities : createProfile()
-CreateStudentProfileController --> TutorEntities : createTutor()
-CreateStudentProfileController --> DebtHistoryEntities : createDebHistory()
-CreateStudentProfileController --> Accounting.StudentEntities : createAccountingProfile
+CreateStudentProfileController --> StudentEntities : create(student = "")
+CreateStudentProfileController --> TutorEntities : create(tutor = "")
+CreateStudentProfileController --> DebtHistoryEntities : create(debt = "")
+CreateStudentProfileController --> Accounting.StudentEntities : create(accountingStudent="")
 
 '--- Entity relations ---
-StudentEntities --> StudentEntity
-StudentEntity ..> TutorEntity
-TutorEntities --> TutorEntity : TutorEntity(studentId)
-Accounting.StudentEntities ..> StudentEntity
+StudentEntities --> StudentEntity : new StudentEntity()
+TutorEntities --> TutorEntity : new TutorEntity(data = "", studentId = "")
+Accounting.StudentEntities ..> StudentEntity : getStudentId()
 
 @enduml
