@@ -14,6 +14,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU21. MoveTeacherGuideFromEnrollment](#cu21)
 ---
 - [CU02. CreateStudentProfile](#cu02)
+- [CU60. PayTariff](#cu60)
 ---
 
 ## Iteration 1
@@ -85,3 +86,11 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU02.CreateStudentProfile/Collaboration.CU02.Analysis.png)
+
+
+### CU60. PayTariff <a id="cu60"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU60.PayTariff/Classes.CU60.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU60.PayTariff/Collaboration.CU60.Analysis.png)
