@@ -19,6 +19,8 @@ Los prototipos 04, 05 y 06 se realizaron con la herramienta [quickMockup](https:
 - [MU11. Grades list](#mu11)
 - [MU12. Configure degree information](#mu12)
 - [MU13. Create official enrollment](#mu13)
+- [MU14. Teacher enrollments list](#mu14)
+- [MU15. Add grades for students](#mu15)
 ---
 
 ### MU01. Tariff collection <a id="mu01"></a>
@@ -59,3 +61,9 @@ Los prototipos 04, 05 y 06 se realizaron con la herramienta [quickMockup](https:
 
 ### MU13. Create official enrollment <a id="mu13"></a>
 ![](../UseCaseView/Prototype/MU13.png)
+
+### MU14. Teacher enrollments list <a id="mu14"></a>
+![](../UseCaseView/Prototype/MU14.jpg)
+
+### MU15. Add grades for students <a id="mu15"></a>
+![](../UseCaseView/Prototype/MU15.jpg)
