@@ -15,6 +15,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 ---
 - [CU02. CreateStudentProfile](#cu02)
 - [CU60. PayTariff](#cu60)
+- [CU11. AddStudentGrade](#cu11)
 ---
 
 ## Iteration 1
@@ -94,3 +95,11 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU60.PayTariff/Collaboration.CU60.Analysis.png)
+
+
+### CU11. AddStudentGrade <a id="cu11"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU11.AddStudentGrade/Classes.CU11.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU11.AddStudentGrade/Collaboration.CU11.Analysis.png)

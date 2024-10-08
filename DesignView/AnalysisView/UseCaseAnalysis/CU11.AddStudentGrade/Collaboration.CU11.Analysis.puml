@@ -1,0 +1,40 @@
+@startuml
+left to right direction
+scale 2
+
+'--- Classes definition ---
+actor "Secretary\nand Cashier" as theActor
+
+boundary CreateProfileView
+
+control CreateStudentProfileController
+
+entity StudentEntity
+entity StudentEntities
+entity TutorEntity
+entity TutorEntities
+entity DebtHistoryEntities
+entity Accounting.StudentEntities
+
+'--- Actor relations ---
+theActor --> CreateProfileView
+note on link
+    setStudentInformation()
+    createProfile()
+    cancel()
+end note
+
+'--- Views relations ---
+CreateProfileView --> CreateStudentProfileController : createProfile(student = "", tutor = "")
+
+'--- Controllers relations ---
+CreateStudentProfileController --> StudentEntities : create(student = "")
+CreateStudentProfileController --> TutorEntities : create(tutor = "")
+CreateStudentProfileController --> DebtHistoryEntities : create(debt = "")
+CreateStudentProfileController --> Accounting.StudentEntities : create(student="")
+CreateStudentProfileController --> StudentEntity : new StudentEntity()
+CreateStudentProfileController --> TutorEntity : new TutorEntity(data = "", studentId = "")
+
+'--- Entity relations ---
+
+@enduml
