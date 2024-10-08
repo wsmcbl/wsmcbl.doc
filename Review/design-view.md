@@ -35,9 +35,6 @@ Carpeta de la vista de análisis, se muestra el diseño preliminar del software.
 ## Package Design
 
 
-
-## Data Base Desing  <a id="database-design"></a>
-
-wsmcbl.database
-
+## Data Base Design  <a id="database-design"></a>
+WSM CBL Database
 ![](../out/DesignView/database.png)

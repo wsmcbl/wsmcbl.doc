@@ -1,10 +1,8 @@
 @startuml
-
-title WSMCBL DataBase
-
+title WSM CBL DataBase
+scale 2
 hide circle
 skinparam linetype ortho
-
 
 package Config #LightGray
 {
@@ -256,11 +254,11 @@ package Academy #LightGreen
 
 }
 
-Secretary.Student ||..{ Academy.Student
-Secretary.Student ||..|| Accounting.Student
+Secretary.Student ||.up.{ Academy.Student
+Secretary.Student ||.up.|| Accounting.Student
 Secretary.Subject ||..{ Academy.Subject
 Secretary.Degree ||..{ Academy.Enrollment
-User ||..|| Cashier
-User ||..|| Teacher
+User ||.down.|| Cashier
+User ||.down.|| Teacher
 
 @enduml
