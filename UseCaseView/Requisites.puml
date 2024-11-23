@@ -1,7 +1,6 @@
 @startuml
-'skinparam BackgroundColor transparent
 left to right direction
-
+title Iteration 1
 
 label RF01 as "RF01. Cobro de aranceles"
 label RF02 as "RF02. Matricular estudiante"
@@ -16,19 +15,31 @@ label 0 as " "
 0 ..[hidden]> RF12
 0 ..[hidden]> RF14
 
-
+newpage
+left to right direction
 title Iteration 2
+label 0 as " "
 
 Label RF10 as "RF10. Gestionar perfiles de estudiantes."
 Label RF24 as "RF24. Gestionar usuarios del sistema."
 Label RF03 as "RF03. Gestionar las calificaciones."
-Label RF07 as "RF07. Ver calificaciones online."
 Label RF33 as "RF33. Abonos a pago de un arancel."
 
 0 ..[hidden]> RF10
 0 ..[hidden]> RF24
 0 ..[hidden]> RF03
-0 ..[hidden]> RF07
 0 ..[hidden]> RF33
+
+
+newpage
+left to right direction
+title Iteration 3
+label 0 as " "
+
+Label RF36 as "RF36. Generar estadísticas de ingresos."
+Label RF07 as "RF07. Ver calificaciones online."
+
+0 ..[hidden]> RF36
+0 ..[hidden]> RF07
 
 @enduml
