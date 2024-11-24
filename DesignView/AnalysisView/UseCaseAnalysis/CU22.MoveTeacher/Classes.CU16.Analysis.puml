@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+actor Secretary
+
+boundary EnrollmentView
+
+control MoveTeacherController
+
+entity EnrollmentEntities
+
+
+
+'--- Actor relations ---
+Secretary --> EnrollmentView
+
+'--- Views relations ---
+EnrollmentView --> MoveTeacherController
+
+'--- Controllers relations ---
+MoveTeacherController --> EnrollmentEntities
+
+'--- Entity relations ---
+@enduml
