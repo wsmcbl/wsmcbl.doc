@@ -27,17 +27,15 @@ Secretary --> MoveTeacherGuideFromEnrollment
 Cashier --> CollectTariffs
 
 CollectTariffs ..> PrintingInvoicesAndReceipts: include
+CreateOfficialEnrollmentBySection ..> MoveTeacherGuideFromEnrollment : include
 
-
-' Primera iteración
+' Segunda iteración
 actor Client
 actor Teacher
 
 User <|-- Teacher
 
-usecase CU15 as "ViewGradeOnline"
 usecase CU60 as "PayTariff"
-usecase CU22 as "MoveTeacher"
 usecase CU11 as "AddStudentGrade"
 usecase CU02 as "CreateStudentProfile"
 usecase CU69 as "Login"
@@ -46,14 +44,37 @@ usecase "Logout*"
 User -left-> CU69
 User -right-> "Logout*"
 
-Secretary --> CU22
 Secretary --> CU02
 
 Cashier --> CU02
-Cashier --> CU60
 
 Teacher --> CU11
 
+CollectTariffs ..> CU60 : include
+
+
+' Tercera iteration
+
+
+usecase CU15 as "ViewGradeOnline"
+usecase CU16 as "UpdateStudentProfile"
+usecase CU22 as "MoveTeacher"
+usecase CU23 as "MoveStudentFromEnrollment"
+usecase CU73 as "CancelTransaction"
+usecase CU75 as "TransactionReportByDate"
+
+
 Client --> CU15
+
+Secretary --> CU16
+Secretary --> CU22
+Secretary --> CU23
+
+Cashier --> CU73
+Cashier --> CU75
+
+Admin --> CU75
+
+CreateOfficialEnrollmentBySection ..> CU22 : include
 
 @enduml
