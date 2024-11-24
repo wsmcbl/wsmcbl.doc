@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+actor Cashier
+
+boundary TransactionListView
+
+control CancelTransactionController
+
+entity TransactionEntities
+entity TransactionEntity
+
+
+'--- Actor relations ---
+Cashier --> TransactionListView
+note on link
+    some()
+end note
+
+'--- Views relations ---
+TransactionListView --> CancelTransactionController
+note on link
+    update()
+end note
+
+'--- Controllers relations ---
+CancelTransactionController --> TransactionEntities
+CancelTransactionController --> TransactionEntity
+
+'--- Entity relations ---
+
+@enduml
