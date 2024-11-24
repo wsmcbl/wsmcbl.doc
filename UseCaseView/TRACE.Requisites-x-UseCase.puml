@@ -14,9 +14,14 @@ label RF14 as "RF14. Imprimir boleta de calificación por secciones"
 Label RF10 as "RF10. Gestionar perfiles de estudiantes."
 Label RF24 as "RF24. Gestionar usuarios del sistema."
 Label RF03 as "RF03. Gestionar las calificaciones."
-Label RF07 as "RF07. Ver calificaciones online."
 Label RF33 as "RF33. Abonos a pago de un arancel."
 
+'Iteration 3
+Label RF04 as "RF04. Generar informes administrativos."
+Label RF07 as "RF07. Ver calificaciones online."
+Label RF08 as "RF08. Ver historial de pagos por estudiante."
+Label RF31 as "RF31. Impresión de facturas y recibos."
+Label RF36 as "RF36. Generar estadísticas de ingresos."
 
 
 'Iteration 1
@@ -28,12 +33,18 @@ usecase CU21 as "MoveTeacherGuideFromEnrollment"
 usecase CU03 as "CollectTariffs"
 
 'Iteration 2
-usecase CU15 as "ViewGradeOnline"
 usecase CU60 as "PayTariff"
-usecase CU22 as "MoveTeacher"
 usecase CU11 as "AddStudentGrade"
 usecase CU02 as "CreateStudentProfile"
 usecase CU69 as "Login"
+
+'Iteration 3
+usecase CU15 as "ViewGradeOnline"
+usecase CU16 as "UpdateStudentProfile"
+usecase CU22 as "MoveTeacher"
+usecase CU23 as "MoveStudentFromEnrollment"
+usecase CU73 as "CancelTransaction"
+usecase CU75 as "TransactionReportByDate"
 
 
 
@@ -48,7 +59,7 @@ RF14 ..> CU29 : trace
 
 'Iteration 2
 RF01 ..> CU60 : trace
-RF12 ..> CU22 : trace
+RF06 ..> CU22 : trace
 RF10 ..> CU02 : trace
 RF10 ..> CU69 : trace
 RF24 ..> CU69 : trace
@@ -56,5 +67,13 @@ RF33 ..> CU60 : trace
 RF03 ..> CU11 : trace
 RF07 ..> CU15 : trace
 
+'Iteration 3
+RF08 ..> CU75 : trace
+RF04 ..> CU75 : trace
+RF36 ..> CU75 : trace
+RF31 ..> CU73 : trace
+RF31 ..> CU58 : trace
+RF10 ..> CU16 : trace
+RF12 ..> CU23 : trace
 @enduml
 

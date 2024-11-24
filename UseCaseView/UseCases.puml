@@ -1,10 +1,9 @@
 @startuml
-'skinparam BackgroundColor transparent
 scale 2
 left to right direction
 
 
-' Primera iteración
+'Iteration 1
 actor User
 actor Secretary
 actor Cashier
@@ -29,7 +28,7 @@ Cashier --> CollectTariffs
 CollectTariffs ..> PrintingInvoicesAndReceipts: include
 CreateOfficialEnrollmentBySection ..> MoveTeacherGuideFromEnrollment : include
 
-' Segunda iteración
+'Iteration 2
 actor Client
 actor Teacher
 
@@ -53,9 +52,7 @@ Teacher --> CU11
 CollectTariffs ..> CU60 : include
 
 
-' Tercera iteration
-
-
+'Iteration 3
 usecase CU15 as "ViewGradeOnline"
 usecase CU16 as "UpdateStudentProfile"
 usecase CU22 as "MoveTeacher"

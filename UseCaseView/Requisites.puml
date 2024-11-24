@@ -36,6 +36,7 @@ left to right direction
 title Iteration 3
 label 0 as " "
 
+Label RF04 as "RF04. Generar informes administrativos."
 label RF06 as "RF06. Creación de Matrícula Oficial por grado"
 Label RF07 as "RF07. Ver calificaciones online."
 Label RF08 as "RF08. Ver historial de pagos por estudiante."
@@ -44,6 +45,7 @@ Label RF12 as "RF12. Gestionar matrículas"
 Label RF31 as "RF31. Impresión de facturas y recibos."
 Label RF36 as "RF36. Generar estadísticas de ingresos."
 
+0 ..[hidden]> RF04
 0 ..[hidden]> RF06
 0 ..[hidden]> RF07
 0 ..[hidden]> RF08
