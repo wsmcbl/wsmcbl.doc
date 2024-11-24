@@ -1,0 +1,33 @@
+@startuml
+
+class CreateStudentProfileController{
+    + createProfile(StudentEntity student, TutorEntity tutor) : StudentEntity
+    + checkProfileExistence(StudentEntity student) : bool
+}
+
+CreateProfileView --> CreateStudentProfileController
+
+CreateStudentProfileController ..> StudentEntity
+CreateStudentProfileController --> StudentEntities
+CreateStudentProfileController ..> TutorEntity
+CreateStudentProfileController --> TutorEntities
+CreateStudentProfileController --> DebtHistoryEntities
+CreateStudentProfileController --> Accounting.StudentEntities
+
+
+newpage
+
+class PayTariffController{
+    + payTariff(TransactionEntity transaction) : TransactionEntity
+}
+
+CollectTariffView --> PayTariffController
+
+PayTariffController ..> TransactionEntity
+PayTariffController --> StudentEntities
+PayTariffController ..> CashierEntity
+PayTariffController --> DebHistoryEntities
+PayTariffController ..> DebHistoryEntity
+PayTariffController --> PrintDocumentsController
+
+@enduml
