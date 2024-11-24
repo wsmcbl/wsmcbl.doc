@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+
+actor Secretary
+
+boundary TransactionReportView
+
+control TransactionReportByDateController
+
+entity TransactionEntities
+
+
+'--- Actor relations ---
+Secretary --> TransactionReportView
+note on link
+    some()
+end note
+
+'--- Views relations ---
+TransactionReportView --> TransactionReportByDateController
+note on link
+    update()
+end note
+
+'--- Controllers relations ---
+TransactionReportByDateController --> TransactionEntities
+
+'--- Entity relations ---
+
+@enduml
