@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+
+actor Client
+
+boundary ViewGradeOnlineView
+
+control ViewGradeOnlineController
+
+entity StudentEntities
+entity GradeEntity
+
+
+'--- Actor relations ---
+Client --> ViewGradeOnlineView
+note on link
+    some()
+end note
+
+'--- Views relations ---
+ViewGradeOnlineView --> ViewGradeOnlineController
+note on link
+    update()
+end note
+
+'--- Controllers relations ---
+ViewGradeOnlineController --> StudentEntities
+ViewGradeOnlineController --> GradeEntity
+
+'--- Entity relations ---
+
+@enduml
