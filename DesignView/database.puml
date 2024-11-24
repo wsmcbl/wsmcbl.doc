@@ -1,7 +1,7 @@
 @startuml
 title WSM CBL DataBase
-scale 2
 hide circle
+skinparam orientation portrait
 skinparam linetype ortho
 
 package Config #00c49a
