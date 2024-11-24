@@ -17,6 +17,14 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU60. PayTariff](#cu60)
 - [CU11. AddStudentGrade](#cu11)
 ---
+- [CU15. ViewGradeOnline](#cu15)
+- [CU16. UpdateStudentProfile](#cu16)
+- [CU22. MoveTeacher](#cu22)
+- [CU23. MoveStudentFromEnrollment](#cu23)
+- [CU73. CancelTransaction](#cu73)
+- [CU75. TransactionReportByDate](#cu75)
+
+
 
 ## Iteration 1
 
@@ -103,3 +111,57 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU11.AddStudentGrade/Collaboration.CU11.Analysis.png)
+
+
+
+
+## Iteration 3
+
+---
+
+### CU15. ViewGradeOnline <a id="cu15"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU15.ViewGradeOnline/Classes.CU15.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU15.ViewGradeOnline/Collaboration.CU15.Analysis.png)
+
+
+### CU16. UpdateStudentProfile <a id="cu16"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU16.UpdateStudentProfile/Classes.CU16.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU16.UpdateStudentProfile/Collaboration.CU16.Analysis.png)
+
+
+### CU22. MoveTeacher <a id="cu22"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacher/Classes.CU22.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacher/Collaboration.CU22.Analysis.png)
+
+
+### CU23. MoveStudentFromEnrollment <a id="cu23"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU23.MoveStudentFromEnrollment/Classes.CU23.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU23.MoveStudentFromEnrollment/Collaboration.CU23.Analysis.png)
+
+
+### CU73. CancelTransaction <a id="cu73"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU73.CancelTransaction/Classes.CU73.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU73.CancelTransaction/Collaboration.CU73.Analysis.png)
+
+
+### CU75. TransactionReportByDate <a id="cu75"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU75.TransactionReportByDate/Classes.CU75.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU75.TransactionReportByDate/Collaboration.CU75.Analysis.png)
