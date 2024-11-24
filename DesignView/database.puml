@@ -4,71 +4,141 @@ scale 2
 hide circle
 skinparam linetype ortho
 
-package Config #LightGray
+package Config #00c49a
 {
     entity User
     {
-        * userId : numeric <<FK>>
+        * userId : uuid <<PK>>
+        * roleId: integer <<FK>>
         --
-        * name : varchar(45)
-        secondName : varchar(45)
-        * surname : varchar(45)
-        secondName : varchar (45)
-        * userName : varchar(45)
+        * name : varchar(50)
+        secondName : varchar(50)
+        * surname : varchar(50)
+        secondName : varchar (50)
+        * userName : varchar(50)
         * password : varchar(100)
-        email : varchar(45)
-        * userState : bool
+        email : varchar(100)
+        * userState : boolean
+        * createdAt: timestamp with time zone
+        * updatedAt: timestamp with time zone
     }
 
-    entity Roles
+    entity User_Permission
     {
-        * rolId : numeric <<PK>>
+        * userId: uuid <<FK>>
+        * permissionId: integer <<FK>>
+    }
+
+    entity Role
+    {
+        * roleId : integer <<PK>>
         --
-        * nameRol : varchar(45)
+        * name : varchar(50)
+        description: varchar(150)
     }
 
-    entity Permissions
+    entity Permission
     {
-        * permissionsId : numeric <<PK>>
+        * permissionsId : integer <<PK>>
         --
-        * namePermission : varchar(45)
+        * name : varchar(50)
+        * description: varchar(150)
     }
 
-    entity Roles_Permissions
+    entity Role_Permission
     {
-        * rolesId : numeric <<FK>>
+        * roleId : integer <<FK>>
         --
-        * permissionsId : numeric <<FK>>
+        * permissionId : integer <<FK>>
     }
-
-    entity User_Roles
-    {
-        userId : numeric <<PK>>
-        rolesId : numeric <<PK>>
-    }
-
-    User ||..{User_Roles
-    Roles ||..{User_Roles
-    Roles ||..{Roles_Permissions
-    Permissions ||..{Roles_Permissions
+    User ||..{ Role
+    User_Permission }..|| User
+    User_Permission }..|| Permission
+    Role_Permission }..|| Role
+    Role_Permission }..|| Permission
 }
 
-package Secretary #ff9800
+package Secretary #f8e16c
 {
+
+    entity Degree
+    {
+        * degreeId : varchar(25) <<PK>>
+        * schoolYear : varchar(15) <<FK>>
+        --
+        * label : varchar(25)
+        tag: varchar(20)
+        educationalLevel: varchar(50)
+        quantity: integer
+    }
+
+    entity DegreeCatalog
+    {
+        * degreecatalogId: integer <<PK>>
+        --
+        * label: varchar(50)
+        * tag: varchar(20)
+        * educationalLevel: integer
+    }
+
     entity Student
     {
         * studentId : varchar(20) <<PK>>
+        * tutorid: varchar(15) <<FK>>
         --
         * name : varchar(50)
         secondName : varchar(50)
         * surname : varchar(50)
         secondSurname : varchar(50)
         * studentState : bool
-        * schoolYear : varchar(4)
-        tutor : varchar(100)
-        * sex : bool
-        * birthday : Date
-        enrollmentId : varchar(15) <<FK>>
+        * sex : boolean
+        * birthday : date
+        diseases: varchar(200)
+        religion: varchar(100)
+        * address: varchar(500)
+        minedid: varchar(30)
+        profileimage: bytea
+        accesstoken: varchar(20)
+    }
+
+    entity StudentFile
+    {
+        * fileId: integer <<PK>>
+        * studentId: varchar(15) <<FK>>
+        --
+        transfersheet: boolean
+        birthdocument: boolean
+        parentidentifier: boolean
+        updatedgradereport: boolean
+        conductdocument: boolean
+        financialsolvency: boolean
+    }
+
+    entity StudentMeasurements
+    {
+        * measurementId: integer <<PK>>
+        * studentId: varchar(15) <<FK>>
+        --
+        * weight: double precision
+        * height: integer
+    }
+
+    entity StudentParent {
+        * parentId: varchar(15) <<PK>>
+        * studentId: varchar(15) <<FK>>
+        --
+        sex: boolean
+        * name: varchar(70)
+        idcard: varchar(25)
+        occupation: varchar(150)
+    }
+
+    entity StudentTutor {
+        * tutorId: varchar(15) <<PK>>
+        --
+        * name: varchar(70)
+        phone: varchar(100)
+        email: varchar(100)
     }
 
     entity Schoolyear
@@ -76,83 +146,112 @@ package Secretary #ff9800
         * schoolyearId : varchar(20) <<PK>>
         --
         * label : varchar(100)
-        * startdate : date
+        * startDate : date
         * deadline : date
         isActive : bool
     }
 
     entity Schoolyear_Student
     {
-        * schoolyearId : varchar(20) 
-        * studentId : varchar(20)
-    }
-
-    entity Degree
-    {
-        *degreeId : varchar(15) <<PK>>
+        * schoolyearId : varchar(20) <<FK>>
+        * studentId : varchar(20) <<FK>>
         --
-        degreeLabel : varchar(20)
-        * schoolYear : varchar(20) <<FK>>
     }
 
     entity Subject
     {
         * subjectId : varchar(15) <<PK>>
-        --
-        name : varchar(100)
         * degreeId : varchar(15) <<Fk>>
+        * areaId: integer <<FK>>
+        --
+        * name : varchar(100)
+        isMandatory: boolean
+        * semester: integer
+        * initials: varchar(10)
+        number: integer
     }
 
-    Student ||..{ Schoolyear_Student
-    Schoolyear ||..{ Schoolyear_Student
-    Schoolyear ||..{ Degree
-    Degree ||..{ Subject
+    entity SubjectArea
+    {
+        * areaId: integer <<PK>>
+        --
+        * name: varchar(500)
+    }
+
+    entity SubjectCatalog
+    {
+        * subjectCatalogId: integer <<PK>>
+        * degreeCatalogId: integer <<PK>>
+        * areaId: integer <<PK>>
+        --
+        * name: varchar(100)
+        isMandatory: boolean
+        * semester: integer
+        * initials: varchar(10)
+        number: integer
+    }
+
+    entity TariffCatalog {
+        * tariffCatalogId: integer <<PK>>
+        * typeId: integer <<FK>>
+        --
+        * concept: varchar(100)
+        * amount: double precision
+        * educationalLevel: smallint
+        dueDate: date
+    }
+
+    entity ExchangeRate
+    {
+        * rateId: integer <<PK>>
+        * schoolyear: varchar(20) <<FK>>
+        --
+        * value: double precision
+    }
+
+    entity Multimedia
+    {
+        * multimediaId: integer <<PK>>
+        * schoolyear: varchar(15) <<FK>>
+        --
+        * type: integer
+        value: varchar(1500)
+    }
+
+    Student ||..|| StudentTutor
+    StudentParent }..|| Student
+    StudentMeasurements ||..|| Student
+    StudentFile ||..|| Student
+    Subject }..|| Degree
+    Subject ||..|| SubjectArea
+    SubjectCatalog ||..|| SubjectArea
+    SubjectCatalog ||..|| DegreeCatalog
+    Schoolyear_Student }..|| Student
+    Schoolyear_Student }..|| Schoolyear
+    ExchangeRate ||..|| Schoolyear
+    Multimedia ||..|| Schoolyear
+    Degree ||..|| Schoolyear
 }
 
 package Accounting #LightBlue
 {
     entity Cashier
     {
-        * cashierId : varchar(20) <<PK>>
-        --
-        * userId : numeric <FK>
+        * cashierId : varchar(15) <<PK>>
+        * userId : uuid <<FK>>
     }
 
-    entity TariffType
+    entity DebtHistory
     {
-        * typeId : numeric <<generated>>
-        --
-        * description: varchar(50)
-    }
-
-    entity Tariff
-    {
-        * tariffId : numeric <<generated>>
-        * schoolYear : varchar(4)
-        --
-        * concept : varchar(200)
-        * amount : float
-        dueDate : datetime
-        late : bool
-        * typeId : numeric <<FK>>
-    }
-
-    entity Tariff_Transaction
-    {
-        * transactionId : varchar(20) <<FK>>
-        * tariffId : varchar(20) <<FK>>
-        --
-        * amount : float
-    }
-
-    entity Transaction
-    {
-        * transactionId : varchar(20) <<PK>>
-        --
-        * total : float
-        * date : datetime
         * studentId : varchar(20) <<FK>>
-        * cashierId : varchar(20) <<FK>>
+        * tariffId : integer <<FK>>
+        --
+        * schoolYear : varchar(6)
+        * isPaid : boolean
+        * debtBalance : double precision
+        arrears : double precision
+        * subAmount : double precision
+        * amount : double precision
     }
 
     entity Discount
@@ -160,105 +259,180 @@ package Accounting #LightBlue
         * discountId: smallint <<FK>>
         --
         * description: varchar(200)
-        * amount: float
         tag: varchar(50)
+    }
+
+    entity DiscountEducationalLevel {
+        * del: integer <<PK>>
+        * discountId: integer <<FK>>
+        --
+        educationalLevel: smallint
+        amount: double precision
     }
 
     entity Student
     {
-        * studentId : varchar(20) <<PK>>
-        --
-        dicountId : int <<FK>>
-    }
-
-    entity DebtHistory
-    {
         * studentId : varchar(20) <<FK>>
-        * tariffId : int <<FK>>
+        * discountel : integer <<FK>>
         --
-        * schoolYear : varchar(6)
-        * isPaid : bool
-        * debtBalance : float
-        arrears : float
-        subAmount : float
-        amount : float
+        * educationalLevel: smallint
     }
 
-    Cashier ||..{Transaction
+    entity Tariff
+    {
+        * tariffId : integer <<PK>>
+        * schoolYear : varchar(20) <<FK>>
+        * typeId : numeric <<FK>>
+        --
+        * concept : varchar(200)
+        * amount : double precision
+        * educationalLevel: smallint
+        dueDate : datetime
+        late : boolean
+    }
+
+    entity TariffType
+    {
+        * typeId : integer <<PK>>
+        --
+        * description: varchar(50)
+    }
+
+    entity Transaction
+    {
+        * transactionId : varchar(20) <<PK>>
+        * studentId : varchar(20) <<FK>>
+        * cashierId : varchar(20) <<FK>>
+        --
+        * total : double precision
+        * date : timestamp with time zone
+        * number: integer
+    }
+
+    entity Transaction_Tariff
+    {
+        * transactionId : varchar(15) <<FK>>
+        * tariffId : integer <<FK>>
+        --
+        * amount : double precision
+    }
+
+    Transaction }..|| Cashier
+    Transaction }..|| Student
+    DiscountEducationalLevel ||..|| Discount
+    DebtHistory }..|| Tariff
+    DebtHistory }..|| Student
     Tariff ||..{ TariffType
-    Tariff ||.up.{ DebtHistory
-    Tariff ||..{ Tariff_Transaction
-    Student ||.left.{ Transaction
-    Student ||..{ Discount
-    Student ||.up.{ DebtHistory
-    Transaction ||..{ Tariff_Transaction
+    Transaction_Tariff }..|| Tariff
+    Transaction_Tariff }..|| Transaction
+    Student ||..{ DiscountEducationalLevel
 }
 
-package Academy #LightGreen
+package Academy #fb8f67
 {
     entity Enrollment
     {
         * enrollmentId : numeric <<PK>>
+        * degreeId : varchar(25) <<FK>>
+        * teacherId: varchar(15) <<FK>>
         --
-        enrollmentLabel : varchar(20)
-        * section : varchar(2)
-        * shoolYear : varchar(6)
-        capacity : numeric
-        cuantity : numeric
-        * degreeId : varchar(15) <<FK>>
+        * label : varchar(20)
+        * schoolYear : varchar(20)
+        tag: varchar(20)
+        section: varchar(50)
+        capacity: smallint
+        quantity: smallint
     }
 
-    entity Teacher
+    entity Grade
     {
-        * teacherId : varchar(15) <<PK>>
+        * gradeId: integer <<FK>>
+        * subjectPartialId : varchar(20) <<FK>>
+        * studentId : varchar(15) <<FK>>
         --
-        enrollmentId : varchar(20) <<FK>>
-        * userId : numeric <<FK>>
+        grade: double precision
+        conductGrade: double precision
+        * label: varchar(10)
+    }
+
+    entity Partial {
+        * partialId: integer <<PK>>
+        * semesterId: integer <<FK>>
+        --
+        * partial: integer
+        startdate: date
+        * deadline: date
+        isactive: boolean
+        * label: varchar(20)
+        * gradeRecordIsActive: boolean
+    }
+
+    entity Semester {
+        * semesterId: integer <<PK>>
+        * schoolyear: varchar(20) <<FK>>
+        --
+        * semester: integer
+        * deadline: date
+        * isactive: boolean
+        * label: varchar(30)
+    }
+
+    entity Student
+    {
+        * studentId : varchar(15) <<FK>>
+        * enrollmentId : varchar(15) <<FK>>
+        * schoolYear : varchar(20) <<FK>>
+        --
+        isApproved: boolean
+        isRepeating: boolean
+        * createdAt: timestamp with time zone
     }
 
     entity Subject
     {
         * subjectId : varchar(15) <<PK>>
         --
-        * baseSubjectId : varchar(15) <<FK>>
         * teacherId : varchar(15) <<FK>>
         * enrollmentId : varchar(20) <<FK>>
     }
 
-    entity Student
-    {
-        * studentId : varchar(15) <<FK>>
-        * enrollmentId : varchar(15) <FK>
+    entity Subject_Partial {
+        * subjectPartialId: integer <<PK>>
         --
-        * schoolYear : varchar(4)
-        approved : bool
+        * subjectId: varchar(15)
+        * partialId: smallint
+        * enrollmentId: varchar(15)
+        * teacherId: varchar(15)
     }
 
-    entity Grade
+    entity Teacher
     {
-        * gradeId: varchar(20) <<FK>>
+        * teacherId : varchar(15) <<PK>>
+        * userId : uuid <<FK>>
         --
-        * subjectId : varchar(20) <<FK>>
-        * studentId : varchar(20) <<FK>>
-        exam : float
-        acumulate : float
-        total : float
+        * isGuide: boolean
     }
 
     Teacher ||.left.|| Enrollment
-    Teacher ||..{ Subject
     Enrollment ||.left.{ Subject
-    Enrollment ||..{ Student
-    Subject ||..{ Grade
-    Student ||..{ Grade
-
+    Grade ||..{ Student
+    Grade ||..{ Subject_Partial
+    Student ||..{ Enrollment
+    Subject ||..|| Teacher
+    Subject_Partial ||..|| Subject
+    Subject_Partial ||..|| Partial
+    Partial ||..|| Semester
 }
 
-Secretary.Student ||.up.{ Academy.Student
-Secretary.Student ||.up.|| Accounting.Student
+Secretary.Student ||..{ Academy.Student
+Secretary.Student ||..|| Accounting.Student
 Secretary.Subject ||..{ Academy.Subject
 Secretary.Degree ||..{ Academy.Enrollment
-User ||.down.|| Cashier
-User ||.down.|| Teacher
+Academy.Semester ||..{ Secretary.Schoolyear
+Academy.Student ||..{ Secretary.Schoolyear
+User ||..|| Cashier
+User ||..|| Teacher
+TariffCatalog ||..{ TariffType
+Accounting.Tariff ||..{ Schoolyear
 
 @enduml
