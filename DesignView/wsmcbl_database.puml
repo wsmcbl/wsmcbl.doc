@@ -6,7 +6,7 @@ hide circle
 skinparam linetype ortho
 
 
-
+' Config scheme
 package Config #LightGray
 {
     entity user
@@ -52,126 +52,133 @@ package Config #LightGray
 }
 
 
-
+' Secretary scheme
 package Secretary #ff9800
 {
+    entity degree
+    {
+        label: varchar(25)
+        tag: varchar(20)
+        schoolyear: varchar(15)
+        educationallevel: varchar(50)
+        quantity: integer
+        degreeid: varchar(25)
+    }
 
+    entity degreecatalog
+    {
+        label: varchar(50)
+        tag: varchar(20)
+        educationallevel: integer
+        degreecatalogid: integer
+    }
 
-entity degree {
-   label: varchar(25)
-   tag: varchar(20)
-   schoolyear: varchar(15)
-   educationallevel: varchar(50)
-   quantity: integer
-   degreeid: varchar(25)
-}
+    entity student
+    {
+        tutorid: varchar(15)
+        name: varchar(50)
+        secondname: varchar(100)
+        surname: varchar(50)
+        secondsurname: varchar(50)
+        studentstate: boolean
+        sex: boolean
+        birthday: date
+        diseases: varchar(200)
+        religion: varchar(100)
+        address: varchar(500)
+        minedid: varchar(30)
+        profileimage: bytea
+        accesstoken: varchar(20)
+        studentid: varchar(20)
+    }
 
-entity degreecatalog {
-   label: varchar(50)
-   tag: varchar(20)
-   educationallevel: integer
-   degreecatalogid: integer
-}
+    entity studentfile
+    {
+        studentid: varchar(15)
+        transfersheet: boolean
+        birthdocument: boolean
+        parentidentifier: boolean
+        updatedgradereport: boolean
+        conductdocument: boolean
+        financialsolvency: boolean
+        fileid: integer
+    }
 
-entity student {
-   tutorid: varchar(15)
-   name: varchar(50)
-   secondname: varchar(100)
-   surname: varchar(50)
-   secondsurname: varchar(50)
-   studentstate: boolean
-   sex: boolean
-   birthday: date
-   diseases: varchar(200)
-   religion: varchar(100)
-   address: varchar(500)
-   minedid: varchar(30)
-   profileimage: bytea
-   accesstoken: varchar(20)
-   studentid: varchar(20)
-}
-entity studentfile {
-   studentid: varchar(15)
-   transfersheet: boolean
-   birthdocument: boolean
-   parentidentifier: boolean
-   updatedgradereport: boolean
-   conductdocument: boolean
-   financialsolvency: boolean
-   fileid: integer
-}
-entity studentmeasurements {
-   studentid: varchar(15)
-   weight: double precision
-   height: integer
-   measurementid: integer
-}
-entity studentparent {
-   studentid: varchar(15)
-   sex: boolean
-   name: varchar(70)
-   idcard: varchar(25)
-   occupation: varchar(150)
-   parentid: varchar(15)
-}
-entity studenttutor {
-   name: varchar(70)
-   phone: varchar(100)
-   email: varchar(100)
-   tutorid: varchar(15)
-}
+    entity studentmeasurements {
+        studentid: varchar(15)
+        weight: double precision
+        height: integer
+        measurementid: integer
+    }
 
+    entity studentparent {
+        studentid: varchar(15)
+        sex: boolean
+        name: varchar(70)
+        idcard: varchar(25)
+        occupation: varchar(150)
+        parentid: varchar(15)
+    }
 
-entity subject {
-   degreeid: varchar(25)
-   areaid: integer
-   name: varchar(100)
-   ismandatory: boolean
-   semester: integer
-   initials: varchar(10)
-   number: integer
-   subjectid: varchar(15)
-}
+    entity studenttutor {
+        name: varchar(70)
+        phone: varchar(100)
+        email: varchar(100)
+        tutorid: varchar(15)
+    }
 
-entity subjectarea {
-   name: varchar(500)
-   areaid: integer
-}
-entity subjectcatalog {
-   degreecatalogid: integer
-   areaid: integer
-   name: varchar(100)
-   ismandatory: boolean
-   semester: integer
-   initials: varchar(10)
-   number: integer
-   subjectcatalogid: integer
-}
+    entity subject {
+        degreeid: varchar(25)
+        areaid: integer
+        name: varchar(100)
+        ismandatory: boolean
+        semester: integer
+        initials: varchar(10)
+        number: integer
+        subjectid: varchar(15)
+    }
 
-entity schoolyear {
-   label: varchar(15)
-   startdate: date
-   deadline: date
-   isactive: boolean
-   schoolyearid: varchar(15)
-}
+    entity subjectarea {
+        name: varchar(500)
+        areaid: integer
+    }
+
+    entity subjectcatalog {
+        degreecatalogid: integer
+        areaid: integer
+        name: varchar(100)
+        ismandatory: boolean
+        semester: integer
+        initials: varchar(10)
+        number: integer
+        subjectcatalogid: integer
+    }
+
+    entity schoolyear {
+        label: varchar(15)
+        startdate: date
+        deadline: date
+        isactive: boolean
+        schoolyearid: varchar(15)
+    }
+
     entity schoolyear_student
     {
         schoolyear: varchar(15)
         studentid: varchar(20)
     }
 
-
-entity tariffcatalog {
-   educationallevel: smallint
-   concept: varchar(100)
-   amount: double precision
-   duedate: date
-   typeid: integer
-   tariffcatalogid: integer
+    entity tariffcatalog {
+        educationallevel: smallint
+        concept: varchar(100)
+        amount: double precision
+        duedate: date
+        typeid: integer
+        tariffcatalogid: integer
+    }
 }
-}
 
+' Accounting scheme
 package Accounting #LightBlue
 {
     entity cashier
@@ -179,6 +186,7 @@ package Accounting #LightBlue
        userid: uuid
        cashierid: varchar(15)
     }
+
     entity debthistory
     {
        schoolyear: varchar(20)
@@ -191,22 +199,23 @@ package Accounting #LightBlue
        tariffid: integer
     }
 
+    entity tariff {
+        schoolyear: varchar(20)
+        educationallevel: smallint
+        concept: varchar(200)
+        amount: double precision
+        duedate: date
+        late: boolean
+        typeid: integer
+        tariffid: integer
+    }
 
-entity tariff {
-   schoolyear: varchar(20)
-   educationallevel: smallint
-   concept: varchar(200)
-   amount: double precision
-   duedate: date
-   late: boolean
-   typeid: integer
-   tariffid: integer
-}
     entity discount {
        description: varchar(200)
        tag: varchar(50)
        discountid: smallint
     }
+
     entity discounteducationallevel {
        discountid: integer
        educationallevel: smallint
@@ -214,162 +223,168 @@ entity tariff {
        del: integer
     }
 
-entity student {
-   discountel: integer
-   educationallevel: smallint
-   studentid: varchar(20)
+    entity student {
+        discountel: integer
+        educationallevel: smallint
+        studentid: varchar(20)
+    }
+
+    entity tarifftype {
+        description: varchar(50)
+        typeid: integer
+    }
+
+    entity transaction {
+        number: integer
+        total: double precision
+        date: timestamp with time zone
+        studentid: varchar(15)
+        cashierid: varchar(15)
+        transactionid: varchar(20)
+    }
+
+    entity transaction_tariff {
+        amount: double precision
+        transactionid: varchar(15)
+        tariffid: integer
+    }
 }
 
-entity tarifftype {
-   description: varchar(50)
-   typeid: integer
-}
-
-entity transaction {
-   number: integer
-   total: double precision
-   date: timestamp with time zone
-   studentid: varchar(15)
-   cashierid: varchar(15)
-   transactionid: varchar(20)
-}
-entity transaction_tariff {
-   amount: double precision
-   transactionid: varchar(15)
-   tariffid: integer
-}
-}
-
-
-
-
+' Academy scheme
 package Academy #LightGreen
 {
+    entity enrollment
+    {
+        degreeid: varchar(25)
+        teacherid: varchar(15)
+        label: varchar(20)
+        tag: varchar(20)
+        schoolyear: varchar(20)
+        section: varchar(50)
+        capacity: smallint
+        quantity: smallint
+        enrollmentid: varchar(15)
+    }
 
-entity enrollment {
-   degreeid: varchar(25)
-   teacherid: varchar(15)
-   label: varchar(20)
-   tag: varchar(20)
-   schoolyear: varchar(20)
-   section: varchar(50)
-   capacity: smallint
-   quantity: smallint
-   enrollmentid: varchar(15)
-}
-entity exchangerate {
-   schoolyear: varchar(20)
-   value: double precision
-   rateid: integer
-}
-entity grade {
-   studentid: varchar(15)
-   subjectpartialid: integer
-   grade: double precision
-   conductgrade: double precision
-   label: varchar(10)
-   gradeid: integer
-}
-entity multimedia {
-   schoolyear: varchar(15)
-   type: integer
-   value: varchar(1500)
-   multimediaid: integer
-}
-entity partial {
-   semesterid: integer
-   partial: integer
-   startdate: date
-   deadline: date
-   isactive: boolean
-   label: varchar(20)
-   graderecordisactive: boolean
-   partialid: integer
-}
-entity semester {
-   schoolyear: varchar(20)
-   semester: integer
-   deadline: date
-   isactive: boolean
-   label: varchar(30)
-   semesterid: integer
+    entity exchangerate
+    {
+        schoolyear: varchar(20)
+        value: double precision
+        rateid: integer
+    }
+
+    entity grade
+    {
+        studentid: varchar(15)
+        subjectpartialid: integer
+        grade: double precision
+        conductgrade: double precision
+        label: varchar(10)
+        gradeid: integer
+    }
+
+    entity multimedia
+    {
+        schoolyear: varchar(15)
+        type: integer
+        value: varchar(1500)
+        multimediaid: integer
+    }
+
+    entity partial {
+        semesterid: integer
+        partial: integer
+        startdate: date
+        deadline: date
+        isactive: boolean
+        label: varchar(20)
+        graderecordisactive: boolean
+        partialid: integer
+    }
+
+    entity semester {
+        schoolyear: varchar(20)
+        semester: integer
+        deadline: date
+        isactive: boolean
+        label: varchar(30)
+        semesterid: integer
+    }
+
+    entity student {
+        schoolyear: varchar(20)
+        isapproved: boolean
+        isrepeating: boolean
+        createdat: timestamp with time zone
+        studentid: varchar(15)
+        enrollmentid: varchar(15)
+    }
+
+    entity subject {
+        teacherid: varchar(15)
+        subjectid: varchar(15)
+        enrollmentid: varchar(15)
+    }
+
+    entity subject_partial {
+        subjectid: varchar(15)
+        enrollmentid: varchar(15)
+        partialid: smallint
+        teacherid: varchar(15)
+        subjectpartialid: integer
+    }
+
+    entity teacher {
+        userid: uuid
+        isguide: boolean
+        teacherid: varchar(15)
+    }
 }
 
-
-entity student {
-   schoolyear: varchar(20)
-   isapproved: boolean
-   isrepeating: boolean
-   createdat: timestamp with time zone
-   studentid: varchar(15)
-   enrollmentid: varchar(15)
-}
-
-entity subject {
-   teacherid: varchar(15)
-   subjectid: varchar(15)
-   enrollmentid: varchar(15)
-}
-entity subject_partial {
-   subjectid: varchar(15)
-   enrollmentid: varchar(15)
-   partialid: smallint
-   teacherid: varchar(15)
-   subjectpartialid: integer
-}
-
-
-entity teacher {
-   userid: uuid
-   isguide: boolean
-   teacherid: varchar(15)
-}
-}
-
-cashier                   -[#595959,plain]-^  user                     : "userid"
-debthistory               -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-debthistory               -[#595959,plain]-^  Accounting.student                  : "studentid"
-debthistory               -[#595959,plain]-^  tariff                   : "tariffid"
-degree                    -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-discounteducationallevel  -[#595959,plain]-^  discount                 : "discountid"
-enrollment                -[#595959,plain]-^  degree                   : "degreeid"
-enrollment                -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-enrollment                -[#595959,plain]-^  teacher                  : "teacherid"
-exchangerate              -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-grade                     -[#595959,plain]-^  Academy.student                  : "studentid"
-grade                     -[#595959,plain]-^  subject_partial          : "subjectpartialid"
-multimedia                -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-partial                   -[#595959,plain]-^  semester                 : "semesterid"
-role_permission           -[#595959,plain]-^  permission               : "permissionid"
-role_permission           -[#595959,plain]-^  role                     : "roleid"
-schoolyear_student        -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-schoolyear_student        -[#595959,plain]-^  Secretary.student                  : "studentid"
-semester                  -[#595959,plain]-^  schoolyear               : "schoolyear:schoolyearid"
-Accounting.student        -[#595959,plain]-^  discounteducationallevel : "discountel:del"
-Academy.student           -[#595959,plain]-^  enrollment               : "enrollmentid"
-Academy.student           -[#595959,plain]-^  Secretary.student                  : "studentid"
-Accounting.student        -[#595959,plain]-^  Secretary.student                  : "studentid"
-Secretary.student         -[#595959,plain]-^  studenttutor             : "tutorid"
-studentfile               -[#595959,plain]-^  Secretary.student                  : "studentid"
-studentmeasurements       -[#595959,plain]-^  Secretary.student                  : "studentid"
-studentparent             -[#595959,plain]-^  Secretary.student                  : "studentid"
-Secretary.subject         -[#595959,plain]-^  degree                   : "degreeid"
-Academy.subject           -[#595959,plain]-^  enrollment               : "enrollmentid"
-Academy.subject           -[#595959,plain]-^  Secretary.subject                  : "subjectid"
-Secretary.subject         -[#595959,plain]-^  subjectarea              : "areaid"
-Academy.subject           -[#595959,plain]-^  teacher                  : "teacherid"
-subject_partial           -[#595959,plain]-^  partial                  : "partialid"
-subject_partial           -[#595959,plain]-^  Academy.subject                  : "subjectid, enrollmentid"
-subject_partial           -[#595959,plain]-^  teacher                  : "teacherid"
-subjectcatalog            -[#595959,plain]-^  degreecatalog            : "degreecatalogid"
-subjectcatalog            -[#595959,plain]-^  subjectarea              : "areaid"
-tariff                    -[#595959,plain]-^  tarifftype               : "typeid"
-teacher                   -[#595959,plain]-^  user                     : "userid"
-transaction               -[#595959,plain]-^  cashier                  : "cashierid"
-transaction               -[#595959,plain]-^  Accounting.student                  : "studentid"
-transaction_tariff        -[#595959,plain]-^  tariff                   : "tariffid"
-transaction_tariff        -[#595959,plain]-^  transaction              : "transactionid"
-user                      -[#595959,plain]-^  role                     : "roleid"
-user_permission           -[#595959,plain]-^  permission               : "permissionid"
-user_permission           -[#595959,plain]-^  user                     : "userid"
+cashier                   --|>  user                     : "userid"
+debthistory               --|>  schoolyear               : "schoolyear:schoolyearid"
+debthistory               --|>  Accounting.student       : "studentid"
+debthistory               --|>  tariff                   : "tariffid"
+degree                    --|>  schoolyear               : "schoolyear:schoolyearid"
+discounteducationallevel  --|>  discount                 : "discountid"
+enrollment                --|>  degree                   : "degreeid"
+enrollment                --|>  schoolyear               : "schoolyear:schoolyearid"
+enrollment                --|>  teacher                  : "teacherid"
+exchangerate              --|>  schoolyear               : "schoolyear:schoolyearid"
+grade                     --|>  Academy.student          : "studentid"
+grade                     --|>  subject_partial          : "subjectpartialid"
+multimedia                --|>  schoolyear               : "schoolyear:schoolyearid"
+partial                   --|>  semester                 : "semesterid"
+role_permission           --|>  permission               : "permissionid"
+role_permission           --|>  role                     : "roleid"
+schoolyear_student        --|>  schoolyear               : "schoolyear:schoolyearid"
+schoolyear_student        --|>  Secretary.student        : "studentid"
+semester                  --|>  schoolyear               : "schoolyear:schoolyearid"
+Accounting.student        --|>  discounteducationallevel : "discountel:del"
+Academy.student           --|>  enrollment               : "enrollmentid"
+Academy.student           --|>  Secretary.student        : "studentid"
+Accounting.student        --|>  Secretary.student        : "studentid"
+Secretary.student         --|>  studenttutor             : "tutorid"
+studentfile               --|>  Secretary.student        : "studentid"
+studentmeasurements       --|>  Secretary.student        : "studentid"
+studentparent             --|>  Secretary.student        : "studentid"
+Secretary.subject         --|>  degree                   : "degreeid"
+Academy.subject           --|>  enrollment               : "enrollmentid"
+Academy.subject           --|>  Secretary.subject        : "subjectid"
+Secretary.subject         --|>  subjectarea              : "areaid"
+Academy.subject           --|>  teacher                  : "teacherid"
+subject_partial           --|>  partial                  : "partialid"
+subject_partial           --|>  Academy.subject          : "subjectid, enrollmentid"
+subject_partial           --|>  teacher                  : "teacherid"
+subjectcatalog            --|>  degreecatalog            : "degreecatalogid"
+subjectcatalog            --|>  subjectarea              : "areaid"
+tariff                    --|>  tarifftype               : "typeid"
+teacher                   --|>  user                     : "userid"
+transaction               --|>  cashier                  : "cashierid"
+transaction               --|>  Accounting.student       : "studentid"
+transaction_tariff        --|>  tariff                   : "tariffid"
+transaction_tariff        --|>  transaction              : "transactionid"
+user                      --|>  role                     : "roleid"
+user_permission           --|>  permission               : "permissionid"
+user_permission           --|>  user                     : "userid"
 @enduml
