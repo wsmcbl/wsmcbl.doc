@@ -36,10 +36,20 @@ left to right direction
 title Iteration 3
 label 0 as " "
 
-Label RF36 as "RF36. Generar estadísticas de ingresos."
+label RF06 as "RF06. Creación de Matrícula Oficial por grado"
 Label RF07 as "RF07. Ver calificaciones online."
+Label RF08 as "RF08. Ver historial de pagos por estudiante."
+Label RF10 as "RF10. Gestionar perfiles de estudiantes."
+Label RF12 as "RF12. Gestionar matrículas"
+Label RF31 as "RF31. Impresión de facturas y recibos."
+Label RF36 as "RF36. Generar estadísticas de ingresos."
 
-0 ..[hidden]> RF36
+0 ..[hidden]> RF06
 0 ..[hidden]> RF07
+0 ..[hidden]> RF08
+0 ..[hidden]> RF10
+0 ..[hidden]> RF12
+0 ..[hidden]> RF31
+0 ..[hidden]> RF36
 
 @enduml
