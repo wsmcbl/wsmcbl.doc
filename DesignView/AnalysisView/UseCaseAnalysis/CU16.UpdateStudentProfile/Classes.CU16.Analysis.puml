@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+actor Secretary
+
+boundary StudentProfileView
+
+control UpdateStudentProfileController
+
+entity StudentEntities
+
+
+
+'--- Actor relations ---
+Secretary --> StudentProfileView
+
+'--- Views relations ---
+StudentProfileView --> UpdateStudentProfileController
+
+'--- Controllers relations ---
+UpdateStudentProfileController --> StudentEntities
+
+'--- Entity relations ---
+@enduml
