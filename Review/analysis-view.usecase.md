@@ -19,7 +19,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 ---
 - [CU15. ViewGradeOnline](#cu15)
 - [CU16. UpdateStudentProfile](#cu16)
-- [CU22. MoveTeacher](#cu22)
+- [CU22. MoveTeacherFromSubject](#cu22)
 - [CU23. MoveStudentFromEnrollment](#cu23)
 - [CU73. CancelTransaction](#cu73)
 - [CU75. TransactionReportByDate](#cu75)
@@ -135,7 +135,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU16.UpdateStudentProfile/Collaboration.CU16.Analysis.png)
 
 
-### CU22. MoveTeacher <a id="cu22"></a>
+### CU22. MoveTeacherFromSubject <a id="cu22"></a>
 * ### Classes
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacherFromSubject/Classes.CU22.Analysis.png)
 
