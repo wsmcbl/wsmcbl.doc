@@ -6,7 +6,7 @@ rectangle "Iteration 3" as Iteration3
 
 usecase CU15 as "ViewGradeOnline"
 usecase CU16 as "UpdateStudentProfile"
-usecase CU22 as "MoveTeacher"
+usecase CU22 as "MoveTeacherFromSubject"
 usecase CU23 as "MoveStudentFromEnrollment"
 usecase CU73 as "CancelTransaction"
 usecase CU75 as "TransactionReportByDate"

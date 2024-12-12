@@ -5,7 +5,7 @@ actor Secretary
 
 boundary EnrollmentView
 
-control MoveTeacherController
+control MoveTeacherFromSubjectController
 
 entity EnrollmentEntities
 
@@ -17,13 +17,13 @@ note on link
 end note
 
 '--- Views relations ---
-EnrollmentView --> MoveTeacherController
+EnrollmentView --> MoveTeacherFromSubjectController
 note on link
     update()
 end note
 
 '--- Controllers relations ---
-MoveTeacherController --> EnrollmentEntities
+MoveTeacherFromSubjectController --> EnrollmentEntities
 
 '--- Entity relations ---
 

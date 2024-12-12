@@ -137,10 +137,10 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 ### CU22. MoveTeacher <a id="cu22"></a>
 * ### Classes
-![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacher/Classes.CU22.Analysis.png)
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacherFromSubject/Classes.CU22.Analysis.png)
 
 * ### Collaboration
-![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacher/Collaboration.CU22.Analysis.png)
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU22.MoveTeacherFromSubject/Collaboration.CU22.Analysis.png)
 
 
 ### CU23. MoveStudentFromEnrollment <a id="cu23"></a>
