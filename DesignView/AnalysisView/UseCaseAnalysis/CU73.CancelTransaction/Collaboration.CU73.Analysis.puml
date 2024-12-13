@@ -14,18 +14,23 @@ entity TransactionEntity
 '--- Actor relations ---
 Cashier --> TransactionListView
 note on link
-    some()
+    seeTransactionList()
+    cancelTransaction(id = )
 end note
 
 '--- Views relations ---
 TransactionListView --> CancelTransactionController
 note on link
-    update()
+    getTransactionList()
+    cancelTransaction(transactionId = )
 end note
 
 '--- Controllers relations ---
-CancelTransactionController --> TransactionEntities
+CancelTransactionController --> TransactionEntities : getAll()
 CancelTransactionController --> TransactionEntity
+note on link
+    isValid = false
+end note
 
 '--- Entity relations ---
 
