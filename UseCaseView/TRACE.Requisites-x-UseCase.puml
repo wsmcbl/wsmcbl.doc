@@ -1,7 +1,7 @@
 @startuml
 'skinparam BackgroundColor transparent
 left to right direction
-scale 3
+scale 2
 
 'Iteration 1
 Label RF01 as "RF01. Cobro de aranceles"
@@ -41,7 +41,7 @@ usecase CU69 as "Login"
 'Iteration 3
 usecase CU15 as "ViewGradeOnline"
 usecase CU16 as "UpdateStudentProfile"
-usecase CU22 as "MoveTeacher"
+usecase CU22 as "MoveTeacherFromSubject"
 usecase CU23 as "MoveStudentFromEnrollment"
 usecase CU73 as "CancelTransaction"
 usecase CU75 as "TransactionReportByDate"

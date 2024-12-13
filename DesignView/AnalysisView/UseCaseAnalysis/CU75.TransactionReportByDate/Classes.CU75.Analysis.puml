@@ -18,6 +18,5 @@ TransactionReportView --> TransactionReportByDateController
 
 '--- Controllers relations ---
 TransactionReportByDateController --> TransactionEntities
-
 '--- Entity relations ---
 @enduml

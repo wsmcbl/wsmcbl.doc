@@ -13,17 +13,25 @@ entity TransactionEntities
 '--- Actor relations ---
 Secretary --> TransactionReportView
 note on link
-    some()
+    selectReport()
+    seeReport()
 end note
 
 '--- Views relations ---
 TransactionReportView --> TransactionReportByDateController
 note on link
-    update()
+    getReportByDate(range=)
+    getTariffTypeList()
 end note
 
 '--- Controllers relations ---
 TransactionReportByDateController --> TransactionEntities
+note on link
+    getTransactionList(range=)
+    getTariffTypeList()
+    getUsername()
+    getSummary()
+end note
 
 '--- Entity relations ---
 
