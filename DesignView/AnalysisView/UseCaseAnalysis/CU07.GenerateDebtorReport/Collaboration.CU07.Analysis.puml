@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+
+actor "Cashier/Principal"
+
+boundary ReportView
+
+control GenerateDebtorReportController
+
+entity TransactionEntities
+entity TransactionEntity
+
+'--- Actor relations ---
+"Cashier/Principal" --> ReportView
+note on link
+    seeTransactionList()
+    cancelTransaction(id = )
+end note
+
+'--- Views relations ---
+ReportView --> GenerateDebtorReportController
+note on link
+    getTransactionList()
+    cancelTransaction(transactionId = )
+end note
+
+'--- Controllers relations ---
+GenerateDebtorReportController --> TransactionEntities : getAll()
+GenerateDebtorReportController --> TransactionEntity
+note on link
+    isValid = false
+end note
+
+'--- Entity relations ---
+
+@enduml

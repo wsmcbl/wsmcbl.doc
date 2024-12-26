@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+actor Cashier
+actor Principal
+
+boundary ReportView
+
+control GenerateDebtorReportController
+
+entity TransactionEntities
+entity TransactionEntity
+
+
+'--- Actor relations ---
+Cashier --> ReportView
+Principal --> ReportView
+
+'--- Views relations ---
+ReportView --> GenerateDebtorReportController
+
+'--- Controllers relations ---
+GenerateDebtorReportController --> TransactionEntities
+GenerateDebtorReportController --> TransactionEntity
+
+'--- Entity relations ---
+@enduml
