@@ -23,6 +23,10 @@ Label RF08 as "RF08. Ver historial de pagos por estudiante."
 Label RF31 as "RF31. Impresión de facturas y recibos."
 Label RF36 as "RF36. Generar estadísticas de ingresos."
 
+'Iteration 4
+Label RF09 as "RF09. Generar informe de deudores."
+Label RF34 as "RF34. Habilitar el registro de notas por corte evaluativo."
+
 
 'Iteration 1
 usecase CU01 as "EnrollStudent"
@@ -45,6 +49,17 @@ usecase CU22 as "MoveTeacherFromSubject"
 usecase CU23 as "MoveStudentFromEnrollment"
 usecase CU73 as "CancelTransaction"
 usecase CU75 as "TransactionReportByDate"
+
+'Iteration 4
+usecase CU07 as "GenerateDebtorReport"
+usecase CU20 as "UpdateEnrollment"
+usecase CU46 as "CreateUser"
+usecase CU51 as "ViewUserProfile"
+usecase CU61 as "EnablePartialGradeRecording"
+usecase CU70 as "CreateRol"
+usecase CU71 as "AssignRolAndPermissions"
+usecase CU77 as "CorrectEducationalLevelOfTheProfile"
+usecase CU78 as "ForgetDebt"
 
 
 
@@ -75,5 +90,16 @@ RF31 ..> CU73 : trace
 RF31 ..> CU58 : trace
 RF10 ..> CU16 : trace
 RF12 ..> CU23 : trace
-@enduml
 
+'Iteration 4
+RF09 ..> CU07 : trace
+RF06 ..> CU20 : trace
+RF12 ..> CU20 : trace
+RF24 ..> CU46 : trace
+RF24 ..> CU51 : trace
+RF34 ..> CU61 : trace
+RF24 ..> CU70 : trace
+RF24 ..> CU71 : trace
+RF10 ..> CU77 : trace
+RF33 ..> CU78 : trace
+@enduml
