@@ -23,7 +23,8 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU23. MoveStudentFromEnrollment](#cu23)
 - [CU73. CancelTransaction](#cu73)
 - [CU75. TransactionReportByDate](#cu75)
-
+---
+- [CU07. GenerateDebtorReport](#cu07)
 
 
 ## Iteration 1
@@ -165,3 +166,17 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU75.TransactionReportByDate/Collaboration.CU75.Analysis.png)
+
+
+
+
+## Iteration 4
+
+---
+
+### CU07. GenerateDebtorReport <a id="cu07"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Classes.CU07.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU07.Analysis.png)
