@@ -28,7 +28,7 @@ Cashier --> CollectTariffs
 CollectTariffs ..> PrintingInvoicesAndReceipts: include
 
 'Iteration 2
-actor Client
+actor Customer
 actor Teacher
 
 User <|-- Teacher
@@ -52,9 +52,9 @@ CollectTariffs ..> CU60 : include
 
 
 'Iteration 3
-actor Admin
+actor Administrator
 
-User <|-- Admin
+User <|-- Administrator
 
 usecase CU15 as "ViewGradeOnline"
 usecase CU16 as "UpdateStudentProfile"
@@ -64,7 +64,7 @@ usecase CU73 as "CancelTransaction"
 usecase CU75 as "TransactionReportByDate"
 
 
-Client --> CU15
+Customer --> CU15
 
 Secretary --> CU16
 Secretary --> CU22
@@ -73,7 +73,7 @@ Secretary --> CU23
 Cashier --> CU73
 Cashier --> CU75
 
-Admin --> CU75
+Administrator --> CU75
 
 
 CU16 ..> CU23 : include
@@ -100,10 +100,10 @@ Principal --> CU61
 Secretary --> CU20
 Secretary --> CU77
 
-Admin --> CU46
-Admin --> CU61
-Admin --> CU70
-Admin --> CU71
+Administrator --> CU46
+Administrator --> CU61
+Administrator --> CU70
+Administrator --> CU71
 
 Cashier --> CU77
 Cashier --> CU78

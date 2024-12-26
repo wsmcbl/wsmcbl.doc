@@ -4,8 +4,8 @@
 :User: as "Generic User"
 
 User <|-- Administrator
-User <|-- Director
-User <|-- Subdirector
+User <|-- Principal
+User <|-- VicePrincipal
 User <|-- Secretary
 User <|-- Cashier
 User <|-- Profesor
