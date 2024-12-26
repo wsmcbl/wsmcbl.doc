@@ -41,7 +41,7 @@ label RF06 as "RF06. Creación de Matrícula Oficial por grado"
 Label RF07 as "RF07. Ver calificaciones online."
 Label RF08 as "RF08. Ver historial de pagos por estudiante."
 Label RF10 as "RF10. Gestionar perfiles de estudiantes."
-Label RF12 as "RF12. Gestionar matrículas"
+Label RF12 as "RF12. Gestionar matrículas."
 Label RF31 as "RF31. Impresión de facturas y recibos."
 Label RF36 as "RF36. Generar estadísticas de ingresos."
 
@@ -53,5 +53,27 @@ Label RF36 as "RF36. Generar estadísticas de ingresos."
 0 ..[hidden]> RF12
 0 ..[hidden]> RF31
 0 ..[hidden]> RF36
+
+
+newpage
+left to right direction
+title Iteration 4
+label 0 as " "
+
+label RF06 as "RF06. Creación de Matrícula Oficial por grado"
+Label RF09 as "RF09. Generar informe de deudores."
+Label RF10 as "RF10. Gestionar perfiles de estudiantes."
+Label RF12 as "RF12. Gestionar matrículas."
+Label RF24 as "RF24. Gestionar usuarios del sistema."
+Label RF33 as "RF33. Abonos a pago de un arancel."
+Label RF34 as "RF34. Habilitar el registro de notas por corte evaluativo."
+
+0 ..[hidden]> RF06
+0 ..[hidden]> RF09
+0 ..[hidden]> RF10
+0 ..[hidden]> RF12
+0 ..[hidden]> RF24
+0 ..[hidden]> RF33
+0 ..[hidden]> RF34
 
 @enduml
