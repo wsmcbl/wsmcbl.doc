@@ -15,18 +15,17 @@ usecase EnrollStudent
 usecase CreateOfficialEnrollmentBySection
 usecase PrintingInvoicesAndReceipts
 usecase PrintReportCardByStudent
-usecase MoveTeacherGuideFromEnrollment
+usecase CU21 as "MoveTeacherGuideFromEnrollment"
 usecase CollectTariffs
 
 Secretary --> EnrollStudent
 Secretary --> CreateOfficialEnrollmentBySection
 Secretary --> PrintReportCardByStudent
-Secretary --> MoveTeacherGuideFromEnrollment
+Secretary --> CU21
 
 Cashier --> CollectTariffs
 
 CollectTariffs ..> PrintingInvoicesAndReceipts: include
-CreateOfficialEnrollmentBySection ..> MoveTeacherGuideFromEnrollment : include
 
 'Iteration 2
 actor Client
@@ -53,6 +52,10 @@ CollectTariffs ..> CU60 : include
 
 
 'Iteration 3
+actor Admin
+
+User <|-- Admin
+
 usecase CU15 as "ViewGradeOnline"
 usecase CU16 as "UpdateStudentProfile"
 usecase CU22 as "MoveTeacherFromSubject"
@@ -72,8 +75,43 @@ Cashier --> CU75
 
 Admin --> CU75
 
-CreateOfficialEnrollmentBySection ..> CU22 : include
 
 CU16 ..> CU23 : include
+
+
+'Iteration 4
+actor Principal
+
+User <|-- Principal
+
+usecase CU07 as "GenerateDebtorReport"
+usecase CU20 as "UpdateEnrollment"
+usecase CU46 as "CreateUser"
+usecase CU51 as "ViewUserProfile"
+usecase CU61 as "EnablePartialGradeRecording"
+usecase CU70 as "CreateRol"
+usecase CU71 as "AssignRolAndPermissions"
+usecase CU77 as "CorrectEducationalLevelOfTheProfile"
+usecase CU78 as "ForgetDebt"
+
+Principal --> CU07
+Principal --> CU61
+
+Secretary --> CU20
+Secretary --> CU77
+
+Admin --> CU46
+Admin --> CU61
+Admin --> CU70
+Admin --> CU71
+
+Cashier --> CU77
+Cashier --> CU78
+
+User -left-> CU51
+
+CU20 ..> CU21 : include
+CU20 ..> CU22 : include
+CU20 ..> CU23 : include
 
 @enduml
