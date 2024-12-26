@@ -2,6 +2,30 @@
 'skinparam BackgroundColor transparent
 left to right direction
 
+rectangle "Iteration 4" as Iteration4
+
+usecase CU07 as "GenerateDebtorReport"
+usecase CU20 as "UpdateEnrollment"
+usecase CU46 as "CreateUser"
+usecase CU51 as "ViewUserProfile"
+usecase CU61 as "EnablePartialGradeRecording"
+usecase CU70 as "CreateRol"
+usecase CU71 as "AssignRolAndPermissions"
+usecase CU77 as "CorrectEducationalLevelOfTheProfile"
+usecase CU78 as "ForgetDebt"
+
+Iteration4 .. CU07 : CU07
+Iteration4 .. CU20 : CU20
+Iteration4 .. CU46 : CU46
+Iteration4 .. CU51 : CU51
+Iteration4 .. CU61 : CU61
+Iteration4 .. CU70 : CU70
+Iteration4 .. CU71 : CU71
+Iteration4 .. CU77 : CU77
+Iteration4 .. CU78 : CU78
+
+
+
 rectangle "Iteration 3" as Iteration3
 
 usecase CU15 as "ViewGradeOnline"
