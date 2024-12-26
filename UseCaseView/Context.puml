@@ -6,15 +6,19 @@ state INITIAL
 state HOME
 state OPEN_GRADE_ONLINE
 
+state OPEN_ACADEMY_SUBSYSTEM
+state OPEN_SECRETARY_SUBSYSTEM
+state OPEN_ACCOUNTING_SUBSYSTEM
+state OPEN_PRINCIPAL_SUBSYSTEM
+state OPEN_ADMIN_SUBSYSTEM
+
 state OPEN_ENROLLMENT
 state OPEN_PROFILE
 state OPEN_TARIFFS_VIEW
 state OPEN_TRANSACTIONS_VIEW
-
-state OPEN_ACADEMY_SUBSYSTEM
-state OPEN_SECRETARY_SUBSYSTEM
-state OPEN_ACCOUNTING_SUBSYSTEM
-state OPEN_ADMIN_SUBSYSTEM
+state OPEN_ACCOUNTING_INFORM_VIEW
+state OPEN_PERIOD_SETTINGS_VIEW
+state OPEN_USER_SETTINGS_VIEW
 
 
 '-- Relations --
@@ -28,6 +32,9 @@ HOME --> OPEN_ACADEMY_SUBSYSTEM
 HOME --> OPEN_SECRETARY_SUBSYSTEM
 HOME --> OPEN_ACCOUNTING_SUBSYSTEM
 HOME --> OPEN_ADMIN_SUBSYSTEM
+HOME --> OPEN_PRINCIPAL_SUBSYSTEM
+
+HOME --> HOME : ViewUserProfile
 
 'OPEN_ACADEMY_SUBSYSTEM
 OPEN_ACADEMY_SUBSYSTEM --> OPEN_PROFILE : ShowProfiles (*)
@@ -39,21 +46,40 @@ note on link
     ShowProfiles (*)
     UpdateStudentProfile
     MoveStudentFromEnrollment
+    CorrectEducationalLevelOfTheProfile
 end note
 OPEN_SECRETARY_SUBSYSTEM --> OPEN_ENROLLMENT
 note on link
     EnrollStudent
     Show Enrollments (*)
     CreateOfficialEnrollmentBySection
+    UpdateEnrollment
 end note
+OPEN_SECRETARY_SUBSYSTEM --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
 
 'OPEN_ACCOUNTING_SUBSYSTEM
-OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_PROFILE : ShowProfiles (*)
+OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_PROFILE
+note on link
+    ShowProfiles (*)
+    CorrectEducationalLevelOfTheProfile
+    ForgetDebt
+end note
 OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_TARIFFS_VIEW : CollectTariffs
 OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_TRANSACTIONS_VIEW : CancelTransaction
+OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_ACCOUNTING_INFORM_VIEW : GenerateDebtorReport
 
 'OPEN_ADMIN_SUBSYSTEM
 OPEN_ADMIN_SUBSYSTEM --> OPEN_TRANSACTIONS_VIEW : TransactionReportByDate
+OPEN_ADMIN_SUBSYSTEM --> OPEN_USER_SETTINGS_VIEW
+note on link
+    CreateUser
+    CreateRol
+    AssignRolAndPermissions
+end note
+
+'OPEN_PRINCIPAL_SUBSYSTEM
+OPEN_PRINCIPAL_SUBSYSTEM --> OPEN_ACCOUNTING_INFORM_VIEW : GenerateDebtorReport
+OPEN_PRINCIPAL_SUBSYSTEM --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
 
 
 'Relations
@@ -70,5 +96,8 @@ OPEN_ENROLLMENT --> [*] : Close system
 OPEN_PROFILE --> [*] : Close system
 OPEN_TARIFFS_VIEW --> [*] : Close system
 OPEN_GRADE_ONLINE --> [*] : Close system
+OPEN_ACCOUNTING_INFORM_VIEW --> [*] : Close system
+OPEN_USER_SETTINGS_VIEW --> [*] : Close system
+OPEN_PERIOD_SETTINGS_VIEW --> [*] : Close system
 OPEN_TRANSACTIONS_VIEW --> [*] : Close system
 @enduml
