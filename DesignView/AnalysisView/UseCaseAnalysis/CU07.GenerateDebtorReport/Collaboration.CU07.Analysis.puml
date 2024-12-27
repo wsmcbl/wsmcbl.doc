@@ -7,8 +7,9 @@ boundary ReportView
 
 control GenerateDebtorReportController
 
-entity TransactionEntities
-entity TransactionEntity
+entity Academy.StudentEntities
+entity DebtHistoryEntities
+entity DocumentMaker
 
 '--- Actor relations ---
 "Cashier/Principal" --> ReportView
@@ -25,12 +26,14 @@ note on link
 end note
 
 '--- Controllers relations ---
-GenerateDebtorReportController --> TransactionEntities : getAll()
-GenerateDebtorReportController --> TransactionEntity
+GenerateDebtorReportController --> DocumentMaker
+GenerateDebtorReportController --> Academy.StudentEntities : getAll()
+GenerateDebtorReportController --> DebtHistoryEntities
 note on link
     isValid = false
 end note
 
 '--- Entity relations ---
+DocumentMaker --> Academy.StudentEntities
 
 @enduml

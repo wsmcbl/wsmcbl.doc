@@ -16,16 +16,16 @@ Se muestran las dependencias entre cada componente y como se relacionan.
 ## Architecture analysis <a id="architecture-analysis"></a>
 
 * ### Dependencies
-![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page1.png)
+![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-0.png)
 
 * ### Views
-![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page2.png)
+![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-1.png)
 
 * ### Controllers
-![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page3.png)
+![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-2.png)
 
 * ### Models
-![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-page4.png)
+![](../out/DesignView/AnalysisView/ArchitectureAnalysis/ArchitectureAnalysis-3.png)
 
 
 ## Use case analysis <a id="use-case-analysis"></a>

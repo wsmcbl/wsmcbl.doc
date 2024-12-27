@@ -57,12 +57,12 @@ object Views{
 '####   ###
 newpage
 object Controllers{
+    class DocumentMaker
     class EnrollStudentController <<Controller>>
     class CollectTariffController <<Controller>>
     class CreateOfficialEnrollmentController <<Controller>>
     class MoveTeacherGuideFromEnrollmentController <<Controller>>
     class PrintingReceiptsController <<Controller>>
-    class PrintDocumentsController <<Controller>>
     class PrintReportCardController
     class LogoutController <<Controller>>
 
