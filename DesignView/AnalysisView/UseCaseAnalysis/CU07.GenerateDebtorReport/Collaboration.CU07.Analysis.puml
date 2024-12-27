@@ -14,24 +14,20 @@ entity DocumentMaker
 '--- Actor relations ---
 "Cashier/Principal" --> ReportView
 note on link
-    seeTransactionList()
-    cancelTransaction(id = )
+    seeConfiguration()
+    getDebtorReport()
 end note
 
 '--- Views relations ---
 ReportView --> GenerateDebtorReportController
 note on link
-    getTransactionList()
-    cancelTransaction(transactionId = )
+    generateDebtorReport()
 end note
 
 '--- Controllers relations ---
-GenerateDebtorReportController --> DocumentMaker
-GenerateDebtorReportController --> Academy.StudentEntities : getAll()
-GenerateDebtorReportController --> DebtHistoryEntities
-note on link
-    isValid = false
-end note
+GenerateDebtorReportController --> DocumentMaker : generateDebtorReport(studentList)
+GenerateDebtorReportController --> Academy.StudentEntities
+GenerateDebtorReportController --> DebtHistoryEntities : getDebtorList()
 
 '--- Entity relations ---
 DocumentMaker --> Academy.StudentEntities
