@@ -26,6 +26,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 ---
 - [CU07. GenerateDebtorReport](#cu07)
 - [CU20. UpdateEnrollment](#cu20)
+- [CU46. CreateUser](#cu46)
 
 
 ## Iteration 1
@@ -189,3 +190,11 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU20.Analysis.png)
+
+
+### CU46. CreateUser <a id="cu46"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Classes.CU46.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU46.Analysis.png)

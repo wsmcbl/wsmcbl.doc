@@ -1,0 +1,35 @@
+@startuml
+left to right direction
+
+actor "Cashier/Principal"
+
+boundary ReportView
+
+control GenerateDebtorReportController
+
+entity Academy.StudentEntities
+entity DebtHistoryEntities
+entity DocumentMaker
+
+'--- Actor relations ---
+"Cashier/Principal" --> ReportView
+note on link
+    seeConfiguration()
+    getDebtorReport()
+end note
+
+'--- Views relations ---
+ReportView --> GenerateDebtorReportController
+note on link
+    generateDebtorReport()
+end note
+
+'--- Controllers relations ---
+GenerateDebtorReportController --> DocumentMaker : generateDebtorReport(studentList)
+GenerateDebtorReportController --> Academy.StudentEntities
+GenerateDebtorReportController --> DebtHistoryEntities : getDebtorList()
+
+'--- Entity relations ---
+DocumentMaker --> Academy.StudentEntities
+
+@enduml
