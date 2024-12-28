@@ -35,6 +35,9 @@ end note
 UserListView --> CreateUserView : init()
 UserListView --> CreateUserController : getUserList()
 
+rectangle CU as ": AssignRolAndPermissions"
+UserListView --> CU
+
 CreateUserView --> CreateUserController
 note on link
     getRoleList()
