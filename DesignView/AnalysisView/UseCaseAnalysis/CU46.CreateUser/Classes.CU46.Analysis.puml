@@ -1,28 +1,41 @@
 @startuml
 left to right direction
 
-actor "Cashier/Principal"
+actor Administrador
 
-boundary ReportView
+boundary UserListView
+boundary CreateUserView
 
-control GenerateDebtorReportController
+control CreateUserController
 
-entity Academy.StudentEntities
-entity DebtHistoryEntities
-entity DocumentMaker
+entity UserEntities
+entity UserEntity
+entity PermissionEntities
+entity PermissionEntity
+entity RoleEntities
+entity RoleEntity
 
 
 '--- Actor relations ---
-"Cashier/Principal" --> ReportView
+Administrador --> UserListView
+Administrador --> CreateUserView
 
 '--- Views relations ---
-ReportView --> GenerateDebtorReportController
+UserListView --> CreateUserView
+UserListView --> CreateUserController
+CreateUserView --> CreateUserController
 
 '--- Controllers relations ---
-GenerateDebtorReportController --> Academy.StudentEntities
-GenerateDebtorReportController --> DebtHistoryEntities
-GenerateDebtorReportController --> DocumentMaker
+CreateUserController --> UserEntities
+CreateUserController --> UserEntity
+CreateUserController --> PermissionEntities
+CreateUserController --> RoleEntities
 
 '--- Entity relations ---
-DocumentMaker --> Academy.StudentEntities
+RoleEntities ..> RoleEntity
+PermissionEntities ..> PermissionEntity
+UserEntities ..> UserEntity
+
+UserEntity --> RoleEntity
+UserEntity --> PermissionEntity
 @enduml

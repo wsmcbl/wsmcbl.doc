@@ -1,35 +1,63 @@
 @startuml
 left to right direction
 
-actor "Cashier/Principal"
+actor Administrator
 
-boundary ReportView
+boundary UserListView
+boundary CreateUserView
 
-control GenerateDebtorReportController
+control CreateUserController
 
-entity Academy.StudentEntities
-entity DebtHistoryEntities
-entity DocumentMaker
+entity UserEntities
+entity UserEntity
+entity RoleEntities
+entity RoleEntity
+entity PermissionEntities
+entity PermissionEntity
 
 '--- Actor relations ---
-"Cashier/Principal" --> ReportView
+Administrator --> UserListView
 note on link
-    seeConfiguration()
-    getDebtorReport()
+    seeUserList()
+    createUser()
+end note
+
+Administrator --> CreateUserView
+note on link
+    seeRoleList()
+    selectRole()
+    seePermissionList()
+    selectPermissions()
+    save()
 end note
 
 '--- Views relations ---
-ReportView --> GenerateDebtorReportController
+UserListView --> CreateUserView : init()
+UserListView --> CreateUserController : getUserList()
+
+CreateUserView --> CreateUserController
 note on link
-    generateDebtorReport()
+    getRoleList()
+    getPermissionList()
+    createUser(user =)
 end note
 
 '--- Controllers relations ---
-GenerateDebtorReportController --> DocumentMaker : generateDebtorReport(studentList)
-GenerateDebtorReportController --> Academy.StudentEntities
-GenerateDebtorReportController --> DebtHistoryEntities : getDebtorList()
+CreateUserController --> PermissionEntities : getList()
+CreateUserController --> RoleEntities : getList()
+CreateUserController --> UserEntities
+note on link
+    getList()
+    create(user =)
+end note
+CreateUserController --> UserEntity : init(roleId =)
 
 '--- Entity relations ---
-DocumentMaker --> Academy.StudentEntities
+PermissionEntities ..> PermissionEntity
+RoleEntities ..> RoleEntity
+UserEntities ..> UserEntity
+
+UserEntity --> RoleEntity : getId()
+UserEntity --> PermissionEntity : getId()
 
 @enduml
