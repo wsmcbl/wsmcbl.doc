@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor User
+
+boundary ProfileView
+
+control ViewUserProfileController
+
+entity UserEntities
+entity UserEntity
+
+'--- Actor relations ---
+User --> ProfileView
+note on link
+    seeUserInformation()
+    seeStatisticalReport()
+end note
+
+'--- Views relations ---
+ProfileView --> ViewUserProfileController
+note on link
+    getUserInformation(id =)
+end note
+
+'--- Controllers relations ---
+ViewUserProfileController --> UserEntities : getById(id =)
+ViewUserProfileController --> UserEntity : getStatisticalReport()
+
+'--- Entity relations ---
+UserEntities ..> UserEntity : getId()
+
+@enduml

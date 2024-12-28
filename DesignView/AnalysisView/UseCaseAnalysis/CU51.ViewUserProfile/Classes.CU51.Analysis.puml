@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+
+actor User
+
+boundary ProfileView
+
+control ViewUserProfileController
+
+entity UserEntities
+entity UserEntity
+
+
+'--- Actor relations ---
+User --> ProfileView
+
+'--- Views relations ---
+ProfileView --> ViewUserProfileController
+
+'--- Controllers relations ---
+ViewUserProfileController --> UserEntities
+ViewUserProfileController --> UserEntity
+
+'--- Entity relations ---
+UserEntities ..> UserEntity
+@enduml
