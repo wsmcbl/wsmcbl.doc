@@ -1,35 +1,49 @@
 @startuml
 left to right direction
 
-actor "Cashier/Principal"
+actor Secretary
 
-boundary ReportView
+boundary EnrollmentView
 
-control GenerateDebtorReportController
+control UpdateEnrollmentController
 
-entity Academy.StudentEntities
-entity DebtHistoryEntities
-entity DocumentMaker
+entity EnrollmentEntities
+entity TeacherEntities
+entity SubjectEntities
+entity EnrollmentEntity
+entity TeacherEntity
+entity SubjectEntity
 
 '--- Actor relations ---
-"Cashier/Principal" --> ReportView
+Secretary --> EnrollmentView
 note on link
-    seeConfiguration()
-    getDebtorReport()
+    selectTeacher()
+    updateInformation()
+    changeTeacherGuide()
+    seeInformation()
+    seeStudentList()
 end note
 
 '--- Views relations ---
-ReportView --> GenerateDebtorReportController
+EnrollmentView --> UpdateEnrollmentController
 note on link
-    generateDebtorReport()
+    getEnrollmentById(id=)
+    updateEnrollment(enrollment=)
 end note
 
 '--- Controllers relations ---
-GenerateDebtorReportController --> DocumentMaker : generateDebtorReport(studentList)
-GenerateDebtorReportController --> Academy.StudentEntities
-GenerateDebtorReportController --> DebtHistoryEntities : getDebtorList()
+UpdateEnrollmentController --> EnrollmentEntities : getById(id = )
+UpdateEnrollmentController --> SubjectEntities : getByEnrollmentId(id =)
+UpdateEnrollmentController --> TeacherEntities : getById(id = )
 
 '--- Entity relations ---
-DocumentMaker --> Academy.StudentEntities
+TeacherEntities ..> TeacherEntity : getId()
+SubjectEntities ..> SubjectEntity : getByEnrollmentId(id =)
 
+EnrollmentEntity --> TeacherEntity
+note on link
+    getId()
+    forgetEnrollment()
+end note
+EnrollmentEntity --> SubjectEntity : updateTeacher(id =)
 @enduml

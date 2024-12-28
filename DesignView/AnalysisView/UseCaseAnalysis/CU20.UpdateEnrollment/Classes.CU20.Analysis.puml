@@ -1,28 +1,36 @@
 @startuml
 left to right direction
 
-actor "Cashier/Principal"
+actor Secretary
 
-boundary ReportView
+boundary EnrollmentView
 
-control GenerateDebtorReportController
+control UpdateEnrollmentController
 
-entity Academy.StudentEntities
-entity DebtHistoryEntities
-entity DocumentMaker
+entity EnrollmentEntity
+entity EnrollmentEntities
+entity SubjectEntities
+entity SubjectEntity
+entity TeacherEntities
+entity TeacherEntity
 
 
 '--- Actor relations ---
-"Cashier/Principal" --> ReportView
+Secretary --> EnrollmentView
 
 '--- Views relations ---
-ReportView --> GenerateDebtorReportController
+EnrollmentView --> UpdateEnrollmentController
 
 '--- Controllers relations ---
-GenerateDebtorReportController --> Academy.StudentEntities
-GenerateDebtorReportController --> DebtHistoryEntities
-GenerateDebtorReportController --> DocumentMaker
+UpdateEnrollmentController --> EnrollmentEntity
+UpdateEnrollmentController --> EnrollmentEntities
+UpdateEnrollmentController --> TeacherEntities
+UpdateEnrollmentController --> SubjectEntities
 
 '--- Entity relations ---
-DocumentMaker --> Academy.StudentEntities
+EnrollmentEntity --> TeacherEntity
+EnrollmentEntity --> SubjectEntity
+
+TeacherEntities ..> TeacherEntity
+SubjectEntities ..> SubjectEntity
 @enduml
