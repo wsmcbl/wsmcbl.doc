@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+
+actor Administrator
+
+boundary RolListView
+boundary CreateRolView
+
+control CreateRolController
+
+entity RoleEntities
+entity RoleEntity
+entity PermissionEntities
+
+'--- Actor relations ---
+Administrator --> RolListView
+note on link
+    seeRoleList()
+    createRole()
+end note
+Administrator --> CreateRolView
+note on link
+    seePermissionList()
+    save()
+end note
+
+'--- Views relations ---
+RolListView ..> CreateRolView : init()
+RolListView --> CreateRolController : getRoleList()
+CreateRolView --> CreateRolController
+note on link
+    createRole(role =)
+    getPermissionList()
+end note
+
+'--- Controllers relations ---
+CreateRolController --> RoleEntities : create(role =)
+CreateRolController --> RoleEntity : init()
+CreateRolController --> PermissionEntities : getAll()
+
+'--- Entity relations ---
+RoleEntities ..> RoleEntity
+
+@enduml

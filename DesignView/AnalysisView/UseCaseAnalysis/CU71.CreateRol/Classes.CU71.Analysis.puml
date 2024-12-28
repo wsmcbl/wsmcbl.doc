@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor Administrator
+
+boundary RolListView
+boundary CreateRolView
+
+control CreateRolController
+
+entity RoleEntities
+entity RoleEntity
+entity PermissionEntities
+
+
+'--- Actor relations ---
+Administrator --> RolListView
+Administrator --> CreateRolView
+
+'--- Views relations ---
+RolListView ..> CreateRolView
+RolListView --> CreateRolController
+CreateRolView --> CreateRolController
+
+'--- Controllers relations ---
+CreateRolController --> RoleEntities
+CreateRolController --> RoleEntity
+CreateRolController --> PermissionEntities
+
+'--- Entity relations ---
+RoleEntities ..> RoleEntity
+
+@enduml
