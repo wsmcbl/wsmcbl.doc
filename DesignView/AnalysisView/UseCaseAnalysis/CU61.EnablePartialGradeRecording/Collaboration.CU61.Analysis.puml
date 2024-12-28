@@ -29,7 +29,7 @@ end note
 '--- Controllers relations ---
 EnablePartialGradeRecordingController --> SemesterEntities : getByCurrentSchoolyear()
 EnablePartialGradeRecordingController --> PartialEntities : getById(id =)
-EnablePartialGradeRecordingController --> PartialEntity : enableGradeRecording()
+EnablePartialGradeRecordingController --> PartialEntity : enableGradeRecording(time =)
 
 '--- Entity relations ---
 PartialEntities ..> PartialEntity : getId()
