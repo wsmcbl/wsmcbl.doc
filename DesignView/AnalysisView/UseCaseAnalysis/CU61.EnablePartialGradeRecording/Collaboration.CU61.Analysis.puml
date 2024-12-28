@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+
+actor "Administrator\nPrincipal"
+
+boundary ProfileView
+
+control EnablePartialGradeRecordingController
+
+entity SemesterEntities
+entity PartialEntities
+entity PartialEntity
+
+'--- Actor relations ---
+"Administrator\nPrincipal" --> ProfileView
+note on link
+    seePeriods()
+    enablePartial()
+    enablePartialRecording()
+end note
+
+'--- Views relations ---
+ProfileView --> EnablePartialGradeRecordingController
+note on link
+    getSemesterList()
+    enableGradeRecording(partialId = )
+end note
+
+'--- Controllers relations ---
+EnablePartialGradeRecordingController --> SemesterEntities : getByCurrentSchoolyear()
+EnablePartialGradeRecordingController --> PartialEntities : getById(id =)
+EnablePartialGradeRecordingController --> PartialEntity : enableGradeRecording()
+
+'--- Entity relations ---
+PartialEntities ..> PartialEntity : getId()
+
+@enduml

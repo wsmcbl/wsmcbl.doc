@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor "Administrator\nPrincipal"
+
+boundary PeriodsListView
+
+control EnablePartialGradeRecordingController
+
+entity SemesterEntities
+entity PartialEntities
+entity PartialEntity
+
+
+'--- Actor relations ---
+"Administrator\nPrincipal" --> PeriodsListView
+
+'--- Views relations ---
+PeriodsListView --> EnablePartialGradeRecordingController
+
+'--- Controllers relations ---
+EnablePartialGradeRecordingController --> SemesterEntities
+EnablePartialGradeRecordingController --> PartialEntities
+EnablePartialGradeRecordingController --> PartialEntity
+
+'--- Entity relations ---
+PartialEntities ..> PartialEntity
+@enduml
