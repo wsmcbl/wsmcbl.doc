@@ -1,0 +1,47 @@
+@startuml
+left to right direction
+
+actor Administrator
+
+boundary UpdateUser
+
+control AssignRolAndPermissionsController
+
+entity UserEntities
+entity UserEntity
+entity PermissionEntities
+entity RolEntities
+entity RolEntity
+
+'--- Actor relations ---
+Administrator --> UpdateUser
+note on link
+    seeUserInformation()
+    seePermissionList()
+    seeRolList()
+end note
+
+'--- Views relations ---
+UpdateUser --> AssignRolAndPermissionsController
+note on link
+    getUserById(id =)
+    update(user = )
+    getPermissionList()
+    getRolList()
+end note
+
+'--- Controllers relations ---
+AssignRolAndPermissionsController --> UserEntities : getById(id =)
+AssignRolAndPermissionsController --> UserEntity
+note on link
+    setRole(role = )
+    addPermission(list = )
+end note
+AssignRolAndPermissionsController --> PermissionEntities : getAll()
+AssignRolAndPermissionsController --> RolEntities : getAll()
+
+'--- Entity relations ---
+UserEntities ..> UserEntity : getId()
+UserEntity ..> RolEntity : getId()
+
+@enduml

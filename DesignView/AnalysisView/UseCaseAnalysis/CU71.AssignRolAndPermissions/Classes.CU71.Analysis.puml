@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+
+actor Administrator
+
+boundary UpdateUser
+
+control AssignRoleAndPermissionsController
+
+entity UserEntities
+entity UserEntity
+entity PermissionEntities
+entity RolEntities
+entity RolEntity
+
+
+'--- Actor relations ---
+Administrator --> UpdateUser
+
+'--- Views relations ---
+UpdateUser --> AssignRoleAndPermissionsController
+
+'--- Controllers relations ---
+AssignRoleAndPermissionsController --> UserEntities
+AssignRoleAndPermissionsController --> UserEntity
+AssignRoleAndPermissionsController --> PermissionEntities
+AssignRoleAndPermissionsController --> RolEntities
+
+'--- Entity relations ---
+UserEntities ..> UserEntity
+UserEntity ..> RolEntity
+
+@enduml
