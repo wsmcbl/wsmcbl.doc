@@ -11,7 +11,7 @@ usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"
 usecase CU70 as "CreateRol"
 usecase CU71 as "AssignRolAndPermissions"
-usecase CU77 as "CorrectEducationalLevelOfTheProfile"
+usecase CU77 as "CorrectEducationalLevel"
 usecase CU78 as "ForgetDebt"
 
 Iteration4 .. CU07 : CU07
