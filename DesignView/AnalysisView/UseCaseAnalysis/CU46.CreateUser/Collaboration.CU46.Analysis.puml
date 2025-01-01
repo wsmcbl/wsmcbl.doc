@@ -54,6 +54,11 @@ note on link
     create(user =)
 end note
 CreateUserController --> UserEntity : init(roleId =)
+CreateUserController --> CreateUserController
+note on link
+    createEmailAccount(username, password)
+    createNextcloudAccount(username, password)
+end note
 
 '--- Entity relations ---
 PermissionEntities ..> PermissionEntity
