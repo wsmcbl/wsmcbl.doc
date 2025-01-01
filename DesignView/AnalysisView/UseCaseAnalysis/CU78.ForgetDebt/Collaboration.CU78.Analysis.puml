@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+
+actor Cashier
+
+boundary StudentView
+
+control ForgetDebtController
+
+entity Accounting.StudentEntities
+entity DebtHistoryEntities
+entity DebtHistoryEntity
+
+'--- Actor relations ---
+Cashier --> StudentView
+note on link
+    seeStudentInformation()
+    seeDebtHistoryList()
+    forgetDebt(id =)
+end note
+
+'--- Views relations ---
+StudentView --> ForgetDebtController
+note on link
+    getStudentById(id =)
+    forgetDebt(id =, studentid =)
+end note
+
+'--- Controllers relations ---
+ForgetDebtController --> DebtHistoryEntity : resetDebt()
+ForgetDebtController --> Accounting.StudentEntities : getById(i)
+ForgetDebtController --> DebtHistoryEntities : getListByStudent(id =)
+
+'--- Entity relations ---
+DebtHistoryEntities --> DebtHistoryEntity : getId()
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+left to right direction
+
+actor Cashier
+
+boundary StudentView
+
+control ForgetDebtController
+
+entity Accounting.StudentEntities
+entity DebtHistoryEntities
+entity DebtHistoryEntity
+
+
+'--- Actor relations ---
+Cashier --> StudentView
+
+'--- Views relations ---
+StudentView --> ForgetDebtController
+
+'--- Controllers relations ---
+ForgetDebtController --> Accounting.StudentEntities
+ForgetDebtController --> DebtHistoryEntities
+ForgetDebtController --> DebtHistoryEntity
+
+'--- Entity relations ---
+DebtHistoryEntities --> DebtHistoryEntity
+@enduml
