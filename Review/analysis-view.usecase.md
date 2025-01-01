@@ -30,6 +30,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU51. ViewUserProfile](#cu51)
 - [CU61. EnablePartialGradeRecording](#cu61)
 - [CU70. CreateRol](#cu70)
+- [CU77. CorrectEducationalLevel](#cu77)
 
 
 ## Iteration 1
@@ -225,3 +226,11 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU70.Analysis.png)
+
+
+### CU77. CorrectEducationalLevel <a id="cu77"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Classes.CU77.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU77.Analysis.png)

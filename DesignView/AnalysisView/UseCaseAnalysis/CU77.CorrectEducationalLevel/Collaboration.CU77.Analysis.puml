@@ -1,0 +1,34 @@
+@startuml
+left to right direction
+
+actor "Secretary\nCashier"
+
+boundary StudentView
+
+control CorrectEducationalLevelController
+
+entity Academy.StudentEntities
+entity Academy.StudentEntity
+
+'--- Actor relations ---
+"Secretary\nCashier" --> StudentView
+note on link
+    seeStudentInformation()
+    seeEducationalLevelList()
+end note
+
+'--- Views relations ---
+StudentView --> CorrectEducationalLevelController
+note on link
+    getStudentById(id =)
+    updateEducationalLevel(id =)
+end note
+
+'--- Controllers relations ---
+CorrectEducationalLevelController --> Academy.StudentEntities : getById(id =)
+CorrectEducationalLevelController --> Academy.StudentEntity : updateEducationalLevel(id =)
+
+'--- Entity relations ---
+Academy.StudentEntities ..> Academy.StudentEntity : getId()
+
+@enduml

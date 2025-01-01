@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+
+actor "Secretary\nCashier"
+
+boundary StudentView
+
+control CorrectEducationalLevelController
+
+entity Academy.StudentEntity
+entity Academy.StudentEntities
+
+
+'--- Actor relations ---
+"Secretary\nCashier" --> StudentView
+
+'--- Views relations ---
+StudentView --> CorrectEducationalLevelController
+
+'--- Controllers relations ---
+CorrectEducationalLevelController --> Academy.StudentEntity
+CorrectEducationalLevelController --> Academy.StudentEntities
+
+'--- Entity relations ---
+Academy.StudentEntities ..> Academy.StudentEntity
+@enduml
