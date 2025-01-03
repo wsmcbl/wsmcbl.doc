@@ -23,12 +23,13 @@ end note
 StudentView --> ForgetDebtController
 note on link
     getStudentById(id =)
+    getDebtListByStudent(id =)
     forgetDebt(id =, studentid =)
 end note
 
 '--- Controllers relations ---
 ForgetDebtController --> DebtHistoryEntity : resetDebt()
-ForgetDebtController --> Accounting.StudentEntities : getById(i)
+ForgetDebtController --> Accounting.StudentEntities : getById(id =)
 ForgetDebtController --> DebtHistoryEntities : getListByStudent(id =)
 
 '--- Entity relations ---
