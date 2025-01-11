@@ -5,7 +5,7 @@ actor Secretary
 
 boundary EnrollmentView
 
-control UpdateEnrollmentController
+control CreateEnrollmentController
 
 entity EnrollmentEntity
 entity EnrollmentEntities
@@ -19,13 +19,13 @@ entity TeacherEntity
 Secretary --> EnrollmentView
 
 '--- Views relations ---
-EnrollmentView --> UpdateEnrollmentController
+EnrollmentView --> CreateEnrollmentController
 
 '--- Controllers relations ---
-UpdateEnrollmentController --> EnrollmentEntity
-UpdateEnrollmentController --> EnrollmentEntities
-UpdateEnrollmentController --> TeacherEntities
-UpdateEnrollmentController --> SubjectEntities
+CreateEnrollmentController --> EnrollmentEntity
+CreateEnrollmentController --> EnrollmentEntities
+CreateEnrollmentController --> TeacherEntities
+CreateEnrollmentController --> SubjectEntities
 
 '--- Entity relations ---
 EnrollmentEntity --> TeacherEntity
