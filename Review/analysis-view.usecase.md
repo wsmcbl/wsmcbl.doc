@@ -7,7 +7,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 ---
 - [CU03. CollectTariffs](#cu03)
-- [CU05. CreateOfficialEnrollmentBySection](#cu05)
+- [CU05. UpdateOfficialEnrollmentBySection](#cu05)
 - [CU01. EnrollStudent](#cu01)
 - [CU58. PrintingReceipts](#cu58)
 - [CU29. PrintReportCardByStudent](#cu29)
@@ -25,7 +25,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU75. TransactionReportByDate](#cu75)
 ---
 - [CU07. GenerateDebtorReport](#cu07)
-- [CU20. UpdateEnrollment](#cu20)
+- [CU20. CreateEnrollment](#cu20)
 - [CU46. CreateUser](#cu46)
 - [CU51. ViewUserProfile](#cu51)
 - [CU61. EnablePartialGradeRecording](#cu61)
@@ -47,12 +47,12 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 
 
-### CU05. CreateOfficialEnrollmentBySection <a id="cu05"></a>
+### CU05. UpdateOfficialEnrollmentBySection <a id="cu05"></a>
 * ### Classes
-![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU05.CreateOfficialEnrollmentBySection/Classes.CU05.Analysis.png)
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Classes.CU05.Analysis.png)
 
 * ### Collaboration
-![](../out/DesignView/AnalysisView/UseCaseAnalysis/CU05.CreateOfficialEnrollmentBySection/Collaboration.CU05.Analysis.png)
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU05.Analysis.png)
 
 
 
@@ -189,7 +189,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU07.Analysis.png)
 
 
-### CU20. UpdateEnrollment <a id="cu20"></a>
+### CU20. CreateEnrollment <a id="cu20"></a>
 * ### Classes
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/Classes.CU20.Analysis.png)
 
