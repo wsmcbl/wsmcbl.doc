@@ -6,11 +6,11 @@ actor Secretary
 boundary GradesView
 boundary CreateEnrolmentsView
 
-control CreateOfficialEnrollmentController
+control UpdateOfficialEnrollmentController
 control PrintDocumentsController
 
 entity EnrollmentEntity
-entity StudentEntites
+entity StudentEntities
 entity TeacherEntity
 entity GradeEntity
 entity SubjectEntities
@@ -23,14 +23,14 @@ Secretary --> CreateEnrolmentsView
 
 
 '--- Views relations ---
-GradesView --> CreateOfficialEnrollmentController
-CreateEnrolmentsView --> CreateOfficialEnrollmentController
+GradesView --> UpdateOfficialEnrollmentController
+CreateEnrolmentsView --> UpdateOfficialEnrollmentController
 
 
 '--- Controllers relations ---
-CreateOfficialEnrollmentController --> GradeEntity
-CreateOfficialEnrollmentController --> TeacherEntities
-CreateOfficialEnrollmentController --> PrintDocumentsController
+UpdateOfficialEnrollmentController --> GradeEntity
+UpdateOfficialEnrollmentController --> TeacherEntities
+UpdateOfficialEnrollmentController --> PrintDocumentsController
 
 PrintDocumentsController --> EnrollmentEntity
 
@@ -38,7 +38,7 @@ PrintDocumentsController --> EnrollmentEntity
 '--- Entities relations ---
 GradeEntity --> SubjectEntities
 GradeEntity "1" --> "n" EnrollmentEntity
-GradeEntity --> StudentEntites
+GradeEntity --> StudentEntities
 
 EnrollmentEntity "1" --> "1" TeacherEntity
 @enduml

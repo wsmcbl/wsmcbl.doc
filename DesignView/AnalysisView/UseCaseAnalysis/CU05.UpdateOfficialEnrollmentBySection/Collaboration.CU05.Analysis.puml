@@ -6,7 +6,7 @@ actor Secretary
 boundary GradesView
 boundary CreateEnrolmentsView
 
-control CreateOfficialEnrollmentController
+control UpdateOfficialEnrollmentController
 control PrintDocumentsController
 rectangle SubjectCatalog as ":collaboration SubjectCatalog*"
 rectangle Print as ":collaboration PrintDocument*"
@@ -40,7 +40,7 @@ end note
 
 
 '--- Views relations ---
-GradesView --> CreateOfficialEnrollmentController
+GradesView --> UpdateOfficialEnrollmentController
 note on link
     getListGrades()
     setGrade(schoolYear)
@@ -49,7 +49,7 @@ end note
 
 GradesView --> Update
 
-CreateEnrolmentsView --> CreateOfficialEnrollmentController
+CreateEnrolmentsView --> UpdateOfficialEnrollmentController
 note on link
     setQuantitySection(int quantitySection)
     searchSubject(Subject)
@@ -62,7 +62,7 @@ CreateEnrolmentsView --> SubjectCatalog
 
 
 '--- Controllers relations ---
-CreateOfficialEnrollmentController --> GradeEntity
+UpdateOfficialEnrollmentController --> GradeEntity
 note on link
     createEnrollments(int quantity)
     addSubjects(Subject)
@@ -70,17 +70,17 @@ note on link
     save()
 end note
 
-CreateOfficialEnrollmentController --> TeacherEntities
+UpdateOfficialEnrollmentController --> TeacherEntities
 note on link
     getListTeacher()
 end note
 
-CreateOfficialEnrollmentController --> PrintDocumentsController
+UpdateOfficialEnrollmentController --> PrintDocumentsController
 note on link
     printiInformationData()
 end note
 
-CreateOfficialEnrollmentController --> GradeEntities
+UpdateOfficialEnrollmentController --> GradeEntities
 note on link
     getListGrade()
 end note
