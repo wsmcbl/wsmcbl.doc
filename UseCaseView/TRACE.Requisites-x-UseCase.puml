@@ -30,7 +30,7 @@ Label RF34 as "RF34. Habilitar el registro de notas por corte evaluativo."
 
 'Iteration 1
 usecase CU01 as "EnrollStudent"
-usecase CU05 as "CreateOfficialEnrollmentBySection"
+usecase CU05 as "UpdateOfficialEnrollmentBySection"
 usecase CU58 as "PrintingInvoicesAndReceipts"
 usecase CU29 as "PrintReportCardByStudent"
 usecase CU21 as "MoveTeacherGuideFromEnrollment"
@@ -52,7 +52,7 @@ usecase CU75 as "TransactionReportByDate"
 
 'Iteration 4
 usecase CU07 as "GenerateDebtorReport"
-usecase CU20 as "UpdateEnrollment"
+usecase CU20 as "CreateEnrollment"
 usecase CU46 as "CreateUser"
 usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"

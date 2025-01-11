@@ -5,7 +5,7 @@ left to right direction
 rectangle "Iteration 4" as Iteration4
 
 usecase CU07 as "GenerateDebtorReport"
-usecase CU20 as "UpdateEnrollment"
+usecase CU20 as "CreateEnrollment"
 usecase CU46 as "CreateUser"
 usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"
@@ -60,7 +60,7 @@ Iteration2 .. CU69 : CU69
 rectangle "Iteration 1" as Iteration1
 
 usecase CU01 as "EnrollStudent"
-usecase CU05 as "CreateOfficialEnrollmentBySection"
+usecase CU05 as "UpdateOfficialEnrollmentBySection"
 usecase CU58 as "PrintingInvoicesAndReceipts"
 usecase CU29 as "PrintReportCardByStudent"
 usecase CU21 as "MoveTeacherGuideFromEnrollment"

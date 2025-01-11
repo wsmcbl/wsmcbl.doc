@@ -52,8 +52,8 @@ OPEN_SECRETARY_SUBSYSTEM --> OPEN_ENROLLMENT
 note on link
     EnrollStudent
     Show Enrollments (*)
-    CreateOfficialEnrollmentBySection
-    UpdateEnrollment
+    UpdateOfficialEnrollmentBySection
+    CreateEnrollment
 end note
 OPEN_SECRETARY_SUBSYSTEM --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
 
