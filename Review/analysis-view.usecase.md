@@ -30,6 +30,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU51. ViewUserProfile](#cu51)
 - [CU61. EnablePartialGradeRecording](#cu61)
 - [CU70. CreateRol](#cu70)
+- [CU71. CreateRol](#cu71)
 - [CU77. CorrectEducationalLevel](#cu77)
 - [CU78. ForgetDebt](#cu78)
 
@@ -227,6 +228,14 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 
 * ### Collaboration
 ![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU70.Analysis.png)
+
+
+### CU71. AssignRolesAndPermissions <a id="cu71"></a>
+* ### Classes
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Classes.CU71.Analysis.png)
+
+* ### Collaboration
+![](../out/DesignView/AnalysisView/UseCaseAnalysis/Collaboration.CU71.Analysis.png)
 
 
 ### CU77. CorrectEducationalLevel <a id="cu77"></a>
