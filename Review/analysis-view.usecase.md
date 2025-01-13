@@ -30,7 +30,7 @@ El detallado de las clases de estos casos de usos están en la carpeta de Análi
 - [CU51. ViewUserProfile](#cu51)
 - [CU61. EnablePartialGradeRecording](#cu61)
 - [CU70. CreateRol](#cu70)
-- [CU71. CreateRol](#cu71)
+- [CU71. CreateRolesAndPermissions](#cu71)
 - [CU77. CorrectEducationalLevel](#cu77)
 - [CU78. ForgetDebt](#cu78)
 
