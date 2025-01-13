@@ -12,20 +12,20 @@ User <|-- Secretary
 User <|-- Cashier
 
 usecase EnrollStudent
-usecase CreateOfficialEnrollmentBySection
+usecase CU05 as "UpdateOfficialEnrollmentBySection"
 usecase PrintingInvoicesAndReceipts
 usecase PrintReportCardByStudent
 usecase CU21 as "MoveTeacherGuideFromEnrollment"
-usecase CollectTariffs
+usecase CU03 as "CollectTariffs"
 
 Secretary --> EnrollStudent
-Secretary --> CreateOfficialEnrollmentBySection
+Secretary --> CU05
 Secretary --> PrintReportCardByStudent
 Secretary --> CU21
 
-Cashier --> CollectTariffs
+Cashier --> CU03
 
-CollectTariffs ..> PrintingInvoicesAndReceipts: include
+CU03 ..> PrintingInvoicesAndReceipts: include
 
 'Iteration 2
 actor Customer
@@ -48,7 +48,7 @@ Cashier --> CU02
 
 Teacher --> CU11
 
-CollectTariffs ..> CU60 : include
+CU03 ..> CU60 : include
 
 
 'Iteration 3
@@ -85,7 +85,7 @@ actor Principal
 User <|-- Principal
 
 usecase CU07 as "GenerateDebtorReport"
-usecase CU20 as "UpdateEnrollment"
+usecase CU20 as "CreateEnrollment"
 usecase CU46 as "CreateUser"
 usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"
@@ -110,8 +110,7 @@ Cashier --> CU78
 
 User -left-> CU51
 
-CU20 ..> CU21 : include
-CU20 ..> CU22 : include
-CU20 ..> CU23 : include
+CU05 ..> CU21 : include
+CU05 ..> CU22 : include
 
 @enduml
