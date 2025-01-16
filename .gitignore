@@ -1,2 +1,19 @@
 ## .idea directory
 .idea/
+*.gz
+*.dvi
+*.ps
+*.log
+*.aux
+*.out
+*.bak
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.nav
+*.snm
+*.ind
+*.ilg
+*.idx
