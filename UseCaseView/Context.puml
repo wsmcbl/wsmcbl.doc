@@ -73,7 +73,6 @@ OPEN_ADMIN_SUBSYSTEM --> OPEN_TRANSACTIONS_VIEW : TransactionReportByDate
 OPEN_ADMIN_SUBSYSTEM --> OPEN_USER_SETTINGS_VIEW
 note on link
     CreateUser
-    CreateRol
     AssignRolAndPermissions
 end note
 

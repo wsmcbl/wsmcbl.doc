@@ -89,7 +89,6 @@ usecase CU20 as "CreateEnrollment"
 usecase CU46 as "CreateUser"
 usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"
-usecase CU70 as "CreateRol"
 usecase CU71 as "AssignRolAndPermissions"
 usecase CU77 as "CorrectEducationalLevelOfTheProfile"
 usecase CU78 as "ForgetDebt"
@@ -102,7 +101,6 @@ Secretary --> CU77
 
 Administrator --> CU46
 Administrator --> CU61
-Administrator --> CU70
 Administrator --> CU71
 
 Cashier --> CU77
@@ -112,5 +110,7 @@ User -left-> CU51
 
 CU05 ..> CU21 : include
 CU05 ..> CU22 : include
+
+'Iteration 4
 
 @enduml

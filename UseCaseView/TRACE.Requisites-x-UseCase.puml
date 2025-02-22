@@ -56,7 +56,6 @@ usecase CU20 as "CreateEnrollment"
 usecase CU46 as "CreateUser"
 usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"
-usecase CU70 as "CreateRol"
 usecase CU71 as "AssignRolAndPermissions"
 usecase CU77 as "CorrectEducationalLevel"
 usecase CU78 as "ForgetDebt"
@@ -98,7 +97,6 @@ RF12 ..> CU20 : trace
 RF24 ..> CU46 : trace
 RF24 ..> CU51 : trace
 RF34 ..> CU61 : trace
-RF24 ..> CU70 : trace
 RF24 ..> CU71 : trace
 RF10 ..> CU77 : trace
 RF33 ..> CU78 : trace

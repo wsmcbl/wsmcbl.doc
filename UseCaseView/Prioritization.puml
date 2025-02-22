@@ -9,7 +9,6 @@ usecase CU20 as "CreateEnrollment"
 usecase CU46 as "CreateUser"
 usecase CU51 as "ViewUserProfile"
 usecase CU61 as "EnablePartialGradeRecording"
-usecase CU70 as "CreateRol"
 usecase CU71 as "AssignRolAndPermissions"
 usecase CU77 as "CorrectEducationalLevel"
 usecase CU78 as "ForgetDebt"
@@ -19,7 +18,6 @@ Iteration4 .. CU20 : CU20
 Iteration4 .. CU46 : CU46
 Iteration4 .. CU51 : CU51
 Iteration4 .. CU61 : CU61
-Iteration4 .. CU70 : CU70
 Iteration4 .. CU71 : CU71
 Iteration4 .. CU77 : CU77
 Iteration4 .. CU78 : CU78
