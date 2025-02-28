@@ -1,5 +1,4 @@
 @startuml
-scale 2
 left to right direction
 
 
@@ -111,6 +110,29 @@ User -left-> CU51
 CU05 ..> CU21 : include
 CU05 ..> CU22 : include
 
-'Iteration 4
+'Iteration 5
+usecase CU57 as "ViewDirectorDashboard"
+usecase CU72 as "UpdateRoles"
+usecase CU79 as "CreateSchoolyear"
+usecase CU80 as "CreateBackup"
+usecase CU81 as "ViewEnrollmentGuide"
+usecase CU82 as "GenerateStudentRegister"
+usecase CU83 as "UpdateUserPassword"
+usecase CU85 as "ApplyArrears"
+
+Principal --> CU57
+Principal --> CU82
+
+Administrator --> CU72
+Administrator --> CU80
+Administrator --> CU83
+Administrator --> CU85
+
+Secretary --> CU79
+Secretary --> CU82
+
+Teacher --> CU81
+
+Cashier --> CU85
 
 @enduml
