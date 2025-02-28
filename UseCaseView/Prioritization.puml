@@ -2,6 +2,28 @@
 'skinparam BackgroundColor transparent
 left to right direction
 
+rectangle "Iteration 5" as Iteration5
+
+usecase CU57 as "ViewDirectorDashboard"
+usecase CU72 as "UpdateRoles"
+usecase CU79 as "CreateSchoolyear"
+usecase CU80 as "CreateBackup"
+usecase CU81 as "ViewEnrollmentGuide"
+usecase CU82 as "GenerateStudentRegister"
+usecase CU83 as "UpdateUserPassword"
+usecase CU85 as "ApplyArrears"
+
+Iteration5 .. CU57 : CU57
+Iteration5 .. CU72 : CU72
+Iteration5 .. CU79 : CU79
+Iteration5 .. CU80 : CU80
+Iteration5 .. CU81 : CU81
+Iteration5 .. CU82 : CU82
+Iteration5 .. CU83 : CU83
+Iteration5 .. CU85 : CU85
+
+
+
 rectangle "Iteration 4" as Iteration4
 
 usecase CU07 as "GenerateDebtorReport"
