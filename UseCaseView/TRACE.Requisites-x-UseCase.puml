@@ -1,8 +1,6 @@
 @startuml
 'skinparam BackgroundColor transparent
 left to right direction
-scale 2
-
 'Iteration 1
 Label RF01 as "RF01. Cobro de aranceles"
 Label RF02 as "RF02. Matricular estudiante"
@@ -11,9 +9,9 @@ label RF12 as "RF12. Gestionar matrículas"
 label RF14 as "RF14. Imprimir boleta de calificación por secciones"
 
 'Iteration 2
+Label RF03 as "RF03. Gestionar las calificaciones."
 Label RF10 as "RF10. Gestionar perfiles de estudiantes."
 Label RF24 as "RF24. Gestionar usuarios del sistema."
-Label RF03 as "RF03. Gestionar las calificaciones."
 Label RF33 as "RF33. Abonos a pago de un arancel."
 
 'Iteration 3
@@ -26,6 +24,12 @@ Label RF36 as "RF36. Generar estadísticas de ingresos."
 'Iteration 4
 Label RF09 as "RF09. Generar informe de deudores."
 Label RF34 as "RF34. Habilitar el registro de notas por corte evaluativo."
+
+'Iteration 5
+Label RF18 as "RF18. Generar informe de rendimientos por secciones."
+Label RF29 as "RF29. Ver panel de información desempeño."
+Label RF37 as "RF37. Gestionar años lectivos."
+Label RF38 as "RF38. Generar copias de seguridad."
 
 
 'Iteration 1
@@ -59,6 +63,16 @@ usecase CU61 as "EnablePartialGradeRecording"
 usecase CU71 as "AssignRolAndPermissions"
 usecase CU77 as "CorrectEducationalLevel"
 usecase CU78 as "ForgetDebt"
+
+'Iteration 5
+usecase CU57 as "ViewDirectorDashboard"
+usecase CU72 as "UpdateRoles"
+usecase CU79 as "CreateSchoolyear"
+usecase CU80 as "CreateBackup"
+usecase CU81 as "ViewEnrollmentGuide"
+usecase CU82 as "GenerateStudentRegister"
+usecase CU83 as "UpdateUserPassword"
+usecase CU85 as "ApplyArrears"
 
 
 
@@ -100,4 +114,16 @@ RF34 ..> CU61 : trace
 RF24 ..> CU71 : trace
 RF10 ..> CU77 : trace
 RF33 ..> CU78 : trace
+
+'Iteration 5
+RF29 ..> CU57 : trace
+RF24 ..> CU72 : trace
+RF37 ..> CU79 : trace
+RF38 ..> CU80 : trace
+RF12 ..> CU81 : trace
+RF18 ..> CU81 : trace
+RF04 ..> CU82 : trace
+RF24 ..> CU83 : trace
+RF01 ..> CU85 : trace
+
 @enduml
