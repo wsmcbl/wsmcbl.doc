@@ -2,11 +2,11 @@
 left to right direction
 title Iteration 1
 
-label RF01 as "RF01. Cobro de aranceles"
-label RF02 as "RF02. Matricular estudiante"
-label RF06 as "RF06. Creación de Matrícula Oficial por grado"
-label RF12 as "RF12. Gestionar matrículas"
-label RF14 as "RF14. Imprimir boleta de calificación por secciones"
+label RF01 as "RF01. Cobro de aranceles."
+label RF02 as "RF02. Matricular estudiante."
+label RF06 as "RF06. Creación de matrícula oficial por grado."
+label RF12 as "RF12. Gestionar matrículas."
+label RF14 as "RF14. Imprimir boleta de calificación por secciones."
 
 label 0 as " "
 0 ..[hidden]> RF01
@@ -75,5 +75,29 @@ Label RF34 as "RF34. Habilitar el registro de notas por corte evaluativo."
 0 ..[hidden]> RF24
 0 ..[hidden]> RF33
 0 ..[hidden]> RF34
+
+
+newpage
+left to right direction
+title Iteration 5
+label 0 as " "
+
+Label RF01 as "RF01. Cobro de aranceles."
+Label RF04 as "RF04. Generar informes administrativos."
+Label RF12 as "RF12. Gestionar matrículas."
+Label RF18 as "RF18. Generar informe de rendimientos por secciones."
+Label RF24 as "RF24. Gestionar usuarios del sistema."
+Label RF29 as "RF29. Ver panel de información desempeño."
+Label RF37 as "RF37. Gestionar años lectivos."
+Label RF38 as "RF38. Generar copias de seguridad."
+
+0 ..[hidden]> RF01
+0 ..[hidden]> RF04
+0 ..[hidden]> RF12
+0 ..[hidden]> RF18
+0 ..[hidden]> RF24
+0 ..[hidden]> RF29
+0 ..[hidden]> RF37
+0 ..[hidden]> RF38
 
 @enduml

@@ -26,12 +26,13 @@ Diagrama de todos los actores del sistema.
 
 
 ## Requisites <a id="requisites"></a>
-Requisistos del sistema, aquí se muestran algunos de los requisitos, en particular los tratados en las iteraciones del desarrollo.
+Requisitos del sistema, aquí se muestran algunos de los requisitos, en particular los tratados en las iteraciones del desarrollo.
 
 ![](../out/UseCaseView/Requisites-Iteration-1.png)
 ![](../out/UseCaseView/Requisites-Iteration-2.png)
 ![](../out/UseCaseView/Requisites-Iteration-3.png)
 ![](../out/UseCaseView/Requisites-Iteration-4.png)
+![](../out/UseCaseView/Requisites-Iteration-5.png)
 
 
 ### Use Case Model <a id="use-case-model"></a>
