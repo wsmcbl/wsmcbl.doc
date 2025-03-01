@@ -17,7 +17,7 @@ HOME --> OPEN_ACADEMY_MODULE
 HOME --> OPEN_ACCOUNTING_MODULE
 HOME --> OPEN_ADMIN_MODULE
 HOME --> OPEN_SECRETARY_MODULE
-HOME --> OPEN_PRINCIPAL_MODULE
+HOME --> OPEN_PRINCIPAL_MODULE : ViewDirectorDashboard
 
 HOME --> HOME : ViewUserProfile
 
@@ -31,6 +31,57 @@ state OPEN_ACADEMY_MODULE {
     OPEN_ACADEMY_MODULE --> OPEN_ADD_GRADES_VIEW : AddGrades
 }
 
+'OPEN_ACCOUNTING_SUBSYSTEM
+state OPEN_ACCOUNTING_MODULE {
+
+    state OPEN_ACCOUNTING_PROFILE_VIEW as "OPEN_PROFILE_VIEW"
+    state OPEN_ACCOUNTING_PROFILE_LIST_VIEW as "OPEN_PROFILE_LIST_VIEW"
+    state OPEN_TRANSACTIONS_VIEW
+    state OPEN_ACCOUNTING_INFORM_VIEW
+    state OPEN_TARIFF_VIEW
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_ACCOUNTING_PROFILE_LIST_VIEW : ShowProfiles
+
+    OPEN_ACCOUNTING_PROFILE_LIST_VIEW -left-> OPEN_ACCOUNTING_PROFILE_VIEW
+    note on link
+        CollectTariffs
+        CorrectEducationalLevelOfTheProfile
+        ForgetDebt
+    end note
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_TRANSACTIONS_VIEW
+    note on link
+        CancelTransaction
+        Printing\nInvoicesAndReceipts
+    end note
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_ACCOUNTING_INFORM_VIEW
+    note on link
+        GenerateDebtorReport
+        GenerateTransactionReportByDate
+    end note
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_TARIFF_VIEW : ApplyArrears
+}
+
+'OPEN_ADMIN_SUBSYSTEM
+state OPEN_ADMIN_MODULE {
+
+    state OPEN_USER_LIST_VIEW
+    state OPEN_ROLE_LIST_VIEW
+    state OPEN_BACKUP_SETTINGS_VIEW
+
+    OPEN_ADMIN_MODULE --> OPEN_USER_LIST_VIEW
+    note on link
+        CreateUser
+        UpdateUserPassword
+        AssignRolAndPermissions
+    end note
+
+    OPEN_ADMIN_MODULE --> OPEN_ROLE_LIST_VIEW : UpdateRole
+    OPEN_ADMIN_MODULE --> OPEN_BACKUP_SETTINGS_VIEW : CreateBackup
+}
+
 'OPEN_SECRETARY_SUBSYSTEM
 state OPEN_SECRETARY_MODULE {
 
@@ -39,6 +90,8 @@ state OPEN_SECRETARY_MODULE {
 
     state OPEN_PROFILE_VIEW
     state OPEN_PROFILE_LIST_VIEW
+
+    state OPEN_SCHOOLYEAR_VIEW
 
     OPEN_SECRETARY_MODULE --> OPEN_ENROLLMENT_LIST_VIEW
     note on link
@@ -62,59 +115,19 @@ state OPEN_SECRETARY_MODULE {
         CorrectEducationalLevelOfTheProfile
         PrintReportCardByStudent
     end note
-}
 
-'OPEN_ACCOUNTING_SUBSYSTEM
-state OPEN_ACCOUNTING_MODULE {
-
-    state OPEN_ACCOUNTING_PROFILE_VIEW as "OPEN_PROFILE_VIEW"
-    state OPEN_ACCOUNTING_PROFILE_LIST_VIEW as "OPEN_PROFILE_LIST_VIEW"
-    state OPEN_TRANSACTIONS_VIEW
-    state OPEN_ACCOUNTING_INFORM_VIEW
-
-    OPEN_ACCOUNTING_MODULE --> OPEN_ACCOUNTING_PROFILE_LIST_VIEW : ShowProfiles
-
-    OPEN_ACCOUNTING_PROFILE_LIST_VIEW -left-> OPEN_ACCOUNTING_PROFILE_VIEW
-    note on link
-        CollectTariffs
-        CorrectEducationalLevelOfTheProfile
-        ForgetDebt
-    end note
-
-    OPEN_ACCOUNTING_MODULE --> OPEN_TRANSACTIONS_VIEW
-    note on link
-        CancelTransaction
-        Printing\nInvoicesAndReceipts
-    end note
-
-    OPEN_ACCOUNTING_MODULE --> OPEN_ACCOUNTING_INFORM_VIEW
-    note on link
-        GenerateDebtorReport
-        GenerateTransactionReportByDate
-    end note
-}
-
-'OPEN_ADMIN_SUBSYSTEM
-state OPEN_ADMIN_MODULE {
-
-    state OPEN_USER_SETTINGS_VIEW
-    state OPEN_BACKUP_SETTINGS_VIEW
-
-    OPEN_ADMIN_MODULE --> OPEN_USER_SETTINGS_VIEW
-    note on link
-        CreateUser
-        AssignRolAndPermissions
-    end note
-
-    OPEN_ADMIN_MODULE --> OPEN_BACKUP_SETTINGS_VIEW : CreateBackup
+    OPEN_SECRETARY_MODULE --> OPEN_SCHOOLYEAR_VIEW : CreateSchoolyear
+    OPEN_SECRETARY_MODULE --> OPEN_STUDENT_REGISTER : GenerateStudentRegister
 }
 
 'OPEN_PRINCIPAL_SUBSYSTEM
 state OPEN_PRINCIPAL_MODULE {
 
     state OPEN_PERIOD_SETTINGS_VIEW
+    state OPEN_STUDENT_REGISTER
 
     OPEN_PRINCIPAL_MODULE --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
+    OPEN_PRINCIPAL_MODULE --> OPEN_STUDENT_REGISTER : GenerateStudentRegister
 }
 
 
