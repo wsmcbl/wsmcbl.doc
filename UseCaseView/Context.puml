@@ -1,102 +1,124 @@
 @startuml
 'skinparam BackgroundColor transparent
-scale 2
+left to right direction
 
 state INITIAL
 state HOME
 state OPEN_GRADE_ONLINE
 
-state OPEN_ACADEMY_SUBSYSTEM
-state OPEN_SECRETARY_SUBSYSTEM
-state OPEN_ACCOUNTING_SUBSYSTEM
-state OPEN_PRINCIPAL_SUBSYSTEM
-state OPEN_ADMIN_SUBSYSTEM
-
-state OPEN_ENROLLMENT
-state OPEN_PROFILE
-state OPEN_TARIFFS_VIEW
-state OPEN_TRANSACTIONS_VIEW
-state OPEN_ACCOUNTING_INFORM_VIEW
-state OPEN_PERIOD_SETTINGS_VIEW
-state OPEN_USER_SETTINGS_VIEW
-
-
 '-- Relations --
 [*] --> INITIAL : Start system
 
-INITIAL --> HOME : Login
+INITIAL -left-> HOME : Login
 INITIAL --> OPEN_GRADE_ONLINE : ViewGradeOnline
 
 'Home to subsystems
-HOME --> OPEN_ACADEMY_SUBSYSTEM
-HOME --> OPEN_SECRETARY_SUBSYSTEM
-HOME --> OPEN_ACCOUNTING_SUBSYSTEM
-HOME --> OPEN_ADMIN_SUBSYSTEM
-HOME --> OPEN_PRINCIPAL_SUBSYSTEM
+HOME --> OPEN_ACADEMY_MODULE
+HOME --> OPEN_ACCOUNTING_MODULE
+HOME --> OPEN_ADMIN_MODULE
+HOME --> OPEN_SECRETARY_MODULE
+HOME --> OPEN_PRINCIPAL_MODULE
 
 HOME --> HOME : ViewUserProfile
 
 'OPEN_ACADEMY_SUBSYSTEM
-OPEN_ACADEMY_SUBSYSTEM --> OPEN_PROFILE : ShowProfiles (*)
-OPEN_ACADEMY_SUBSYSTEM --> OPEN_ENROLLMENT : ShowEnrollments*
+state OPEN_ACADEMY_MODULE {
+
+    state OPEN_ENROLLMENT_GUIDE_VIEW
+    OPEN_ACADEMY_MODULE --> OPEN_ENROLLMENT_GUIDE_VIEW : ViewEnrollmentGuide
+
+    state OPEN_ADD_GRADES_VIEW
+    OPEN_ACADEMY_MODULE --> OPEN_ADD_GRADES_VIEW : AddGrades
+}
 
 'OPEN_SECRETARY_SUBSYSTEM
-OPEN_SECRETARY_SUBSYSTEM --> OPEN_PROFILE
-note on link
-    ShowProfiles (*)
-    UpdateStudentProfile
-    MoveStudentFromEnrollment
-    CorrectEducationalLevelOfTheProfile
-end note
-OPEN_SECRETARY_SUBSYSTEM --> OPEN_ENROLLMENT
-note on link
-    EnrollStudent
-    Show Enrollments (*)
-    UpdateOfficialEnrollmentBySection
-    CreateEnrollment
-end note
-OPEN_SECRETARY_SUBSYSTEM --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
+state OPEN_SECRETARY_MODULE {
+
+    state OPEN_ENROLLMENT_VIEW
+    state OPEN_ENROLLMENT_LIST_VIEW
+
+    state OPEN_PROFILE_VIEW
+    state OPEN_PROFILE_LIST_VIEW
+
+    OPEN_SECRETARY_MODULE --> OPEN_ENROLLMENT_LIST_VIEW
+    note on link
+        ShowEnrollments
+        CreateEnrollment
+    end note
+
+    OPEN_ENROLLMENT_LIST_VIEW -left-> OPEN_ENROLLMENT_VIEW
+    note on link
+        UpdateOfficialEnrollmentBySection **
+        MoveTeacherGuideFromEnrollment
+    end note
+
+    OPEN_SECRETARY_MODULE --> OPEN_PROFILE_LIST_VIEW : ShowProfiles
+
+    OPEN_PROFILE_LIST_VIEW -left-> OPEN_PROFILE_VIEW : UpdateStudentProfile
+    OPEN_PROFILE_LIST_VIEW --> OPEN_PROFILE_LIST_VIEW
+    note on link
+        EnrollStudent
+        MoveStudentFromEnrollment
+        CorrectEducationalLevelOfTheProfile
+        PrintReportCardByStudent
+    end note
+}
 
 'OPEN_ACCOUNTING_SUBSYSTEM
-OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_PROFILE
-note on link
-    ShowProfiles (*)
-    CorrectEducationalLevelOfTheProfile
-    ForgetDebt
-end note
-OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_TARIFFS_VIEW : CollectTariffs
-OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_TRANSACTIONS_VIEW : CancelTransaction
-OPEN_ACCOUNTING_SUBSYSTEM --> OPEN_ACCOUNTING_INFORM_VIEW : GenerateDebtorReport
+state OPEN_ACCOUNTING_MODULE {
+
+    state OPEN_ACCOUNTING_PROFILE_VIEW as "OPEN_PROFILE_VIEW"
+    state OPEN_ACCOUNTING_PROFILE_LIST_VIEW as "OPEN_PROFILE_LIST_VIEW"
+    state OPEN_TRANSACTIONS_VIEW
+    state OPEN_ACCOUNTING_INFORM_VIEW
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_ACCOUNTING_PROFILE_LIST_VIEW : ShowProfiles
+
+    OPEN_ACCOUNTING_PROFILE_LIST_VIEW -left-> OPEN_ACCOUNTING_PROFILE_VIEW
+    note on link
+        CollectTariffs
+        CorrectEducationalLevelOfTheProfile
+        ForgetDebt
+    end note
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_TRANSACTIONS_VIEW
+    note on link
+        CancelTransaction
+        Printing\nInvoicesAndReceipts
+    end note
+
+    OPEN_ACCOUNTING_MODULE --> OPEN_ACCOUNTING_INFORM_VIEW
+    note on link
+        GenerateDebtorReport
+        GenerateTransactionReportByDate
+    end note
+}
 
 'OPEN_ADMIN_SUBSYSTEM
-OPEN_ADMIN_SUBSYSTEM --> OPEN_TRANSACTIONS_VIEW : TransactionReportByDate
-OPEN_ADMIN_SUBSYSTEM --> OPEN_USER_SETTINGS_VIEW
-note on link
-    CreateUser
-    AssignRolAndPermissions
-end note
+state OPEN_ADMIN_MODULE {
+
+    state OPEN_USER_SETTINGS_VIEW
+    state OPEN_BACKUP_SETTINGS_VIEW
+
+    OPEN_ADMIN_MODULE --> OPEN_USER_SETTINGS_VIEW
+    note on link
+        CreateUser
+        AssignRolAndPermissions
+    end note
+
+    OPEN_ADMIN_MODULE --> OPEN_BACKUP_SETTINGS_VIEW : CreateBackup
+}
 
 'OPEN_PRINCIPAL_SUBSYSTEM
-OPEN_PRINCIPAL_SUBSYSTEM --> OPEN_ACCOUNTING_INFORM_VIEW : GenerateDebtorReport
-OPEN_PRINCIPAL_SUBSYSTEM --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
+state OPEN_PRINCIPAL_MODULE {
 
+    state OPEN_PERIOD_SETTINGS_VIEW
 
-'Relations
-OPEN_PROFILE --> OPEN_PROFILE : PrintReportCardByStudent
-OPEN_TARIFFS_VIEW --> OPEN_TARIFFS_VIEW : Printing\nInvoicesAndReceipts
-OPEN_TARIFFS_VIEW --> OPEN_PROFILE
-OPEN_ENROLLMENT --> OPEN_PROFILE : ShowProfile (*)
-OPEN_ENROLLMENT --> OPEN_ENROLLMENT : MoveTeacherGuideFromEnrollment
+    OPEN_PRINCIPAL_MODULE --> OPEN_PERIOD_SETTINGS_VIEW : EnablePartialGradeRecording
+}
 
 
 'Exit point
 HOME --> [*] : Close system
-OPEN_ENROLLMENT --> [*] : Close system
-OPEN_PROFILE --> [*] : Close system
-OPEN_TARIFFS_VIEW --> [*] : Close system
 OPEN_GRADE_ONLINE --> [*] : Close system
-OPEN_ACCOUNTING_INFORM_VIEW --> [*] : Close system
-OPEN_USER_SETTINGS_VIEW --> [*] : Close system
-OPEN_PERIOD_SETTINGS_VIEW --> [*] : Close system
-OPEN_TRANSACTIONS_VIEW --> [*] : Close system
 @enduml
