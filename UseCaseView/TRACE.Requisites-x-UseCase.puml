@@ -31,6 +31,9 @@ Label RF29 as "RF29. Ver panel de información desempeño."
 Label RF37 as "RF37. Gestionar años lectivos."
 Label RF38 as "RF38. Generar copias de seguridad."
 
+'Iteration 5
+Label RF17 as "RF17. Generar datos estadísticos por corto evaluativo."
+
 
 'Iteration 1
 usecase CU01 as "EnrollStudent"
@@ -73,6 +76,20 @@ usecase CU81 as "ViewEnrollmentGuide"
 usecase CU82 as "GenerateStudentRegister"
 usecase CU83 as "UpdateUserPassword"
 usecase CU85 as "ApplyArrears"
+
+'Iteration 5
+usecase CU10 as "GenerateGradeCertificates"
+usecase CU18 as "DisableStudent"
+usecase CU26 as "UnenrollStudent"
+usecase CU31 as "GenerateEvaluationStatsBySection"
+usecase CU32 as "GeneratePerformanceReportBySection"
+usecase CU50 as "DisableUser"
+usecase CU74 as "GenerateProforma"
+usecase CU87 as "CalculateMonthlyRevenue"
+usecase CU89 as "ViewTeacherDashboard"
+usecase CU90 as "ViewCashierDashboard"
+usecase CU91 as "GenerateStudentAccountStatement"
+usecase CU92 as "GenerateActiveStudentCertificate"
 
 
 
@@ -125,5 +142,16 @@ RF18 ..> CU81 : trace
 RF04 ..> CU82 : trace
 RF24 ..> CU83 : trace
 RF01 ..> CU85 : trace
+
+'Iteration 6
+RF24 ..> CU50 : trace
+RF10 ..> CU18 : trace
+RF10 ..> CU26 : trace
+RF12 ..> CU26 : trace
+RF04 ..> CU87 : trace
+RF36 ..> CU87 : trace
+RF17 ..> CU31 : trace
+RF18 ..> CU31 : trace
+RF18 ..> CU32 : trace
 
 @enduml
