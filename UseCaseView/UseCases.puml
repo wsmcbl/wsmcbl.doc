@@ -135,4 +135,26 @@ Teacher --> CU81
 
 Cashier --> CU85
 
+
+'Iteration 6
+usecase CU10 as "GenerateGradeCertificates"
+usecase CU18 as "DisableStudent"
+usecase CU26 as "UnenrollStudent"
+usecase CU31 as "GenerateEvaluationStatsBySection"
+usecase CU32 as "GeneratePerformanceReportBySection"
+usecase CU50 as "DisableUser"
+usecase CU74 as "GenerateProforma"
+usecase CU87 as "CalculateMonthlyRevenue"
+usecase CU89 as "ViewTeacherDashboard"
+usecase CU90 as "ViewCashierDashboard"
+usecase CU91 as "GenerateStudentAccountStatement"
+usecase CU92 as "GenerateActiveStudentCertificate"
+
+Principal --> CU50
+Secretary --> CU18
+Secretary --> CU26
+Cashier --> CU87
+Teacher --> CU31
+Teacher --> CU32
+
 @enduml
