@@ -100,4 +100,22 @@ Label RF38 as "RF38. Generar copias de seguridad."
 0 ..[hidden]> RF37
 0 ..[hidden]> RF38
 
+
+newpage
+left to right direction
+title Iteration 6
+label 0 as " "
+
+Label RF10 as "RF10. Gestionar perfiles de estudiantes."
+label RF12 as "RF12. Gestionar matrículas."
+Label RF17 as "RF17. Generar datos estadísticos por corto evaluativo."
+Label RF18 as "RF18. Generar informe de rendimientos por secciones."
+Label RF24 as "RF24. Gestionar usuarios del sistema."
+
+0 ..[hidden]> RF10
+0 ..[hidden]> RF12
+0 ..[hidden]> RF17
+0 ..[hidden]> RF18
+0 ..[hidden]> RF24
+
 @enduml
