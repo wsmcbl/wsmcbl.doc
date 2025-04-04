@@ -18,112 +18,176 @@
 
     \section{Introducción}
 
-    El presente documento expone los aspectos generales de uso del ``Sistema web para la gestión del Colegio Bautista Libertad'',
-    este sistema tiene como objetivo digitalizar y optimizar los procesos internos de dicha institución.
+    El presente documento expone los caso de usos más importantes de \wsm
 
-    Este documento se centra en los conocimientos generales que el cuerpo docente debe conocer para el uso correcto de esta herramienta, 
-    aborda puntos como: inicio de sesión en el sistema (correo y sistema de archivos), ingreso de calificaciones y navegación entre las distintas las opciones.
-
-    En próximos encuentros se abordarán otros aspectos los cuales aún están en desarrollo y ajuste, previo a la utilización por parte de los usuarios.
+    Este documento aborda los aspectos que el cuerpo docente debe conocer para el uso correcto de
+    esta herramienta, se abordan los aspectos de inicio de sesión en el sistema, ver sección guiada, registro de
+    calificaciones, historial de calificaciones y navegación entre las distintas las opciones.
 
     \section{Desarollo}
 
-    En lo sucesivo nos referiremos a ``Sistema web para la gestión del Colegio Bautista Libertad''
-    como ``WSMCBL'' por sus siglas en inglés\footnote{Web System for Managment of Colegio Bautista Libertad.} y
-    a ``Colegio Bautista Libertad'' como ``CBL''.
+    En esta sección veremos como interactuar con los casos de usos del sistema.
+    Se necesita un dispositivo con accesos a internet, de preferencia una computadora.
 
-    A continuación se detalla paso por paso cómo utilizar algunas de las opciones que ofrece esta herramienta.
-    
+    \newpage
     \subsection{Inicio de sesión}
 
-    Como requisito para esta acción la administración de CBL deberá de suministrar un correo institucional y una contraseña para cada docente.
+    Para el inicio de sesión se requiere credenciales del usuario, si no las tiene la administración de CBL se la suministrará.
 
-    \begin{enumerate}
-        \item Ingresar a la página oficial de CBL por medio del enlace \href{www.cbl-edu.com}{cbl-edu.com}.
-        \item Esta página muestra la información \textbf{pública} de WSMCBL, información relevante para el contacto y publicidad del colegio.
-        \item Dirigirse a la parte superior derecha y seleccionar la opción ``WSM CBL'', este lo redirigirá hacía \href{wsm.cbl-edu.com}{wsm.cbl-edu.com}.
-        \item Ingresar el correo institucional de CBL y su contraseña correcta.
-        \item Se valida los datos y se ingresa a la parte \textbf{privada} de WSMCBL.
-    \end{enumerate}
+    \textbf{\large Pasos}\par
 
-    Cabe resaltar que todo lo que el docente ingrese en WSMCBL será solo visible por la administración de CBL y otros docentes,
-    es decir, no se reflejará en la parte pública del sistema.
+    \step{1} Ingrese a la página oficial de CBL por medio del enlace \href{www.cbl-edu.com}{cbl-edu.com}.
 
-    Por lo cual, es de suma importancia \textbf{no compartir sus credenciales} (correo o la contraseña) con ninguna persona para asegurar la integridad de los datos.
+    \step{2} Diríjase a la parte superior derecha y seleccionar la opción ``WSM CBL''.
+    Esta opción lo llevará hacía \href{wsm.cbl-edu.com}{wsm.cbl-edu.com}.
 
-    En caso de perder de las credenciales puede contactarse al correo
-    \href{mailto:soporte@cbl-edu.com}{soporte@cbl-edu.com}
-    el cual le ayudará a recuperar el acceso de manera remota.
-    En caso contrario puede recurrir a administración para que generen nuevas credenciales.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{image/login.01}
+        \caption{Paso 1 y 2.}
+        \label{fig:login1}
+    \end{figure}
+
+    \step{3} Ingrese el correo institucional de CBL y su contraseña. Ver figura 2.
+
+    \step{4} Se ingresa a su perfil en \wsm. Ver figura 3.
+
+    Es preciso indicar que todo lo realizado en \wsm es parte de la información interna del colegio.
+    Esto no será visible al público por medio del sitio web.
+    Por tanto, es de suma importancia \textbf{no compartir sus credenciales} con ninguna persona para asegurar la integridad de los datos de la institución.
+    Si perde sus credenciales recurra a dirección o bien al correo \href{mailto:soporte@cbl-edu.com}{soporte@cbl-edu.com}
+    para ayudarle con su caso.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{image/login.02}
+        \caption{Paso 3.}
+        \label{fig:login2}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{image/login.03}
+        \caption{Paso 4.}
+        \label{fig:login3}
+    \end{figure}
+
+
+    \subsection{Ver sección guiada}
+
+    Para este caso de uso el docente debe tener una sección guida.
+    Si no tiene asignada una sección esta opción se muestra vacía.
+
+    \textbf{\large Pasos}\par
+
+    \step{1} Iniciar sesión en el sistema.
+    \step{2} Diríjase a la barra lateral izquierda y seleccione la opción ``Sección Guidada''.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{image/view.enrollment.guide.01}
+        \caption{Paso 1.}
+    \end{figure}
+
+    \step{3} Se muestra la información de la sección guíada.
+    \begin{itemize}
+        \item Cantidad de estudiantes, capacidad de la sección y la distribución entre varones y mujeres.
+        \item Lista oficial de estudiantes.
+        \item Lista de asignaturas y su docente responsable.
+    \end{itemize}
+
+
+
+    \subsection{Ver información del estudiante}
+
+    Como responsable una sección un docente necesita el acceso a la información de cada estudiante.
+    El sistema \wsm registra los datos más importantes en el proceso de matrícula y el docente puede acceder a ella.
+
+    \stepTitle
+
+    \step{1} Ingresar a la ventana de sección guiada.
+    \step{2} Elija un estudiante y selecciones los tres puntos en la parte derecha.
+    \step{3} Seleccione la opción \quations{Ver perfil}.
+
+
+    \subsection{Actualizar información de estudiantes}
+
+    Al inicio de cada año lectivo se revisa y ajusta la información de cada estudiante para garantizar la integridad de los datos.
+    El sistema \wsm permite que los docentes puedan actualizar la información de cada estudiante en su sección guiada.
+
+    \stepTitle
+    \step{1} Ingresar a la ventana de sección guiada.
+    \step{2} Ingrese al perfil de un estudiante.
+    \step{3} Actualize los datos.
+    \step{4} Seleccione actualizar.
+
+    \textbf{Nota:} La opción de actualizar la información de estudiantes no está habilitada por defecto.
+    Es necesario que dirección autorice y conceda el permiso a los usuarios.
 
 
     \subsection{Registrar calificaciones}
 
-    En WSMCBL los parciales del año lectivo puede estar activo o inactivo, correspondiendo a los períodos determinados por el MINED.
-    Cada parcial tendrá un intervalo de tiempo conocido como \textbf{Registro de calificaciones} en el cual se podrá
-    ingresar las calificaciones de los estudiantes, este intervalo será de dos semanas aproximadamente.
+    Para registrar calificaciones se necesita que el parcial en curso tenga su \textbf{registro de calificaciones} activo,
+    En caso contrario ninguna calificación se registra.
+    Sin embargo, visualizar las calificaciones ya registradas sí es posible sin necesidad del registro de calificaciones activo.
 
-    Es decir, es requisito para esta acción que el registro de calificaciones esté activo para el parcial en curso,
-    en caso contrario el docente \textbf{no podrá registrar ninguna calificación}, sin embargo, si podrá visualizar las calificaciones ya ingresadas.
-
-    \begin{enumerate}
-        \item Iniciar sesión en WSMCBL (seguir los pasos anteriores), debe estar en la página con enlace \href{wsm.cbl-edu.com}{wsm.cbl-edu.com}.
-        \item Dirigirse a la parte izquierda de la pantalla y seleccionar la opción ``Académico'' y luego la opción ``Calificar''.
-        \item Se muestra la lista de las secciones donde el docente imparte.
-        \item Seleccionar la opción ``Calificar'' en una de las secciones.
-        \item Se muestra la información de la sección, como la lista de estudiantes, la lista de asignaturas que el docente imparte y los campos para el ingreso de los datos.
-        \item Ingresar la calificación estudiante por estudiante y al final de la tabla ingresar la calificación de conducta.
-        \item Seleccionar guardar.
-        \item Se registran las calificaciones de los estudiantes.
-    \end{enumerate}
-
-    Un punto importante a señalar es que la conducta ingresada será compartida.
-    Si se da el caso de que el docente tiene más de una asignatura en la misma sección la conducta ingresada en el campo
-    será la conducta de cada asignatura por separado.
-    Es decir, si se tiene dos asignaturas y la calificación de conducta de un estudiante $A$ es 89, la conducta de las
-    dos asignaturas también será de 89.
-    Análogamente, sucederá con $n$ clases.
-
-    Por otra parte, mientras el registro de calificaciones esté activo el docente podrá hacer correcciones a las calificaciones
-    ya ingresadas, también, no es estrictamente necesario ingresar todas las calificaciones al inicio, si no se ingresan datos
-    el sistema establece por defecto el valor de cero.
-
-    \subsection{Parte docente}
-    
-    Se detalla el rol de los docentes en WSMCBL.
-    Los docentes se encargarán de los siguientes puntos:
+    \stepTitle
+    \step{1} Iniciar sesión en el sistema.
+    \step{2} Diríjase a la barra lateral izquierda y seleccione la opción \quations{Calificar}.
+    \step{3} Se muestra la lista de secciones del docente.
+    \step{4} Elija una sección y seleccione \quations{Ver}.
+    \step{5} Se muestra la información de la sección
     \begin{itemize}
-        \item Registrar de manera íntegra los datos de las calificaciones.
-        \item Reportar cualquier error en información de los estudiantes: nombres, direcciones, números telefónicos, padecimientos, etc.
-        \item Reportar faltas y retiros de los estudiantes.
-        \item Reportar incumplimientos de docentes respecto a las calificaciones en las secciones guiadas.
-        \item Utilizar los correos institucionales de CBL.
-        \item Ocasionalmente corrección de los perfiles de los estudiantes.
+        \item Lista de estudiantes ordenados por sexo y nombre.
+        \item Lista de asignaturas del docente.
+        \item Campos para ingresar las calificaciones.
     \end{itemize}
 
-    Aspectos la administración se hará cargo y los docentes no harán:
+    \step{6} Ingrese las calificaciones de los estudiantes en cada asignatura.
+    \step{7} Ingrese las calificaciones de conducta.
+    \step{8} Seleccione guardar.
+
+    \textbf{Importante:} Si el docente imparte más de una asignatura en la misma sección, la calificación de conducta ingresada
+    será la conducta para cada asignatura por separado.
+
+    Por ejemplo, si tiene dos asignaturas en la sección y para el estudiante \quations{Jordan Tinoco} la calificación
+    de conducta en la tabla es de 89, \wsm internamente registra la conducta de las dos asignaturas como 89.
+    Análogamente, sucederá con una cantidad $n$ asignaturas.
+
+    Por otra parte, el docente puede realizar correcciones a las calificaciones ingresadas mientras el registro de
+    calificaciones esté activo.
+    Si no ingresa las calificaciones de uno o más estudiantes, \wsm establece a cero como calificación por defecto.
+    Esto nos da la facilidad de no ingresar todas las calificaciones desde el inicio y realizarlo de manera paulatina.
+
+    \subsection{Ver historia (registro)}
+
+    Como docente guía se necesita conocer el desempeño de los estudiantes en sus distintas asignaturas.
+    El sistema \wsm permite obtener estos datos de manera sintetizada.
+    Esto con el fin de reducir el trabajo que el docente de realizar en cada corte evaluativo.
+
+    \stepTitle
+    \step{1} Iniciar sesión en el sistema.
+    \step{2} Diríjase a la barra lateral izquierda y seleccione la opción \quations{Registro}.
+    \step{3} Se muestra tres pestañas
     \begin{itemize}
-        \item Asignar estudiantes a sus secciones guiadas.
-        \item Corrección constante de los perfiles de estudiantes.
-        \item Generación de listados oficiales por secciones.
-        \item Generación de sabanas.
-        \item Generación de boletas de calificaciones.
-        \item Generación de boletínes.
-        \item Generación de reportes de rendimiento.
-        \item Generación de reportes de excelencia académica.
-        \item Hojas de traslados.
-        \item Algunos reportes del MINED.
+        \item Top: Muestra el promedio de los cuatro parciales para cada estudiante.
+        \item Sabana: Muestra el detallado de calificaciones para cada estudiante en el parcial actual.
+        \item Estadística: Muestra estadísticas de las calificaciones por parcial.
     \end{itemize}
 
-    Cabe mencionar que el éxito que WSMCBL pueda tener, recaerá en el uso correcto y constante de la información que se registre.
+    Estos datos pueden ser solicitados por parcial en cualquier momento, con lo cual es posible realizar un análisis
+    de desempeño de los estudiantes.
 
+
+    \newpage
     \section{Conclusión}
 
     Debido a la forma de operar del Colegio Bautista Libertad este sistema trata de ser lo menos invasivo con respecto
-    a los docentes, con lo cual esta herramienta solo necesita (a grandes rasgos) dos aspectos del cuerpo docente;
-    primero, que provea de manera íntegra los datos de calificaciones para cada uno de sus estudiantes, y segundo, que
+    a los docentes, con lo cual esta herramienta solo necesita dos aspectos del cuerpo docente; que provea de manera
+    íntegra los datos de calificaciones para cada uno de sus estudiantes, y que
     vele por la correcta información de los estudiantes en el sistema.
 
-    Con esto se espera digitalizar y optimizar los procesos internos del Colegio Bautista Libertad.
+    Teniendo presente que el éxito que \wsm pueda tener, recaerá en el uso correcto y constante de la información que se
+    registre, espera digitalizar y optimizar los procesos internos del Colegio Bautista Libertad con éxito.
 
 \end{document}
