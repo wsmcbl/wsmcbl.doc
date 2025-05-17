@@ -4,7 +4,7 @@ left to right direction
 
 rectangle "Iteration 6" as Iteration6
 
-usecase CU10 as "GenerateGradeCertificates"
+usecase CU10 as "GenerateStudentAcademicRecord"
 usecase CU18 as "DisableStudent"
 usecase CU26 as "UnenrollStudent"
 usecase CU31 as "GenerateEvaluationStatsBySection"
@@ -13,7 +13,6 @@ usecase CU50 as "DisableUser"
 usecase CU74 as "GenerateProforma"
 usecase CU87 as "CalculateMonthlyRevenue"
 usecase CU89 as "ViewTeacherDashboard"
-usecase CU90 as "ViewCashierDashboard"
 usecase CU91 as "GenerateStudentAccountStatement"
 usecase CU92 as "GenerateActiveStudentCertificate"
 
@@ -27,7 +26,6 @@ Iteration6 .. CU50 : CU50
 Iteration6 .. CU74 : CU74
 Iteration6 .. CU87 : CU87
 Iteration6 .. CU89 : CU89
-Iteration6 .. CU90 : CU90
 Iteration6 .. CU91 : CU91
 Iteration6 .. CU92 : CU92
 
