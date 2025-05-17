@@ -77,8 +77,8 @@ usecase CU82 as "GenerateStudentRegister"
 usecase CU83 as "UpdateUserPassword"
 usecase CU85 as "ApplyArrears"
 
-'Iteration 5
-usecase CU10 as "GenerateGradeCertificates"
+'Iteration 6
+usecase CU10 as "GenerateStudentAcademicRecord"
 usecase CU18 as "DisableStudent"
 usecase CU26 as "UnenrollStudent"
 usecase CU31 as "GenerateEvaluationStatsBySection"
@@ -87,7 +87,6 @@ usecase CU50 as "DisableUser"
 usecase CU74 as "GenerateProforma"
 usecase CU87 as "CalculateMonthlyRevenue"
 usecase CU89 as "ViewTeacherDashboard"
-usecase CU90 as "ViewCashierDashboard"
 usecase CU91 as "GenerateStudentAccountStatement"
 usecase CU92 as "GenerateActiveStudentCertificate"
 
@@ -147,11 +146,19 @@ RF01 ..> CU85 : trace
 RF24 ..> CU50 : trace
 RF10 ..> CU18 : trace
 RF10 ..> CU26 : trace
+RF10 ..> CU10 : trace
+RF10 ..> CU74 : trace
+RF10 ..> CU91 : trace
+RF10 ..> CU92 : trace
 RF12 ..> CU26 : trace
 RF04 ..> CU87 : trace
 RF36 ..> CU87 : trace
 RF17 ..> CU31 : trace
+RF17 ..> CU89 : trace
+RF18 ..> CU89 : trace
+RF24 ..> CU89 : trace
 RF18 ..> CU31 : trace
 RF18 ..> CU32 : trace
+
 
 @enduml
