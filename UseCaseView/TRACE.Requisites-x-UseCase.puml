@@ -1,6 +1,8 @@
 @startuml
 'skinparam BackgroundColor transparent
 left to right direction
+
+
 'Iteration 1
 Label RF01 as "RF01. Cobro de aranceles"
 Label RF02 as "RF02. Matricular estudiante"
@@ -31,8 +33,12 @@ Label RF29 as "RF29. Ver panel de información desempeño."
 Label RF37 as "RF37. Gestionar años lectivos."
 Label RF38 as "RF38. Generar copias de seguridad."
 
-'Iteration 5
+'Iteration 6
 Label RF17 as "RF17. Generar datos estadísticos por corto evaluativo."
+
+'Iteration 7
+Label RF28 as "RF28. Gestionar las incidencias de los estudiantes."
+Label RF32 as "RF32. Impresión de boletines escolares."
 
 
 'Iteration 1
@@ -89,6 +95,13 @@ usecase CU87 as "CalculateMonthlyRevenue"
 usecase CU89 as "ViewTeacherDashboard"
 usecase CU91 as "GenerateStudentAccountStatement"
 usecase CU92 as "GenerateActiveStudentCertificate"
+
+'Iteration 7
+usecase CU40 as "IncidentManagement"
+usecase CU59 as "PrintReportCardsBySection"
+usecase CU86 as "UpdatePartial"
+usecase CU88 as "AssignEnrollTariff"
+usecase CU93 as "ReintegrateStudentGrades"
 
 
 
@@ -159,6 +172,14 @@ RF18 ..> CU89 : trace
 RF24 ..> CU89 : trace
 RF18 ..> CU31 : trace
 RF18 ..> CU32 : trace
+
+'Iteration 7
+RF02 ..> CU88 : trace
+RF03 ..> CU93 : trace
+RF28 ..> CU40 : trace
+RF32 ..> CU59 : trace
+RF37 ..> CU86 : trace
+
 
 
 @enduml
