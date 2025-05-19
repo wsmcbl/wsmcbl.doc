@@ -167,4 +167,21 @@ Teacher --> CU31
 Teacher --> CU32
 Teacher --> CU89
 
+
+'Iteration 7
+usecase CU40 as "IncidentManagement"
+usecase CU59 as "PrintReportCardsBySection"
+usecase CU86 as "UpdatePartial"
+usecase CU88 as "AssignEnrollTariff"
+usecase CU93 as "ReintegrateStudentGrades"
+
+Secretary --> CU40
+Secretary --> CU59
+Secretary --> CU93
+
+Principal --> CU86
+
+Cashier --> CU88
+
+
 @enduml
