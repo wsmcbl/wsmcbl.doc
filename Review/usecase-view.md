@@ -34,6 +34,7 @@ Requisitos del sistema, aquí se muestran algunos de los requisitos, en particul
 ![](../out/UseCaseView/Requisites-Iteration-4.png)
 ![](../out/UseCaseView/Requisites-Iteration-5.png)
 ![](../out/UseCaseView/Requisites-Iteration-6.png)
+![](../out/UseCaseView/Requisites-Iteration-7.png)
 
 
 ### Use Case Model <a id="use-case-model"></a>

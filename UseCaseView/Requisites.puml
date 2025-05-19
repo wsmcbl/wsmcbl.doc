@@ -118,4 +118,22 @@ Label RF24 as "RF24. Gestionar usuarios del sistema."
 0 ..[hidden]> RF18
 0 ..[hidden]> RF24
 
+
+newpage
+left to right direction
+title Iteration 7
+label 0 as " "
+
+Label RF02 as "RF02. Matricular estudiante."
+Label RF03 as "RF03. Gestionar las calificaciones."
+Label RF28 as "RF28. Gestionar las incidencias de los estudiantes."
+Label RF32 as "RF32. Impresión de boletines escolares."
+Label RF37 as "RF37. Gestionar años lectivos."
+
+0 ..[hidden]> RF02
+0 ..[hidden]> RF03
+0 ..[hidden]> RF28
+0 ..[hidden]> RF32
+0 ..[hidden]> RF37
+
 @enduml

@@ -1,5 +1,6 @@
 @startuml
 'skinparam BackgroundColor transparent
+scale 2
 left to right direction
 
 rectangle "Iteration 7" as Iteration7
