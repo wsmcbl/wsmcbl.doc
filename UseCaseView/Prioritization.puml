@@ -2,6 +2,24 @@
 'skinparam BackgroundColor transparent
 left to right direction
 
+rectangle "Iteration 7" as Iteration7
+
+usecase CU40 as "IncidentManagement"
+usecase CU59 as "PrintReportCardsBySection"
+usecase CU86 as "UpdatePartial"
+usecase CU88 as "AssignEnrollTariff"
+usecase CU93 as "ReintegrateStudentGrades"
+
+
+Iteration7 .. CU40 : CU40
+Iteration7 .. CU59 : CU59
+Iteration7 .. CU86 : CU86
+Iteration7 .. CU88 : CU88
+Iteration7 .. CU93 : CU93
+
+
+
+
 rectangle "Iteration 6" as Iteration6
 
 usecase CU10 as "GenerateStudentAcademicRecord"
