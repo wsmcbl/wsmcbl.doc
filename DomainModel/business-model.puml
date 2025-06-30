@@ -1,34 +1,34 @@
 @startuml
 'skinparam BackgroundColor transparent
 
-state "Padre \nde Faimlia" as cliente
-state Secretaria
+state "Padre \nde Familia" as cliente
+state Secretario
 state Dirección
-state Profesores
+state Docente
 state Alumnado
 state "Otro personal" as otros
 state "Certificados \ny otros documentos" as documentos
 
-state Cajera
+state Cajero
 state Caja
 state "Pagos \nde aranceles" as aranceles
 
-cliente --> Cajera : Paga a
-cliente --> Secretaria : Es atendido por
+cliente --> Cajero : Paga a
+cliente --> Secretario : Es atendido por
 
-Cajera -> Secretaria
-Cajera --> aranceles : Gestiona
-Cajera --> Caja : Registra en
+Cajero -> Secretario
+Cajero --> aranceles : Gestiona los
+Cajero --> Caja : Registra en
 
-Secretaria -> aranceles : Consulta los
-Secretaria --> documentos : Genera
-Secretaria -up-> Dirección
+Secretario -> aranceles : Consulta los
+Secretario --> documentos : Genera los
+Secretario -up-> Dirección
 
-Profesores -le-> Secretaria : Solicita docuentos a
-Profesores --> Alumnado : Enseña a su
+Docente -le-> Secretario : Solicita/Entrega docuentos a
+Docente --> Alumnado : Enseña a su
 
-Dirección --> Secretaria : Interactua
-Dirección --> Profesores : Gestiona a
-Dirección -> otros : Gestiona
+Dirección --> Secretario : Se comunica con
+Dirección --> Docente : Gestiona a
+Dirección -> otros : Gestiona a
 
 @enduml
